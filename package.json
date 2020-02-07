@@ -11,8 +11,24 @@
     },
     "devDependencies": {
         "axios": "^0.18",
+        "babel": "^6.23.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "7.1.1",
+        "babel-preset-env": "^1.7.0",
+        "babelify": "^8.0.0",
         "bootstrap": "^4.0.0",
+        "browser-sync": "^2.18.13",
+        "classnames": "^2.2.5",
         "cross-env": "^5.1",
+        "eslint": "^4.12.1",
+        "eslint-plugin-vue": "^6.1.2",
+        "gulp": "^4.0.2",
+        "gulp-eslint": "^4.0.0",
+        "gulp-notify": "^3.0.0",
+        "gulp-plumber": "^1.1.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sass-glob": "^1.1.0",
+        "gulp-webpack": "^1.5.0",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
@@ -20,6 +36,16 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "vue": "^2.5.17"
+        "vinyl-source-stream": "^1.1.0",
+        "vue": "^2.5.17",
+        "vue-loader": "^15.8.3",
+        "vue-template-compiler": "^2.6.11",
+        "webpack": "^3.9.1",
+        "webpack-stream": "^4.0.0"
+    },
+    "babel": {
+        "presets": [
+            "env"
+        ]
     }
 }
