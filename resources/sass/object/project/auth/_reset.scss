@@ -1,0 +1,24 @@
+.p-reset{
+  border: 1px solid $light-gray;
+  background: $background-white;
+  margin-top: 70px;
+  padding-top: 37px;
+  padding-bottom: 65px;
+  padding-left: 175px; // TODO: あとで％指定に変える
+  padding-right: 175px;
+  &__title{
+    font-size: $font-size-xl;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 75px;
+  }
+  &__link{
+    color: $font-color-peacook-greeen;
+  }
+  &__button{
+    &-font{
+      color: $font-color-white;
+      font-size: $font-size-2l;
+    }
+  }
+}

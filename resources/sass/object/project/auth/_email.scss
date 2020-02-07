@@ -1,0 +1,36 @@
+.p-email{
+  border: 1px solid $light-gray;
+  background: $background-white;
+  margin-top: 90px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  padding-left: 175px; // TODO: あとで％指定に変える
+  padding-right: 175px;
+  &__title{
+    font-size: $font-size-xl;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 30px;
+  }
+  &__font{
+    font-size: $font-size-m;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  &__checkbox{
+    &-font{
+      display: inline-block;
+      font-size: $font-size-m;
+      margin-left: 5px;
+    }
+  }
+  &__link{
+    color: $font-color-peacook-greeen;
+  }
+  &__button{
+    &-font{
+      color: $font-color-white;
+      font-size: $font-size-2l;
+    }
+  }
+}
