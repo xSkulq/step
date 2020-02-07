@@ -1,0 +1,20 @@
+.p-step_ditail{
+  &__title{
+    font-size: $font-size-xl;
+    font-weight: normal;
+  }
+  &__item{
+    padding-left: 78px;
+    padding-right: 50px;
+    width: 630px;
+  }&__content{
+    margin-bottom: 150px;
+  }
+  &__button{
+    &-font{
+      color: $font-color-white;
+      font-size: $font-size-l;
+      padding: 12px 50px 12px 50px;
+    }
+  }
+}
