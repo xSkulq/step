@@ -1,0 +1,22 @@
+.p-account_edit{
+  //padding-left: 148px; // TODO: あとで％指定に変える
+  padding-left: 148px;
+  //padding-right: 65px;
+  &__title{
+    font-size: $font-size-xl;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 90px;
+  }
+  &__textarea{
+    height: 100px;
+    width: 450px; // TODO: widthの長さをあとで％指定にする
+  }
+  &__button{
+    &-font{
+      color: $font-color-white;
+      font-size: $font-size-2l;
+      padding: 13px 130px 13px 130px;
+    }
+  }
+}
