@@ -1,0 +1,43 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// font-color
+$font-color-black: #262626;
+$font-color-white: #ffffff;
+$font-color-peacook-greeen: #167076;
+
+// background
+$background-deep-blue: #3b3f47;
+$background-gray: #f5f7f9;
+$background-orenge: #d27921;
+$background-white: #ffffff;
+
+// step-color
+$light-gray: #d3d3d3;
+
+// font-size
+$font-size-s: 12px;
+$font-size-m: 14px;
+$font-size-l: 16px;
+$font-size-2l: 18px;
+$font-size-3l: 24px;
+$font-size-xl: 26px;
+
+// breakpoints定義
+// BootStrap準拠
+$breakpoints: (
+  'sm': 'screen and (max-width: 575px)',
+  'md': 'screen and (max-width: 767px)',
+  'lg': 'screen and (max-width: 991px)',
+	'xl': 'screen and (max-width: 1199px)',
+	'sm-up': 'screen and (min-width: 576px)',
+  'md-up': 'screen and (min-width: 768px)',
+  'lg-up': 'screen and (min-width: 992px)',
+  'xl-up': 'screen and (min-width: 1200px)',
+) !default;
+

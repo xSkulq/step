@@ -1,0 +1,45 @@
+// レイアウト用定数
+$heightNavbar: 80px;
+$heightFooter: 80px;
+$widthSidebar: 320px;
+
+// Auth系のレイアウト
+.l-auth{
+  background: $background-gray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: calc(100vh - #{$heightNavbar+$heightFooter} );
+  &__inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    @include mq(xl-up){
+      max-width: 1280px;
+    }
+  }
+}
+
+// own_columnとtwo_column系のレイアウト
+.l-content{
+  background: $background-gray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
+  &__inner{
+    display: flex;
+    flex-wrap: wrap;
+    //justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 75px;
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+    @include mq(xl-up){
+      max-width: 1280px;
+    }
+  }
+}

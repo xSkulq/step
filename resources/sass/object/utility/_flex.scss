@@ -1,0 +1,17 @@
+.u-flex{
+  display: flex;
+}
+.u-flex__end{
+  @extend .u-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.u-flex__space{
+  @extend .u-flex;
+  justify-content: space-between;
+}
+.u-flex__center{
+  @extend .u-flex;
+  align-items: center;
+  justify-content: center;
+}

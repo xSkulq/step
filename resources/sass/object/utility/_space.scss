@@ -1,0 +1,45 @@
+// u-mt5, u-pb10, など 5px単位の上下margin:padding
+@for $i from 0 through 16 {
+  $space: $i * 5;
+  .u-mt#{$space}{
+    margin-top:#{$space}px;
+  }
+  .u-mb#{$space}{
+    margin-bottom:#{$space}px;
+  }
+  .u-ml#{$space}{
+    margin-left:#{$space}px;
+  }
+  .u-mr#{$space}{
+    margin-right:#{$space}px;
+  }
+  .u-mx#{$space}{
+    margin-left:#{$space}px;
+    margin-right:#{$space}px;
+  }
+  .u-my#{$space}{
+    margin-top:#{$space}px;
+    margin-bottom:#{$space}px;
+  }
+
+  .u-pt#{$space}{
+    padding-top:#{$space}px;
+  }
+  .u-pb#{$space}{
+    padding-bottom:#{$space}px;
+  }
+  .u-pr#{$space}{
+    padding-right:#{$space}px;
+  }
+  .u-pl#{$space}{
+    padding-left:#{$space}px;
+  }
+  .u-px#{$space}{
+    padding-left:#{$space}px;
+    padding-right:#{$space}px;
+  }
+  .u-py#{$space}{
+    padding-top:#{$space}px;
+    padding-bottom:#{$space}px;
+  }
+}
