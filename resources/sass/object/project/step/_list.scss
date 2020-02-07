@@ -1,0 +1,44 @@
+.p-step_list{
+  padding-left: 60px;
+  padding-right: 60px;
+  &__title{
+    font-size: $font-size-xl;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  &__category{
+    font-size: $font-size-2l;
+    margin-bottom: 40px;
+  }
+  &__item{
+    border: 1px solid $light-gray;
+    background: $background-white;
+    padding: 8px 4px 7px 20px;
+    width: 500px;
+  }
+  &__top{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  &__name{
+    font-size: $font-size-2l;
+  }
+  &__day{
+    padding-left: 15px;
+    margin-bottom: 5px;
+  }
+  &__criterion{
+    font-size: $font-size-m;
+  }
+  &__medium{
+    margin-bottom: 20px;
+  }
+  &__bottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
