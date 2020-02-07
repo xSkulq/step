@@ -1,0 +1,23 @@
+.c-sidebar{
+  background: $background-deep-blue;
+  height: auto;
+  min-height: 92.5vh;
+  padding: 25px 14px;
+  &__logo{
+    margin-bottom: 50px;
+  }
+  &__list{
+    list-style: none;
+  }
+  &__item{
+    margin-bottom: 30px;
+    &>.far,&>.fas,&>.fab{
+      width: 30px;
+      text-align: center;
+    }
+  }
+  &__link{
+    color: $font-color-white;
+    font-size: $font-size-2l;
+  }
+}
