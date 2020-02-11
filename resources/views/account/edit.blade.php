@@ -6,23 +6,25 @@
     <div>
       <h1 class="p-account_edit__title">プロフィール編集</h1>
 
-      <form class="p-account_edit__form" action="POST" method="{{ route('account.new') }}">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
+      <form class="p-account_edit__form" method="POST" action="{{ route('account.store') }}">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
+        @csrf
 
         {{-- Email --}}
         <div>
           <label for="email" class="p-account_edit__font">メールアドレス</label>
 
           <div class="u-mt5 u-mb20">
-            <input type="email" class="c-inputFild__long" placeholder="メールアドレス">
+            @error('email')<div class="">{{ $message }}</div>@enderror
+            <input type="email" class="c-inputFild__long" placeholder="メールアドレス" value="{{ $user->email }}">
           </div>
         </div>
 
         {{-- name --}}
         <div>
-          <label for="email" class="p-account_edit__font">名前</label>
+          <label for="name" class="p-account_edit__font">名前</label>
 
           <div class="u-mt5 u-mb20">
-            <input type="email" class="c-inputFild__long" placeholder="名前">
+            <input type="name" class="c-inputFild__long" placeholder="名前" value="{{ $user->name }}">
           </div>
         </div>
 
@@ -31,7 +33,7 @@
           <label for="content" class="p-account_edit__font">自己紹介</label>
 
           <div class="u-mt5 u-mb20">
-            <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea" placeholder="自己紹介"></textarea>
+            <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea" placeholder="自己紹介">{{ $user->bio }}</textarea>
           </div>
         </div>
 
@@ -41,7 +43,7 @@
           <div class="u-mt5 u-mb80">
             <input type="file">
             <div>
-              <img src="" alt="">
+              <img src="{{ $user->pic }}" alt="">
             </div>
           </div>
         </div>

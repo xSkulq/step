@@ -27,6 +27,7 @@ Auth::routes(['verify' => true]);
 // accounts
 Route::get('/account/new', 'AccountsController@new')->name('account.new');
 Route::get('/account/edit', 'AccountsController@edit')->name('account.edit');
+Route::post('/account/edit', 'AccountsController@store')->name('account.store');
 
 // step
 Route::get('/home', 'StepsController@index')->name('step.index');
