@@ -22,14 +22,14 @@ Route::get('/lp', function(){
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 // accounts
 Route::get('/account/new', 'AccountsController@new')->name('account.new');
 Route::get('/account/edit', 'AccountsController@edit')->name('account.edit');
 
 // step
-Route::get('/step', 'StepsController@index')->name('step.index');
+Route::get('/home', 'StepsController@index')->name('step.index');
 Route::get('/step/mypage/register', 'StepsController@mypage_register')->name('step.mypage_register');
 Route::get('/step/mypage/challenge', 'StepsController@mypage_challenge')->name('step.mypage_challenge');
 Route::get('/step/new', 'StepsController@new')->name('step.new');

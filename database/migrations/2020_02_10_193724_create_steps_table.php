@@ -19,7 +19,7 @@ class CreateStepsTable extends Migration
             $table->string('title');
             $table->string('category')->nullable();
             $table->string('achievement_time')->nullable();
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
             $table->softDeletes();
         });

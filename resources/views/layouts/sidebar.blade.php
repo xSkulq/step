@@ -25,5 +25,14 @@
       <i class="fas fa-money-check"></i>
       <a class="c-sidebar__link" href="">設定</a>
     </li>
+    <li class="c-sidebar__item">
+      <a class="c-sidebar__link" href="{{ route('logout') }}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        {{ __('Logout') }}
+      </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form>
+    </li>
   </ul>
 </div>

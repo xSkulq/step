@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStepChildsTable extends Migration
+class CreateStepChildrenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateStepChildsTable extends Migration
      */
     public function up()
     {
-        Schema::create('step_childs', function (Blueprint $table) {
+        Schema::create('step_children', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('step_id');
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ class CreateStepChildsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('step_childs');
+        Schema::dropIfExists('step_children');
     }
 }

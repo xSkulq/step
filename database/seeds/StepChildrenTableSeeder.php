@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-class StepsTableSeeder extends Seeder
+
+class StepChildrenTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -10,6 +11,6 @@ class StepsTableSeeder extends Seeder
    */
   public function run()
   {
-    factory(App\Step::class, 50)->create();
+    factory(App\StepChild::class, 150)->create();
   }
 }
