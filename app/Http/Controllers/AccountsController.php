@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class AccountsController extends Controller
 {
 
+  // プロフィール編集画面を表示
   public function edit(Request $request)
   {
     $userId = Auth::id();
@@ -19,6 +20,7 @@ class AccountsController extends Controller
     return view('account.edit', compact('user'));
   }
 
+  // プロフィール編集画面の送信された情報を保存
   public function store(Request $request)
   {
     $request->validate([
@@ -28,10 +30,11 @@ class AccountsController extends Controller
       'pic' => 'nullable|string|max:255'
     ]);
 
-    // DBに保存する値をセット
-    $user = new User();
-    //$user->fill($request->all())->save();
-    Auth::user()->$user->fill($request->all())->save();
+    // userテーブルの更新
+    $userId = Auth::id();
+    $user = User::find($userId);
+    $user->fill($request->all())->save();
+    //Auth::user()->$user->fill($request->all())->save();
     return redirect('/home');
   }
 }

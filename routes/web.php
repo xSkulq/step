@@ -34,6 +34,7 @@ Route::get('/home', 'StepsController@index')->name('step.index');
 Route::get('/step/mypage/register', 'StepsController@mypage_register')->name('step.mypage_register');
 Route::get('/step/mypage/challenge', 'StepsController@mypage_challenge')->name('step.mypage_challenge');
 Route::get('/step/new', 'StepsController@new')->name('step.new');
+Route::post('/step/new', 'StepsController@store')->name('step.store');
 Route::get('/step/edit', 'StepsController@edit')->name('step.edit');
 Route::get('/step/ditail/1', 'StepsController@show')->name('step.show');
 
