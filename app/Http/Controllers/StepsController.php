@@ -15,6 +15,10 @@ class StepsController extends Controller
   {
     return view('step.register');
   }
+  
+  public function store(){
+    return view('step.new');
+  }
 
   public function edit()
   {
