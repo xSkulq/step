@@ -28,10 +28,11 @@ class AccountsController extends Controller
       'pic' => 'nullable|string|max:255'
     ]);
 
-    // DBに保存する値をセット
-    $user = new User();
-    //$user->fill($request->all())->save();
-    Auth::user()->$user->fill($request->all())->save();
+    // userテーブルの更新
+    $userId = Auth::id();
+    $user = User::find($userId);
+    $user->fill($request->all())->save();
+    //Auth::user()->$user->fill($request->all())->save();
     return redirect('/home');
   }
 }
