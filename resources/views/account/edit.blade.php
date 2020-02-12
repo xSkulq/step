@@ -15,7 +15,7 @@
 
           <div class="u-mt5 u-mb20">
             @error('email')<div class="">{{ $message }}</div>@enderror
-            <input type="email" class="c-inputFild__long" placeholder="メールアドレス" value="{{ $user->email }}">
+            <input type="email" name="email" class="c-inputFild__long" placeholder="メールアドレス" value="{{ $user->email }}">
           </div>
         </div>
 
@@ -24,7 +24,7 @@
           <label for="name" class="p-account_edit__font">名前</label>
 
           <div class="u-mt5 u-mb20">
-            <input type="name" class="c-inputFild__long" placeholder="名前" value="{{ $user->name }}">
+            <input type="name" name="name" class="c-inputFild__long" placeholder="名前" value="{{ $user->name }}">
           </div>
         </div>
 
@@ -33,7 +33,7 @@
           <label for="content" class="p-account_edit__font">自己紹介</label>
 
           <div class="u-mt5 u-mb20">
-            <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea" placeholder="自己紹介">{{ $user->bio }}</textarea>
+            <textarea name="bio" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea" placeholder="自己紹介">{{ $user->bio }}</textarea>
           </div>
         </div>
 
@@ -41,7 +41,7 @@
         <div>
           <label for="icon" class="p-account_edit__font">アイコン</label>{{-- TODO: アイコンのスタイルは機能を作るときにやる --}}
           <div class="u-mt5 u-mb80">
-            <input type="file">
+            <input type="file" name="pic">
             <div>
               <img src="{{ $user->pic }}" alt="">
             </div>
