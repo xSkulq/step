@@ -66,13 +66,16 @@ gulp.task('eslint', function(cb) {
     .pipe(eslint.format())
     .pipe(eslint.failOnError())
     .pipe(plumber.stop());
-
     cb();
 });
 
 // Gulpを使ったファイルの監視
 gulp.task('default', gulp.series( gulp.parallel('build-js','build-css','browser-sync','eslint'), function(cb){
   gulp.watch('./resources/js/app.js', gulp.task('build-js'));
+  gulp.watch('./resources/js/**/*.js', gulp.task('build-js'));
+  gulp.watch('./resources/js/components/step/*.js', gulp.task('build-js'));
+  gulp.watch('./resources/js/components/step/StepMypageRegister.js', gulp.task('build-js'));
+  gulp.watch('./resources/js/**/*', gulp.task('build-js'));
   gulp.watch('./resources/sass/app.scss', gulp.task('build-css'));
   gulp.watch('./resources/sass/**/*.scss', gulp.task('build-css'));
   gulp.watch('./resources/sass/object/**/*.scss', gulp.task('build-css'));
@@ -81,5 +84,6 @@ gulp.task('default', gulp.series( gulp.parallel('build-js','build-css','browser-
   //gulp.watch("./public/css/app.css", gulp.task('bs-reload'));
   //gulp.watch("./public/**/*.+(js|css)", gulp.task('bs-reload'));
   gulp.watch("./resources/js/app.js", gulp.task('eslint'));
+  gulp.watch("./resources/js/**/*.js", gulp.task('eslint'));
   cb();
 }));

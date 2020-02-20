@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Step;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -11,13 +13,26 @@ class StepsController extends Controller
     return view('step.list');
   }
 
+  // 新規STEP登録の画面を表示
   public function new()
   {
     return view('step.register');
   }
   
-  public function store(){
-    return view('step.new');
+  // 新規STEP登録の送信された情報を保存
+  public function store(Request $request)
+  {
+
+    $request->validate([
+      'title' => 'required|string|max:255',
+      'category' => 'nullable|string|max:255',
+      'achievement_time' => 'nullable|string|max:255',
+      'content' => 'required|string'
+    ]);
+
+    $step = new Step();
+    Auth::user()->steps()->save($step->fill($request->all()));
+    return redirect('/home');
   }
 
   public function edit()
@@ -38,15 +53,5 @@ class StepsController extends Controller
   public function mypage_challenge()
   {
     return view('step.mypage_challenge');
-  }
-
-  public function child_new()
-  {
-    return view('child.register');
-  }
-
-  public function child_edit()
-  {
-    return view('child.edit');
   }
 }

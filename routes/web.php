@@ -25,7 +25,6 @@ Auth::routes(['verify' => true]);
 //Route::get('/home', 'HomeController@index')->name('home');
 
 // accounts
-Route::get('/account/new', 'AccountsController@new')->name('account.new');
 Route::get('/account/edit', 'AccountsController@edit')->name('account.edit');
 Route::post('/account/edit', 'AccountsController@store')->name('account.store');
 
@@ -39,7 +38,7 @@ Route::get('/step/edit', 'StepsController@edit')->name('step.edit');
 Route::get('/step/ditail/1', 'StepsController@show')->name('step.show');
 
 // step_child
-Route::get('/step/new/1', 'StepsController@child_new')->name('step.child_new');
-Route::get('/step/edit/1/1', 'StepsController@child_edit')->name('step.child_edit');
+Route::get('/step/new/1', 'StepChildrenController@child_new')->name('step.child_new');
+Route::get('/step/edit/1/1', 'StepChildrenController@child_edit')->name('step.child_edit');
 
 
