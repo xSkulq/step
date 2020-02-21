@@ -35,7 +35,7 @@ Route::get('/step/mypage/challenge', 'StepsController@mypage_challenge')->name('
 Route::get('/step/new', 'StepsController@new')->name('step.new');
 Route::post('/step/new', 'StepsController@store')->name('step.store');
 Route::get('/step/edit', 'StepsController@edit')->name('step.edit');
-Route::get('/step/ditail/1', 'StepsController@show')->name('step.show');
+Route::get('/step/ditail/{id}', 'StepsController@show')->name('step.show');
 
 // step_child
 Route::get('/step/new/1', 'StepChildrenController@child_new')->name('step.child_new');
