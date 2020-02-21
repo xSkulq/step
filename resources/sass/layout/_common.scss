@@ -30,6 +30,7 @@ $widthSidebar: 320px;
   justify-content: center;
   min-height: 100vh;
   &__inner{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     //justify-content: space-between;

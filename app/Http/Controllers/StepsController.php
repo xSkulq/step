@@ -10,7 +10,11 @@ class StepsController extends Controller
 {
   public function index()
   {
-    return view('step.list');
+    // userid
+    $userId = Auth::id();
+    $steps = Step::with(['user']);
+    $steps = Step::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+    return view('step.list', compact('steps'));
   }
 
   // 新規STEP登録の画面を表示
@@ -45,9 +49,14 @@ class StepsController extends Controller
     return view('step.ditail');
   }
 
-  public function mypage_register()
+  public function mypage_register(Request $request)
   {
-    return view('step.mypage_register');
+    // userid
+    $userId = Auth::id();
+    $steps = Step::with(['user']);
+    $steps = Step::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+    //dd($steps);
+    return view('step.mypage_register', compact('steps'));
   }
 
   public function mypage_challenge()

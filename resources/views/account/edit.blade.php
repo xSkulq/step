@@ -15,7 +15,7 @@
 
           <div class="u-mt5 u-mb20">
             @error('email')<div class="">{{ $message }}</div>@enderror
-            <input type="email" name="email" class="c-inputFild__long" placeholder="メールアドレス" value="{{ $user->email }}">
+            <input type="email" name="email" class="c-inputFild__long" placeholder="メールアドレス" value="@if(!empty(old('email'))){{ old('email')}}@else{{ $user->email }}@endif">
           </div>
         </div>
 
@@ -24,7 +24,8 @@
           <label for="name" class="p-account_edit__font">名前</label>
 
           <div class="u-mt5 u-mb20">
-            <input type="name" name="name" class="c-inputFild__long" placeholder="名前" value="{{ $user->name }}">
+            @error('name')<div class="">{{ $message }}</div>@enderror
+            <input type="name" name="name" class="c-inputFild__long" placeholder="名前" value="@if(!empty(old('name'))){{ old('name')}}@else{{ $user->name }}@endif">
           </div>
         </div>
 
@@ -33,7 +34,8 @@
           <label for="content" class="p-account_edit__font">自己紹介</label>
 
           <div class="u-mt5 u-mb20">
-            <textarea name="bio" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea" placeholder="自己紹介">{{ $user->bio }}</textarea>
+            @error('bio')<div class="">{{ $message }}</div>@enderror
+          <textarea name="bio" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea" placeholder="自己紹介">@if(!empty(old('bio'))){{ old('bio')}}@else{{ $user->bio }}@endif</textarea>
           </div>
         </div>
 
@@ -43,7 +45,7 @@
           <div class="u-mt5 u-mb80">
             <input type="file" name="pic">
             <div>
-              <img src="{{ $user->pic }}" alt="">
+              <img src="@if(!empty(old('pic'))){{ old('pic')}}@else{{ $user->pic }}@endif" alt="">
             </div>
           </div>
         </div>

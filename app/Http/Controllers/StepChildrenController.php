@@ -8,6 +8,8 @@ class StepChildrenController extends Controller
 {
   public function child_new()
   {
+    $userId = Auth::id();
+    dd($userId);
     return view('child.register');
   }
 

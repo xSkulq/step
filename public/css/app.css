@@ -126,6 +126,7 @@ ul {
   justify-content: center;
   min-height: 100vh; }
   .l-content__inner {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
