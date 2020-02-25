@@ -11,9 +11,8 @@ class StepsController extends Controller
   public function index()
   {
     // userid
-    $userId = Auth::id();
     $steps = Step::with(['user']);
-    $steps = Step::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+    $steps = Step::orderBy('created_at', 'desc')->get();
     return view('step.list', compact('steps'));
   }
 

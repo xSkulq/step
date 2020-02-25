@@ -17,7 +17,7 @@ Vue.component('mypage-register', {
         </div>
       </div>
       <div class="p-step_mypage__medium">
-        <a href="" class="p-step_mypage__medium-font">STEP<span>{{step.title}}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
+        <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-font">STEP<span>{{step.title}}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
       </div>
       <div class="p-step_mypage__bottom">
         <div>
