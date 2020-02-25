@@ -9,7 +9,7 @@
 
   <!-- step-list -->
   <section>
-    <mypage-register :steps="{{$steps->toJson()}}"></mypage-register>
+    <step-list></step-list>
   </section>
 </div>
 

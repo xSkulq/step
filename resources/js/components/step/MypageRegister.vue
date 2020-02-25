@@ -1,27 +1,22 @@
-import Vue from 'vue'
-import moment from "moment";
-
-Vue.component('mypage-register', {
-  template: `
+<template>
   <div>
-    <template><!-- v-for="step in steps" :key="step.id" -->
-      <div class="p-step_mypage__item" v-for="(step, index) in steps" :key="index">
+      <div class="p-step_mypage__item">
       <div class="p-step_mypage__top">
         <div class="u-flex">
           <img src="" alt="アイコン" class="p-step_mypage__img">
           <p class="p-step_mypage__name">紗倉あんこ</p>
         </div>
         <div>
-          <p class="p-step_mypage__day">{{formatDate(step.created_at)}}</p>
-          <p class="p-step_mypage__criterion">目安達成時間<span>{{step.achievement_time}}</span></p>
+          <p class="p-step_mypage__day"></p>
+          <p class="p-step_mypage__criterion">目安達成時間<span></span></p>
         </div>
       </div>
       <div class="p-step_mypage__medium">
-        <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-font">STEP<span>{{step.title}}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
+        <a class="p-step_mypage__medium-font">STEP<span></span></a><!-- TODO: クラス名いいの思いついたら変える -->
       </div>
       <div class="p-step_mypage__bottom">
         <div>
-          <p class="p-step_mypage__bottom-font">{{step.category}}</p>
+          <p class="p-step_mypage__bottom-font"></p>
         </div>
         <!--<div class="u-flex">
           <p class="p-step_mypage__bottom-font">pv<span>1000</span></p>
@@ -36,10 +31,10 @@ Vue.component('mypage-register', {
         </div>-->
       </div>
     </div>
-  </template>
   </div>
-  `,
-  props: {
+    </template>
+<script>
+  /*props: {
     steps: Array
   },
   methods: {
@@ -49,8 +44,5 @@ Vue.component('mypage-register', {
       return moment(date).format('YYYY/MM/DD');
     },
   }
-})
-
-var app = new Vue({
-  el: '#app',
-})
+})*/
+</script>
