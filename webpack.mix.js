@@ -23,5 +23,14 @@ mix.webpackConfig({
    }
  })
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css')
+   .browserSync({
+    proxy: 'homestead.test/',
+    files: [
+       './public/css/app.css',
+       './public/js/app.js',
+       './resources/views/*.blade.php',
+       './resources/views/**/*.blade.php',
+    ],
+  });

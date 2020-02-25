@@ -48,8 +48,8 @@
         </div>
 
         {{-- button --}}
-        <div class="u-flex__center u-mb40">
-          <button type="submit" class="c-button p-singup__button-font">
+        <div class="u-flex__center">
+          <button type="submit" class="c-button p-singup__button-font p-singup__button">
             登録
           </button>
         </div>

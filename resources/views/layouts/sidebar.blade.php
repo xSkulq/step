@@ -1,3 +1,4 @@
+<!-- pc用画面のサイドバー -->
 <div class="c-sidebar">
   <div class="c-sidebar__logo">STEP</div>
   <ul class="c-sidebar__list">
