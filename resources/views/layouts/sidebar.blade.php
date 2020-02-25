@@ -2,30 +2,42 @@
 <div class="c-sidebar">
   <div class="c-sidebar__logo">STEP</div>
   <ul class="c-sidebar__list">
-    <li class="c-sidebar__item">
-      <i class="fas fa-tachometer-alt"></i>
-      <a class="c-sidebar__link" href="{{ route('step.index')}}">STEP一覧</a>
-    </li>
-    <li class="c-sidebar__item">
-      <i class="fas fa-copy"></i>
-      <a class="c-sidebar__link" href="{{ route('step.new')}}">STEP登録</a>
-    </li>
-    <li class="c-sidebar__item">
-      <i class="fas fa-file-invoice"></i>
-      <a class="c-sidebar__link" href="{{ route('step.mypage_register')}}">登録済みSTEP一覧</a>
-    </li>
-    <li class="c-sidebar__item">
-      <i class="fas fa-users"></i>
-    <a class="c-sidebar__link" href="{{ route('step.mypage_challenge')}}">チャレンジしているSTEP</a>
-    </li>
-    <li class="c-sidebar__item">
-      <i class="fas fa-user-plus"></i>
-      <a class="c-sidebar__link" href="{{ route('account.edit')}}">プロフィール編集</a>
-    </li>
-    <li class="c-sidebar__item">
-      <i class="fas fa-money-check"></i>
-      <a class="c-sidebar__link" href="">設定</a>
-    </li>
+    <a class="c-sidebar__link" href="{{ route('step.index')}}">
+      <li class="c-sidebar__item">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>STEP一覧</span>
+      </li>
+    </a>
+    <a class="c-sidebar__link" href="{{ route('step.new')}}">
+      <li class="c-sidebar__item">
+        <i class="fas fa-copy"></i>
+        <span>STEP登録</span>
+      </li>
+    </a>
+    <a class="c-sidebar__link" href="{{ route('step.mypage_register')}}">
+      <li class="c-sidebar__item">
+        <i class="fas fa-file-invoice"></i>
+        <span>登録済みSTEP一覧</span>
+      </li>
+    </a>
+    <a class="c-sidebar__link" href="{{ route('step.mypage_challenge')}}">
+      <li class="c-sidebar__item">
+        <i class="fas fa-users"></i>
+      <span>チャレンジしているSTEP</span>
+      </li>
+    </a>
+    <a class="c-sidebar__link" href="{{ route('account.edit')}}">
+      <li class="c-sidebar__item">
+        <i class="fas fa-user-plus"></i>
+        <span>プロフィール編集</span>
+      </li>
+    </a>
+    <a class="c-sidebar__link" href="">
+      <li class="c-sidebar__item">
+        <i class="fas fa-money-check"></i>
+        <span>設定</span>
+      </li>
+    </a>
     <li class="c-sidebar__item">
       <a class="c-sidebar__link" href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">

@@ -43,3 +43,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
   el: '#app'
 })
+
+$(function(){
+  // SPメニュー
+  $('.js-toggle-sp-menu').on('click', function () {
+    $(this).toggleClass('active');
+    $('.js-toggle-sp-menu-target').toggleClass('active');
+  });
+})

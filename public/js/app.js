@@ -49698,6 +49698,13 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(function () {
+  // SPメニュー
+  $('.js-toggle-sp-menu').on('click', function () {
+    $(this).toggleClass('active');
+    $('.js-toggle-sp-menu-target').toggleClass('active');
+  });
+});
 
 /***/ }),
 

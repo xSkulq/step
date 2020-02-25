@@ -28,7 +28,7 @@ $widthSidebar: 320px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(100vh - #{$heightNavbar} );
   &__inner{
     position: relative;
     display: flex;

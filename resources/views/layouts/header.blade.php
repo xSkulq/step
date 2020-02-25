@@ -8,34 +8,46 @@
   </div>
 
   <!-- toggle時のサイドバー -->
-  <div class="c-sidebar-sp">
-    <ul class="">
-      <li class="">
-        <i class=""></i>
-        <a class="" href="{{ route('step.index')}}">STEP一覧</a>
+  <div class="c-sidebar-sp js-toggle-sp-menu-target">
+    <ul class="c-sidebar-sp__list">
+      <a class="c-sidebar-sp__link" href="{{ route('step.index')}}">
+      <li class="c-sidebar-sp__item">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>STEP一覧</span>
       </li>
-      <li class="">
+      </a>
+      <a class="c-sidebar-sp__link" href="{{ route('step.new')}}">
+      <li class="c-sidebar-sp__item">
         <i class="fas fa-copy"></i>
-        <a class="" href="{{ route('step.new')}}">STEP登録</a>
+        <span>STEP登録</span>
       </li>
-      <li class="">
+      </a>
+      <a class="c-sidebar-sp__link" href="{{ route('step.mypage_register')}}">
+      <li class="c-sidebar-sp__item">
         <i class="fas fa-file-invoice"></i>
-        <a class="" href="{{ route('step.mypage_register')}}">登録済みSTEP一覧</a>
+        <span>登録済みSTEP一覧</span>
       </li>
-      <li class="">
+      </a>
+      <a class="c-sidebar-sp__link " href="{{ route('step.mypage_challenge')}}">
+      <li class="c-sidebar-sp__item">
         <i class="fas fa-users"></i>
-      <a class="" href="{{ route('step.mypage_challenge')}}">チャレンジしているSTEP</a>
+      <span>チャレンジしているSTEP</span>
       </li>
-      <li class="">
+      </a>
+      <a class="c-sidebar-sp__link" href="{{ route('account.edit')}}">
+      <li class="c-sidebar-sp__item">
         <i class="fas fa-user-plus"></i>
-        <a class="" href="{{ route('account.edit')}}">プロフィール編集</a>
+        <span>プロフィール編集</span>
       </li>
-      <li class="">
+      </a>
+      <a class="c-sidebar-sp__link" href="">
+      <li class="c-sidebar-sp__item">
         <i class="fas fa-money-check"></i>
-        <a class="" href="">設定</a>
+        <span>設定</span>
       </li>
-      <li class="">
-        <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+      </a>
+      <li class="c-sidebar-sp__item">
+        <a class="c-sidebar-sp__link" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
           {{ __('Logout') }}
         </a>
