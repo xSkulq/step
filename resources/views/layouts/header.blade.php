@@ -31,7 +31,7 @@
       <a class="c-sidebar-sp__link " href="{{ route('step.mypage_challenge')}}">
       <li class="c-sidebar-sp__item">
         <i class="fas fa-users"></i>
-      <span>チャレンジしているSTEP</span>
+      <span>チャレンジSTEP</span>
       </li>
       </a>
       <a class="c-sidebar-sp__link" href="{{ route('account.edit')}}">

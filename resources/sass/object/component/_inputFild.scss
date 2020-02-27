@@ -15,15 +15,24 @@
     padding-left: 8px;
     height: 35px;
     width: 450px; // TODO: widthの長さをあとで％指定にする
+    @include mq(sm){
+      padding: 0;
+      width: 300px;
+    }
   }
   &__textarea{
     font-size: $font-size-l;
     border: 1px solid $light-gray;
     padding: 5px;
     padding-left: 8px;
+    @include mq(sm){
+      width: 300px;
+    }
   }
   &__error{
     font-size: $font-size-l; // TODO: エラーのスタイルはあとでやる
+    display: block;
+    color: $red;
   }
 }
 
