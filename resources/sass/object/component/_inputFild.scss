@@ -1,23 +1,66 @@
 .c-inputFild{ // 通常のinput
   font-size: $font-size-l;
+  border: 1px solid $light-gray;
   padding: 5px;
   padding-left: 8px;
   height: 35px;
   width: 350px;
+  @include mq(sm){
+    height: 30px;
+    width: 300px;
+  }
   &__long{ // 長いinput
     font-size: $font-size-l;
     padding: 5px;
     padding-left: 8px;
     height: 35px;
     width: 450px; // TODO: widthの長さをあとで％指定にする
+    @include mq(sm){
+      padding: 0;
+      width: 300px;
+    }
   }
   &__textarea{
     font-size: $font-size-l;
     border: 1px solid $light-gray;
     padding: 5px;
     padding-left: 8px;
+    @include mq(sm){
+      width: 300px;
+    }
   }
   &__error{
     font-size: $font-size-l; // TODO: エラーのスタイルはあとでやる
+    display: block;
+    color: $red;
   }
+}
+
+input[type="checkbox"] {
+  opacity:0;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+input[type="checkbox"] + span::before {
+  display: inline-block;
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+}
+
+input[type="checkbox"] + span::after {
+  display: inline-block;
+  content: '自動ログイン';
+}
+
+/* Checked Style */
+input[type="checkbox"]:checked + span::before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpolyline fill='none' stroke='%230bd' stroke-width='3' points='2,7.3 7.3,12.7 18,2 '/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 2px;
 }

@@ -16,6 +16,9 @@
     font-size: $font-size-m;
     text-align: center;
     margin-bottom: 8px;
+    @include mq(){
+      font-size: $font-size-s;
+    }
   }
   &__checkbox{
     &-font{

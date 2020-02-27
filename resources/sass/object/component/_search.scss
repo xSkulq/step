@@ -1,3 +1,4 @@
+// pc用search
 .c-search{
   background: $background-deep-blue;
   height: 50%;
@@ -13,5 +14,9 @@
   }
   &__category{
     color: $font-color-white;
+  }
+  // sp用search
+  @include mq(xl){
+    display: none;
   }
 }

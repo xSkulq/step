@@ -28,7 +28,7 @@ $widthSidebar: 320px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(100vh - #{$heightNavbar} );
   &__inner{
     position: relative;
     display: flex;
@@ -42,5 +42,14 @@ $widthSidebar: 320px;
     @include mq(xl-up){
       max-width: 1280px;
     }
+    @include mq(xl){
+      padding: 0;
+    }
+  }
+}
+
+.l-main{
+  @include mq(sm){
+    margin: 0 auto;
   }
 }

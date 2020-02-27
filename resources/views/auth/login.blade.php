@@ -38,16 +38,15 @@
             </div>
         </div>
 
-				<div class="u-flex__space u-mb50">
+				<div class="u-flex__space u-mb45">
 					{{-- ログイン保持ボックス --}}
 					<div class="p-login__checkbox">
-						<div class="u-flex__center">
+						<label>
 							<input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-							<label class="p-login__checkbox-font" for="remember">
-								自動ログイン
-							</label>
-						</div>
+							<span class="p-login__checkbox-font .u-flex__center">
+							</span>
+						</label>
 					</div>
 					
 					{{-- Passwordリマインダー --}}
@@ -61,8 +60,8 @@
 				</div>
 
 				{{-- ボタン --}}
-        <div class="u-mb55 u-flex__center">
-            <button class="c-button p-login__button-font" type="submit">
+        <div class="u-flex__center">
+            <button class="c-button p-login__button-font p-login__button" type="submit">
 							ログイン
 						</button>
 				</div>

@@ -1,6 +1,7 @@
 @include('layouts.head')
 <body>
   <div id="app">
+    @include('layouts.header')
     <div class="l-content">
       <div class="l-content__inner">
         <aside class="l-sidebar">

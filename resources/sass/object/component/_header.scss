@@ -1,4 +1,10 @@
 .c-header{
   background: $background-deep-blue;
   height: 80px;
+  &__sidebar{
+    display: none;
+    @include mq(xl){
+      display: block;
+    }
+  }
 }

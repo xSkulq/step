@@ -41,12 +41,13 @@
 
         {{-- アイコン --}}
         <div>
-          <label for="icon" class="p-account_edit__font">アイコン</label>{{-- TODO: アイコンのスタイルは機能を作るときにやる --}}
-          <div class="u-mt5 u-mb80">
-            <input type="file" name="pic">
-            <div>
-              <img src="@if(!empty(old('pic'))){{ old('pic')}}@else{{ $user->pic }}@endif" alt="">
-            </div>
+          <span>アイコン</span>
+          <div class="p-account_edit__icon">
+            <label for="icon">
+              <input type="file" name="pic" class="p-account_edit__file">
+                <img src="@if(!empty(old('pic'))){{ old('pic')}}@else{{ $user->pic }}@endif" alt="" class="p-account_edit__img">
+                ファイル選択{{-- TODO: アイコンのスタイルは機能を作るときにやる --}}
+            </label>
           </div>
         </div>
 
