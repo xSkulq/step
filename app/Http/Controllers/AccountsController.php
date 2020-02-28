@@ -20,6 +20,13 @@ class AccountsController extends Controller
     return view('account.edit', compact('user'));
   }
 
+  public function api_edit(Request $request)
+  {
+    dd($request->all());
+    $file_name = $request->file->getClientOriginalName();
+    $request->file->storeAs('public/',$file_name);
+  }
+
   // プロフィール編集画面の送信された情報を保存
   public function store(Request $request)
   {

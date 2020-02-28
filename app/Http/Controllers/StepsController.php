@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Step;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -10,10 +11,19 @@ class StepsController extends Controller
 {
   public function index()
   {
+    //$steps = Step::find(1);
+    //dd($steps);
+    return view('step.list');
+  }
+
+  public function api_index(Request $request)
+  {
     // userid
-    $steps = Step::with(['user']);
-    $steps = Step::orderBy('created_at', 'desc')->get();
-    return view('step.list', compact('steps'));
+    //$steps = User::with(['steps'])->get();
+    $steps = Step::with('user');
+    //dd($steps);
+    $steps = $steps->orderBy('created_at', 'desc')->get();
+    return response()->json($steps);
   }
 
   // 新規STEP登録の画面を表示
@@ -50,12 +60,17 @@ class StepsController extends Controller
 
   public function mypage_register(Request $request)
   {
+    return view('step.mypage_register');
+  }
+
+  public function api_mypage_register(Request $request)
+  {
     // userid
     $userId = Auth::id();
-    $steps = Step::with(['user']);
-    $steps = Step::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+    $steps = Step::with('user');
+    $steps = $steps->where('user_id', $userId)->orderBy('created_at', 'desc')->get();
     //dd($steps);
-    return view('step.mypage_register', compact('steps'));
+    return response()->json($steps);
   }
 
   public function mypage_challenge()

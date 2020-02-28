@@ -13,14 +13,10 @@ class Step extends Model
 
   public function user()
   {
-    return $this->belongsTo('App\User', 'user_id');
+    return $this->belongsTo('App\User');
   }
 
   public function step_children(){
     return $this->hasMany('App\Step', 'step_id');
-  }
-
-  public function user_name(){
-    return $this->belongsTo('App\User', 'name')->where('id', Auth::id())->get();
   }
 }
