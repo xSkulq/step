@@ -1,22 +1,26 @@
 <template>
   <div>
-      <div class="p-step_mypage__item" v-for="(step, index) in steps" :key="index">
-      <div class="p-step_mypage__top">
+      <div class="p-step_list__item" v-for="(step, index) in steps" :key="index">
+      <div class="p-step_list__top">
         <div class="u-flex">
-          <img src="" alt="アイコン" class="p-step_mypage__img">
-          <p class="p-step_mypage__name">{{ step.user.name}}</p>
+          <!--<img src="" alt="アイコン" class="p-step_mypage__img">-->
+          <img alt="アイコン" class="p-step_list__img" v-if="step.user.pic" v-bind:src="'/' + step.user.pic">
+          <p class="p-step_list__name">{{ step.user.name}}</p>
         </div>
         <div>
-          <p class="p-step_mypage__day">{{ formatDate(step.created_at) }}</p>
-          <p class="p-step_mypage__criterion">目安達成時間<span>{{ step.achievement_time }}</span></p>
+          <p class="p-step_list__day">{{ formatDate(step.created_at) }}</p>
+          <p class="p-step_list__criterion">目安達成時間<span>{{ step.achievement_time }}</span></p>
         </div>
       </div>
-      <div class="p-step_mypage__medium">
-        <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-font">STEP<span>{{ step.title}}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
+      <div class="p-step_list__medium">
+        <p class="u-mb5">STEP</p>
+        <a :href="'/step/ditail/' + step.id" class="p-step_list__medium-link">
+          <p class="p-step_list__medium-font">{{ step.title}}</p>
+          </a><!-- TODO: クラス名いいの思いついたら変える -->
       </div>
-      <div class="p-step_mypage__bottom">
+      <div class="p-step_list__bottom">
         <div>
-          <p class="p-step_mypage__bottom-font">{{ step.category }}</p>
+          <p class="p-step_list__bottom-font">{{ step.category }}</p>
         </div>
         <!--<div class="u-flex">
           <p class="p-step_mypage__bottom-font">pv<span>1000</span></p>
