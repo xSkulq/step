@@ -13,7 +13,10 @@
         </div>
       </div>
       <div class="p-step_list__medium">
-        <a :href="'/step/ditail/' + step.id" class="p-step_list__medium-font">STEP<span class="u-pl10">{{ step.title}}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
+        <p class="u-mb5">STEP</p>
+        <a :href="'/step/ditail/' + step.id" class="p-step_list__medium-link">
+          <p class="p-step_list__medium-font">{{ step.title}}</p>
+          </a><!-- TODO: クラス名いいの思いついたら変える -->
       </div>
       <div class="p-step_list__bottom">
         <div>

@@ -46,6 +46,17 @@
   }
   &__medium{
     margin-bottom: 20px;
+    &-link{
+      color: $font-color-black;
+      &:hover{
+        color: $font-color-orenge;
+      }
+    }
+    &-font{
+      width: 100%;
+      word-break: break-all;
+      padding-right: 24px;
+    }
   }
   &__bottom{
     display: flex;
