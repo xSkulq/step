@@ -34,6 +34,9 @@ Vue.component('step-list', require('./components/step/StepList.vue').default);
 Vue.component('mypage-register', require('./components/step/MypageRegister.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+// account
+Vue.component('account-edit', require('./components/account/AccountEdit.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -42,12 +45,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
   el: '#app'
-})
-
-$(function(){
-  // SPメニュー
-  $('.js-toggle-sp-menu').on('click', function () {
-    $(this).toggleClass('active');
-    $('.js-toggle-sp-menu-target').toggleClass('active');
-  });
 })
