@@ -21,9 +21,8 @@
   }
   &__icon{
     background: $background-white;
-    border: 1px solid $light-gray;
-    border-radius: 100px;
-    box-sizing: border-box;
+    border-radius: 50%;
+    //border: 1px solid $light-gray;
     color: $font-color-black;
     text-align: center;
     line-height: 140px;
@@ -31,18 +30,26 @@
     margin-top: 10px;
     margin-bottom: 50px;
     height: 140px;
-    width: 30%;
+    width: 140px;
 
   }
   &__file{
-    border-radius: 100px;
+    border-radius: 50%;
     opacity: 0;
-    width: 100%;
+    width: 140px;
     height: 140px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
-
+  }
+  &__img{
+    height: 100%;
+    width: 100%;
+    //border-style:none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
   }
 }

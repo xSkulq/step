@@ -1,5 +1,5 @@
 @extends('layouts.app_own_column')
 
 @section('content')
-<account-edit></account-edit>
+<account-edit :user="{{$user->toJson()}}"></account-edit>
 @endsection

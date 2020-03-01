@@ -7,12 +7,12 @@
           <p class="p-step_mypage__name">{{ step.user.name }}</p>
         </div>
         <div>
-          <p class="p-step_mypage__day"></p>
+          <p class="p-step_mypage__day">{{ formatDate(step.created_at) }}</p>
           <p class="p-step_mypage__criterion">目安達成時間<span>{{ step.achievement_time }}</span></p>
         </div>
       </div>
       <div class="p-step_mypage__medium">
-        <a class="p-step_mypage__medium-font">STEP<span>{{ step.title }}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
+        <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-font">STEP<span>{{ step.title }}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
       </div>
       <div class="p-step_mypage__bottom">
         <div>
