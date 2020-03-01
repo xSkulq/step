@@ -897,7 +897,14 @@ input[type=checkbox]:checked + span::before {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 16px;
+}
+
+.p-step_list__img {
+  border-radius: 50%;
+  margin-right: 8px;
+  height: 40px;
+  width: 40px;
 }
 
 .p-step_list__name {
@@ -905,12 +912,15 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-step_list__day {
-  padding-left: 15px;
   margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .p-step_list__criterion {
   font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .p-step_list__medium {

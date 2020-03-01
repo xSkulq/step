@@ -2161,6 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -55473,45 +55474,52 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.steps, function(step, index) {
-      return _c("div", { key: index, staticClass: "p-step_mypage__item" }, [
-        _c("div", { staticClass: "p-step_mypage__top" }, [
+      return _c("div", { key: index, staticClass: "p-step_list__item" }, [
+        _c("div", { staticClass: "p-step_list__top" }, [
           _c("div", { staticClass: "u-flex" }, [
-            _c("img", {
-              staticClass: "p-step_mypage__img",
-              attrs: { src: "", alt: "アイコン" }
-            }),
+            step.user.pic
+              ? _c("img", {
+                  staticClass: "p-step_list__img",
+                  attrs: { alt: "アイコン", src: "/" + step.user.pic }
+                })
+              : _vm._e(),
             _vm._v(" "),
-            _c("p", { staticClass: "p-step_mypage__name" }, [
+            _c("p", { staticClass: "p-step_list__name" }, [
               _vm._v(_vm._s(step.user.name))
             ])
           ]),
           _vm._v(" "),
           _c("div", [
-            _c("p", { staticClass: "p-step_mypage__day" }, [
+            _c("p", { staticClass: "p-step_list__day" }, [
               _vm._v(_vm._s(_vm.formatDate(step.created_at)))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "p-step_mypage__criterion" }, [
+            _c("p", { staticClass: "p-step_list__criterion" }, [
               _vm._v("目安達成時間"),
               _c("span", [_vm._v(_vm._s(step.achievement_time))])
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "p-step_mypage__medium" }, [
+        _c("div", { staticClass: "p-step_list__medium" }, [
           _c(
             "a",
             {
-              staticClass: "p-step_mypage__medium-font",
+              staticClass: "p-step_list__medium-font",
               attrs: { href: "/step/ditail/" + step.id }
             },
-            [_vm._v("STEP"), _c("span", [_vm._v(_vm._s(step.title))])]
+            [
+              _vm._v("STEP"),
+              _c("span", { staticClass: "u-pl10" }, [
+                _vm._v(_vm._s(step.title))
+              ])
+            ]
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "p-step_mypage__bottom" }, [
+        _c("div", { staticClass: "p-step_list__bottom" }, [
           _c("div", [
-            _c("p", { staticClass: "p-step_mypage__bottom-font" }, [
+            _c("p", { staticClass: "p-step_list__bottom-font" }, [
               _vm._v(_vm._s(step.category))
             ])
           ])
