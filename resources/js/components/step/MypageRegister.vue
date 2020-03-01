@@ -2,8 +2,9 @@
   <div>
       <div class="p-step_mypage__item" v-for="(step, index) in steps" :key="index">
       <div class="p-step_mypage__top">
-        <div class="u-flex">
-          <img src="" alt="アイコン" class="p-step_mypage__img">
+        <div class="u-flex__center">
+          <!--<img src="" alt="アイコン" class="p-step_mypage__img">-->
+          <img alt="アイコン" class="p-step_mypage__img" v-if="step.user.pic" v-bind:src="'/' + step.user.pic">
           <p class="p-step_mypage__name">{{ step.user.name }}</p>
         </div>
         <div>
@@ -12,7 +13,7 @@
         </div>
       </div>
       <div class="p-step_mypage__medium">
-        <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-font">STEP<span>{{ step.title }}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
+        <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-font">STEP<span class="u-pl10">{{ step.title }}</span></a><!-- TODO: クラス名いいの思いついたら変える -->
       </div>
       <div class="p-step_mypage__bottom">
         <div>

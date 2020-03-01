@@ -2084,6 +2084,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -55394,11 +55395,13 @@ var render = function() {
     _vm._l(_vm.steps, function(step, index) {
       return _c("div", { key: index, staticClass: "p-step_mypage__item" }, [
         _c("div", { staticClass: "p-step_mypage__top" }, [
-          _c("div", { staticClass: "u-flex" }, [
-            _c("img", {
-              staticClass: "p-step_mypage__img",
-              attrs: { src: "", alt: "アイコン" }
-            }),
+          _c("div", { staticClass: "u-flex__center" }, [
+            step.user.pic
+              ? _c("img", {
+                  staticClass: "p-step_mypage__img",
+                  attrs: { alt: "アイコン", src: "/" + step.user.pic }
+                })
+              : _vm._e(),
             _vm._v(" "),
             _c("p", { staticClass: "p-step_mypage__name" }, [
               _vm._v(_vm._s(step.user.name))
@@ -55424,7 +55427,12 @@ var render = function() {
               staticClass: "p-step_mypage__medium-font",
               attrs: { href: "/step/ditail/" + step.id }
             },
-            [_vm._v("STEP"), _c("span", [_vm._v(_vm._s(step.title))])]
+            [
+              _vm._v("STEP"),
+              _c("span", { staticClass: "u-pl10" }, [
+                _vm._v(_vm._s(step.title))
+              ])
+            ]
           )
         ]),
         _vm._v(" "),
