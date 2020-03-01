@@ -2085,6 +2085,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -55425,15 +55428,16 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-step_mypage__medium" }, [
+          _c("p", { staticClass: "u-mb5" }, [_vm._v("STEP")]),
+          _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "p-step_mypage__medium-font",
+              staticClass: "p-step_mypage__medium-link",
               attrs: { href: "/step/ditail/" + step.id }
             },
             [
-              _vm._v("STEP"),
-              _c("span", { staticClass: "u-pl10" }, [
+              _c("p", { staticClass: "p-step_mypage__medium-font" }, [
                 _vm._v(_vm._s(step.title))
               ])
             ]

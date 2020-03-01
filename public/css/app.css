@@ -1005,6 +1005,20 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 20px;
 }
 
+.p-step_mypage__medium-link {
+  color: #262626;
+}
+
+.p-step_mypage__medium-link:hover {
+  color: #d27921;
+}
+
+.p-step_mypage__medium-font {
+  width: 100%;
+  word-break: break-all;
+  padding-right: 24px;
+}
+
 .p-step_mypage__bottom {
   display: flex;
   flex-wrap: wrap;
