@@ -848,9 +848,20 @@ input[type=checkbox]:checked + span::before {
   padding: 13px 130px 13px 130px;
 }
 
+.p-step_ditail {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .p-step_ditail__title {
   font-size: 26px;
   font-weight: normal;
+}
+
+.p-step_ditail__top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
 }
 
 .p-step_ditail__item {
@@ -859,14 +870,67 @@ input[type=checkbox]:checked + span::before {
   width: 630px;
 }
 
+@media screen and (max-width: 575px) {
+  .p-step_ditail__item {
+    padding: 0;
+  }
+}
+
 .p-step_ditail__content {
   margin-bottom: 150px;
+}
+
+.p-step_ditail__font {
+  font-size: 18px;
+}
+
+.p-step_ditail__border {
+  border: 1px solid #d3d3d3;
 }
 
 .p-step_ditail__button-font {
   color: #ffffff;
   font-size: 16px;
   padding: 12px 50px 12px 50px;
+}
+
+.p-list_box {
+  background-color: #3b3f47;
+  color: #ffffff;
+  width: 250px;
+}
+
+.p-list_box__item {
+  border-bottom: 1px solid #ffffff;
+  /*&:last-child{
+    border-bottom: none;
+  }*/
+}
+
+.p-list_box__title {
+  padding: 22px 14px;
+}
+
+.p-list_box__link {
+  color: #ffffff;
+}
+
+.p-list_box__link :hover {
+  background-color: #d27921;
+}
+
+.p-list_box__step {
+  padding-top: 18px;
+  padding-bottom: 5px;
+  padding-left: 14px;
+  font-size: 14px;
+}
+
+.p-list_box__font {
+  padding-left: 14px;
+  padding-bottom: 16px;
+  font-size: 14px;
+  word-break: break-all;
 }
 
 .p-step_list {
