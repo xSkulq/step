@@ -37,21 +37,25 @@
       <h1 class="p-list_box__title">STEP一覧</h1>
     </div>
       <div class="p-list_box__item">
-        <a href="" class="p-list_box__link">
+      <a href="/step/ditail/{{$step->id}}" class="p-list_box__link">
           <div>
             <p class="p-list_box__step">STEP</p>
-            <p class="p-list_box__font"></p>
+          <p class="p-list_box__font">{{ $step->title }}</p>
           </div>
         </a>
       </div>
+      @foreach ($step->step_children as $key => $step_child)
+      
       <div class="p-list_box__item">
-        <a href="" class="p-list_box__link">
+        <a href="/step/child/ditail/{{ $step_child->id }}" class="p-list_box__link">
           <div>
-            <p class="p-list_box__step">STEP1</p>
-            <p class="p-list_box__font">〇〇本を読む</p>
+          <p class="p-list_box__step">STEP{{ $key+1 }}</p>
+            <p class="p-list_box__font">{{ $step_child->title }}</p>
           </div>
         </a>
       </div>
+          
+      @endforeach
   </section>
 </div>
 

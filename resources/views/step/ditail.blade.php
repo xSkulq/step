@@ -52,14 +52,17 @@
           </div>
         </a>
       </div>
+      @foreach ($step->step_children as $key => $step_child)
+
       <div class="p-list_box__item">
-      <a href="/step/child/ditail/{{ $step->step_children[1]->id }}" class="p-list_box__link">
+      <a href="/step/child/ditail/{{$step_child->id}}" class="p-list_box__link">
           <div>
-            <p class="p-list_box__step">STEP1</p>
-            <p class="p-list_box__font">{{$step->step_children[1]->title}}</p>
+            <p class="p-list_box__step">STEP{{ $key + 1 }}</p>
+            <p class="p-list_box__font">{{$step_child->title}}</p>
           </div>
         </a>
       </div>
+      @endforeach
   </section>
 </div>
 

@@ -15,12 +15,21 @@ class StepChildrenController extends Controller
   public function show($id)
   {
     //dd($id);
-    // stepのid
+    // step_childのid
     $stepChildId = $id;
+    // userのid
+    $userId = Auth::id();
+    // 詳細用のstep_childのデータ
     $stepChild = StepChild::with(['step']);
     $stepChild = $stepChild->where('id', $stepChildId)->first();
-    //dd($stepChild);
-    return view('child.ditail', compact('stepChild'));
+
+    // stepのid
+    $stepId = $stepChild->step->id;
+    // step一覧のデータ
+    $step = Step::with(['user','step_children']);
+    $step = $step->where('id',$stepId)->where('user_id',$userId)->first();
+    //dd($step);
+    return view('child.ditail', compact('stepChild','step'));
   }
 
 
