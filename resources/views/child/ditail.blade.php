@@ -18,6 +18,9 @@
     <div class="p-step_ditail__content">
       <p class="p-step_ditail__font">{{$stepChild->content}}</p>
     </div>
+
+    <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
+    @if(Auth::id() === $step->user_id)
     <div>
       <div class="u-flex__center u-mb30">
         <a href="/step/child/edit/{{$stepChild->id}}" class="c-button p-step_ditail__button-font">編集</a>
@@ -25,10 +28,24 @@
       <div class="u-flex__center u-mb30">
       <a href="{{ route('step.child_new',$stepChild->step->id)}}" class="c-button p-step_ditail__button-font">子STEPを追加</a>
       </div>
+      <form method="POST" action="{{ route('step.child_destory',$stepChild->id)}}">
+        @csrf
       <div class="u-flex__center">
-        <button type="submit" class="c-button p-step_ditail__button-font">チャレンジしない</button>
+        <button type="submit" class="c-button p-step_ditail__button-font">この子STEPを削除する</button>
+      </div>
+      </form>
+    </div>
+
+    <!-- 他の人がstepの詳細を開いた時 -->
+    @else
+    <div>
+      <div>
+        <div class="u-flex__center u-mb30">
+          <a href="" class="c-button p-step_ditail__button-font">クリア</a>
+        </div>
       </div>
     </div>
+    @endif
   </section>
 
   <!-- step-list-box -->

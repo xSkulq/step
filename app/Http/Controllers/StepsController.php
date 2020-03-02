@@ -17,10 +17,7 @@ class StepsController extends Controller
 
   public function api_index(Request $request)
   {
-    // userid
-    //$steps = User::with(['steps'])->get();
     $steps = Step::with('user');
-    //dd($steps);
     $steps = $steps->orderBy('created_at', 'desc')->get();
     return response()->json($steps);
   }
@@ -62,14 +59,12 @@ class StepsController extends Controller
   // step詳細画面を表示
   public function show($id)
   {
-    //dd($id);
     // stepのid
     $stepId = $id;
     // userのid
     $userId = Auth::id();
     $step = Step::with(['user','step_children']);
     $step = $step->where('id', $stepId)->first();
-    //dd($step);
     return view('step.ditail',compact('step'));
   }
 
@@ -110,7 +105,16 @@ class StepsController extends Controller
 
     $step = Step::find($id);
     $step->fill($request->all())->save();
-    //return view('client.details', compact('client'));
     return redirect('/step/ditail/'.$id);
+  }
+
+  public function destory(Request $request, $id)
+  {
+    // stepのid
+    $stepId = $id;
+    $step = Step::find($stepId);
+    // stepの削除
+    $step = $step->delete(); // TODO: 削除する前に確認を取るように処理を追加しとくこと
+    return redirect('/step/mypage_register');
   }
 }

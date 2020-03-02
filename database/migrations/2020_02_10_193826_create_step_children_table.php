@@ -20,8 +20,7 @@ class CreateStepChildrenTable extends Migration
             $table->text('content');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('step_id')->references('id')->on('steps');
+            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascade');
         });
     }
 

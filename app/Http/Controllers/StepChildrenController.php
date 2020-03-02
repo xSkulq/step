@@ -26,8 +26,10 @@ class StepChildrenController extends Controller
     // stepのid
     $stepId = $stepChild->step->id;
     // step一覧のデータ
-    $step = Step::with(['user','step_children']);
-    $step = $step->where('id',$stepId)->where('user_id',$userId)->first();
+    $step = Step::with(['step_children']);
+    $step = $step->where('id',$stepId)->first();
+    //$step = Step::with(['user''step_children']);
+    //$step = $step->where('id',$stepId)->where('user_id',$userId)->first();
     //dd($step);
     return view('child.ditail', compact('stepChild','step'));
   }
@@ -83,5 +85,19 @@ class StepChildrenController extends Controller
     $stepChild = StepChild::find($stepChildId);
     $stepChild->fill($request->all())->save();
     return redirect('/step/child/ditail/'.$stepChildId);
+  }
+
+  public function destory(Request $request, $id)
+  {
+    // step_childのid
+    $stepChildId = $id;
+    // stepのid
+    $stepId = StepChild::with('step')->where('id',$stepChildId)->first();
+    $stepId = $stepId->step->id;
+    $stepChild = StepChild::find($stepChildId);
+    // stepChildの削除
+    $stepChild = $stepChild->delete();
+    //dd($id);
+    return redirect('/step/ditail/'.$stepId);
   }
 }

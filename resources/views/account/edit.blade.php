@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <!-- icon -->
+    <!-- icon --><!-- 余裕があれば非同期通信で画像をすぐに表示させたい -->
     <div>
       <span>アイコン</span>
       <div class="p-account_edit__icon">

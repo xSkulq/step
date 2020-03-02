@@ -26,17 +26,45 @@
     <div class="p-step_ditail__content">
       <p class="p-step_ditail__font">{{$step->content}}</p>
     </div>
+
+    <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
+    @if(Auth::id() === $step->user_id)
     <div>
-      <div class="u-flex__center u-mb30">
-        <a href="{{ route('step.edit',$step->id)}}" class="c-button p-step_ditail__button-font">編集</a>
-      </div>
-      <div class="u-flex__center u-mb30">
-      <a href="{{ route('step.child_new',$step->id)}}" class="c-button p-step_ditail__button-font">子STEPを追加</a>
-      </div>
-      <div class="u-flex__center">
-        <button type="submit" class="c-button p-step_ditail__button-font">このSTEPを削除する</button>
+      <div>
+        <div class="u-flex__center u-mb30">
+          <a href="{{ route('step.edit',$step->id)}}" class="c-button p-step_ditail__button-font">編集</a>
+        </div>
+        <div class="u-flex__center u-mb30">
+        <a href="{{ route('step.child_new',$step->id)}}" class="c-button p-step_ditail__button-font">子STEPを追加</a>
+        </div>
+        <form method="POST" action="{{ route('step.destory',$step->id)}}">
+          @csrf
+          <div class="u-flex__center">
+            <button type="submit" class="c-button p-step_ditail__button-font">このSTEPを削除する</button>
+          </div>
+        </form>
       </div>
     </div>
+
+    <!-- 他の人がstepの詳細を開いた時 -->
+    @else
+    <div>
+      <div>
+        <form method="POST" action="">
+          @csrf
+          <div class="u-flex__center u-mb30">
+            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
+          </div>
+        </form>
+        <form method="POST" action="">
+          @csrf
+          <div class="u-flex__center u-mb30">
+            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジをやめる</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    @endif
   </section>
 
   <!-- step-list-box -->
