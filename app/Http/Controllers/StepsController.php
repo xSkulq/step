@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 
 class StepsController extends Controller
 {
+  // step一覧
   public function index()
   {
-    //$steps = Step::find(1);
-    //dd($steps);
     return view('step.list');
   }
 
@@ -26,12 +25,14 @@ class StepsController extends Controller
     return response()->json($steps);
   }
 
+
   // 新規STEP登録の画面を表示
   public function new()
   {
     return view('step.register');
   }
   
+
   // 新規STEP登録の送信された情報を保存
   public function store(Request $request)
   {
@@ -48,33 +49,68 @@ class StepsController extends Controller
     return redirect('/home');
   }
 
-  public function edit()
+
+  // step編集画面を表示
+  public function edit(Request $request, $id)
   {
-    return view('step.edit');
+    $userId = Auth::id();
+    $step = Step::where('user_id', $userId)->find($id);
+    return view('step.edit',compact('step'));
   }
 
-  public function show()
+
+  // step詳細画面を表示
+  public function show($id)
   {
-    return view('step.ditail');
+    //dd($id);
+    // stepのid
+    $stepId = $id;
+    // userのid
+    $userId = Auth::id();
+    $step = Step::with(['user','step_children']);
+    $step = $step->where('id', $stepId)->first();
+    //dd($step);
+    return view('step.ditail',compact('step'));
   }
 
+  
+  //登録済み一覧を表示
   public function mypage_register(Request $request)
   {
     return view('step.mypage_register');
   }
 
+  // 登録済み一覧を表示
   public function api_mypage_register(Request $request)
   {
     // userid
     $userId = Auth::id();
     $steps = Step::with('user');
     $steps = $steps->where('user_id', $userId)->orderBy('created_at', 'desc')->get();
-    //dd($steps);
     return response()->json($steps);
   }
 
+
+  // チャレンジ一覧表示
   public function mypage_challenge()
   {
     return view('step.mypage_challenge');
+  }
+
+
+  public function update(Request $request, $id)
+  {
+
+    $request->validate([
+      'title' => 'required|string|max:255',
+      'category' => 'nullable|string|max:255',
+      'achievement_time' => 'nullable|string|max:255',
+      'content' => 'required|string'
+    ]);
+
+    $step = Step::find($id);
+    $step->fill($request->all())->save();
+    //return view('client.details', compact('client'));
+    return redirect('/step/ditail/'.$id);
   }
 }

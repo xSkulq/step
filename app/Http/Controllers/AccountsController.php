@@ -66,14 +66,23 @@ class AccountsController extends Controller
       'email' => 'required|string|max:255|email',
       'name' => 'nullable|string|max:255',
       'bio' => 'nullable|string',
-      'pic' => 'nullable|string|max:255'
+      'pic' => 'nullable|image'
     ]);
 
     // userテーブルの更新
     $userId = Auth::id();
     $user = User::find($userId);
-    $user->fill($request->all())->save();
+    $user->email = $request->email;
+    $user->name = $request->name;
+    $user->bio = $request->bio;
+    if ($request->pic) {
+      $file_name = time() . '.' . $request->pic->getClientOriginalName();
+      $request->pic->storeAs('public', $file_name);
+      $user->pic = 'storage/' . $file_name;
+    }
+    $user->save();
+    //$user->fill($request->all())->save();
     //Auth::user()->$user->fill($request->all())->save();
-    return redirect('/home');
+    return redirect('/account/edit');
   }
 }

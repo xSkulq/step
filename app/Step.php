@@ -17,6 +17,6 @@ class Step extends Model
   }
 
   public function step_children(){
-    return $this->hasMany('App\Step', 'step_id');
+    return $this->hasMany('App\StepChild');
   }
 }

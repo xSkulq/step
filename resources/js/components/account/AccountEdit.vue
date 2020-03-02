@@ -33,8 +33,8 @@
       <div class="p-account_edit__icon">
         <label for="icon">
         <template>
-          <input type="file" name="pic" class="p-account_edit__file" v-on:change="fileSelected">
-          <img alt="アイコン" class="p-account_edit__img" v-if="user_edit.pic" v-bind:src="'/' + user_edit.pic">
+          <input type="file" name="pic" class="p-account_edit__file" v-on:change="onFileChange">
+          <img alt="アイコン" class="p-account_edit__img" v-show="uploadedImage" :src="uploadedImage">
           <!--<img alt="no_icon" class="p-account_edit__img" v-else src="/imges/no_image.png">-->
             <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
             ファイル選択
@@ -76,10 +76,19 @@ export default {
     }
   },
   methods:{
+    // 選択された画像を変数に保存
     fileSelected(event){
       console.log(event);
-      // 選択された画像
       this.user_edit.pic = event.target.files[0]
+      this.createImage(this.user_edit.pic);
+    },
+    // アップロードした画像を表示
+    createImage(file) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        this.uploadedImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
     },
     fileUpload(){
       const formData = new FormData()
@@ -93,7 +102,7 @@ export default {
         console.log(response, 'response')
         //this.user_edit = response.data
           //if(response.data.pic) this.showUserImage = true
-      });
+      })
     }
   }
 }

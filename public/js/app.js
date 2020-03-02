@@ -2018,10 +2018,23 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // 選択された画像を変数に保存
     fileSelected: function fileSelected(event) {
-      console.log(event); // 選択された画像
-
+      console.log(event);
       this.user_edit.pic = event.target.files[0];
+      this.createImage(this.user_edit.pic);
+    },
+    // アップロードした画像を表示
+    createImage: function createImage(file) {
+      var _this = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this.uploadedImage = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
     },
     fileUpload: function fileUpload() {
       var formData = new FormData();
@@ -55344,15 +55357,21 @@ var render = function() {
               _c("input", {
                 staticClass: "p-account_edit__file",
                 attrs: { type: "file", name: "pic" },
-                on: { change: _vm.fileSelected }
+                on: { change: _vm.onFileChange }
               }),
               _vm._v(" "),
-              _vm.user_edit.pic
-                ? _c("img", {
-                    staticClass: "p-account_edit__img",
-                    attrs: { alt: "アイコン", src: "/" + _vm.user_edit.pic }
-                  })
-                : _vm._e(),
+              _c("img", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.uploadedImage,
+                    expression: "uploadedImage"
+                  }
+                ],
+                staticClass: "p-account_edit__img",
+                attrs: { alt: "アイコン", src: _vm.uploadedImage }
+              }),
               _vm._v(" "),
               _vm._v("\n          ファイル選択\n      ")
             ]

@@ -15,11 +15,13 @@ class CreateStepChildrenTable extends Migration
     {
         Schema::create('step_children', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('step_id');
+            $table->unsignedBigInteger('step_id');
             $table->string('title');
             $table->text('content');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('step_id')->references('id')->on('steps');
         });
     }
 

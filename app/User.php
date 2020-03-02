@@ -44,5 +44,9 @@ class User extends Authenticatable
 
     public function steps(){
         return $this->hasMany('App\Step');
-      }
+    }
+
+    public function step_children(){
+        return $this->hasMany('APP\StepChild');
+    }
 }

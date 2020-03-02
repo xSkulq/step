@@ -6,10 +6,10 @@
   <!-- step-list -->
   <section class="p-step_ditail__item">
     <div>
-      <h1 class="p-step_ditail__title u-mb25">タイトル</h1>
+      <h1 class="p-step_ditail__title u-mb25">{{$step->title}}</h1>
       <div class="p-step_ditail__top">
-        <p class="p-step_ditail__font">目安達成時間<span>1時間</span></p>
-        <p class="p-step_ditail__font u-ml15">カテゴリ</p>
+        <p class="p-step_ditail__font">目安達成時間<span>{{$step->achievement_time}}</span></p>
+        <p class="p-step_ditail__font u-ml15">{{$step->category}}</p>
       </div>
       <div class="p-step_ditail__border"></div>
     </div>
@@ -24,10 +24,18 @@
       </div>-->
     </div>
     <div class="p-step_ditail__content">
-      <p class="p-step_ditail__font">内容</p>
+      <p class="p-step_ditail__font">{{$step->content}}</p>
     </div>
-    <div class="u-flex__center">
-      <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
+    <div>
+      <div class="u-flex__center u-mb30">
+        <a href="{{ route('step.edit',$step->id)}}" class="c-button p-step_ditail__button-font">編集</a>
+      </div>
+      <div class="u-flex__center u-mb30">
+      <a href="{{ route('step.child_new',$step->id)}}" class="c-button p-step_ditail__button-font">子STEPを追加</a>
+      </div>
+      <div class="u-flex__center">
+        <button type="submit" class="c-button p-step_ditail__button-font">このSTEPを削除する</button>
+      </div>
     </div>
   </section>
 
@@ -37,18 +45,18 @@
       <h1 class="p-list_box__title">STEP一覧</h1>
     </div>
       <div class="p-list_box__item">
-        <a href="" class="p-list_box__link">
+        <a href="/step/ditail/{{$step->id}}" class="p-list_box__link">
           <div>
             <p class="p-list_box__step">STEP</p>
-            <p class="p-list_box__font">STEPタイトル</p>
+            <p class="p-list_box__font">{{$step->title}}</p>
           </div>
         </a>
       </div>
       <div class="p-list_box__item">
-        <a href="" class="p-list_box__link">
+      <a href="/step/child/ditail/{{ $step->step_children[1]->id }}" class="p-list_box__link">
           <div>
             <p class="p-list_box__step">STEP1</p>
-            <p class="p-list_box__font">〇〇本を読む</p>
+            <p class="p-list_box__font">{{$step->step_children[1]->title}}</p>
           </div>
         </a>
       </div>
