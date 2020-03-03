@@ -40,9 +40,12 @@
     @else
     <div>
       <div>
-        <div class="u-flex__center u-mb30">
-          <a href="" class="c-button p-step_ditail__button-font">クリア</a>
-        </div>
+        <form method="POST" action="{{ route('step.child_clear',$step->id)}}">
+          @csrf
+          <div class="u-flex__center u-mb30">
+            <button type="submit" class="c-button p-step_ditail__button-font">クリア</button>
+          </div>
+        </form>
       </div>
     </div>
     @endif

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class StepChild extends Model
 {
   protected $fillable = [
-    'step_id', 'title', 'content'
+    'step_id', 'title', 'content','clear_flg'
   ];
 
   public function user()

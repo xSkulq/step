@@ -93,6 +93,7 @@ class StepsController extends Controller
   }
 
 
+  // step編集の更新
   public function update(Request $request, $id)
   {
 
@@ -108,6 +109,7 @@ class StepsController extends Controller
     return redirect('/step/ditail/'.$id);
   }
 
+  // step削除
   public function destory(Request $request, $id)
   {
     // stepのid
@@ -115,6 +117,27 @@ class StepsController extends Controller
     $step = Step::find($stepId);
     // stepの削除
     $step = $step->delete(); // TODO: 削除する前に確認を取るように処理を追加しとくこと
+    return redirect('/step/mypage_register');
+  }
+
+  // チャレンジする
+  public function challenge($id)
+  {
+    $stepId = $id;
+    $step = Step::find($stepId);
+    $step->challenge_flg = true;
+    $step->save();
+    //dd($step);
+    return redirect('/home');
+  }
+
+    // チャレンジやめる
+    public function challenge_stop($id)
+  {
+    $stepId = $id;
+    $step = Step::find($stepId);
+    $step->challenge_flg = false;
+    $step->save();
     return redirect('/step/mypage_register');
   }
 }

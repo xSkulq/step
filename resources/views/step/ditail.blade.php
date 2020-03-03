@@ -50,13 +50,13 @@
     @else
     <div>
       <div>
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('step.challenge',$step->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
             <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
           </div>
         </form>
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('step.challenge_stop',$step->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
             <button type="submit" class="c-button p-step_ditail__button-font">チャレンジをやめる</button>

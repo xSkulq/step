@@ -38,6 +38,8 @@ Route::get('/step/edit/{id}', 'StepsController@edit')->name('step.edit');
 Route::get('/step/ditail/{id}', 'StepsController@show')->name('step.show');
 Route::post('/step/{id}', 'StepsController@update')->name('step.update');
 Route::post('/step/destory/{id}', 'StepsController@destory')->name('step.destory');
+Route::post('/step/challenge/{id}', 'StepsController@challenge')->name('step.challenge');
+Route::post('/step/challenge_stop/{id}', 'StepsController@challenge_stop')->name('step.challenge_stop');
 
 // step_child
 Route::get('/step/child/new/{id}', 'StepChildrenController@new')->name('step.child_new');
@@ -46,5 +48,6 @@ Route::post('/step/child/new/{id}', 'StepChildrenController@store')->name('step.
 Route::get('/step/child/ditail/{id}', 'StepChildrenController@show')->name('step.child_show');
 Route::post('/step/child/{id}', 'StepChildrenController@update')->name('step.child_update');
 Route::post('/step/child/destory/{id}', 'StepChildrenController@destory')->name('step.child_destory');
+Route::post('/step/child/clear/{id}', 'StepChildrenController@clear')->name('step.child_clear');
 
 

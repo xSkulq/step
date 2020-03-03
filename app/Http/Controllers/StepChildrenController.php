@@ -11,13 +11,11 @@ use Illuminate\Http\Request;
 class StepChildrenController extends Controller
 {
 
-  // step詳細画面を表示
+  // 子STEP詳細画面を表示
   public function show($id)
   {
-    //dd($id);
     // step_childのid
     $stepChildId = $id;
-    // userのid
     $userId = Auth::id();
     // 詳細用のstep_childのデータ
     $stepChild = StepChild::with(['step']);
@@ -28,22 +26,19 @@ class StepChildrenController extends Controller
     // step一覧のデータ
     $step = Step::with(['step_children']);
     $step = $step->where('id',$stepId)->first();
-    //$step = Step::with(['user''step_children']);
-    //$step = $step->where('id',$stepId)->where('user_id',$userId)->first();
-    //dd($step);
     return view('child.ditail', compact('stepChild','step'));
   }
 
 
+  // 子STEP登録画面を表示
   public function new($id)
   {
     $stepId = $id;
-    //dd($stepId);
     $userId = Auth::id();
-    //dd($userId);
     return view('child.register', compact('stepId'));
   }
 
+  // 子STEP編集画面を表示
   public function edit($id)
   {
     $stepChildId = $id;
@@ -54,13 +49,11 @@ class StepChildrenController extends Controller
     // 新規子STEP登録の送信された情報を保存
     public function store(Request $request,$id)
   {
-    //dd($id);
     $request->validate([
       'title' => 'required|string|max:255',
       'content' => 'required|string'
     ]);
 
-    //dd($request);
     // stepのid
     $stepId = $id;
 
@@ -72,6 +65,7 @@ class StepChildrenController extends Controller
     return redirect('/step/ditail/'.$stepId);
   }
 
+  // 子STEP編集画面の情報を更新する
   public function update(Request $request, $id)
   {
 
@@ -87,6 +81,7 @@ class StepChildrenController extends Controller
     return redirect('/step/child/ditail/'.$stepChildId);
   }
 
+  // 子STEPを削除する
   public function destory(Request $request, $id)
   {
     // step_childのid
@@ -97,7 +92,12 @@ class StepChildrenController extends Controller
     $stepChild = StepChild::find($stepChildId);
     // stepChildの削除
     $stepChild = $stepChild->delete();
-    //dd($id);
     return redirect('/step/ditail/'.$stepId);
+  }
+
+  // クリア処理
+  public function clear($id)
+  {
+    return redirect('/account/edit');
   }
 }
