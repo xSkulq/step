@@ -18,9 +18,11 @@ class CreateClearTable extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('step_id');
             $table->bigInteger('step_child_id');
+            $table->unsignedBigInteger('challenge_id');
             $table->boolean('clear_flg');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('challenge_id')->references('id')->on('challenges')->onDelete('cascade');
         });
     }
 

@@ -42,11 +42,23 @@ class User extends Authenticatable
       return $this->belongsTo('App\User');
     }
 
-    public function steps(){
+    public function steps()
+    {
         return $this->hasMany('App\Step');
     }
 
-    public function step_children(){
+    public function step_children()
+    {
         return $this->hasMany('APP\StepChild');
+    }
+
+    public function challenges()
+    {
+        return $this->hasMany('APP\Challenge');
+    }
+
+    public function clears()
+    {
+        return $this->hasMany('APP\Clear');
     }
 }

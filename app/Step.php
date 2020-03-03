@@ -16,7 +16,8 @@ class Step extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function step_children(){
+  public function step_children()
+  {
     return $this->hasMany('App\StepChild');
   }
 }

@@ -125,8 +125,6 @@ class StepsController extends Controller
   {
     $stepId = $id;
     $step = Step::find($stepId);
-    $step->challenge_flg = true;
-    $step->save();
     //dd($step);
     return redirect('/home');
   }
@@ -136,8 +134,6 @@ class StepsController extends Controller
   {
     $stepId = $id;
     $step = Step::find($stepId);
-    $step->challenge_flg = false;
-    $step->save();
     return redirect('/step/mypage_register');
   }
 }
