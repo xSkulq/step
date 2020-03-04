@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Step extends Model
 {
   protected $fillable = [
-    'user_id', 'title', 'category', 'achievement_time', 'content'
+    'user_id', 'title', 'category', 'achievement_time', 'content','challenge_flg'
   ];
 
   public function user()
@@ -16,7 +16,18 @@ class Step extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function step_children(){
-    return $this->hasMany('App\Step', 'step_id');
+  public function step_children()
+  {
+    return $this->hasMany('App\StepChild');
+  }
+
+  public function challenges()
+  {
+    return $this->hasMany('App\Challenge');
+  }
+
+  public function clears()
+  {
+    return $this->hasMany('App\Clear');
   }
 }

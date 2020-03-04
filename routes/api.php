@@ -19,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 //});
 
 // account
-Route::middleware('auth')->name('api.')->group(function(){
+/*Route::middleware('auth')->name('api.')->group(function(){
     Route::post('account/edit', 'AccountsController@api_edit')->name('account.edit');
-});
+});*/
 
 // step
 Route::middleware('auth')->name('api.')->group(function(){
     Route::get('home', 'StepsController@api_index')->name('step.index');
     Route::get('step/mypage_register', 'StepsController@api_mypage_register')->name('step.mypage_register');
+    Route::get('step/mypage_challenge', 'StepsController@api_mypage_challenge')->name('step.mypage_challenge');
 
 });

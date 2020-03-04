@@ -6,10 +6,10 @@
   <!-- step-list -->
   <section class="p-step_ditail__item">
     <div>
-      <h1 class="p-step_ditail__title u-mb25">タイトル</h1>
+      <h1 class="p-step_ditail__title u-mb25">{{$step->title}}</h1>
       <div class="p-step_ditail__top">
-        <p class="p-step_ditail__font">目安達成時間<span>1時間</span></p>
-        <p class="p-step_ditail__font u-ml15">カテゴリ</p>
+        <p class="p-step_ditail__font">目安達成時間<span>{{$step->achievement_time}}</span></p>
+        <p class="p-step_ditail__font u-ml15">{{$step->category}}</p>
       </div>
       <div class="p-step_ditail__border"></div>
     </div>
@@ -24,11 +24,61 @@
       </div>-->
     </div>
     <div class="p-step_ditail__content">
-      <p class="p-step_ditail__font">内容</p>
+      <p class="p-step_ditail__font">{{$step->content}}</p>
     </div>
-    <div class="u-flex__center">
-      <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
+
+    <!-- Twitterのシェアボタン -->
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
+    @if(Auth::id() === $step->user_id)
+    <div>
+      <div>
+        <div class="u-flex__center u-mb30">
+          <a href="{{ route('step.edit',$step->id)}}" class="c-button p-step_ditail__button-font">編集</a>
+        </div>
+        <div class="u-flex__center u-mb30">
+        <a href="{{ route('step.child_new',$step->id)}}" class="c-button p-step_ditail__button-font">子STEPを追加</a>
+        </div>
+        <form method="POST" action="{{ route('step.destory',$step->id)}}">
+          @csrf
+          <div class="u-flex__center">
+            <button type="submit" class="c-button p-step_ditail__button-font">このSTEPを削除する</button>
+          </div>
+        </form>
+      </div>
     </div>
+
+    <!-- 他の人がstepの詳細を開いた時 -->
+    @else
+    <div>
+      <div>
+        @if(empty($challenge->challenge_flg))
+        <form method="POST" action="{{ route('step.challenge',$step->id)}}">
+          @csrf
+          <div class="u-flex__center u-mb30">
+            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
+          </div>
+        </form>
+        @elseif($challenge->challenge_flg === 0)
+        <form method="POST" action="{{ route('step.challenge',$step->id)}}">
+          @csrf
+          <div class="u-flex__center u-mb30">
+            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
+          </div>
+        </form>
+        @else
+        <form method="POST" action="{{ route('step.challenge_stop',$step->id)}}">
+          @csrf
+          <div class="u-flex__center u-mb30">
+            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジをやめる</button>
+          </div>
+        </form>
+        @endif
+      </div>
+    </div>
+    @endif
   </section>
 
   <!-- step-list-box -->
@@ -37,21 +87,24 @@
       <h1 class="p-list_box__title">STEP一覧</h1>
     </div>
       <div class="p-list_box__item">
-        <a href="" class="p-list_box__link">
+        <a href="/step/ditail/{{$step->id}}" class="p-list_box__link">
           <div>
             <p class="p-list_box__step">STEP</p>
-            <p class="p-list_box__font">STEPタイトル</p>
+            <p class="p-list_box__font">{{$step->title}}</p>
           </div>
         </a>
       </div>
+      @foreach ($step->step_children as $key => $step_child)
+
       <div class="p-list_box__item">
-        <a href="" class="p-list_box__link">
+      <a href="/step/child/ditail/{{$step_child->id}}" class="p-list_box__link">
           <div>
-            <p class="p-list_box__step">STEP1</p>
-            <p class="p-list_box__font">〇〇本を読む</p>
+            <p class="p-list_box__step">STEP{{ $key + 1 }}</p>
+            <p class="p-list_box__font">{{$step_child->title}}</p>
           </div>
         </a>
       </div>
+      @endforeach
   </section>
 </div>
 

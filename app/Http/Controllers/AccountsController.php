@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class AccountsController extends Controller
@@ -22,11 +23,9 @@ class AccountsController extends Controller
     return view('account.edit', compact('user'));
   }
 
-  public function api_edit(Request $request)
+  /*public function api_edit(Request $request)
   {
     //dd($request->all());
-    // プロフィール編集からpostされたjsonをデコード
-    //$arrayUser = json_decode($request->all(), true);
     //dd($arrayUser);
     $validator = Validator::make($request->all(), [
       'email' => 'required|string|max:255|email',
@@ -34,11 +33,6 @@ class AccountsController extends Controller
       'bio' => 'nullable|string',
       'pic' => 'nullable|image'
     ]);
-
-    // エラーがあった場合プロフィール編集画面にエラーを返す
-    if ($validator->fails()) {
-      return compact('validator');
-    }
 
       // userid
       dd($request->all());
@@ -57,7 +51,7 @@ class AccountsController extends Controller
       $user->save();
       return $user;
 
-  }
+  }*/
 
   // プロフィール編集画面の送信された情報を保存
   public function store(Request $request)
@@ -66,14 +60,40 @@ class AccountsController extends Controller
       'email' => 'required|string|max:255|email',
       'name' => 'nullable|string|max:255',
       'bio' => 'nullable|string',
-      'pic' => 'nullable|string|max:255'
+      'pic' => 'nullable|image'
     ]);
 
     // userテーブルの更新
     $userId = Auth::id();
     $user = User::find($userId);
-    $user->fill($request->all())->save();
-    //Auth::user()->$user->fill($request->all())->save();
-    return redirect('/home');
+    $user->email = $request->email;
+    $user->name = $request->name;
+    $user->bio = $request->bio;
+
+    if ($request->pic) {
+
+      // 前の画像を消去する処理
+      $deletePic = $user->pic;
+      Storage::delete('public/'.$deletePic);
+
+      // 送信されたファイルをstoreに保存する処理
+      $file_name = time() . '.' . $request->pic->getClientOriginalName();
+      $request->pic->storeAs('public', $file_name);
+      //$user->pic = 'storage/' . $file_name;
+
+      // userにpicの値を格納
+      $user->pic = $file_name;
+    }
+    $user->save();
+    return redirect('/account/edit');
+  }
+
+  // img削除
+  public function destory($id)
+  {
+    // stepのid
+    $stepId = $id;
+    dd($stepId);
+    return redirect('/step/mypage_register');
   }
 }

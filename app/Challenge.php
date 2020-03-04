@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StepChild extends Model
+class Challenge extends Model
 {
   protected $fillable = [
-    'step_id', 'title', 'content','clear_flg'
+    'user_id', 'step_id', 'challenge_flg'
   ];
 
   public function user()
@@ -22,6 +22,7 @@ class StepChild extends Model
 
   public function clears()
   {
-    return $this->hasMany('APP\Clear');
+    return $this->hasMany('App\Clear');
   }
+
 }

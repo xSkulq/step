@@ -2018,10 +2018,23 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // 選択された画像を変数に保存
     fileSelected: function fileSelected(event) {
-      console.log(event); // 選択された画像
-
+      console.log(event);
       this.user_edit.pic = event.target.files[0];
+      this.createImage(this.user_edit.pic);
+    },
+    // アップロードした画像を表示
+    createImage: function createImage(file) {
+      var _this = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this.uploadedImage = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
     },
     fileUpload: function fileUpload() {
       var formData = new FormData();
@@ -2034,6 +2047,91 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response, 'response'); //this.user_edit = response.data
         //if(response.data.pic) this.showUserImage = true
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/step/MypageChallenge.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/step/MypageChallenge.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      challengeSteps: {}
+    };
+  },
+  mounted: function mounted() {
+    this.fetchList();
+  },
+  methods: {
+    // step一覧の情報を取得
+    fetchList: function fetchList() {
+      var _this = this;
+
+      var url = '/api/step/mypage_challenge';
+      axios.get(url).then(function (response) {
+        _this.challengeSteps = response.data;
+        console.log('this.steps :', _this.challengeSteps);
+      })["catch"](function (error) {
+        return console.log(error, 'エラー');
+      });
+    },
+    formatDate: function formatDate(date) {
+      // 日付をYYYY/MM/DD
+      if (!date) return '-';
+      return moment(date).format('YYYY/MM/DD');
     }
   }
 });
@@ -55344,15 +55442,21 @@ var render = function() {
               _c("input", {
                 staticClass: "p-account_edit__file",
                 attrs: { type: "file", name: "pic" },
-                on: { change: _vm.fileSelected }
+                on: { change: _vm.onFileChange }
               }),
               _vm._v(" "),
-              _vm.user_edit.pic
-                ? _c("img", {
-                    staticClass: "p-account_edit__img",
-                    attrs: { alt: "アイコン", src: "/" + _vm.user_edit.pic }
-                  })
-                : _vm._e(),
+              _c("img", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.uploadedImage,
+                    expression: "uploadedImage"
+                  }
+                ],
+                staticClass: "p-account_edit__img",
+                attrs: { alt: "アイコン", src: _vm.uploadedImage }
+              }),
               _vm._v(" "),
               _vm._v("\n          ファイル選択\n      ")
             ]
@@ -55376,6 +55480,167 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/step/MypageChallenge.vue?vue&type=template&id=99944d60&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/step/MypageChallenge.vue?vue&type=template&id=99944d60& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.challengeSteps, function(step, index) {
+      return _c("div", { key: index, staticClass: "p-step_mypage__item" }, [
+        _c("div", { staticClass: "p-step_mypage__top" }, [
+          _c("div", { staticClass: "u-flex" }, [
+            step.user.pic
+              ? _c("img", {
+                  staticClass: "p-step_mypage__img",
+                  attrs: { alt: "アイコン", src: "/" + step.user.pic }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("p", { staticClass: "p-step_mypage__name" }, [
+              _vm._v(_vm._s(step.user.name))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("p", { staticClass: "p-step_mypage__day" }, [
+              _vm._v(_vm._s(_vm.formatDate(step.created_at)))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "p-step_mypage__criterion" }, [
+              _vm._v("目安達成時間"),
+              _c("span", [_vm._v(_vm._s(step.achievement_time))])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-step_mypage__medium" }, [
+          _c("p", { staticClass: "u-mb5" }, [_vm._v("STEP")]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "p-step_mypage__medium-link",
+              attrs: { href: "/step/ditail/" + step.id }
+            },
+            [
+              _c("p", { staticClass: "p-step_mypage__medium-font" }, [
+                _vm._v(_vm._s(step.title))
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", {}, [
+          _c("div", { staticClass: "u-flex__space" }, [
+            step.clears.length
+              ? _c("p", [
+                  _vm._v("進捗"),
+                  _c("span", [
+                    _vm._v(
+                      _vm._s(
+                        Math.floor(
+                          (step.clears.length / step.step_children.length) * 100
+                        )
+                      ) + "%"
+                    )
+                  ])
+                ])
+              : _c("p", [_vm._v("進捗"), _c("span", [_vm._v("0%")])]),
+            _vm._v(" "),
+            step.clears.length
+              ? _c("p", [
+                  _vm._v(
+                    _vm._s(step.clears.length) +
+                      "/" +
+                      _vm._s(step.step_children.length)
+                  ),
+                  _c("span", [_vm._v("STEP")])
+                ])
+              : _c("p", [
+                  _vm._v("0/" + _vm._s(step.step_children.length)),
+                  _c("span", [_vm._v("STEP")])
+                ])
+          ]),
+          _vm._v(" "),
+          step.clears.length
+            ? _c("div", { staticClass: "c-progress" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "c-progress__bar",
+                    style:
+                      "width:" +
+                      Math.floor(
+                        (step.clears.length / step.step_children.length) * 100
+                      ) +
+                      "%",
+                    attrs: {
+                      role: "progressbar",
+                      "aria-valuenow": "100",
+                      "aria-valuemin": "0",
+                      "aria-valuemax": "100"
+                    }
+                  },
+                  [
+                    _c("span", [
+                      _vm._v(
+                        _vm._s(
+                          Math.floor(
+                            (step.clears.length / step.step_children.length) *
+                              100
+                          )
+                        ) + "%"
+                      )
+                    ])
+                  ]
+                )
+              ])
+            : _c("div", { staticClass: "c-progress" }, [_vm._m(0, true)])
+        ])
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "c-progress__bar",
+        staticStyle: { width: "0%" },
+        attrs: {
+          role: "progressbar",
+          "aria-valuenow": "100",
+          "aria-valuemin": "0",
+          "aria-valuemax": "100"
+        }
+      },
+      [_c("span", [_vm._v("0%")])]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -67739,6 +68004,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('step-list', __webpack_require__(/*! ./components/step/StepList.vue */ "./resources/js/components/step/StepList.vue")["default"]);
 Vue.component('mypage-register', __webpack_require__(/*! ./components/step/MypageRegister.vue */ "./resources/js/components/step/MypageRegister.vue")["default"]);
+Vue.component('mypage-challenge', __webpack_require__(/*! ./components/step/MypageChallenge.vue */ "./resources/js/components/step/MypageChallenge.vue")["default"]);
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); // account
 
 Vue.component('account-edit', __webpack_require__(/*! ./components/account/AccountEdit.vue */ "./resources/js/components/account/AccountEdit.vue")["default"]);
@@ -67948,6 +68214,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountEdit_vue_vue_type_template_id_674b574c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountEdit_vue_vue_type_template_id_674b574c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/step/MypageChallenge.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/step/MypageChallenge.vue ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MypageChallenge_vue_vue_type_template_id_99944d60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MypageChallenge.vue?vue&type=template&id=99944d60& */ "./resources/js/components/step/MypageChallenge.vue?vue&type=template&id=99944d60&");
+/* harmony import */ var _MypageChallenge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MypageChallenge.vue?vue&type=script&lang=js& */ "./resources/js/components/step/MypageChallenge.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MypageChallenge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MypageChallenge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MypageChallenge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MypageChallenge_vue_vue_type_template_id_99944d60___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MypageChallenge_vue_vue_type_template_id_99944d60___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/step/MypageChallenge.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/step/MypageChallenge.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/step/MypageChallenge.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MypageChallenge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MypageChallenge.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/step/MypageChallenge.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MypageChallenge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/step/MypageChallenge.vue?vue&type=template&id=99944d60&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/step/MypageChallenge.vue?vue&type=template&id=99944d60& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MypageChallenge_vue_vue_type_template_id_99944d60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MypageChallenge.vue?vue&type=template&id=99944d60& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/step/MypageChallenge.vue?vue&type=template&id=99944d60&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MypageChallenge_vue_vue_type_template_id_99944d60___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MypageChallenge_vue_vue_type_template_id_99944d60___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

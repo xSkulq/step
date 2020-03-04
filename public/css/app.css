@@ -856,6 +856,7 @@ input[type=checkbox]:checked + span::before {
 .p-step_ditail__title {
   font-size: 26px;
   font-weight: normal;
+  word-break: break-all;
 }
 
 .p-step_ditail__top {
@@ -882,6 +883,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_ditail__font {
   font-size: 18px;
+  word-break: break-all;
 }
 
 .p-step_ditail__border {
@@ -892,6 +894,7 @@ input[type=checkbox]:checked + span::before {
   color: #ffffff;
   font-size: 16px;
   padding: 12px 50px 12px 50px;
+  width: 300px;
 }
 
 .p-list_box {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStepChildrenTable extends Migration
+class CreateClearTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateStepChildrenTable extends Migration
      */
     public function up()
     {
-        Schema::create('step_children', function (Blueprint $table) {
+        Schema::create('clears', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('step_id');
-            $table->string('title');
-            $table->text('content');
+            $table->bigInteger('user_id');
+            $table->bigInteger('step_id');
+            $table->bigInteger('step_child_id');
+            $table->unsignedBigInteger('challenge_id');
+            $table->boolean('clear_flg');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascade');
+            $table->foreign('challenge_id')->references('id')->on('challenges')->onDelete('cascade');
         });
     }
 
@@ -31,6 +33,6 @@ class CreateStepChildrenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('step_children');
+        Schema::dropIfExists('clears');
     }
 }

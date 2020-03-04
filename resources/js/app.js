@@ -32,6 +32,7 @@ window.Vue = require('vue')
 // step
 Vue.component('step-list', require('./components/step/StepList.vue').default);
 Vue.component('mypage-register', require('./components/step/MypageRegister.vue').default);
+Vue.component('mypage-challenge', require('./components/step/MypageChallenge.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 // account
