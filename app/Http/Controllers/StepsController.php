@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Step;
 use App\User;
+use App\Challenge;
+use App\Clear;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -65,7 +67,11 @@ class StepsController extends Controller
     $userId = Auth::id();
     $step = Step::with(['user','step_children']);
     $step = $step->where('id', $stepId)->first();
-    return view('step.ditail',compact('step'));
+
+    // チャレンジしているかの値
+    $challenge = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
+    //dd($challenge);
+    return view('step.ditail',compact('step','challenge'));
   }
 
   
@@ -90,6 +96,23 @@ class StepsController extends Controller
   public function mypage_challenge()
   {
     return view('step.mypage_challenge');
+  }
+
+  // チャレンジSTEP一覧を表示
+  public function api_mypage_challenge(Request $request)
+  {
+    $userId = Auth::id();
+
+     /*$challengeSteps = Challenge::with(['step','user','clears']);
+    $challengeSteps = $challengeSteps->where('user_id', $userId)->orderBy('created_at', 'desc');
+    $challengeSteps = $challengeSteps->get();*/
+
+    $challengeSteps = Step::with(['challenges','user','step_children','clears']);
+    $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){// TODO:challengeの作成日順にならない
+        $query->where('challenge_flg',1)->where('user_id',Auth::id());
+      })->get();
+    //$challengeSteps = $challengeSteps->challenges->orderBy('created_at', 'desc')->get();
+    return response()->json($challengeSteps);
   }
 
 
@@ -123,17 +146,29 @@ class StepsController extends Controller
   // チャレンジする
   public function challenge($id)
   {
+    //stepのid
     $stepId = $id;
-    $step = Step::find($stepId);
-    //dd($step);
-    return redirect('/home');
+    $challenge = new Challenge();
+
+    // チャレンジするstepを保存
+    $challenge->user_id = Auth::id();
+    $challenge->step_id = $stepId;
+    $challenge->challenge_flg = true;
+    $challenge->save();
+    return redirect('/step/ditail/'.$stepId);
   }
 
     // チャレンジやめる
     public function challenge_stop($id)
   {
+    //stepのid
     $stepId = $id;
-    $step = Step::find($stepId);
-    return redirect('/step/mypage_register');
+    $userId = Auth::id();
+
+    // チャレンジをやめるstepを削除
+    $challenge_stop = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
+    $challenge_stop = $challenge_stop->delete();// TODO: ここはchallenge_flgをfalseにするか後で考える
+    //dd($challenge_stop);
+    return redirect('/step/mypage_challenge');
   }
 }

@@ -20,4 +20,14 @@ class Step extends Model
   {
     return $this->hasMany('App\StepChild');
   }
+
+  public function challenges()
+  {
+    return $this->hasMany('App\Challenge');
+  }
+
+  public function clears()
+  {
+    return $this->hasMany('App\Clear');
+  }
 }

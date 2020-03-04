@@ -20,6 +20,11 @@ class Clear extends Model
     return $this->belongsTo('App\Step', 'step_id');
   }
 
+  public function step_child()
+  {
+    return $this->belongsTo('App\StepChild', 'step_child_id');
+  }
+
   public function challenge()
   {
     return $this->belongsTo('App\Challenge', 'challenge_id');

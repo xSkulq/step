@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Step;
 use App\User;
 use App\StepChild;
+use App\Challenge;
+use App\Clear;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,14 @@ class StepChildrenController extends Controller
     // step一覧のデータ
     $step = Step::with(['step_children']);
     $step = $step->where('id',$stepId)->first();
-    return view('child.ditail', compact('stepChild','step'));
+
+    // チャレンジしているかの値
+    $challenge = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
+
+    // クリアしているかの値
+    $clear = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$stepChildId)->first();
+    //dd($clear);
+    return view('child.ditail', compact('stepChild','step','challenge','clear'));
   }
 
 
@@ -34,7 +43,6 @@ class StepChildrenController extends Controller
   public function new($id)
   {
     $stepId = $id;
-    $userId = Auth::id();
     return view('child.register', compact('stepId'));
   }
 
@@ -98,6 +106,23 @@ class StepChildrenController extends Controller
   // クリア処理
   public function clear($id)
   {
-    return redirect('/account/edit');
+    //stepchildのid
+    $stepChildId = $id;
+    // stepのid
+    $stepId = StepChild::with('step')->where('id',$stepChildId)->first();
+    $stepId = $stepId->step->id;
+    // challengeのid
+    $challengeId = Challenge::where('step_id',$stepId)->first();
+    $challengeId = $challengeId->id;
+    $clear = new Clear();
+
+    // チャレンジするstepを保存
+    $clear->user_id = Auth::id();
+    $clear->step_id = $stepId;
+    $clear->step_child_id = $stepChildId;
+    $clear->challenge_id = $challengeId;
+    $clear->clear_flg = true;
+    $clear->save();
+    return redirect('/step/child/ditail/'.$stepChildId);
   }
 }

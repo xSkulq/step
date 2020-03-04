@@ -19,6 +19,10 @@
       <p class="p-step_ditail__font">{{$stepChild->content}}</p>
     </div>
 
+    <!-- Twitterのシェアボタン -->
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
     @if(Auth::id() === $step->user_id)
     <div>
@@ -40,12 +44,18 @@
     @else
     <div>
       <div>
-        <form method="POST" action="{{ route('step.child_clear',$step->id)}}">
+        @if(empty($challenge->challenge_flg))
+        <div></div>
+        @elseif($challenge->challenge_flg === 1 && empty($clear->clear_flg))
+        <form method="POST" action="{{ route('step.child_clear',$stepChild->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
             <button type="submit" class="c-button p-step_ditail__button-font">クリア</button>
           </div>
         </form>
+        @else
+        <div></div>
+        @endif
       </div>
     </div>
     @endif

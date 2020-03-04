@@ -43,13 +43,13 @@
           @if(empty($user->pic))
           <img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">
           @else
-          <img alt="アイコン" class="p-account_edit__img" src="/{{ $user->pic }}">
+          <img alt="アイコン" class="p-account_edit__img" src="/storage/{{ $user->pic }}">
           @endif
             <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
         </label>
+        @error('pic')<div class="">{{ $message }}</div>@enderror
       </div>
     </div><!-- TODO: 画像の削除ボタンを後で作る -->
-    @error('pic')<div class="">{{ $message }}</div>@enderror
     <!-- button -->
     <div class="u-mb55 u-flex__center">
       <button class="c-button p-account_edit__button-font" type="submit">

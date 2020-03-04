@@ -19,4 +19,9 @@ class StepChild extends Model
   {
     return $this->belongsTo('App\Step', 'step_id');
   }
+
+  public function clears()
+  {
+    return $this->hasMany('APP\Clear');
+  }
 }
