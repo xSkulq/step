@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'RootController@root')->name('root');
 
 // lp
 Route::get('/lp', function(){
