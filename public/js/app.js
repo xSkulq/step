@@ -55510,7 +55510,7 @@ var render = function() {
             step.user.pic
               ? _c("img", {
                   staticClass: "p-step_mypage__img",
-                  attrs: { alt: "アイコン", src: "/" + step.user.pic }
+                  attrs: { alt: "アイコン", src: "/storage/" + step.user.pic }
                 })
               : _vm._e(),
             _vm._v(" "),
@@ -55671,7 +55671,7 @@ var render = function() {
             step.user.pic
               ? _c("img", {
                   staticClass: "p-step_mypage__img",
-                  attrs: { alt: "アイコン", src: "/" + step.user.pic }
+                  attrs: { alt: "アイコン", src: "/storage/" + step.user.pic }
                 })
               : _vm._e(),
             _vm._v(" "),
@@ -55752,7 +55752,7 @@ var render = function() {
             step.user.pic
               ? _c("img", {
                   staticClass: "p-step_list__img",
-                  attrs: { alt: "アイコン", src: "/" + step.user.pic }
+                  attrs: { alt: "アイコン", src: "/storage/" + step.user.pic }
                 })
               : _vm._e(),
             _vm._v(" "),

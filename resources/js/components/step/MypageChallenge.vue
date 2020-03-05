@@ -3,7 +3,7 @@
     <div class="p-step_mypage__item" v-for="(step, index) in challengeSteps" :key="index">
       <div class="p-step_mypage__top">
         <div class="u-flex">
-          <img alt="アイコン" class="p-step_mypage__img" v-if="step.user.pic" v-bind:src="'/' + step.user.pic">
+          <img alt="アイコン" class="p-step_mypage__img" v-if="step.user.pic" v-bind:src="'/storage/' + step.user.pic">
           <p class="p-step_mypage__name">{{ step.user.name }}</p>
         </div>
         <div>

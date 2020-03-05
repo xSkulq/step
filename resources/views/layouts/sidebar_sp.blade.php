@@ -1,5 +1,9 @@
 <header class="c-header">
-  <div class="c-header__logo">logo</div><!-- TODO: あとでロゴに差し替える -->
+  <div>
+    <a href="{{ route('root') }}" class="c-header__logo">
+      <img src="{{ asset('/imges/logo1.png') }}" alt="">
+    </a><!-- TODO: あとでロゴに差し替える -->
+  </div>
   <!-- toggle -->
   <div class="menu-trigger js-toggle-sp-menu">
     <span></span>
@@ -49,7 +53,7 @@
       <li class="c-sidebar-sp__item">
         <a class="c-sidebar-sp__link" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
-          {{ __('Logout') }}
+          ログアウト
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
