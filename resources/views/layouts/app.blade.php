@@ -1,7 +1,7 @@
 @include('layouts.head')
 <body>
   <div id="app">
-    @include('layouts.header')
+    @include('layouts.sidebar_sp')
     <div class="l-content">
       <div class="l-content__inner">
         <aside class="l-sidebar">

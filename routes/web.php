@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// 最初の処理
+
 Route::get('/', 'RootController@root')->name('root');
 
 // lp
