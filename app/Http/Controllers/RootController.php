@@ -11,7 +11,7 @@ class RootController extends Controller
   public function root()
   {
     if (Auth::check()) {
-      return view('home');
+      return view('step.list');
     } else {
       return view('lp');
     }

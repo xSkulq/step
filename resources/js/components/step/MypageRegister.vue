@@ -4,7 +4,7 @@
       <div class="p-step_mypage__top">
         <div class="u-flex__center">
           <!--<img src="" alt="アイコン" class="p-step_mypage__img">-->
-          <img alt="アイコン" class="p-step_mypage__img" v-if="step.user.pic" v-bind:src="'/' + step.user.pic">
+          <img alt="アイコン" class="p-step_mypage__img" v-if="step.user.pic" v-bind:src="'/storage/' + step.user.pic">
           <p class="p-step_mypage__name">{{ step.user.name }}</p>
         </div>
         <div>
