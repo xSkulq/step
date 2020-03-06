@@ -1,8 +1,6 @@
 .p-step_register{
-  //padding-left: 148px; // TODO: あとで％指定に変える
-  //padding-right: 65px;
   padding-left: 148px;
-  @include mq(sm){
+  @include mq(xl){
     padding: 0;
   }
   &__title{

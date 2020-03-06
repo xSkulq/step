@@ -3,7 +3,6 @@
       <div class="p-step_list__item" v-for="(step, index) in steps" :key="index">
       <div class="p-step_list__top">
         <div class="u-flex">
-          <!--<img src="" alt="アイコン" class="p-step_mypage__img">-->
           <img alt="アイコン" class="p-step_list__img" v-if="step.user.pic" v-bind:src="'/storage/' + step.user.pic">
           <p class="p-step_list__name">{{ step.user.name}}</p>
         </div>

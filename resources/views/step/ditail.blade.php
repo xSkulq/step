@@ -29,11 +29,10 @@
 
     <!-- Twitterのシェアボタン -->
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
     @if(Auth::id() === $step->user_id)
-    <div>
+    <div class="u-mt40">
       <div>
         <div class="u-flex__center u-mb30">
           <a href="{{ route('step.edit',$step->id)}}" class="c-button p-step_ditail__button-font">編集</a>
@@ -52,7 +51,7 @@
 
     <!-- 他の人がstepの詳細を開いた時 -->
     @else
-    <div>
+    <div class="u-mt40">
       <div>
         @if(empty($challenge->challenge_flg))
         <form method="POST" action="{{ route('step.challenge',$step->id)}}">

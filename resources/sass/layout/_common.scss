@@ -49,12 +49,14 @@ $widthSidebar: 320px;
     }
     @include mq(xl){
       padding: 0;
+      display: flex;
+      justify-content: center;
     }
   }
 }
 
 .l-main{
-  @include mq(sm){
-    margin: 0 auto;
+  @include mq(md){
+    //width: 100%;
   }
 }

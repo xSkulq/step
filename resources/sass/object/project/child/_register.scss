@@ -1,7 +1,8 @@
 .p-child_register{
-  //padding-left: 148px; // TODO: あとで％指定に変える
   padding-left: 148px;
-  //padding-right: 65px;
+  @include mq(xl){
+    padding: 0;
+  }
   &__title{
     font-size: $font-size-xl;
     font-weight: normal;
@@ -12,6 +13,9 @@
     margin-bottom: 115px;
     height: 180px;
     width: 450px; // TODO: widthの長さをあとで％指定にする
+    @include mq(md){
+      width: 300px;
+    }
   }
   &__button{
     &-font{
