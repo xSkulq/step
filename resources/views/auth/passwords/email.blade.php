@@ -18,17 +18,20 @@
 
         {{-- Email --}}
         <div class="u-mb55">
-          <label for="email" class="p-email__label">メールアドレス</label>
+          <label for="email" class="p-email__label">
+            <div class="u-flex__space">
+              <span>メールアドレス</span>
+              @error('email')
+              <span role="alert" class="c-inputFild__error">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+            </div>
 
-          <div>
-            <input id="email" type="email" class="c-inputFild @error('email') c-inputFild-error is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-            @error('email')
-            <span role="alert" class="c-inputFild__error">{{-- errorのスタイルはあとでやる --}}
-              <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-          </div>
+            <div>
+              <input id="email" type="email" class="c-inputFild @error('email') c-inputFild-error is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            </div>
+          </label>
         </div>
 
         {{-- button --}}
