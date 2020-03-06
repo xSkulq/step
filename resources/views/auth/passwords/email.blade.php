@@ -7,7 +7,7 @@
     <p class="p-email__font">ご登録されているメールアドレスをご入力ください</p>
     <p class="p-email__font u-mb65">パスワード再設定用のご案内のメールを送ります</p>
 
-      <form method="POST" action="{{ route('password.email') }}">
+      <form method="POST" action="{{ route('password.email') }}" class="p-email__form">
         @csrf
 
         @if (session('status'))

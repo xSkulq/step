@@ -1,7 +1,7 @@
 <header class="c-header">
   <div>
-    <a href="{{ url('/') }}" class="c-header__logo">
-      <img src="{{ asset('/imges/logo1.png') }}" alt="">
+    <a href="{{ url('/') }}">
+      <img src="{{ asset('/imges/logo1.png') }}" alt="" class="c-header__logo">
     </a><!-- TODO: あとでロゴに差し替える -->
   </div>
   <div class="u-flex">

@@ -5,6 +5,10 @@
   @include mq(xl){
     padding: 0;
   }
+  &__form{
+    width: 300px;
+    margin: 0 auto;
+  }
   &__title{
     font-size: $font-size-xl;
     font-weight: normal;
@@ -34,14 +38,21 @@
     border-radius: 50%;
     //border: 1px solid $light-gray;
     color: $font-color-black;
-    text-align: center;
-    line-height: 140px;
     position: relative;
-    margin-top: 10px;
     margin-bottom: 50px;
     height: 140px;
     width: 140px;
-
+    &-destory{
+      width: 140px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 22px;
+      &__pointer{
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
   }
   &__file{
     border-radius: 50%;
@@ -61,5 +72,8 @@
     top: 0;
     left: 0;
     border-radius: 50%;
+    &-destory{
+      display: none;
+    }
   }
 }

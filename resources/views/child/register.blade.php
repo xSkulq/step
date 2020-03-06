@@ -7,7 +7,7 @@
   <h1 class="p-child_register__title">子STEP登録</h1>
 
   <!-- step-list -->
-  <form method="POST" action="{{ route('step.child_store',$stepId) }}">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
+  <form method="POST" action="{{ route('step.child_store',$stepId) }}" class="p-child_register__form">
     @csrf
 
     {{-- title --}}
@@ -18,7 +18,7 @@
           @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
-        <div class="u-mt5 u-mb70">
+        <div class="p-child_register__input">
           <input name="title" type="text" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror" 
                  placeholder="タイトル"　value="{{ old('title') }}">
         </div>

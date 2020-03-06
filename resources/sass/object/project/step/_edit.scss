@@ -1,8 +1,7 @@
-.p-child_register{
+.p-step_edit{
   padding-left: 148px;
   @include mq(xl){
     padding: 0;
-    margin-bottom: 48px;
   }
   &__title{
     font-size: $font-size-xl;
@@ -17,20 +16,11 @@
     width: 300px;
     margin: 0 auto;
   }
-  &__input{
-    margin-top: 5px;
-    margin-bottom: 70px;
-    @include mq(md){
-      margin-bottom: 48px;
-    }
-  }
   &__textarea{
-    margin-bottom: 115px;
     height: 180px;
     width: 450px; // TODO: widthの長さをあとで％指定にする
-    @include mq(md){
+    @include mq(){
       width: 300px;
-      margin-bottom: 60px;
     }
   }
   &__button{

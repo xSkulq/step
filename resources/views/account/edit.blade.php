@@ -1,7 +1,7 @@
 @extends('layouts.app_own_column')
 
 @section('content')
-<form method="POST" action="{{ route('account.store') }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('account.store') }}" enctype="multipart/form-data" class="p-account_edit__form">
   @csrf
   <div class="p-account_edit"> 
     <h1 class="p-account_edit__title">プロフィール編集</h1>
@@ -53,13 +53,15 @@
     <div>
       <div class="u-flex">
         <span>アイコン</span>
-        <div>
-          <label>
-          <i class="far fa-times-circle"></i>
-          <input type="submit" name="img_destory" class="p-account_edit__img-destory" value="アイコンを削除します">
-          </label>
-        </div>
       </div>
+
+      <div class="p-account_edit__icon-destory">
+        <label>
+        <i class="far fa-times-circle p-account_edit__icon-destory__pointer"></i>
+        <input type="submit" name="img_destory" class="p-account_edit__img-destory" value="アイコンを削除します">
+        </label>
+      </div>
+      
       <div class="p-account_edit__icon">
         <label for="icon">
           <input type="file" name="pic" class="p-account_edit__file">

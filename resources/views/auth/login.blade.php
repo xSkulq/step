@@ -5,7 +5,7 @@
   <div>
     <h1 class="p-login__title">ログイン</h1>
 
-      <form method="POST" action="{{ route('login') }}">
+      <form method="POST" action="{{ route('login') }}" class="p-login__form">
         @csrf
 
 				{{-- Email --}}

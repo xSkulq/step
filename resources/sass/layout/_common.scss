@@ -57,6 +57,6 @@ $widthSidebar: 320px;
 
 .l-main{
   @include mq(md){
-    //width: 100%;
+    width: 100%;
   }
 }

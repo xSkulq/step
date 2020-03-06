@@ -8,6 +8,13 @@
     font-weight: normal;
     text-align: center;
     margin-bottom: 80px;
+    @include mq(md){
+      margin-bottom: 48px;
+    }
+  }
+  &__form{
+    width: 300px;
+    margin: 0 auto;
   }
   &__textarea{
     height: 180px;
