@@ -5,6 +5,10 @@
   @include mq(xl){
     padding: 0;
   }
+  &__form{
+    width: 300px;
+    margin: 0 auto;
+  }
   &__title{
     font-size: $font-size-xl;
     font-weight: normal;

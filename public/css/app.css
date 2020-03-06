@@ -1022,6 +1022,11 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
+.p-account_edit__form {
+  width: 300px;
+  margin: 0 auto;
+}
+
 .p-account_edit__title {
   font-size: 26px;
   font-weight: normal;
@@ -1754,6 +1759,51 @@ input[type=checkbox]:checked + span::before {
   width: 300px;
 }
 
+.p-step_edit {
+  padding-left: 148px;
+}
+
+@media screen and (max-width: 1199px) {
+  .p-step_edit {
+    padding: 0;
+  }
+}
+
+.p-step_edit__title {
+  font-size: 26px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_edit__title {
+    margin-bottom: 48px;
+  }
+}
+
+.p-step_edit__form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.p-step_edit__textarea {
+  height: 180px;
+  width: 450px;
+}
+
+@media screen and (max-width: 575px) {
+  .p-step_edit__textarea {
+    width: 300px;
+  }
+}
+
+.p-step_edit__button-font {
+  color: #ffffff;
+  font-size: 18px;
+  padding: 13px 130px 13px 130px;
+}
+
 .p-list_box {
   background-color: #3b3f47;
   color: #ffffff;
@@ -1897,6 +1947,12 @@ input[type=checkbox]:checked + span::before {
   padding-right: 60px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_mypage {
+    padding: 0;
+  }
+}
+
 .p-step_mypage__title {
   font-size: 26px;
   font-weight: normal;
@@ -1914,6 +1970,12 @@ input[type=checkbox]:checked + span::before {
   background: #ffffff;
   padding: 8px 4px 7px 20px;
   width: 500px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_mypage__item {
+    width: 100%;
+  }
 }
 
 .p-step_mypage__top {
@@ -1985,6 +2047,17 @@ input[type=checkbox]:checked + span::before {
   font-weight: normal;
   text-align: center;
   margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_register__title {
+    margin-bottom: 48px;
+  }
+}
+
+.p-step_register__form {
+  width: 300px;
+  margin: 0 auto;
 }
 
 .p-step_register__textarea {

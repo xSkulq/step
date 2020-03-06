@@ -1,7 +1,7 @@
 @extends('layouts.app_own_column')
 
 @section('content')
-<form method="POST" action="{{ route('account.store') }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('account.store') }}" enctype="multipart/form-data" class="p-account_edit__form">
   @csrf
   <div class="p-account_edit"> 
     <h1 class="p-account_edit__title">プロフィール編集</h1>

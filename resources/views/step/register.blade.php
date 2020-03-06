@@ -6,7 +6,7 @@
   <!-- main -->
   <h1 class="p-step_register__title">STEP新規登録</h1>
 
-  <form method="POST" action="{{ route('step.store') }}">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
+  <form method="POST" action="{{ route('step.store') }}" class="p-step_register__form">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
     @csrf
 
     {{-- title --}}

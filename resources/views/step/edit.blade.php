@@ -1,17 +1,17 @@
 @extends('layouts.app_own_column')
 
 @section('content')
-<div class="p-step_register">
+<div class="p-step_edit">
 
   <!-- main -->
-  <h1 class="p-step_register__title">STEP編集</h1>
+  <h1 class="p-step_edit__title">STEP編集</h1>
 
-  <form method="POST" action="{{ route('step.update',$step->id) }}">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
+  <form method="POST" action="{{ route('step.update',$step->id) }}" class="p-step_edit__form">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
     @csrf
 
     {{-- title --}}
     <div>
-      <label for="title" class="p-step_register__label">
+      <label for="title" class="p-step_edit__label">
         <div class="u-flex__space">
           <span>タイトル</span>
           @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
@@ -26,7 +26,7 @@
 
     {{-- STEPカテゴリ --}}
     <div>
-      <label for="category" class="p-step_register__label">
+      <label for="category" class="p-step_edit__label">
         <div class="u-flex__space">
           <span>STEPカテゴリ</span>
           @error('category')<div class="c-inputFild__error">{{ $message }}</div>@enderror
@@ -41,7 +41,7 @@
 
     {{-- 目安達成時間 --}}
     <div>
-      <label for="criterion" class="p-step_register__label">
+      <label for="criterion" class="p-step_edit__label">
         <div class="u-flex__space">
           <span>目安達成時間</span>
           @error('achievement_time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
@@ -56,23 +56,21 @@
 
     {{-- STEPの内容 --}}
     <div>
-      <label for="content" class="p-account_edit__font">
+      <label for="content" class="p-step_edit__font">
         <div class="u-flex__space">
           <span>内容</span>
           @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
         <div class="u-mt5 u-mb55">
-          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea @error('content') c-inputFild__long-error @enderror" placeholder="内容">
-            @if(!empty(old('content'))){{ old('content')}}@else{{ $step->content }}@endif
-          </textarea>
+          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_edit__textarea @error('content') c-inputFild__long-error @enderror" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $step->content }}@endif</textarea>
         </div>
       </label>
     </div>
 
     {{-- ボタン --}}
     <div class="u-mb55 u-flex__center">
-      <button class="c-button p-step_register__button-font" type="submit">
+      <button class="c-button p-step_edit__button-font" type="submit">
         保存
       </button>
     </div>
