@@ -293,6 +293,13 @@ ul {
 
 .c-footer__font {
   color: #ffffff;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .c-footer__font {
+    margin-left: 0;
+  }
 }
 
 .c-header {

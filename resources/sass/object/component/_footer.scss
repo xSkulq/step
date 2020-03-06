@@ -15,5 +15,9 @@
   }
   &__font{
     color: $font-color-white;
+    margin-left: 20px;
+    @include mq(md){
+      margin-left: 0;
+    }
   }
 }
