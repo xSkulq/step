@@ -7,7 +7,7 @@
         <aside class="l-sidebar">
           @include('layouts.sidebar')
         </aside>
-        <main>
+        <main class="l-main">
           @yield('content')
         </main>
         <div class="l-search">

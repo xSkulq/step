@@ -257,12 +257,6 @@ ul {
   }
 }
 
-@media screen and (max-width: 575px) {
-  .l-main {
-    margin: 0 auto;
-  }
-}
-
 .c-button {
   background: #d27921;
   padding: 9px 70px 9px 70px;
@@ -1699,6 +1693,12 @@ input[type=checkbox]:checked + span::before {
   padding-right: 60px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_list {
+    padding: 0;
+  }
+}
+
 .p-step_list__title {
   font-size: 26px;
   font-weight: normal;
@@ -1716,6 +1716,12 @@ input[type=checkbox]:checked + span::before {
   background: #ffffff;
   padding: 8px 4px 7px 20px;
   width: 500px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_list__item {
+    width: 100%;
+  }
 }
 
 .p-step_list__top {
