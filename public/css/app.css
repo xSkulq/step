@@ -252,6 +252,8 @@ ul {
 @media screen and (max-width: 1199px) {
   .l-content__inner {
     padding: 0;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -337,6 +339,7 @@ ul {
 
 .c-inputFild__long {
   font-size: 16px;
+  border: 1px solid #d3d3d3;
   padding: 5px;
   padding-left: 8px;
   height: 35px;
@@ -955,6 +958,12 @@ input[type=checkbox]:checked + span::before {
   padding-left: 148px;
 }
 
+@media screen and (max-width: 1199px) {
+  .p-account_edit {
+    padding: 0;
+  }
+}
+
 .p-account_edit__title {
   font-size: 26px;
   font-weight: normal;
@@ -962,9 +971,22 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 90px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-account_edit__title {
+    margin-bottom: 48px;
+    font-size: 24px;
+  }
+}
+
 .p-account_edit__textarea {
   height: 100px;
   width: 450px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-account_edit__textarea {
+    width: 300px;
+  }
 }
 
 .p-account_edit__button-font {

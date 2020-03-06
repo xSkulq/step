@@ -49,6 +49,8 @@ $widthSidebar: 320px;
     }
     @include mq(xl){
       padding: 0;
+      display: flex;
+      justify-content: center;
     }
   }
 }

@@ -1,14 +1,14 @@
 <header class="c-header">
-  <div>
-    <a href="{{ route('root') }}" class="c-header__logo">
-      <img src="{{ asset('/imges/logo1.png') }}" alt="">
-    </a><!-- TODO: あとでロゴに差し替える -->
-  </div>
   <!-- toggle -->
   <div class="menu-trigger js-toggle-sp-menu">
     <span></span>
     <span></span>
     <span></span>
+  </div>
+  <div>
+    <a href="{{ route('root') }}" class="c-header__logo">
+      <img src="{{ asset('/imges/logo1.png') }}" alt="">
+    </a><!-- TODO: あとでロゴに差し替える -->
   </div>
 
   <!-- toggle時のサイドバー -->
