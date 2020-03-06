@@ -1329,6 +1329,65 @@ input[type=checkbox]:checked + span::before {
   font-size: 18px;
 }
 
+.p-child_edit {
+  padding-left: 148px;
+}
+
+@media screen and (max-width: 1199px) {
+  .p-child_edit {
+    padding: 0;
+  }
+}
+
+.p-child_edit__title {
+  font-size: 26px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-child_edit__title {
+    margin-bottom: 48px;
+  }
+}
+
+.p-child_edit__form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.p-child_edit__input {
+  margin-top: 5px;
+  margin-bottom: 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-child_edit__input {
+    margin-bottom: 48px;
+  }
+}
+
+.p-child_edit__textarea {
+  margin-bottom: 115px;
+  height: 180px;
+  width: 450px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-child_edit__textarea {
+    width: 300px;
+    margin-bottom: 60px;
+  }
+}
+
+.p-child_edit__button-font {
+  color: #ffffff;
+  font-size: 18px;
+  padding: 13px 130px 13px 130px;
+  margin-bottom: 48px;
+}
+
 .p-child_register {
   padding-left: 148px;
 }
@@ -1336,6 +1395,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 1199px) {
   .p-child_register {
     padding: 0;
+    margin-bottom: 48px;
   }
 }
 
@@ -1344,6 +1404,28 @@ input[type=checkbox]:checked + span::before {
   font-weight: normal;
   text-align: center;
   margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-child_register__title {
+    margin-bottom: 48px;
+  }
+}
+
+.p-child_register__form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.p-child_register__input {
+  margin-top: 5px;
+  margin-bottom: 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-child_register__input {
+    margin-bottom: 48px;
+  }
 }
 
 .p-child_register__textarea {
@@ -1355,6 +1437,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-child_register__textarea {
     width: 300px;
+    margin-bottom: 60px;
   }
 }
 
@@ -1867,7 +1950,13 @@ input[type=checkbox]:checked + span::before {
   font-size: 26px;
   font-weight: normal;
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_list__title {
+    margin-bottom: 60px;
+  }
 }
 
 .p-step_list__category {

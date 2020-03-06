@@ -1,8 +1,7 @@
-.p-child_register{
+.p-child_edit{
   padding-left: 148px;
   @include mq(xl){
     padding: 0;
-    margin-bottom: 48px;
   }
   &__title{
     font-size: $font-size-xl;
@@ -38,6 +37,7 @@
       color: $font-color-white;
       font-size: $font-size-2l;
       padding: 13px 130px 13px 130px;
+      margin-bottom: 48px;
     }
   }
 }
