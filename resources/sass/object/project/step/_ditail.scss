@@ -1,6 +1,9 @@
 .p-step_ditail{
   display: flex;
   flex-wrap: wrap;
+  @include mq(xl){
+    display: block;
+  }
   &__title{
     font-size: $font-size-xl;
     font-weight: normal;
@@ -15,8 +18,10 @@
     padding-left: 78px;
     padding-right: 50px;
     width: 630px;
-    @include mq(sm){
+    @include mq(md){
       padding: 0;
+      width: 90%;
+      margin: 0 auto;
     }
   }&__content{
     margin-bottom: 150px;

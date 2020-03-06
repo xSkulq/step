@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><!-- twitter -->
     <script type="module" src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
