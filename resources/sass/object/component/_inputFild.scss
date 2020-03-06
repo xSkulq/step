@@ -31,8 +31,7 @@
     }
   }
   &__error{
-    font-size: $font-size-l; // TODO: エラーのスタイルはあとでやる
-    display: block;
+    font-size: $font-size-m; // TODO: エラーのスタイルはあとでやる
     color: $red;
   }
 }

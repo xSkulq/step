@@ -10,32 +10,38 @@
 
 				{{-- Email --}}
         <div>
-          <label class="p-login__font" for="email">メールアドレス</label>
+          <label class="p-login__font" for="email">
+            <div class="u-flex__space">
+              <span>メールアドレス</span>
+              @error('email')
+              <span class="c-inputFild__error" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+            </div>
 
             <div class="u-mt5 u-mb20">
               <input id="email" type="email" class="c-inputFild @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                @error('email')
-                <span class="c-inputFild__error" role="alert"><!-- TODO: エラーのスタイルはあとでやる  -->
-                	<strong>{{ $message }}</strong>
-                </span>
-                @enderror
             </div>
+          </label>
         </div>
 
 				{{-- Password --}}
         <div>
-          <label class="p-login__font" for="password">パスワード</label>
-
-            <div class="u-mt5 u-mb10">
-              <input id="password" type="password" class="c-inputFild @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+          <label class="p-login__font" for="password">
+            <div class="u-flex__space">
+              <span>パスワード</span>
               @error('password')
               <span class="c-inputFild__error" role="alert">
                 <strong>{{ $message }}</strong>
               </span>
               @enderror
             </div>
+
+            <div class="u-mt5 u-mb10">
+              <input id="password" type="password" class="c-inputFild @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            </div>
+          </label>
         </div>
 
 				<div class="u-flex__space u-mb45">
