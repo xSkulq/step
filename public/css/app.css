@@ -465,12 +465,9 @@ input[type=checkbox]:checked + span::before {
   padding: 25px 14px;
 }
 
-.c-sidebar__logo {
-  margin-bottom: 50px;
-}
-
 .c-sidebar__list {
   list-style: none;
+  margin-top: 70px;
 }
 
 .c-sidebar__item {
@@ -1004,13 +1001,21 @@ input[type=checkbox]:checked + span::before {
   background: #ffffff;
   border-radius: 50%;
   color: #262626;
-  text-align: center;
-  line-height: 140px;
   position: relative;
-  margin-top: 10px;
   margin-bottom: 50px;
   height: 140px;
   width: 140px;
+}
+
+.p-account_edit__icon-destory {
+  width: 140px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 22px;
+}
+
+.p-account_edit__icon-destory__pointer:hover {
+  cursor: pointer;
 }
 
 .p-account_edit__file {
@@ -1031,6 +1036,10 @@ input[type=checkbox]:checked + span::before {
   top: 0;
   left: 0;
   border-radius: 50%;
+}
+
+.p-account_edit__img-destory {
+  display: none;
 }
 
 .p-email {

@@ -1,6 +1,5 @@
 <!-- pc用画面のサイドバー -->
 <div class="c-sidebar">
-  <div class="c-sidebar__logo">STEP</div>
   <ul class="c-sidebar__list">
     <a class="c-sidebar__link" href="{{ route('step.index')}}">
       <li class="c-sidebar__item">
