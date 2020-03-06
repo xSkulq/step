@@ -1825,7 +1825,7 @@ input[type=checkbox]:checked + span::before {
   padding-left: 148px;
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 1199px) {
   .p-step_register {
     padding: 0;
   }
