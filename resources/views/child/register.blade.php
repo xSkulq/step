@@ -12,22 +12,30 @@
 
     {{-- title --}}
     <div>
-      <label for="title" class="p-child_register__label">タイトル</label>
+      <label for="title" class="p-child_register__label">
+        <div class="u-flex__space">
+          <span>タイトル</span>
+          @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+        </div>
 
-      <div class="u-mt5 u-mb70">
-        @error('title')<div class="">{{ $message }}</div>@enderror
-        <input name="title" type="text" class="c-inputFild__long" placeholder="タイトル"　value="{{ old('title') }}">
-      </div>
+        <div class="u-mt5 u-mb70">
+          <input name="title" type="text" class="c-inputFild__long" placeholder="タイトル"　value="{{ old('title') }}">
+        </div>
+      </label>
     </div>
 
     {{-- STEPの内容 --}}
     <div>
-      <label for="content" class="p-child_register__font">内容</label>
+      <label for="content" class="p-child_register__font">
+        <div class="u-flex__space">
+          <span>内容</span>
+          @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+        </div>
 
-      <div class="u-mt5">
-        @error('content')<div class="">{{ $message }}</div>@enderror
-        <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-child_register__textarea" placeholder="内容"></textarea>
-      </div>
+        <div class="u-mt5">
+          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-child_register__textarea" placeholder="内容"></textarea>
+        </div>
+      </label>
     </div>
 
     {{-- ボタン --}}

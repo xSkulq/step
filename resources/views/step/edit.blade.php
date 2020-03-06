@@ -11,42 +11,58 @@
 
     {{-- title --}}
     <div>
-      <label for="title" class="p-step_register__label">タイトル</label>
+      <label for="title" class="p-step_register__label">
+        <div class="u-flex__space">
+          <span>タイトル</span>
+          @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+        </div>
 
-      <div class="u-mt5 u-mb20">
-        @error('title')<div class="">{{ $message }}</div>@enderror
-        <input type="text" name="title" class="c-inputFild__long" placeholder="タイトル" value="@if(!empty(old('title'))){{ old('title')}}@else{{ $step->title }}@endif">
-      </div>
+        <div class="u-mt5 u-mb20">
+          <input type="text" name="title" class="c-inputFild__long" placeholder="タイトル" value="@if(!empty(old('title'))){{ old('title')}}@else{{ $step->title }}@endif">
+        </div>
+      </label>
     </div>
 
     {{-- STEPカテゴリ --}}
     <div>
-      <label for="category" class="p-step_register__label">STEPカテゴリ</label>
+      <label for="category" class="p-step_register__label">
+        <div class="u-flex__space">
+          <span>STEPカテゴリ</span>
+          @error('category')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+        </div>
 
-      <div class="u-mt5 u-mb20">
-        @error('category')<div class="">{{ $message }}</div>@enderror
-        <input type="text" name="category" class="c-inputFild__long" placeholder="STEPカテゴリ" value="@if(!empty(old('category'))){{ old('category')}}@else{{ $step->category }}@endif">
-      </div>
+        <div class="u-mt5 u-mb20">
+          <input type="text" name="category" class="c-inputFild__long" placeholder="STEPカテゴリ" value="@if(!empty(old('category'))){{ old('category')}}@else{{ $step->category }}@endif">
+        </div>
+      </label>
     </div>
 
     {{-- 目安達成時間 --}}
     <div>
-      <label for="criterion" class="p-step_register__label">目安達成時間</label>
+      <label for="criterion" class="p-step_register__label">
+        <div class="u-flex__space">
+          <span>目安達成時間</span>
+          @error('achievement_time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+        </div>
 
-      <div class="u-mt5 u-mb20">
-        @error('achievement_time')<div class="">{{ $message }}</div>@enderror
-        <input type="text" name="achievement_time" class="c-inputFild__long" placeholder="目安達成時間" value="@if(!empty(old('achievement_time'))){{ old('achievement_time')}}@else{{ $step->achievement_time }}@endif">
-      </div>
+        <div class="u-mt5 u-mb20">
+          <input type="text" name="achievement_time" class="c-inputFild__long" placeholder="目安達成時間" value="@if(!empty(old('achievement_time'))){{ old('achievement_time')}}@else{{ $step->achievement_time }}@endif">
+        </div>
+      </label>
     </div>
 
     {{-- STEPの内容 --}}
     <div>
-      <label for="content" class="p-account_edit__font">内容</label>
+      <label for="content" class="p-account_edit__font">
+        <div class="u-flex__space">
+          <span>内容</span>
+          @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+        </div>
 
-      <div class="u-mt5 u-mb55">
-        @error('content')<div class="">{{ $message }}</div>@enderror
-        <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $step->content }}@endif</textarea>
-      </div>
+        <div class="u-mt5 u-mb55">
+          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $step->content }}@endif</textarea>
+        </div>
+      </label>
     </div>
 
     {{-- ボタン --}}
