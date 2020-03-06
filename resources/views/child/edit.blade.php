@@ -19,7 +19,8 @@
         </div>
 
         <div class="u-mt5 u-mb70">
-          <input name="title" type="text" class="c-inputFild__long" placeholder="タイトル"　value="@if(!empty(old('title'))){{ old('title')}}@else{{ $stepChild->title }}@endif">
+          <input name="title" type="text" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror" 
+                 placeholder="タイトル"　value="@if(!empty(old('title'))){{ old('title')}}@else{{ $stepChild->title }}@endif">
         </div>
       </label>
     </div>
@@ -33,7 +34,7 @@
         </div>
 
         <div class="u-mt5">
-          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-child_register__textarea" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $stepChild->content }}@endif</textarea>
+          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-child_register__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $stepChild->content }}@endif</textarea>
         </div>
       </label>
     </div>

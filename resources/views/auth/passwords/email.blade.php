@@ -21,7 +21,7 @@
           <label for="email" class="p-email__label">メールアドレス</label>
 
           <div>
-            <input id="email" type="email" class="c-inputFild @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <input id="email" type="email" class="c-inputFild @error('email') c-inputFild-error is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
             @error('email')
             <span role="alert" class="c-inputFild__error">{{-- errorのスタイルはあとでやる --}}

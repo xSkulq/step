@@ -15,7 +15,7 @@
             <label for="email" class="p-reset__label">メールアドレス</label>
 
               <div class="u-mt5 u-mb20">
-                <input id="email" type="email" class="c-inputFild @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                <input id="email" type="email" class="c-inputFild @error('email') c-inputFild-error is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
                 @error('email')
                 <span class="c-inputFild__error" role="alert">
@@ -30,7 +30,7 @@
             <label for="password" class="p-reset__label">パスワード</label>
 
             <div class="u-mt5 u-mb20">
-              <input id="password" type="password" class="c-inputFild @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+              <input id="password" type="password" class="c-inputFild @error('password') c-inputFild-error is-invalid @enderror" name="password" required autocomplete="new-password">
 
               @error('password')
               <span class="c-inputFild__errror" role="alert">

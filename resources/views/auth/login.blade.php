@@ -21,7 +21,7 @@
             </div>
 
             <div class="u-mt5 u-mb20">
-              <input id="email" type="email" class="c-inputFild @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+              <input id="email" type="email" class="c-inputFild @error('email') c-inputFild-error is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
             </div>
           </label>
         </div>
@@ -39,7 +39,7 @@
             </div>
 
             <div class="u-mt5 u-mb10">
-              <input id="password" type="password" class="c-inputFild @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+              <input id="password" type="password" class="c-inputFild @error('password') c-inputFild-error is-invalid @enderror" name="password" required autocomplete="current-password">
             </div>
           </label>
         </div>

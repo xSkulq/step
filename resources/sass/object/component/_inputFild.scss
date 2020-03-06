@@ -5,6 +5,9 @@
   padding-left: 8px;
   height: 35px;
   width: 350px;
+  &-error{
+    border: 1px solid $red;
+  }
   @include mq(sm){
     height: 30px;
     width: 300px;
@@ -16,6 +19,9 @@
     padding-left: 8px;
     height: 35px;
     width: 450px; // TODO: widthの長さをあとで％指定にする
+    &-error{
+      border: 1px solid $red;
+    }
     @include mq(sm){
       padding: 0;
       width: 300px;
@@ -26,6 +32,9 @@
     border: 1px solid $light-gray;
     padding: 5px;
     padding-left: 8px;
+    &-error{
+      border: 1px solid $red;
+    }
     @include mq(sm){
       width: 300px;
     }

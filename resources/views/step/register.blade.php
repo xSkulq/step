@@ -18,7 +18,7 @@
         </div>
 
         <div class="u-mt5 u-mb20">
-          <input type="text" name="title" class="c-inputFild__long" placeholder="タイトル" value="{{ old('title') }}">
+          <input type="text" name="title" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror" placeholder="タイトル" value="{{ old('title') }}">
         </div>
       </label>
     </div>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="u-mt5 u-mb20">
-          <input type="text" name="category" class="c-inputFild__long" placeholder="STEPカテゴリ" value="{{ old('category') }}">
+          <input type="text" name="category" class="c-inputFild__long @error('category') c-inputFild__long-error @enderror" placeholder="STEPカテゴリ" value="{{ old('category') }}">
         </div>
       </label>
     </div>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="u-mt5 u-mb20">
-          <input type="text" name="achievement_time" class="c-inputFild__long" placeholder="目安達成時間" value="{{ old('achievement_time') }}">
+          <input type="text" name="achievement_time" class="c-inputFild__long @error('achievement_time') c-inputFild__long-error @enderror" placeholder="目安達成時間" value="{{ old('achievement_time') }}">
         </div>
       </label>
     </div>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="u-mt5 u-mb55">
-          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea" placeholder="内容" value="{{ old('content') }}"></textarea>
+          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea @error('content') c-inputFild__long-error @enderror" placeholder="内容">{{ old('content') }}</textarea>
         </div>
       </label>
     </div>

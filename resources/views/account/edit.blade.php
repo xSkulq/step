@@ -15,7 +15,8 @@
         </div>
 
         <div class="u-mt5 u-mb20">
-          <input type="email" name="email" class="c-inputFild__long" placeholder="メールアドレス" value="{{ $user->email }}">
+          <input type="email" name="email" class="c-inputFild__long @error('email') c-inputFild__long-error @enderror" 
+                 placeholder="メールアドレス" value="{{ $user->email }}">
         </div>
       </label>
     </div>
@@ -28,7 +29,8 @@
           @error('name')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
         <div class="u-mt5 u-mb20">
-          <input type="name" name="name" class="c-inputFild__long" placeholder="名前" value="{{ $user->name }}">
+          <input type="name" name="name" class="c-inputFild__long @error('name') c-inputFild__long-error @enderror" 
+                 placeholder="名前" value="{{ $user->name }}">
         </div>
       </label>
     </div>
@@ -41,7 +43,8 @@
           @error('bio')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
         <div class="u-mt5 u-mb20">
-          <textarea name="bio" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea" placeholder="自己紹介">{{ $user->bio }}</textarea>
+          <textarea name="bio" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea @error('bio') c-inputFild__long-error @enderror" 
+                    placeholder="自己紹介">{{ $user->bio }}</textarea>
         </div>
       </label>
     </div>
