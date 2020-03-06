@@ -6,6 +6,10 @@
   align-items: center;
   padding-left: 90px;
   padding-right: 90px;
+  @include mq(md){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   &__sidebar{
     display: none;
     @include mq(xl){
@@ -21,6 +25,13 @@
     &:hover{
       background-color: #e79341;
     }
+    @include mq(md){
+      font-size: 14px;
+      padding: 8px 18px;
+    }
+    @include mq(sm){
+      padding: 6px 14px;
+    }
     &-white{
       background-color: $background-white;
       color: $font-color-black;
@@ -28,6 +39,12 @@
       &:hover{
         background-color: $light-gray;
       }
+    }
+  }
+  &__logo{
+    @include mq(md){
+      width: 70%;
+      height: 70%;
     }
   }
 }

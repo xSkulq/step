@@ -6,11 +6,22 @@
   padding-bottom: 80px;
   padding-left: 175px; // TODO: あとで％指定に変える
   padding-right: 175px;
+  @include mq(md){
+    padding: 0;
+    padding-top: 40px;
+    padding-bottom: 48px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
   &__title{
     font-size: $font-size-xl;
     text-align: center;
     font-weight: normal;
     margin-bottom: 30px;
+  }
+  &__form{
+    width: 300px;
+    margin: 0 auto;
   }
   &__font{
     font-size: $font-size-m;

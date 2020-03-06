@@ -5,7 +5,7 @@
   <div>
     <h1 class="p-singup__title">新規登録</h1>
 
-      <form method="POST" action="{{ route('register') }}">
+      <form method="POST" action="{{ route('register') }}" class="p-singup__form">
         @csrf
 
         {{-- Email --}}

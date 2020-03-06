@@ -5,7 +5,7 @@
   <div>
     <h1 class="p-reset__title">パスワードリセット</h1>
 
-      <form method="POST" action="{{ route('password.update') }}">
+      <form method="POST" action="{{ route('password.update') }}" class="p-reset__form">
         @csrf
 
           <input type="hidden" name="token" value="{{ $token }}">
