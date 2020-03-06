@@ -1,5 +1,19 @@
 .c-footer{
   background: $background-deep-blue;
-  height: 80px;
   margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  &__logo{
+    @include mq(md){
+      width: 70%;
+      height: 0%;
+    }
+  }
+  &__font{
+    color: $font-color-white;
+  }
 }

@@ -275,8 +275,24 @@ ul {
 
 .c-footer {
   background: #3b3f47;
-  height: 80px;
   margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .c-footer__logo {
+    width: 70%;
+    height: 0%;
+  }
+}
+
+.c-footer__font {
+  color: #ffffff;
 }
 
 .c-header {
