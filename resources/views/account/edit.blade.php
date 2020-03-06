@@ -51,7 +51,12 @@
 
     <!-- icon --><!-- 余裕があれば非同期通信で画像をすぐに表示させたい -->
     <div>
-      <span>アイコン</span>
+      <div class="u-flex">
+        <span>アイコン</span>
+        <div>
+          <input type="submit" name="img_destory" class="" value="アイコンを削除します">
+        </div>
+      </div>
       <div class="p-account_edit__icon">
         <label for="icon">
           <input type="file" name="pic" class="p-account_edit__file">

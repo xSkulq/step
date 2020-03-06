@@ -17,9 +17,6 @@ class AccountsController extends Controller
   public function edit(Request $request)
   {
     $user = Auth::user();
-    //$user = DB::table('users')->where('id', $userId)->get();
-    //$user = $user->json_encode();
-    //dd($user);
     return view('account.edit', compact('user'));
   }
 
@@ -56,6 +53,20 @@ class AccountsController extends Controller
   // プロフィール編集画面の送信された情報を保存
   public function store(Request $request)
   {
+    // userテーブルの更新
+    $userId = Auth::id();
+    $user = User::find($userId);
+
+    // アイコンの隣の×ボタンを押したときの処理
+    if ($request->input('img_destory')){
+      // 画像を消去する処理
+      $deletePic = $user->pic;
+      $user->pic = '';
+      Storage::delete('public/'.$deletePic);
+      $user->save();
+    }
+
+    // バリデーション
     $request->validate([
       'email' => 'required|string|max:255|email',
       'name' => 'nullable|string|max:255',
@@ -63,9 +74,6 @@ class AccountsController extends Controller
       'pic' => 'nullable|image'
     ]);
 
-    // userテーブルの更新
-    $userId = Auth::id();
-    $user = User::find($userId);
     $user->email = $request->email;
     $user->name = $request->name;
     $user->bio = $request->bio;
@@ -86,14 +94,5 @@ class AccountsController extends Controller
     }
     $user->save();
     return redirect('/account/edit');
-  }
-
-  // img削除
-  public function destory($id)
-  {
-    // stepのid
-    $stepId = $id;
-    dd($stepId);
-    return redirect('/step/mypage_register');
   }
 }
