@@ -2107,6 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2188,6 +2189,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2229,16 +2231,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -55508,13 +55500,16 @@ var render = function() {
     _vm._l(_vm.challengeSteps, function(step, index) {
       return _c("div", { key: index, staticClass: "p-step_mypage__item" }, [
         _c("div", { staticClass: "p-step_mypage__top" }, [
-          _c("div", { staticClass: "u-flex" }, [
+          _c("div", { staticClass: "u-flex__center" }, [
             step.user.pic
               ? _c("img", {
                   staticClass: "p-step_mypage__img",
                   attrs: { alt: "アイコン", src: "/storage/" + step.user.pic }
                 })
-              : _vm._e(),
+              : _c("img", {
+                  staticClass: "p-step_list__img",
+                  attrs: { alt: "no-img", src: "/imges/no_image.png" }
+                }),
             _vm._v(" "),
             _c("p", { staticClass: "p-step_mypage__name" }, [
               _vm._v(_vm._s(step.user.name))
@@ -55677,7 +55672,10 @@ var render = function() {
                   staticClass: "p-step_mypage__img",
                   attrs: { alt: "アイコン", src: "/storage/" + step.user.pic }
                 })
-              : _vm._e(),
+              : _c("img", {
+                  staticClass: "p-step_list__img",
+                  attrs: { alt: "no-img", src: "/imges/no_image.png" }
+                }),
             _vm._v(" "),
             _c("p", { staticClass: "p-step_mypage__name" }, [
               _vm._v(_vm._s(step.user.name))
@@ -55754,13 +55752,16 @@ var render = function() {
     _vm._l(_vm.steps, function(step, index) {
       return _c("div", { key: index, staticClass: "p-step_list__item" }, [
         _c("div", { staticClass: "p-step_list__top" }, [
-          _c("div", { staticClass: "u-flex" }, [
+          _c("div", { staticClass: "u-flex__center" }, [
             step.user.pic
               ? _c("img", {
                   staticClass: "p-step_list__img",
                   attrs: { alt: "アイコン", src: "/storage/" + step.user.pic }
                 })
-              : _vm._e(),
+              : _c("img", {
+                  staticClass: "p-step_list__img",
+                  attrs: { alt: "no-img", src: "/imges/no_image.png" }
+                }),
             _vm._v(" "),
             _c("p", { staticClass: "p-step_list__name" }, [
               _vm._v(_vm._s(step.user.name))

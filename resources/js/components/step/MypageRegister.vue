@@ -5,6 +5,7 @@
         <div class="u-flex__center">
           <!--<img src="" alt="アイコン" class="p-step_mypage__img">-->
           <img alt="アイコン" class="p-step_mypage__img" v-if="step.user.pic" v-bind:src="'/storage/' + step.user.pic">
+          <img alt="no-img" class="p-step_list__img" v-else src="/imges/no_image.png">
           <p class="p-step_mypage__name">{{ step.user.name }}</p>
         </div>
         <div>

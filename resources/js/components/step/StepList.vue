@@ -2,8 +2,9 @@
   <div>
       <div class="p-step_list__item" v-for="(step, index) in steps" :key="index">
       <div class="p-step_list__top">
-        <div class="u-flex">
+        <div class="u-flex__center">
           <img alt="アイコン" class="p-step_list__img" v-if="step.user.pic" v-bind:src="'/storage/' + step.user.pic">
+          <img alt="no-img" class="p-step_list__img" v-else src="/imges/no_image.png">
           <p class="p-step_list__name">{{ step.user.name}}</p>
         </div>
         <div>
@@ -16,23 +17,12 @@
         <p class="u-mb5">STEP</p>
         <a :href="'/step/ditail/' + step.id" class="p-step_list__medium-link">
           <p class="p-step_list__medium-font">{{ step.title}}</p>
-          </a><!-- TODO: クラス名いいの思いついたら変える -->
+          </a>
       </div>
       <div class="p-step_list__bottom">
         <div>
           <p class="p-step_list__bottom-font">{{ step.category }}</p>
         </div>
-        <!--<div class="u-flex">
-          <p class="p-step_mypage__bottom-font">pv<span>1000</span></p>
-          <p class="p-step_mypage__bottom-font">-->
-            <!-- iタグをいれる(チャレンジ数にちなんだ) -->
-          <!--  <span>1000</span>
-          </p>
-          <p class="p-step_mypage__bottom-font">-->
-            <!-- iタグをいれる(ハートのアイコン) -->
-          <!--  <span>1000</span>
-          </p>
-        </div>-->
       </div>
     </div>
   </div>
