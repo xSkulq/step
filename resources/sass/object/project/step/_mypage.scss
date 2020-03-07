@@ -34,13 +34,11 @@
     margin-right: 8px;
     height: 40px;
     width: 40px;
-    //border-style:none;
   }
   &__name{
     font-size: $font-size-2l;
   }
   &__day{
-    //padding-left: 15px;
     margin-bottom: 5px;
     display: flex;
     justify-content: flex-end;
@@ -62,6 +60,7 @@
       width: 100%;
       word-break: break-all;
       padding-right: 24px;
+      font-size: $font-size-2l;
     }
   }
   &__bottom{
