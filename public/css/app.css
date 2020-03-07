@@ -489,7 +489,7 @@ input[type=checkbox]:checked + span::before {
 
 .c-search {
   background: #3b3f47;
-  height: 50%;
+  min-height: calc(100vh - 155px );
   padding: 25px 14px;
 }
 
@@ -1989,6 +1989,7 @@ input[type=checkbox]:checked + span::before {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 16px;
 }
 
@@ -2080,6 +2081,7 @@ input[type=checkbox]:checked + span::before {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 16px;
 }
 
