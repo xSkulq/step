@@ -4,6 +4,9 @@
   height: auto;
   min-height: calc(100vh - #{$heightNavbar + 75px} );
   padding: 25px 14px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: $heightNavbar + 75px;
   &__list{
     list-style: none;
     margin-top: 70px;
