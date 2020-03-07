@@ -14,8 +14,10 @@
     }
   }
   &__form{
-    width: 300px;
-    margin: 0 auto;
+    @include mq(md){
+      width: 300px;
+      margin: 0 auto;
+    }
   }
   &__input{
     margin-top: 5px;

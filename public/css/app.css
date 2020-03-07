@@ -1022,9 +1022,11 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
-.p-account_edit__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-account_edit__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-account_edit__title {
@@ -1352,9 +1354,11 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
-.p-child_edit__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-child_edit__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-child_edit__input {
@@ -1412,9 +1416,11 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
-.p-child_register__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-child_register__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-child_register__input {
@@ -1865,9 +1871,11 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
-.p-step_edit__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-step_edit__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-step_edit__textarea {
@@ -2144,9 +2152,11 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
-.p-step_register__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-step_register__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-step_register__textarea {
