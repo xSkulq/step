@@ -20,8 +20,10 @@
     margin-bottom: 75px;
   }
   &__form{
-    width: 300px;
-    margin: 0 auto;
+    @include mq(md){
+      width: 300px;
+      margin: 0 auto;
+    }
   }
   &__link{
     color: $font-color-peacook-greeen;

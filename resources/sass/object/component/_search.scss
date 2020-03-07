@@ -3,6 +3,9 @@
   background: $background-deep-blue;
   min-height: calc(100vh - #{$heightNavbar + 75px} );
   padding: 25px 14px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: $heightNavbar + 75px;
   &__box{
     margin-bottom: 30px;
   }

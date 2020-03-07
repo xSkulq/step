@@ -491,6 +491,9 @@ input[type=checkbox]:checked + span::before {
   background: #3b3f47;
   min-height: calc(100vh - 155px );
   padding: 25px 14px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 155px;
 }
 
 .c-search__box {
@@ -519,6 +522,9 @@ input[type=checkbox]:checked + span::before {
   height: auto;
   min-height: calc(100vh - 155px );
   padding: 25px 14px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 155px;
 }
 
 .c-sidebar__list {
@@ -1132,9 +1138,11 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 30px;
 }
 
-.p-email__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-email__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-email__font {
@@ -1191,9 +1199,11 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 75px;
 }
 
-.p-login__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-login__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-login__checkbox-font {
@@ -1260,9 +1270,11 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 75px;
 }
 
-.p-reset__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-reset__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-reset__link {
@@ -1301,9 +1313,11 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 75px;
 }
 
-.p-singup__form {
-  width: 300px;
-  margin: 0 auto;
+@media screen and (max-width: 767px) {
+  .p-singup__form {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .p-singup__link {
