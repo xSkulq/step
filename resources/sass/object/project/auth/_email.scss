@@ -20,8 +20,10 @@
     margin-bottom: 30px;
   }
   &__form{
-    width: 300px;
-    margin: 0 auto;
+    @include mq(md){
+      width: 300px;
+      margin: 0 auto;
+    }
   }
   &__font{
     font-size: $font-size-m;
