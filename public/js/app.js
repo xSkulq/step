@@ -55547,7 +55547,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", {}, [
+        _c("div", { staticClass: "u-mb10" }, [
           _c("div", { staticClass: "u-flex__space" }, [
             step.clears.length
               ? _c("p", [

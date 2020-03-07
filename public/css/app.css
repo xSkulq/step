@@ -2031,6 +2031,7 @@ input[type=checkbox]:checked + span::before {
   width: 100%;
   word-break: break-all;
   padding-right: 24px;
+  font-size: 18px;
 }
 
 .p-step_list__bottom {
@@ -2121,6 +2122,7 @@ input[type=checkbox]:checked + span::before {
   width: 100%;
   word-break: break-all;
   padding-right: 24px;
+  font-size: 18px;
 }
 
 .p-step_mypage__bottom {

@@ -17,7 +17,7 @@
         <p class="p-step_mypage__medium-font">{{ step.title }}</p>
         </a><!-- TODO: クラス名いいの思いついたら変える -->
       </div>
-      <div class="">
+      <div class="u-mb10">
         <div class="u-flex__space">
           <p v-if="(step.clears.length)">進捗<span>{{ Math.floor(step.clears.length / step.step_children.length * 100)}}%</span></p>
           <p v-else>進捗<span>0%</span></p>
