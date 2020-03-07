@@ -2106,6 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2186,6 +2187,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2227,6 +2229,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -55523,10 +55526,12 @@ var render = function() {
               _vm._v(_vm._s(_vm.formatDate(step.created_at)))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "p-step_mypage__criterion" }, [
-              _vm._v("目安達成時間"),
-              _c("span", [_vm._v(_vm._s(step.achievement_time))])
-            ])
+            step.achievement_time
+              ? _c("p", { staticClass: "p-step_mypage__criterion" }, [
+                  _vm._v("目安達成時間"),
+                  _c("span", [_vm._v(_vm._s(step.achievement_time))])
+                ])
+              : _c("p")
           ])
         ]),
         _vm._v(" "),
@@ -55684,10 +55689,12 @@ var render = function() {
               _vm._v(_vm._s(_vm.formatDate(step.created_at)))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "p-step_mypage__criterion" }, [
-              _vm._v("目安達成時間"),
-              _c("span", [_vm._v(_vm._s(step.achievement_time))])
-            ])
+            step.achievement_time
+              ? _c("p", { staticClass: "p-step_mypage__criterion" }, [
+                  _vm._v("目安達成時間"),
+                  _c("span", [_vm._v(_vm._s(step.achievement_time))])
+                ])
+              : _c("p")
           ])
         ]),
         _vm._v(" "),
@@ -55765,10 +55772,12 @@ var render = function() {
               _vm._v(_vm._s(_vm.formatDate(step.created_at)))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "p-step_list__criterion" }, [
-              _vm._v("目安達成時間"),
-              _c("span", [_vm._v(_vm._s(step.achievement_time))])
-            ])
+            step.achievement_time
+              ? _c("p", { staticClass: "p-step_list__criterion" }, [
+                  _vm._v("目安達成時間"),
+                  _c("span", [_vm._v(_vm._s(step.achievement_time))])
+                ])
+              : _c("p")
           ])
         ]),
         _vm._v(" "),

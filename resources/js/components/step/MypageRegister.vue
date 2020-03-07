@@ -9,7 +9,8 @@
         </div>
         <div>
           <p class="p-step_mypage__day">{{ formatDate(step.created_at) }}</p>
-          <p class="p-step_mypage__criterion">目安達成時間<span>{{ step.achievement_time }}</span></p>
+          <p class="p-step_mypage__criterion" v-if="step.achievement_time">目安達成時間<span>{{ step.achievement_time }}</span></p>
+          <p v-else></p>
         </div>
       </div>
       <div class="p-step_mypage__medium">
