@@ -14,4 +14,6 @@
   </div>
 </div>
 
+<search-component></search-component>
+
 @endsection

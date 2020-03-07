@@ -12,14 +12,22 @@ use Illuminate\Http\Request;
 class StepsController extends Controller
 {
   // step一覧
-  public function index()
+  public function index(Request $request)
   {
+    //$input = $request->input('search');
+    //dd($input);
     return view('step.list');
   }
 
   public function api_index(Request $request)
   {
+    $searchQuery = $request->input('search');
     $steps = Step::with('user');
+    if (!empty($searchQuery)) {
+      $steps = $steps->WhereHas('steps', function ($q) use ($searchQuery) {
+        $q->where('category', 'LIKE', "%{$searchQuery}%");
+      });
+    }
     $steps = $steps->orderBy('created_at', 'desc')->get();
     return response()->json($steps);
   }

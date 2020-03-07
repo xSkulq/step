@@ -1,7 +1,7 @@
 // pc用search
 .c-search{
   background: $background-deep-blue;
-  height: 50%;
+  min-height: calc(100vh - #{$heightNavbar + 75px} );
   padding: 25px 14px;
   &__box{
     margin-bottom: 30px;
