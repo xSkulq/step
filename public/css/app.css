@@ -1062,7 +1062,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-account_edit__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 
@@ -1401,7 +1401,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-child_edit__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
   margin-bottom: 48px;
 }
@@ -1463,7 +1463,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-child_register__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 
@@ -1911,7 +1911,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_edit__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 
@@ -2199,7 +2199,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_register__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 
