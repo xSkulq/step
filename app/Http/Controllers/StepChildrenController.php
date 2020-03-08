@@ -43,15 +43,24 @@ class StepChildrenController extends Controller
   public function new($id)
   {
     $stepId = $id;
+    $step = Step::find($id);
+    if(Auth::id() === $step->user_id){
     return view('child.register', compact('stepId'));
+    }else{
+      return redirect('/home');
+    }
   }
 
   // 子STEP編集画面を表示
   public function edit($id)
   {
     $stepChildId = $id;
-    $stepChild = StepChild::where('id',$stepChildId)->first();
+    $stepChild = StepChild::with('step')->where('id',$stepChildId)->first();
+    if(Auth::id() === $stepChild->step->user_id){
     return view('child.edit', compact('stepChild'));
+    }else{
+      return redirect('/home');
+    }
   }
 
     // 新規子STEP登録の送信された情報を保存
