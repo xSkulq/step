@@ -2,6 +2,7 @@
   background-color: $background-deep-blue;
   color: $font-color-white;
   width: 250px;
+  height: 100%;
   @include mq(xl){
     margin: 0 auto;
     margin-top: 60px;
