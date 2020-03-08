@@ -17,7 +17,7 @@
         <p class="u-mb5">STEP</p>
         <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-link">
         <p class="p-step_mypage__medium-font">{{ step.title }}</p>
-        </a><!-- TODO: クラス名いいの思いついたら変える -->
+        </a>
       </div>
       <div class="u-mb10">
         <div class="u-flex__space">
@@ -46,6 +46,7 @@
 
 <script>
 export default {
+  props: ['search'],
   data: function(){
     return {
       challengeSteps: {}
@@ -58,7 +59,12 @@ export default {
     // step一覧の情報を取得
     fetchList(){
       const url = '/api/step/mypage_challenge';
-      axios.get(url).then(response => { 
+      let param = '';
+      if (this.search !== '') {
+        console.log('search :', this.search)
+        param += '?search=' + this.search
+      }
+      axios.get(url + param).then(response => { 
         this.challengeSteps = response.data
         console.log('this.steps :', this.challengeSteps);
       }).catch(error => console.log(error, 'エラー'))

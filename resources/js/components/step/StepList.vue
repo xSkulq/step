@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="p-step_list__item" v-for="(step, index) in steps" :key="index">
+    <div class="p-step_list__item" v-for="(step, index) in steps" :key="index">
       <div class="p-step_list__top">
         <div class="u-flex__center">
           <img alt="アイコン" class="p-step_list__img" v-if="step.user.pic" v-bind:src="'/storage/' + step.user.pic">
@@ -29,6 +29,7 @@
     </template>
 <script>
 export default {
+	props: ['search'],
   data: function(){
     return {
       steps: {}
@@ -41,7 +42,12 @@ export default {
     // step一覧の情報を取得
     fetchList(){
       const url = 'api/home';
-      axios.get(url).then(response => {
+      let param = '';
+      if (this.search !== '') {
+        console.log('search :', this.search)
+        param += '?search=' + this.search
+      }
+      axios.get(url + param).then(response => {
         this.steps = response.data
         console.log('this.steps :', this.steps);
       }).catch(error => console.log(error, 'エラー'))

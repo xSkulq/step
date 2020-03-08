@@ -10,9 +10,6 @@
         <main class="l-main u-flex">
           @yield('content')
         </main>
-        <div class="l-search">
-          @include('layouts.search')
-        </div>
       </div>
     </div>
   </div>

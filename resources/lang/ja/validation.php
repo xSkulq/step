@@ -117,12 +117,4 @@ return [
     |
     */
 
-    'attributes' => [
-        'furigana'     => 'ふりがな',
-        'zip_code'     => '郵便番号',
-        'tel'          => '電話番号',
-        'billing_at'          => '請求日',
-        'payment_due_date'    => '支払期限',
-    ],
-
 ];

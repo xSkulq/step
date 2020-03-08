@@ -19,16 +19,6 @@ window.Vue = require('vue')
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-// グローバルミックスインでvueコンポーネント全体で使える共通定数を定義
-// views/layouts/head.blade.php で定義
-/*Vue.mixin({
-  computed: {
-    APP_DEBUG: () => Boolean(window.APP_DEBUG),
-    APP_ENV: () => window.APP_ENV,
-    APP_URL: () => window.APP_URL
-  }
-})*/
-
 // step
 Vue.component('step-list', require('./components/step/StepList.vue').default);
 Vue.component('mypage-register', require('./components/step/MypageRegister.vue').default);
@@ -36,10 +26,10 @@ Vue.component('mypage-challenge', require('./components/step/MypageChallenge.vue
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 // account
-Vue.component('account-edit', require('./components/account/AccountEdit.vue').default);
+//Vue.component('account-edit', require('./components/account/AccountEdit.vue').default);// 封鎖
 
 // search
-Vue.component('search-component', require('./components/SearchComponent.vue').default);
+//ue.component('search-component', require('./components/SearchComponent.vue').default);
 
 
 /**

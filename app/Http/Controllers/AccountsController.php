@@ -68,8 +68,8 @@ class AccountsController extends Controller
 
     // バリデーション
     $request->validate([
-      'email' => 'required|string|max:255|email',
-      'name' => 'nullable|string|max:255',
+      'email' => 'required|string|max:191|unique:users,email,'.Auth::user()->email.',email',
+      'name' => 'nullable|string|max:191',
       'bio' => 'nullable|string',
       'pic' => 'nullable|image'
     ]);
@@ -78,6 +78,7 @@ class AccountsController extends Controller
     $user->name = $request->name;
     $user->bio = $request->bio;
 
+    // アイコンにファイルが追加され保存したときの処理
     if ($request->pic) {
 
       // 前の画像を消去する処理

@@ -9,8 +9,17 @@
 
   <!-- step-list -->
   <section>
-    <mypage-challenge></mypage-challenge>
+    <mypage-challenge search="{{ $search }}"></mypage-challenge>
   </section>
+</div>
+
+<div class="c-search">
+  <form method="GET" action="{{ route('step.mypage_challenge')}}">
+    <div class="c-search__box">
+      <input type="text" class="c-search__input" placeholder="カテゴリ名" name="search">
+    </div>
+    <button class="c-search__button">検索</button>
+  </form>
 </div>
 
 @endsection

@@ -1,19 +1,30 @@
 // pc用search
 .c-search{
   background: $background-deep-blue;
-  min-height: calc(100vh - #{$heightNavbar + 75px} );
+  max-height: calc(100vh - #{$heightNavbar + 75px} );
   padding: 25px 14px;
   position: -webkit-sticky;
   position: sticky;
   top: $heightNavbar + 75px;
   &__box{
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
   &__input{
-    font-size: $font-size-l;
-    padding: 8px 14px;
+    font-size: $font-size-m;
+    padding: 8px;
     width: 240px;
     height: 30px;
+  }
+  &__button{
+    background-color: $background-orenge;
+    border: none;
+    color: $font-color-white;
+    cursor: pointer;
+    padding: 8px;
+    width: 240px;
+    &:hover{
+      background: #e79341;
+    }
   }
   &__category{
     color: $font-color-white;
