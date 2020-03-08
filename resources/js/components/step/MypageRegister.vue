@@ -3,7 +3,6 @@
       <div class="p-step_mypage__item" v-for="(step, index) in steps" :key="index">
       <div class="p-step_mypage__top">
         <div class="u-flex__center">
-          <!--<img src="" alt="アイコン" class="p-step_mypage__img">-->
           <img alt="アイコン" class="p-step_mypage__img" v-if="step.user.pic" v-bind:src="'/storage/' + step.user.pic">
           <img alt="no-img" class="p-step_list__img" v-else src="/imges/no_image.png">
           <p class="p-step_mypage__name">{{ step.user.name }}</p>
@@ -18,29 +17,19 @@
         <p class="u-mb5">STEP</p>
         <a :href="'/step/ditail/' + step.id" class="p-step_mypage__medium-link">
         <p class="p-step_mypage__medium-font">{{ step.title }}</p>
-        </a><!-- TODO: クラス名いいの思いついたら変える -->
+        </a>
       </div>
       <div class="p-step_mypage__bottom">
         <div>
           <p class="p-step_mypage__bottom-font">{{ step.category }}</p>
         </div>
-        <!--<div class="u-flex">
-          <p class="p-step_mypage__bottom-font">pv<span>1000</span></p>
-          <p class="p-step_mypage__bottom-font">-->
-            <!-- iタグをいれる(チャレンジ数にちなんだ) -->
-          <!--  <span>1000</span>
-          </p>
-          <p class="p-step_mypage__bottom-font">-->
-            <!-- iタグをいれる(ハートのアイコン) -->
-          <!--  <span>1000</span>
-          </p>
-        </div>-->
       </div>
     </div>
   </div>
     </template>
 <script>
 export default {
+  props: ['search'],
   data: function(){
     return {
       steps: {}
@@ -53,7 +42,12 @@ export default {
     // step一覧の情報を取得
     fetchList(){
       const url = '/api/step/mypage_register';
-      axios.get(url).then(response => { 
+      let param = '';
+      if (this.search !== '') {
+        console.log('search :', this.search)
+        param += '?search=' + this.search
+      }
+      axios.get(url + param).then(response => { 
         this.steps = response.data
         console.log('this.steps :', this.steps);
       }).catch(error => console.log(error, 'エラー'))

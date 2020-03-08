@@ -489,7 +489,7 @@ input[type=checkbox]:checked + span::before {
 
 .c-search {
   background: #3b3f47;
-  min-height: calc(100vh - 155px );
+  max-height: calc(100vh - 155px );
   padding: 25px 14px;
   position: -webkit-sticky;
   position: sticky;

@@ -14,18 +14,17 @@ class StepsController extends Controller
   // step一覧
   public function index(Request $request)
   {
-    //$input = $request->input('search');
-    return view('step.list');
+    $search = $request->input('search');
+    //dd($search);
+    return view('step.list',compact('search'));
   }
 
   public function api_index(Request $request)
   {
-    $searchQuery = $request->input('search');
+    $search = $request->input('search');
     $steps = Step::with('user');
-    if (!empty($searchQuery)) {
-      $steps = $steps->WhereHas('steps', function ($q) use ($searchQuery) {
-        $q->where('category', 'LIKE', "%{$searchQuery}%");
-      });
+    if (!empty($search)) {
+      $steps = $steps->where('category',$search);
     }
     $steps = $steps->orderBy('created_at', 'desc')->get();
     return response()->json($steps);
@@ -84,29 +83,40 @@ class StepsController extends Controller
   //登録済み一覧を表示
   public function mypage_register(Request $request)
   {
-    return view('step.mypage_register');
+    $search = $request->input('search');
+
+    return view('step.mypage_register',compact('search'));
   }
 
   // 登録済み一覧を表示
   public function api_mypage_register(Request $request)
   {
+    // 検索された値
+    $search = $request->input('search');
     // userid
     $userId = Auth::id();
     $steps = Step::with('user');
-    $steps = $steps->where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+    $steps = $steps->where('user_id', $userId)->orderBy('created_at', 'desc');
+    // 検索された値がstepのカテゴリに一致するかの処理
+    if (!empty($search)) {
+      $steps = $steps->where('category',$search);
+    }
+    $steps = $steps->get();
     return response()->json($steps);
   }
 
 
   // チャレンジ一覧表示
-  public function mypage_challenge()
+  public function mypage_challenge(Request $request)
   {
-    return view('step.mypage_challenge');
+    $search = $request->input('search');
+    return view('step.mypage_challenge',compact('search'));
   }
 
   // チャレンジSTEP一覧を表示
   public function api_mypage_challenge(Request $request)
   {
+    $search = $request->input('search');
     $userId = Auth::id();
 
      /*$challengeSteps = Challenge::with(['step','user','clears']);
@@ -117,6 +127,11 @@ class StepsController extends Controller
     $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){// TODO:challengeの作成日順にならない
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       });
+
+    // 検索された値がstepのカテゴリに一致するかの処理
+    if (!empty($search)) {
+      $challengeSteps = $challengeSteps->where('category',$search);
+    }
     $challengeSteps = $challengeSteps->orderBy('created_at', 'desc')->get();
     return response()->json($challengeSteps);
   }
