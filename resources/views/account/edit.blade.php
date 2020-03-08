@@ -43,7 +43,7 @@
           @error('bio')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
         <div class="u-mt5 u-mb20">
-          <textarea name="bio" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea @error('bio') c-inputFild__long-error @enderror" 
+          <textarea name="bio" cols="30" rows="10" class="c-inputFild__textarea p-account_edit__textarea @error('bio') c-inputFild__textarea-error @enderror" 
                     placeholder="自己紹介">{{ $user->bio }}</textarea>
         </div>
       </label>
