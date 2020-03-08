@@ -497,14 +497,27 @@ input[type=checkbox]:checked + span::before {
 }
 
 .c-search__box {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .c-search__input {
-  font-size: 16px;
-  padding: 8px 14px;
+  font-size: 14px;
+  padding: 8px;
   width: 240px;
   height: 30px;
+}
+
+.c-search__button {
+  background-color: #d27921;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  width: 240px;
+}
+
+.c-search__button:hover {
+  background: #e79341;
 }
 
 .c-search__category {

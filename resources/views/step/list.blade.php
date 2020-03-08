@@ -18,7 +18,7 @@
     <div class="c-search__box">
       <input type="text" class="c-search__input" placeholder="カテゴリ名" name="search">
     </div>
-    <button>検索</button>
+    <button class="c-search__button">検索</button>
   </form>
 </div>
 
