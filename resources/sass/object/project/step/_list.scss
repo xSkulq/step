@@ -3,6 +3,7 @@
   padding-right: 60px;
   @include mq(md){
     padding: 0;
+    width: 100%;
   }
   &__title{
     font-size: $font-size-xl;

@@ -1965,6 +1965,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-step_list {
     padding: 0;
+    width: 100%;
   }
 }
 
@@ -2063,6 +2064,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-step_mypage {
     padding: 0;
+    width: 100%;
   }
 }
 
