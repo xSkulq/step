@@ -67,7 +67,7 @@ class StepChildrenController extends Controller
     public function store(Request $request,$id)
   {
     $request->validate([
-      'title' => 'required|string|max:255',
+      'title' => 'required|string|max:191',
       'content' => 'required|string'
     ]);
 
@@ -87,7 +87,7 @@ class StepChildrenController extends Controller
   {
 
     $request->validate([
-      'title' => 'required|string|max:255',
+      'title' => 'required|string|max:191',
       'content' => 'required|string'
     ]);
 

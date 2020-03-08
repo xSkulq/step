@@ -15,7 +15,6 @@ class StepsController extends Controller
   public function index(Request $request)
   {
     //$input = $request->input('search');
-    //dd($input);
     return view('step.list');
   }
 
@@ -45,9 +44,9 @@ class StepsController extends Controller
   {
 
     $request->validate([
-      'title' => 'required|string|max:255',
-      'category' => 'nullable|string|max:255',
-      'achievement_time' => 'nullable|string|max:255',
+      'title' => 'required|string|max:191',
+      'category' => 'nullable|string|max:191',
+      'achievement_time' => 'nullable|string|max:25',
       'content' => 'required|string'
     ]);
 
@@ -78,7 +77,6 @@ class StepsController extends Controller
 
     // チャレンジしているかの値
     $challenge = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
-    //dd($challenge);
     return view('step.ditail',compact('step','challenge'));
   }
 
@@ -118,8 +116,8 @@ class StepsController extends Controller
     $challengeSteps = Step::with(['challenges','user','step_children','clears']);
     $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){// TODO:challengeの作成日順にならない
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
-      })->get();
-    //$challengeSteps = $challengeSteps->challenges->orderBy('created_at', 'desc')->get();
+      });
+    $challengeSteps = $challengeSteps->orderBy('created_at', 'desc')->get();
     return response()->json($challengeSteps);
   }
 
@@ -129,9 +127,9 @@ class StepsController extends Controller
   {
 
     $request->validate([
-      'title' => 'required|string|max:255',
-      'category' => 'nullable|string|max:255',
-      'achievement_time' => 'nullable|string|max:255',
+      'title' => 'required|string|max:191',
+      'category' => 'nullable|string|max:191',
+      'achievement_time' => 'nullable|string|max:25',
       'content' => 'required|string'
     ]);
 
@@ -147,7 +145,7 @@ class StepsController extends Controller
     $stepId = $id;
     $step = Step::find($stepId);
     // stepの削除
-    $step = $step->delete(); // TODO: 削除する前に確認を取るように処理を追加しとくこと
+    $step = $step->delete();
     return redirect('/step/mypage_register');
   }
 
@@ -175,8 +173,7 @@ class StepsController extends Controller
 
     // チャレンジをやめるstepを削除
     $challenge_stop = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
-    $challenge_stop = $challenge_stop->delete();// TODO: ここはchallenge_flgをfalseにするか後で考える
-    //dd($challenge_stop);
+    $challenge_stop = $challenge_stop->delete();
     return redirect('/step/mypage_challenge');
   }
 }
