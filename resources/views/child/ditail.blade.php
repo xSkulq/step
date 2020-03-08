@@ -26,15 +26,15 @@
     @if(Auth::id() === $step->user_id)
     <div class="u-mt40">
       <div class="u-flex__center u-mb30">
-        <a href="/step/child/edit/{{$stepChild->id}}" class="c-button p-step_ditail__button-font">編集</a>
+        <a href="/step/child/edit/{{$stepChild->id}}" class="c-button p-step_ditail__button-a">編集</a>
       </div>
       <div class="u-flex__center u-mb30">
-      <a href="{{ route('step.child_new',$stepChild->step->id)}}" class="c-button p-step_ditail__button-font">子STEPを追加</a>
+      <a href="{{ route('step.child_new',$stepChild->step->id)}}" class="c-button p-step_ditail__button-a">子STEPを追加</a>
       </div>
       <form method="POST" action="{{ route('step.child_destory',$stepChild->id)}}">
         @csrf
       <div class="u-flex__center">
-        <button type="submit" class="c-button p-step_ditail__button-font">この子STEPを削除する</button>
+        <button type="submit" class="c-button p-step_ditail__button">この子STEPを削除する</button>
       </div>
       </form>
     </div>
@@ -49,7 +49,7 @@
         <form method="POST" action="{{ route('step.child_clear',$stepChild->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
-            <button type="submit" class="c-button p-step_ditail__button-font">クリア</button>
+            <button type="submit" class="c-button p-step_ditail__button">クリア</button>
           </div>
         </form>
         @else

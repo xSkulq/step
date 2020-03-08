@@ -1062,7 +1062,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-account_edit__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 
@@ -1401,7 +1401,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-child_edit__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
   margin-bottom: 48px;
 }
@@ -1463,7 +1463,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-child_register__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 
@@ -1855,11 +1855,17 @@ input[type=checkbox]:checked + span::before {
   border: 1px solid #d3d3d3;
 }
 
-.p-step_ditail__button-font {
+.p-step_ditail__button,
+.p-step_ditail__button-a {
   color: #ffffff;
   font-size: 16px;
   padding: 12px 50px 12px 50px;
   width: 300px;
+}
+
+.p-step_ditail__button-a {
+  text-align: center;
+  padding: 17px 50px 17px 50px;
 }
 
 .p-step_edit {
@@ -1905,7 +1911,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_edit__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 
@@ -1913,6 +1919,7 @@ input[type=checkbox]:checked + span::before {
   background-color: #3b3f47;
   color: #ffffff;
   width: 250px;
+  height: 100%;
 }
 
 @media screen and (max-width: 1199px) {
@@ -2192,7 +2199,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_register__button-font {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   padding: 13px 130px 13px 130px;
 }
 

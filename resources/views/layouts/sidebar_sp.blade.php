@@ -50,7 +50,7 @@
         <span>設定</span>
       </li>
       </a>-->
-      <a class="c-sidebar__link" href="{{ route('logout') }}" onclick="event.preventDefault();
+      <a class="c-sidebar-sp__link" href="{{ route('logout') }}" onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">
       <li class="c-sidebar__item">
         <i class="fas fa-sign-out-alt"></i>

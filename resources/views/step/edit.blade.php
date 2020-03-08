@@ -63,7 +63,7 @@
         </div>
 
         <div class="u-mt5 u-mb55">
-          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_edit__textarea @error('content') c-inputFild__long-error @enderror" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $step->content }}@endif</textarea>
+          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_edit__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $step->content }}@endif</textarea>
         </div>
       </label>
     </div>

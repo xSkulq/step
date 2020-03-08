@@ -35,15 +35,15 @@
     <div class="u-mt40">
       <div>
         <div class="u-flex__center u-mb30">
-          <a href="{{ route('step.edit',$step->id)}}" class="c-button p-step_ditail__button-font">編集</a>
+          <a href="{{ route('step.edit',$step->id)}}" class="c-button p-step_ditail__button-a">編集</a>
         </div>
         <div class="u-flex__center u-mb30">
-        <a href="{{ route('step.child_new',$step->id)}}" class="c-button p-step_ditail__button-font">子STEPを追加</a>
+        <a href="{{ route('step.child_new',$step->id)}}" class="c-button p-step_ditail__button-a">子STEPを追加</a>
         </div>
         <form method="POST" action="{{ route('step.destory',$step->id)}}">
           @csrf
           <div class="u-flex__center">
-            <button type="submit" class="c-button p-step_ditail__button-font">このSTEPを削除する</button>
+            <button type="submit" class="c-button p-step_ditail__button">このSTEPを削除する</button>
           </div>
         </form>
       </div>
@@ -57,21 +57,21 @@
         <form method="POST" action="{{ route('step.challenge',$step->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
-            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
+            <button type="submit" class="c-button p-step_ditail__button">チャレンジする</button>
           </div>
         </form>
         @elseif($challenge->challenge_flg === 0)
         <form method="POST" action="{{ route('step.challenge',$step->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
-            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジする</button>
+            <button type="submit" class="c-button p-step_ditail__button">チャレンジする</button>
           </div>
         </form>
         @else
         <form method="POST" action="{{ route('step.challenge_stop',$step->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
-            <button type="submit" class="c-button p-step_ditail__button-font">チャレンジをやめる</button>
+            <button type="submit" class="c-button p-step_ditail__button">チャレンジをやめる</button>
           </div>
         </form>
         @endif
