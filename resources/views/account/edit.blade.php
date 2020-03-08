@@ -51,8 +51,9 @@
 
     <!-- icon --><!-- 余裕があれば非同期通信で画像をすぐに表示させたい -->
     <div>
-      <div class="u-flex">
-        <span>アイコン</span>
+      <div class="u-flex__space u-mb5">
+        <span>アイコン<span class="p-account_edit__note">*512KB以下</span></span>
+        @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
 
       <div class="p-account_edit__icon-destory">
@@ -68,11 +69,10 @@
           @if(empty($user->pic))
           <img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">
           @else
-          <img alt="アイコン" class="p-account_edit__img" src="/storage/{{ $user->pic }}">
+          <img alt="アイコン" class="p-account_edit__img" src="data:image/png;base64,{{ $user->pic }}">
           @endif
             <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
         </label>
-        @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
     </div><!-- TODO: 画像の削除ボタンを後で作る -->
     <!-- button -->

@@ -1073,6 +1073,11 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
+.p-account_edit__note {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
 .p-account_edit__button-font {
   color: #ffffff;
   font-size: 16px;

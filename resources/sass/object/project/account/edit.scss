@@ -28,6 +28,10 @@
       width: 300px;
     }
   }
+  &__note{
+    font-size: $font-size-s;
+    margin-left: 5px;
+  }
   &__button{
     &-font{
       color: $font-color-white;

@@ -62,7 +62,7 @@ class AccountsController extends Controller
       // 画像を消去する処理
       $deletePic = $user->pic;
       $user->pic = '';
-      Storage::delete('public/'.$deletePic);
+      //Storage::delete('public/'.$deletePic);
       $user->save();
     }
 
@@ -71,7 +71,7 @@ class AccountsController extends Controller
       'email' => 'required|string|max:191|unique:users,email,'.Auth::user()->email.',email',
       'name' => 'nullable|string|max:191',
       'bio' => 'nullable|string',
-      'pic' => 'nullable|image'
+      'pic' => 'nullable|image|max:512'
     ]);
 
     $user->email = $request->email;
@@ -82,12 +82,13 @@ class AccountsController extends Controller
     if ($request->pic) {
 
       // 前の画像を消去する処理
-      $deletePic = $user->pic;
-      Storage::delete('public/'.$deletePic);
+      //$deletePic = $user->pic;
+      //Storage::delete('public/'.$deletePic);
 
       // 送信されたファイルをstoreに保存する処理
-      $file_name = time() . '.' . $request->pic->getClientOriginalName();
-      $request->pic->storeAs('public', $file_name);
+      //$file_name = time() . '.' . $request->pic->getClientOriginalName();
+      //$request->pic->storeAs('public', $file_name);
+      $file_name = base64_encode(file_get_contents($request->pic));
       //$user->pic = 'storage/' . $file_name;
 
       // userにpicの値を格納
