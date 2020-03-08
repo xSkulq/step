@@ -88,8 +88,10 @@ class AccountsController extends Controller
       // 送信されたファイルをstoreに保存する処理
       //$file_name = time() . '.' . $request->pic->getClientOriginalName();
       //$request->pic->storeAs('public', $file_name);
-      $file_name = base64_encode(file_get_contents($request->pic));
       //$user->pic = 'storage/' . $file_name;
+
+      // 画像をバイナリデータで格納
+      $file_name = base64_encode(file_get_contents($request->pic));
 
       // userにpicの値を格納
       $user->pic = $file_name;
