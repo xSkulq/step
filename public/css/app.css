@@ -1855,11 +1855,17 @@ input[type=checkbox]:checked + span::before {
   border: 1px solid #d3d3d3;
 }
 
-.p-step_ditail__button-font {
+.p-step_ditail__button,
+.p-step_ditail__button-a {
   color: #ffffff;
   font-size: 16px;
   padding: 12px 50px 12px 50px;
   width: 300px;
+}
+
+.p-step_ditail__button-a {
+  text-align: center;
+  padding: 17px 50px 17px 50px;
 }
 
 .p-step_edit {

@@ -34,11 +34,14 @@
     border: 1px solid $light-gray;
   }
   &__button{
-    &-font{
-      color: $font-color-white;
-      font-size: $font-size-l;
-      padding: 12px 50px 12px 50px;
-      width: 300px;
+    color: $font-color-white;
+    font-size: $font-size-l;
+    padding: 12px 50px 12px 50px;
+    width: 300px;
+    &-a{
+      @extend .p-step_ditail__button;
+      text-align: center;
+      padding: 17px 50px 17px 50px;
     }
   }
 }
