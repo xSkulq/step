@@ -24,6 +24,7 @@ mix.webpackConfig({
  })
 
    .js('resources/js/app.js', 'public/js')
+   .sourceMaps()
    .js('resources/js/toggle.js', 'public/js/app.js')
    .sass('resources/sass/app.scss', 'public/css')
    .browserSync({
