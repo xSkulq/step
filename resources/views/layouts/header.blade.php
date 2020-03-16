@@ -1,8 +1,8 @@
 <header class="c-header">
   <div>
     <a href="{{ url('/') }}">
-      <img src="{{ asset('/imges/logo1.png') }}" alt="" class="c-header__logo">
-    </a><!-- TODO: あとでロゴに差し替える -->
+      <img src="{{ asset('/imges/logo1.png') }}" alt="STEP(ロゴ)" class="c-header__logo">
+    </a>
   </div>
   <div class="u-flex">
     <div>
