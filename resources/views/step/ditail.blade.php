@@ -43,7 +43,7 @@
         <form method="POST" action="{{ route('step.destory',$step->id)}}">
           @csrf
           <div class="u-flex__center">
-            <button type="submit" class="c-button p-step_ditail__button">このSTEPを削除する</button>
+            <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("削除しますか？");'>このSTEPを削除する</button>
           </div>
         </form>
       </div>
