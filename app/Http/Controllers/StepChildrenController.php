@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Step;
-use App\User;
 use App\StepChild;
 use App\Challenge;
 use App\Clear;
@@ -34,7 +33,6 @@ class StepChildrenController extends Controller
 
     // クリアしているかの値
     $clear = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$stepChildId)->first();
-    //dd($clear);
     return view('child.ditail', compact('stepChild','step','challenge','clear'));
   }
 

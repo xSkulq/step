@@ -5,9 +5,4 @@
   </div>
   <button>検索</button>
   </form>
-  <!--<div>
-    <ul class="c-search__list">
-      <li><a href=""  class="c-search__category">カテゴリ</a></li>
-    </ul>
-  </div>-->
 </div>

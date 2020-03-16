@@ -10,7 +10,7 @@
     <div>
       <label for="email" class="p-account_edit__font">
         <div class="u-flex__space">
-          <span>メールアドレス</span>
+          <p>メールアドレス</p>
           @error('email')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -25,7 +25,7 @@
     <div>
       <label for="name" class="p-account_edit__font">
         <div class="u-flex__space">
-          <span>名前</span>
+          <p>名前<p>
           @error('name')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
         <div class="u-mt5 u-mb20">
@@ -39,7 +39,7 @@
     <div>
       <label for="content" class="p-account_edit__font">
         <div class="u-flex__space">
-          <span>自己紹介</span>
+          <p>自己紹介<p>
           @error('bio')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
         <div class="u-mt5 u-mb20">
@@ -52,7 +52,7 @@
     <!-- icon --><!-- 余裕があれば非同期通信で画像をすぐに表示させたい -->
     <div>
       <div class="u-flex__space u-mb5">
-        <span>アイコン<span class="p-account_edit__note">*512KB以下</span></span>
+        <p>アイコン<span class="p-account_edit__note">*512KB以下</span></p>
         @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
 

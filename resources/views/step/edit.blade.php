@@ -6,14 +6,14 @@
   <!-- main -->
   <h1 class="p-step_edit__title">STEP編集</h1>
 
-  <form method="POST" action="{{ route('step.update',$step->id) }}" class="p-step_edit__form">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
+  <form method="POST" action="{{ route('step.update',$step->id) }}" class="p-step_edit__form">
     @csrf
 
     {{-- title --}}
     <div>
       <label for="title" class="p-step_edit__label">
         <div class="u-flex__space">
-          <span>タイトル</span>
+          <p>タイトル</p>
           @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -28,7 +28,7 @@
     <div>
       <label for="category" class="p-step_edit__label">
         <div class="u-flex__space">
-          <span>STEPカテゴリ</span>
+          <p>STEPカテゴリ</p>
           @error('category')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -43,7 +43,7 @@
     <div>
       <label for="criterion" class="p-step_edit__label">
         <div class="u-flex__space">
-          <span>目安達成時間</span>
+          <p>目安達成時間</p>
           @error('achievement_time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -58,7 +58,7 @@
     <div>
       <label for="content" class="p-step_edit__font">
         <div class="u-flex__space">
-          <span>内容</span>
+          <p>内容</p>
           @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 

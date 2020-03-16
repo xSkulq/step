@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Step;
-use App\User;
 use App\Challenge;
-use App\Clear;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -15,7 +13,6 @@ class StepsController extends Controller
   public function index(Request $request)
   {
     $search = $request->input('search');
-    //dd($search);
     return view('step.list',compact('search'));
   }
 
@@ -117,14 +114,9 @@ class StepsController extends Controller
   public function api_mypage_challenge(Request $request)
   {
     $search = $request->input('search');
-    $userId = Auth::id();
-
-     /*$challengeSteps = Challenge::with(['step','user','clears']);
-    $challengeSteps = $challengeSteps->where('user_id', $userId)->orderBy('created_at', 'desc');
-    $challengeSteps = $challengeSteps->get();*/
 
     $challengeSteps = Step::with(['challenges','user','step_children','clears']);
-    $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){// TODO:challengeの作成日順にならない
+    $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       });
 

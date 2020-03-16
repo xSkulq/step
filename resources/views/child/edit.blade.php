@@ -14,7 +14,7 @@
     <div>
       <label for="title" class="p-child_edit__label">
         <div class="u-flex__space">
-          <span>タイトル</span>
+          <p>タイトル</p>
           @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -29,7 +29,7 @@
     <div>
       <label for="content" class="p-child_edit__font">
         <div class="u-flex__space">
-          <span>内容</span>
+          <p>内容</p>
           @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
