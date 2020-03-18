@@ -18,7 +18,8 @@
     padding: 5px;
     padding-left: 8px;
     height: 35px;
-    width: 450px; // TODO: widthの長さをあとで％指定にする
+    //width: 450px; // TODO: widthの長さをあとで％指定にする
+    width: 100%;
     &-error{
       border: 1px solid $red;
     }
@@ -30,8 +31,8 @@
   &__textarea{
     font-size: $font-size-l;
     border: 1px solid $light-gray;
-    padding: 5px;
-    padding-left: 8px;
+    padding: 10px;
+    //padding-left: 8px;
     &-error{
       border: 1px solid $red;
     }
@@ -40,11 +41,12 @@
     }
   }
   &__error{
-    font-size: $font-size-m; // TODO: エラーのスタイルはあとでやる
+    font-size: $font-size-m;
     color: $red;
   }
 }
 
+// 修正する
 input[type="checkbox"] {
   opacity:0;
   -webkit-appearance: none;

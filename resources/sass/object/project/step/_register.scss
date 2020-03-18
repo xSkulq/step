@@ -1,5 +1,9 @@
 .p-step_register{
-  padding-left: 148px;
+  //padding-left: 148px;
+  padding-right: 33%;
+  //margin-left: 148px;
+  margin-left: 50px;// 仮
+  width: 100%;
   @include mq(xl){
     padding: 0;
   }
@@ -7,10 +11,103 @@
     font-size: $font-size-xl;
     font-weight: normal;
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 45px;
     @include mq(md){
       margin-bottom: 48px;
     }
+  }
+  &__note{
+    font-size: $font-size-l;
+    text-align: center;
+    margin-bottom: 45px;
+  }
+  &__sub{
+    &-title{
+      font-size: $font-size-l;
+      margin-bottom: 30px;
+    }
+  }
+  &__required{
+    //color: $red;
+    font-size: $font-size-s;
+    margin-left: 5px;
+  }
+  &__select{
+    &__category{
+      position: relative;
+      border: 1px solid $light-gray;
+      background: #ffffff;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 25px;
+      &::before{
+        position: absolute;
+        top: 0.8em;
+        right: 0.9em;
+        width: 0;
+        height: 0;
+        padding: 0;
+        content: '';
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid $gray;
+        pointer-events: none;
+      }
+    }
+    &__time{
+      @extend .p-step_register__select__category;
+      width: 40%;
+      margin-left: 30px;
+    }
+  }
+  &__icon{
+    background: $background-white;
+    color: $font-color-black;
+    position: relative;
+    margin-bottom: 80px;
+    width: 200px;
+    height: 113px;
+    &-destory{
+      width: 200px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 22px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      &__pointer{
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__file{
+    opacity: 0;
+    width: 200px;
+    height: 113px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  &__img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &-destory{
+      display: none;
+    }
+  }
+  &__border{
+    border: 1px solid $light-gray;
+    margin-bottom: 80px;
   }
   &__form{
     @include mq(md){
@@ -20,7 +117,7 @@
   }
   &__textarea{
     height: 180px;
-    width: 450px; // TODO: widthの長さをあとで％指定にする
+    width: 100%;
     @include mq(){
       width: 300px;
     }
@@ -30,6 +127,7 @@
       color: $font-color-white;
       font-size: $font-size-l;
       padding: 13px 130px 13px 130px;
+      margin-bottom: 100px;
     }
   }
 }
