@@ -6,6 +6,8 @@
   <!-- main -->
   <h1 class="p-step_register__title">STEP新規登録</h1>
 
+  <p>*STEPと子STEP1を登録してください</p>
+
   <form method="POST" action="{{ route('step.store') }}" class="p-step_register__form">
     @csrf
 

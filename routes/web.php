@@ -49,3 +49,10 @@ Route::post('/step/child/destory/{id}', 'StepChildrenController@destory')->name(
 Route::post('/step/child/clear/{id}', 'StepChildrenController@clear')->name('step.child_clear');
 
 
+// error
+Route::fallback(function ($route) {
+    // 404エラー画面を返す
+    return response()->view('errors.404', [], 404);
+});
+
+

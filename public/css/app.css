@@ -1493,6 +1493,66 @@ input[type=checkbox]:checked + span::before {
   padding: 13px 130px 13px 130px;
 }
 
+.p-404 {
+  border: 1px solid #d3d3d3;
+  background-color: #ffffff;
+  margin-top: 120px;
+  padding-top: 55px;
+  padding-bottom: 80px;
+  padding-left: 170px;
+  padding-right: 170px;
+}
+
+.p-404__title {
+  font-size: 24px;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-404__font {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-404__button {
+  color: #ffffff;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.p-500 {
+  border: 1px solid #d3d3d3;
+  background-color: #ffffff;
+  margin-top: 120px;
+  padding-top: 55px;
+  padding-bottom: 80px;
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+.p-500__title {
+  font-size: 24px;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-500__font {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-500__button {
+  color: #ffffff;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .p-lp__top-img {
   position: relative;
   display: flex;

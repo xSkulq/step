@@ -1,15 +1,3 @@
-<header class="c-header">
-  <!-- toggle -->
-  <div class="menu-trigger js-toggle-sp-menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div>
-    <a href="{{ route('root') }}" class="c-header__logo">
-      <img src="{{ asset('/imges/logo1.png') }}" alt="">
-    </a>
-  </div>
 
   <!-- toggle時のサイドバー -->
   <div class="c-sidebar-sp js-toggle-sp-menu-target">
@@ -56,4 +44,3 @@
     </a>
     </ul>
   </div>
-</header>
