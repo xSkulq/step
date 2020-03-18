@@ -23,10 +23,6 @@ window.Vue = require('vue')
 Vue.component('step-list', require('./components/step/StepList.vue').default);
 Vue.component('mypage-register', require('./components/step/MypageRegister.vue').default);
 Vue.component('mypage-challenge', require('./components/step/MypageChallenge.vue').default);
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-// account
-//Vue.component('account-edit', require('./components/account/AccountEdit.vue').default);// 封鎖
 
 // search
 //ue.component('search-component', require('./components/SearchComponent.vue').default);

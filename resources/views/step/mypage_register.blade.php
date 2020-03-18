@@ -5,7 +5,6 @@
 
   <!-- main -->
   <h1 class="p-step_mypage__title u-mb80">登録済みSTEP一覧</h1>
-  <!--<p class="p-step_mypage__category">カテゴリ</p>-->
 
   <!-- step-list -->
   <section>

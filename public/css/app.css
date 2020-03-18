@@ -226,8 +226,6 @@ ul {
 
 .l-content {
   background: #f5f7f9;
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   min-height: calc(100vh - 80px );
 }
@@ -237,7 +235,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 75px;
+  padding-top: 75px;
   width: 100%;
   padding-left: 60px;
   padding-right: 60px;
@@ -271,6 +269,12 @@ ul {
 
 .c-button:hover {
   background: #e79341;
+}
+
+.c-flash {
+  background-color: #d27921;
+  color: #ffffff;
+  text-align: center;
 }
 
 .c-footer {
@@ -550,6 +554,8 @@ input[type=checkbox]:checked + span::before {
   padding-bottom: 10px;
   padding-right: 32px;
   margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .c-sidebar__item > .far,
@@ -611,6 +617,8 @@ input[type=checkbox]:checked + span::before {
   padding-bottom: 15px;
   padding-left: 15px;
   margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .c-sidebar-sp__item > .far,
@@ -1483,6 +1491,66 @@ input[type=checkbox]:checked + span::before {
   color: #ffffff;
   font-size: 16px;
   padding: 13px 130px 13px 130px;
+}
+
+.p-404 {
+  border: 1px solid #d3d3d3;
+  background-color: #ffffff;
+  margin-top: 120px;
+  padding-top: 55px;
+  padding-bottom: 80px;
+  padding-left: 170px;
+  padding-right: 170px;
+}
+
+.p-404__title {
+  font-size: 24px;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-404__font {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-404__button {
+  color: #ffffff;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.p-500 {
+  border: 1px solid #d3d3d3;
+  background-color: #ffffff;
+  margin-top: 120px;
+  padding-top: 55px;
+  padding-bottom: 80px;
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+.p-500__title {
+  font-size: 24px;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-500__font {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.p-500__button {
+  color: #ffffff;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .p-lp__top-img {

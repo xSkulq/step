@@ -14,14 +14,6 @@
       <div class="p-step_ditail__border"></div>
     </div>
     <div class="u-flex__space u-mb55">
-      <!--<div class="p-step_ditail__medium u-flex">
-        <p class="p-step_ditail__font">pv<span>1000</span></p>
-        <p class="p-step_ditail__font">いいね数<span>1000</span></p>
-        <p class="p-step_ditail__font">チャレンジ数<span>2000</span></p>
-      </div>-->
-      <!--<div>
-        <button>Twitterにシェア</button>
-      </div>-->
     </div>
     <div class="p-step_ditail__content">
       <p class="p-step_ditail__font">{{$step->content}}</p>
@@ -43,7 +35,7 @@
         <form method="POST" action="{{ route('step.destory',$step->id)}}">
           @csrf
           <div class="u-flex__center">
-            <button type="submit" class="c-button p-step_ditail__button">このSTEPを削除する</button>
+            <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("削除しますか？");'>このSTEPを削除する</button>
           </div>
         </form>
       </div>

@@ -6,14 +6,16 @@
   <!-- main -->
   <h1 class="p-step_register__title">STEP新規登録</h1>
 
-  <form method="POST" action="{{ route('step.store') }}" class="p-step_register__form">{{-- TODO: routeの部分は登録のルーティングにあとで変える --}}
+  <p>*STEPと子STEP1を登録してください</p>
+
+  <form method="POST" action="{{ route('step.store') }}" class="p-step_register__form">
     @csrf
 
     {{-- title --}}
     <div>
       <label for="title" class="p-step_register__label">
         <div class="u-flex__space">
-          <span>タイトル</span>
+          <p>タイトル</p>
           @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -27,7 +29,7 @@
     <div>
       <label for="category" class="p-step_register__label">
         <div class="u-flex__space">
-          <span>STEPカテゴリ</span>
+          <p>STEPカテゴリ</p>
           @error('category')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -41,7 +43,7 @@
     <div>
       <label for="criterion" class="p-step_register__label">
         <div class="u-flex__space">
-          <span>目安達成時間</span>
+          <p>目安達成時間</p>
           @error('achievement_time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
@@ -55,7 +57,7 @@
     <div>
       <label for="content" class="p-account_edit__font">
         <div class="u-flex__space">
-          <span>内容</span>
+          <p>内容</p>
           @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
 
