@@ -1,7 +1,9 @@
 .p-account_edit{
   //padding-left: 148px; // TODO: あとで％指定に変える
-  padding-left: 148px;
   //padding-right: 65px;
+  padding-right: 33%;
+  margin-left: 50px;
+  width: 100%;
   @include mq(xl){
     padding: 0;
   }
@@ -23,7 +25,7 @@
   }
   &__textarea{
     height: 100px;
-    width: 450px; // TODO: widthの長さをあとで％指定にする
+    width: 100%; // TODO: widthの長さをあとで％指定にする
     @include mq(md){
       width: 300px;
     }

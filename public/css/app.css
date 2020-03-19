@@ -1064,7 +1064,9 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-account_edit {
-  padding-left: 148px;
+  padding-right: 33%;
+  margin-left: 50px;
+  width: 100%;
 }
 
 @media screen and (max-width: 1199px) {
@@ -1096,7 +1098,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-account_edit__textarea {
   height: 100px;
-  width: 450px;
+  width: 100%;
 }
 
 @media screen and (max-width: 767px) {

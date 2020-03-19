@@ -8,11 +8,11 @@
 
   <div class="p-step_challenge__choice">
     <div>
-      <a href="" class="p-step_challenge__choice__font">チャレンジしているSTEP一覧</a>
+      <a href="{{ route('step.mypage_challenge')}}" class="p-step_challenge__choice__font">チャレンジしているSTEP一覧</a>
     </div>
     <div class="u-ml15 u-mr15">|</div>
     <div>
-      <a href="" class="p-step_challenge__choice__font">登録済みSTEP一覧</a>
+      <a href="{{ route('step.mypage_register')}}" class="p-step_challenge__choice__font">登録済みSTEP一覧</a>
     </div>
   </div>
 
