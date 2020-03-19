@@ -6,7 +6,7 @@
     </header>
     <div class="l-auth">
       <div class="l-auth__inner">
-        <main class="l-main">
+        <main>
           @yield('content')
         </main>
       </div>
