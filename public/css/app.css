@@ -2021,6 +2021,10 @@ input[type=checkbox]:checked + span::before {
   height: 80px;
 }
 
+.p-step_challenge__box {
+  margin-bottom: 120px;
+}
+
 .p-step_challenge__sub-title {
   font-size: 18px;
   font-weight: 100;
@@ -2029,7 +2033,8 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_challenge__card {
   display: flex;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
+  height: 180px;
 }
 
 .p-step_challenge__thead {
@@ -2056,10 +2061,13 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-step_challenge__tbody {
+  background-color: #ffffff;
+  border-left: 1px solid #d3d3d3;
   padding-top: 20px;
   padding-bottom: 10px;
   padding-left: 35px;
-  padding-right: 50px;
+  padding-right: 40px;
+  min-width: 350px;
 }
 
 .p-step_challenge__top {
@@ -2067,13 +2075,37 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 25px;
 }
 
+.p-step_challenge__top__font {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
 .p-step_challenge__medium {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+}
+
+.p-step_challenge__medium__font {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
 }
 
 .p-step_challenge__bottom {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.p-step_challenge__bottom__prof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .p-step_ditail {

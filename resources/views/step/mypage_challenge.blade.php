@@ -53,7 +53,7 @@
 
   <!-- step-list -->
 
-  <div>
+  <div class="p-step_challenge__box">
     <h2 class="p-step_challenge__sub-title">チャレンジしているSTEP達</h2>
     <div class="p-step_challenge__card">
       <div class="p-step_challenge__thead">
@@ -63,32 +63,77 @@
       <div class="p-step_challenge__tbody">
         <div class="p-step_challenge__top">
           <p class="u-mb5">STEP</p>
-          <p>英語を最速で学ぶ方法</p>
+          <p class="p-step_challenge__top__font">英語を最速で学ぶ方法ああああああああああああああああああ</p>
         </div>
         <div class="p-step_challenge__medium">
-          <p>1/2<span class="u-ml5">STEP</span></p>
+          <p class="p-step_challenge__medium__font">1/2<span class="u-ml5">STEP</span></p>
           <!-- プログレスバー -->
-          <div>
+          <div class="c-progress">
+            <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+              <span>100%</span>
+            </div>
           </div>
         </div>
         <div class="p-step_challenge__bottom">
-          <div class="u-flex">
+          <div class="p-step_challenge__bottom__prof">
             <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
-            <p>紗倉あんこ</p>
+            <p class="u-ml5">紗倉あんこ</p>
           </div>
           <div class="u-flex">
             <div class="u-flex">
               <i class="fas fa-inbox"></i>
-              <p>イラスト</p>
+              <p class="u-ml5">プログラミング</p>
             </div>
-            <div class="u-flex">
+            <div class="u-flex u-ml10">
               <i class="fas fa-hourglass-end"></i>
-              <p>1日</p>
+              <p class="u-ml5">1時間</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="p-step_challenge__card">
+      <div class="p-step_challenge__thead">
+        <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img">
+        <a href="" class="p-step_challenge__thead__button">続きから</a>
+      </div>
+      <div class="p-step_challenge__tbody">
+        <div class="p-step_challenge__top">
+          <p class="u-mb5">STEP</p>
+          <p class="p-step_challenge__top__font">英語を最速で学ぶ方法</p>
+        </div>
+        <div class="p-step_challenge__medium">
+          <p class="p-step_challenge__medium__font">1/2<span class="u-ml5">STEP</span></p>
+          <!-- プログレスバー -->
+          <div class="c-progress">
+            <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+              <span>100%</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-step_challenge__bottom">
+          <div class="p-step_challenge__bottom__prof">
+            <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
+            <p class="u-ml5">紗倉あんこ</p>
+          </div>
+          <div class="u-flex">
+            <div class="u-flex">
+              <i class="fas fa-inbox"></i>
+              <p class="u-ml5">プログラミング</p>
+            </div>
+            <div class="u-flex u-ml10">
+              <i class="fas fa-hourglass-end"></i>
+              <p class="u-ml5">1時間</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
   </div>
   <section>
     <!--<mypage-challenge></mypage-challenge>-->
