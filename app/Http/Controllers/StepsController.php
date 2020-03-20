@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Step;
+use App\StepChild;
 use App\Challenge;
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -31,24 +33,83 @@ class StepsController extends Controller
   // 新規STEP登録の画面を表示
   public function new()
   {
-    return view('step.register');
+    $categories = Category::orderBy('code','asc')->pluck('name', 'code');
+    $categories = $categories -> prepend('選択してください', '');
+    return view('step.register',compact('categories'));
   }
   
 
   // 新規STEP登録の送信された情報を保存
   public function store(Request $request)
   {
+    //dd($request->achievement_time.$request->time);
+    //dd($request);
+    // アイコンの隣の×ボタンを押したときの処理
+    /*if ($request->input('img_destory')){
+      // 画像を消去する処理
+      $deletePic = $step->pic;
+      $user->pic = '';
+      Storage::delete('public/'.$deletePic);
+      $user->save();
+    }*/
 
     $request->validate([
       'title' => 'required|string|max:191',
-      'category' => 'nullable|string|max:191',
-      'achievement_time' => 'nullable|string|max:25',
-      'content' => 'required|string'
+      'category_id' => 'required|string',
+      'achievement_time' => 'required|numeric|max:25',
+      'content' => 'required|string',
+      'pic' => 'nullable|image',
+      //'pic' => 'nullable|image|max:512',
+      'child_title' => 'required|string|max:191',
+      'child_content' => 'required|string',
+      'child_pic' => 'nullable|image'
     ]);
 
     $step = new Step();
-    Auth::user()->steps()->save($step->fill($request->all()));
-    return redirect('/home');
+    $stepChild = new StepChild();
+    $userId = Auth::id();
+    // 数字　+ セレクトで選ばれた時間の単位
+    $achivementTime = $request->achievement_time.$request->time;
+
+    // stepの値を保存
+    $step->user_id = $userId;
+    $step->title = $request->title;
+    $step->category_id = $request->category_id;
+    $step->achievement_time = $achivementTime;
+    $step->content = $request->content;
+
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 送信されたファイルをstoreに保存する処理
+      $file_name = time() . '.' . $request->pic->getClientOriginalName();
+      $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $step->pic = $file_name;
+    }
+    // stepの値を保存
+    $step->save();
+
+    // stepChildの値を保存
+    $stepChild->user_id = $userId;
+    $stepChild->step_id = $step->id;
+    $stepChild->title = $request->child_title;
+    $stepChild->content = $request->child_content;
+
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->child_pic) {
+
+      // 送信されたファイルをstoreに保存する処理
+      $file_name = time() . '.' . $request->child_pic->getClientOriginalName();
+      $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $stepChild->pic = $file_name;
+    }
+    // stepChildの値を保存
+    $stepChild->save();
+    return redirect('/home')->with('flash_message', '保存が完了しました');
   }
 
 

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Step extends Model
 {
   protected $fillable = [
-    'user_id', 'title', 'category', 'achievement_time', 'content','challenge_flg'
+    'user_id', 'title', 'category', 'achievement_time', 'content','pic',
   ];
 
   public function user()

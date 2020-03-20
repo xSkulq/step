@@ -9,7 +9,7 @@
   <p class="p-step_register__note">*STEPと子STEP1を登録してください</p>
   <p class="p-step_register__sub-title">STEPを登録</p>
 
-  <form method="POST" action="{{ route('step.store') }}" class="p-step_register__form">
+  <form method="POST" action="{{ route('step.store') }}" class="p-step_register__form" enctype="multipart/form-data">
     @csrf
 
     {{-- STEP --}}
@@ -37,12 +37,8 @@
           </div>
 
           <div class="p-step_register__select__category">
-            <select name="pref_id" class="c-select">
-              <option selected="selected" value="">選択してください</option>
-              <option value="1">プログラミング</option>
-              <option value="1">イラスト</option>
-              <option value="47">英語</option>
-            </select>
+            <!-- categoryセレクト -->
+            {{ Form::select('category_id', $categories, null, ['class' => 'c-select', 'id' => 'category_id']) }}
           </div>
         </label>
       </div>
@@ -60,11 +56,12 @@
               <input type="text" name="achievement_time" class="c-inputFild__long @error('achievement_time') c-inputFild__long-error @enderror" placeholder="12" value="{{ old('achievement_time') }}">
             </div>
             <div class="p-step_register__select__time">
-              <select name="pref_id" class="c-select">
+              <select name="time" class="c-select">
                 <option selected="selected" value="">選択</option>
-                <option value="1">日</option>
-                ...
-                <option value="47">時間</option>
+                <option value="分">分</option>
+                <option value="時間">時間</option>
+                <option value="日">日</option>
+                <option value="ヶ月">ヶ月</option>
               </select>
             </div>
           </div>
@@ -105,9 +102,10 @@
             @if(empty($user->pic))
             <img alt="no_icon" class="p-step_register__img" src="/imges/no_image.png">
             @else
-            <img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,{{ $user->pic }}">
+            <!--<img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,">-->
+            <!-- 画像プレビューの機能を後で追加する -->
+            <img alt="アイコン" class="p-step_register__img" src="/storage/{{ $step->pic }}">
             @endif
-              <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
           </label>
         </div>
       </div>
@@ -128,7 +126,7 @@
           </div>
 
           <div class="u-mt5 5">
-            <input type="text" name="title" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror" placeholder="〇〇本を読もう！！" value="{{ old('title') }}">
+            <input type="text" name="child_title" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror" placeholder="〇〇本を読もう！！" value="{{ old('title') }}">
           </div>
         </label>
       </div>
@@ -142,7 +140,7 @@
           </div>
 
           <div class="u-mt5 u-mb25">
-            <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="〇〇の本は簡単な英語しか書いてなく読みやすいので勉強になります">{{ old('content') }}</textarea>
+            <textarea name="child_content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="〇〇の本は簡単な英語しか書いてなく読みやすいので勉強になります">{{ old('content') }}</textarea>
           </div>
         </label>
       </div>
@@ -157,17 +155,17 @@
         <div class="p-step_register__icon-destory">
           <label>
           <i class="far fa-times-circle p-step_register__icon-destory__pointer"></i>
-          <input type="submit" name="img_destory" class="p-step_register__img-destory" value="アイコンを削除します">
+          <input type="submit" name="child_img_destory" class="p-step_register__img-destory" value="アイコンを削除します">
           </label>
         </div>
         
         <div class="p-step_register__icon">
           <label for="icon">
-            <input type="file" name="pic" class="p-step_register__file">
+            <input type="file" name="child_pic" class="p-step_register__file">
             @if(empty($user->pic))
             <img alt="no_icon" class="p-step_register__img" src="/imges/no_image.png">
             @else
-            <img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,{{ $user->pic }}">
+            <img alt="アイコン" class="p-step_register__img" src="/storage/{{ $stepChild->pic }}">
             @endif
               <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
           </label>
