@@ -6,21 +6,36 @@
   <!-- step-list -->
   <section class="p-step_ditail__item">
     <div>
-      <h1 class="p-step_ditail__title u-mb25">{{$stepChild->title}}</h1>
+      <h1 class="p-step_ditail__title u-mb25">
+        STEP1
+        <span>{{$stepChild->title}}</span>
+      </h1>
       <div class="p-step_ditail__top">
-        <p class="p-step_ditail__font">目安達成時間<span>{{$stepChild->step->achievement_time}}</span></p>
-        <p class="p-step_ditail__font u-ml15">{{$stepChild->step->category}}</p>
+        <p>作成日<span class="u-ml5">2020/03/24<span></p>
+        <div class="u-flex u-ml15">
+          <i class="fas fa-inbox"></i>
+          <p class="u-ml5">プログラミング</p>
+        </div>
+        <div class="u-flex u-ml10">
+          <i class="fas fa-hourglass-end"></i>
+          <p class="u-ml5">1時間</p>
+        </div>
       </div>
-      <div class="p-step_ditail__border"></div>
     </div>
-    <div class="u-flex__space u-mb55">
-    </div>
-    <div class="p-step_ditail__content">
-      <p class="p-step_ditail__font">{{$stepChild->content}}</p>
+    <div class="p-step_ditail__tbody">
+      <div class="p-step_ditail__medium">
+        <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+      </div>
+      <div class="p-step_ditail__bottom">
+        <p class="">{{$stepChild->content}}</p>
+      </div>
     </div>
 
     <!-- Twitterのシェアボタン -->
+    <div>
+      <!-- 後で修正する -->
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
     @if(Auth::id() === $step->user_id)

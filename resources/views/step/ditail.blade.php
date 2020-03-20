@@ -5,22 +5,46 @@
 
   <!-- step-list -->
   <section class="p-step_ditail__item">
-    <div>
-      <h1 class="p-step_ditail__title u-mb25">{{$step->title}}</h1>
-      <div class="p-step_ditail__top">
-        <p class="p-step_ditail__font">目安達成時間<span>{{$step->achievement_time}}</span></p>
-        <p class="p-step_ditail__font u-ml15">{{$step->category}}</p>
+    <!-- STEPの詳細 -->
+    <div class="p-step_ditail__thead">
+      <h1 class="p-step_ditail__title">
+        STEPタイトル
+        <span class="p-step_ditail__title__user">{{$step->title}}</span>
+      </h1>
+      <div class="p-step_ditail__challenge">
+        <p>チャレンジしている<p>
       </div>
-      <div class="p-step_ditail__border"></div>
+      <div class="p-step_ditail__top">
+        <div class="u-flex">
+          <p>作成日<span class="u-ml5">2020/03/24<span></p>
+          <div class="u-flex u-ml15">
+            <i class="fas fa-inbox"></i>
+            <p class="u-ml5">プログラミング</p>
+          </div>
+          <div class="u-flex u-ml10">
+            <i class="fas fa-hourglass-end"></i>
+            <p class="u-ml5">1時間</p>
+          </div>
+        </div>
+        <div>
+          <p>進捗率<span>100%</span></p>
+        </div>
+      </div>
     </div>
-    <div class="u-flex__space u-mb55">
-    </div>
-    <div class="p-step_ditail__content">
-      <p class="p-step_ditail__font">{{$step->content}}</p>
+    <div class="p-step_ditail__tbody">
+      <div class="p-step_ditail__medium">
+        <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+      </div>
+      <div class="p-step_ditail__bottom">
+        <p class="">{{$step->content}}</p>
+      </div>
     </div>
 
     <!-- Twitterのシェアボタン -->
+    <div>
+      <!-- 後で修正する -->
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
     @if(Auth::id() === $step->user_id)
@@ -80,7 +104,7 @@
       <div class="p-list_box__item">
         <a href="/step/ditail/{{$step->id}}" class="p-list_box__link">
           <div>
-            <p class="p-list_box__step">STEP</p>
+            <p class="p-list_box__step">STEPタイトル</p>
             <p class="p-list_box__font">{{$step->title}}</p>
           </div>
         </a>

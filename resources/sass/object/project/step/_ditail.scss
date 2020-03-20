@@ -1,37 +1,56 @@
 .p-step_ditail{
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 120px;
   @include mq(xl){
     display: block;
   }
   &__title{
     font-size: $font-size-xl;
-    font-weight: normal;
+    font-weight: 100;
     word-break: break-all;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    &__user{
+      display: block;
+    }
+  }
+  &__challenge{
+    display: flex;
+    justify-content: flex-end;
+    font-size: $font-size-2l;
+    color: $font-color-light-orenge;
+    margin-bottom: 20px;
   }
   &__top{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-size-m;
     margin-bottom: 15px;
   }
+  &__medium{
+    margin-bottom: 50px;
+  }
+  &__img{
+    width: 500px;
+    height: 281px;
+  }
+  &__bottom{
+    margin-bottom: 150px;
+  }
   &__item{
-    padding-left: 78px;
-    padding-right: 50px;
-    width: 630px;
+    //padding-left: 78px;
+    //padding-right: 83px;
+    margin-right: 80px;
+    margin-left: 80px;
+    //width: 630px;
+    width: 500px;
     @include mq(md){
       padding: 0;
       width: 90%;
       margin: 0 auto;
     }
-  }&__content{
-    margin-bottom: 150px;
-  }
-  &__font{
-    font-size: $font-size-2l;
-    word-break: break-all;
-  }
-  &__border{
-    border: 1px solid $light-gray;
   }
   &__button{
     color: $font-color-white;

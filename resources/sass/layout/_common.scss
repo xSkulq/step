@@ -57,8 +57,8 @@ $widthSidebar: 320px;
 }
 
 .l-main{
-  margin-left: 100px;
-  width: 40vw;
+  //margin-left: 100px;
+  //width: 40vw;
   @include mq(md){
     width: 100%;
     margin: 0 auto;
