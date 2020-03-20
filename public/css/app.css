@@ -1486,7 +1486,7 @@ input[type=checkbox]:checked + span::before {
 
 .p-child_register__input {
   margin-top: 5px;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 @media screen and (max-width: 767px) {
@@ -1496,7 +1496,7 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-child_register__textarea {
-  margin-bottom: 115px;
+  margin-bottom: 30px;
   height: 180px;
   width: 450px;
 }
@@ -1506,6 +1506,54 @@ input[type=checkbox]:checked + span::before {
     width: 300px;
     margin-bottom: 60px;
   }
+}
+
+.p-child_register__icon {
+  background: #ffffff;
+  color: #262626;
+  position: relative;
+  margin-bottom: 80px;
+  width: 200px;
+  height: 113px;
+}
+
+.p-child_register__icon-destory {
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.p-child_register__icon-destory__pointer:hover {
+  cursor: pointer;
+}
+
+.p-child_register__file {
+  opacity: 0;
+  width: 200px;
+  height: 113px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.p-child_register__file:hover {
+  cursor: pointer;
+}
+
+.p-child_register__img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.p-child_register__img-destory {
+  display: none;
 }
 
 .p-child_register__button-font {

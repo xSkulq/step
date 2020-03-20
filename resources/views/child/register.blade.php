@@ -4,7 +4,7 @@
 <div class="p-child_register">
 
   <!-- main -->
-  <h1 class="p-child_register__title">子STEP登録</h1>
+  <h1 class="p-child_register__title">子STEP新規登録</h1>
 
   <!-- step-list -->
   <form method="POST" action="{{ route('step.child_store',$stepId) }}" class="p-child_register__form">
@@ -37,6 +37,33 @@
           <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-child_register__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="内容"></textarea>
         </div>
       </label>
+    </div>
+
+    {{-- img --}}
+    <div>
+      <div class="u-flex__space u-mb5">
+        <p>STEPのTOP画像<span class="p-child_register__required">*512KB以下</span></p>
+        @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+      </div>
+  
+      <div class="p-child_register__icon-destory">
+        <label>
+          <i class="far fa-times-circle p-child_register__icon-destory__pointer"></i>
+          <input type="submit" name="img_destory" class="p-child_register__img-destory" value="アイコンを削除します">
+        </label>
+      </div>
+        
+      <div class="p-child_register__icon">
+        <label for="icon">
+            <input type="file" name="pic" class="p-child_register__file">
+            @if(empty($user->pic))
+            <img alt="no_icon" class="p-child_register__img" src="/imges/no_image.png">
+            @else
+            <img alt="アイコン" class="p-child_register__img" src="data:image/png;base64,{{ $user->pic }}">
+            @endif
+              <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
+        </label>
+      </div>
     </div>
 
     {{-- ボタン --}}
