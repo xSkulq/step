@@ -7,18 +7,26 @@
   <section class="p-step_ditail__item">
     <div>
       <h1 class="p-step_ditail__title u-mb25">
-        STEP1
-        <span>{{$stepChild->title}}</span>
+        STEP<span>1<span>
+        <span class="p-step_ditail__title__user">{{$stepChild->title}}</span>
       </h1>
+      <div class="p-step_ditail__challenge">
+        <p>クリアしている<p>
+      </div>
       <div class="p-step_ditail__top">
-        <p>作成日<span class="u-ml5">2020/03/24<span></p>
-        <div class="u-flex u-ml15">
-          <i class="fas fa-inbox"></i>
-          <p class="u-ml5">プログラミング</p>
+        <div class="u-flex">
+          <p>作成日<span class="u-ml5">2020/03/24<span></p>
+          <div class="u-flex u-ml15">
+            <i class="fas fa-inbox"></i>
+            <p class="u-ml5">プログラミング</p>
+          </div>
+          <div class="u-flex u-ml10">
+            <i class="fas fa-hourglass-end"></i>
+            <p class="u-ml5">1時間</p>
+          </div>
         </div>
-        <div class="u-flex u-ml10">
-          <i class="fas fa-hourglass-end"></i>
-          <p class="u-ml5">1時間</p>
+        <div>
+          <p>進捗率<span>100%</span></p>
         </div>
       </div>
     </div>
@@ -27,7 +35,7 @@
         <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
       </div>
       <div class="p-step_ditail__bottom">
-        <p class="">{{$stepChild->content}}</p>
+        <p class="">{{$step->content}}</p>
       </div>
     </div>
 

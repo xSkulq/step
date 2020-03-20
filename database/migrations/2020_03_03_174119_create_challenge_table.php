@@ -17,6 +17,7 @@ class CreateChallengeTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->bigInteger('step_id');
+            $table->bigInteger('step_child_id');
             $table->boolean('challenge_flg');
             $table->timestamps();
             $table->softDeletes();
