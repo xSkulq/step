@@ -1,5 +1,7 @@
 .p-child_register{
-  padding-left: 148px;
+    padding-right: 33%;
+    margin-left: 150px;
+    width: 40vw;
   @include mq(xl){
     padding: 0;
     margin-bottom: 48px;
@@ -29,7 +31,7 @@
   &__textarea{
     margin-bottom: 30px;
     height: 180px;
-    width: 450px; // TODO: widthの長さをあとで％指定にする
+    width: 100%;
     @include mq(md){
       width: 300px;
       margin-bottom: 60px;
