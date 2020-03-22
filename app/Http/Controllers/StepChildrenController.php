@@ -6,6 +6,7 @@ use App\Step;
 use App\StepChild;
 use App\Challenge;
 use App\Clear;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -26,13 +27,16 @@ class StepChildrenController extends Controller
     $stepId = $stepChild->step->id;
     // step一覧のデータ
     $step = Step::with(['step_children']);
-    $step = $step->where('id',$stepId)->first();
+    $step = $step->find($stepId);
+    //$step = $step->where('id',$stepId)->first();
 
     // チャレンジしているかの値
     $challenge = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
 
     // クリアしているかの値
     $clear = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$stepChildId)->first();
+    //$list= array_column($step->children, 'id');
+    //dd($list);
     return view('child.ditail', compact('stepChild','step','challenge','clear'));
   }
 
@@ -89,23 +93,49 @@ class StepChildrenController extends Controller
       $step_child->pic = $file_name;
     }
     $step_child->save();
-    return redirect('/step/ditail/'.$stepId);
+    return redirect('/step/child/ditail/'.$step_child->id)->with('flash_message', '保存が完了しました');
   }
 
   // 子STEP編集画面の情報を更新する
   public function update(Request $request, $id)
   {
-
-    $request->validate([
-      'title' => 'required|string|max:191',
-      'content' => 'required|string'
-    ]);
-
     // step_childのid
     $stepChildId = $id;
     $stepChild = StepChild::find($stepChildId);
-    $stepChild->fill($request->all())->save();
-    return redirect('/step/child/ditail/'.$stepChildId);
+    // アイコンの隣の×ボタンを押したときの処理
+    if ($request->input('img_destory')){
+      // 画像を消去する処理
+      $deletePic = $stepChild->pic;
+      Storage::delete('public/'.$deletePic);
+      $stepChild->pic = '';
+      $stepChild->save();
+      return redirect('/step/child/edit/'.$stepChildId);
+    }
+
+    $request->validate([
+      'title' => 'required|string|max:191',
+      'content' => 'required|string',
+      'pic' => 'nullable|image'
+    ]);
+
+    $stepChild->title = $request->title;
+    $stepChild->content = $request->content;
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+      // 前の画像を消去する処理
+      $deletePic = $stepChild->pic;
+      Storage::delete('public/'.$deletePic);
+
+      // 送信されたファイルをstoreに保存する処理
+      $file_name = time() . '.' . $request->pic->getClientOriginalName();
+      $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $stepChild->pic = $file_name;
+    }
+    $stepChild->save();
+    //$stepChild->fill($request->all())->save();
+    return redirect('/step/child/ditail/'.$stepChildId)->with('flash_message', '保存が完了しました');
   }
 
   // 子STEPを削除する
@@ -119,7 +149,7 @@ class StepChildrenController extends Controller
     $stepChild = StepChild::find($stepChildId);
     // stepChildの削除
     $stepChild = $stepChild->delete();
-    return redirect('/step/ditail/'.$stepId);
+    return redirect('/step/ditail/'.$stepId)->with('flash_message', '削除が完了しました');
   }
 
   // クリア処理

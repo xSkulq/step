@@ -285,7 +285,7 @@ class StepsController extends Controller
     }
     // stepの値を保存
     $step->save();
-    return redirect('/step/ditail/'.$id);
+    return redirect('/step/ditail/'.$id)->with('flash_message', '保存が完了しました');
   }
 
   // step削除

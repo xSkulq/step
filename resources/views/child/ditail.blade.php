@@ -7,7 +7,12 @@
   <section class="p-step_ditail__item">
     <div>
       <h1 class="p-step_ditail__title u-mb25">
-        STEP<span>1<span>
+        STEP
+          @foreach ($step->step_children as $key => $step_child)
+          @if($step_child['id'] === $stepChild->id)
+            {{ $key+1 }}
+          @endif
+          @endforeach
         <span class="p-step_ditail__title__user">{{$stepChild->title}}</span>
       </h1>
       <div class="p-step_ditail__challenge">
@@ -95,7 +100,7 @@
       <div class="p-list_box__item">
       <a href="/step/ditail/{{$step->id}}" class="p-list_box__link">
           <div>
-            <p class="p-list_box__step">STEP</p>
+            <p class="p-list_box__step">STEPタイトル</p>
           <p class="p-list_box__font">{{ $step->title }}</p>
           </div>
         </a>
