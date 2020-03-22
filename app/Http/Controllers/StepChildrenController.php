@@ -19,6 +19,7 @@ class StepChildrenController extends Controller
     // step_childのid
     $stepChildId = $id;
     $userId = Auth::id();
+    $step_child_prev = '';
     // 詳細用のstep_childのデータ
     $stepChild = StepChild::with(['step']);
     $stepChild = $stepChild->where('id', $stepChildId)->first();
@@ -28,16 +29,30 @@ class StepChildrenController extends Controller
     // step一覧のデータ
     $step = Step::with(['step_children']);
     $step = $step->find($stepId);
-    //$step = $step->where('id',$stepId)->first();
+
+    foreach($step->step_children as $key => $step_child){
+      if(($step_child['id'] == $stepChildId)){
+        $step_child_key = $key;
+        //dd($step_child_key);
+      }
+    }
+    // 前の子STEPのID
+    if( ($step_child_key-1) > -1){
+      $step_child_prev = $step->step_children[$step_child_key-1]->id;
+      //dd($step_child_prev);
+    }
 
     // チャレンジしているかの値
     $challenge = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
 
     // クリアしているかの値
     $clear = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$stepChildId)->first();
-    //$list= array_column($step->children, 'id');
-    //dd($list);
-    return view('child.ditail', compact('stepChild','step','challenge','clear'));
+    // 前のSTEPがクリアしているかどうかの値
+    $clear_prev = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$step_child_prev)->first();
+     //dd($clear_prev);
+    //dd($clear);
+    //dd($step_child_prev);
+    return view('child.ditail', compact('stepChild','step','challenge','clear','clear_prev'));
   }
 
 
@@ -53,6 +68,7 @@ class StepChildrenController extends Controller
     }
   }
 
+
   // 子STEP編集画面を表示
   public function edit($id)
   {
@@ -65,8 +81,8 @@ class StepChildrenController extends Controller
     }
   }
 
-    // 新規子STEP登録の送信された情報を保存
-    public function store(Request $request,$id)
+  // 新規子STEP登録の送信された情報を保存
+  public function store(Request $request,$id)
   {
     $request->validate([
       'title' => 'required|string|max:191',
@@ -95,6 +111,7 @@ class StepChildrenController extends Controller
     $step_child->save();
     return redirect('/step/child/ditail/'.$step_child->id)->with('flash_message', '保存が完了しました');
   }
+
 
   // 子STEP編集画面の情報を更新する
   public function update(Request $request, $id)
@@ -138,6 +155,7 @@ class StepChildrenController extends Controller
     return redirect('/step/child/ditail/'.$stepChildId)->with('flash_message', '保存が完了しました');
   }
 
+
   // 子STEPを削除する
   public function destory(Request $request, $id)
   {
@@ -152,6 +170,7 @@ class StepChildrenController extends Controller
     return redirect('/step/ditail/'.$stepId)->with('flash_message', '削除が完了しました');
   }
 
+
   // クリア処理
   public function clear($id)
   {
@@ -159,7 +178,17 @@ class StepChildrenController extends Controller
     $stepChildId = $id;
     // stepのid
     $stepId = StepChild::with('step')->where('id',$stepChildId)->first();
-    $stepId = $stepId->step->id;
+    $stepId = optional($stepId->step)->id;
+    $step = STEP::with('step_children');
+    $step = $step->find($stepId);
+
+    // step_childrenの配列の個数
+    $step_child_total_key = count($step->step_children);
+    // 現在の子STEPの配列のキー
+    $step_child_key = '';
+    // 次の子STEPの配列のキー
+    $step_child_next = '';
+
     // challengeのid
     $challengeId = Challenge::where('step_id',$stepId)->first();
     $challengeId = $challengeId->id;
@@ -172,6 +201,22 @@ class StepChildrenController extends Controller
     $clear->challenge_id = $challengeId;
     $clear->clear_flg = true;
     $clear->save();
-    return redirect('/step/child/ditail/'.$stepChildId);
+
+    foreach($step->step_children as $key => $step_child){
+      if(($step_child['id'] == $stepChildId)){
+        $step_child_key = $key;
+      }
+    }
+    // 次の子STEPのID
+    if( ($step_child_key+1) !== $step_child_total_key){
+      $step_child_next = $step->step_children[$step_child_key+1]->id;
+    }
+
+    // 遷移の処理
+    if(!empty($step_child_next)){
+      return redirect('/step/child/ditail/'.$step_child_next)->with('flash_message', 'クリアしました');
+    }else{
+      return redirect('/step/ditail/'.$stepId)->with('flash_message', '全部の子STEPをクリアしました');
+    }
   }
 }

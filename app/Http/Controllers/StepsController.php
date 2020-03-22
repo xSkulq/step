@@ -296,7 +296,7 @@ class StepsController extends Controller
     $step = Step::find($stepId);
     // stepの削除
     $step = $step->delete();
-    return redirect('/step/mypage_register');
+    return redirect('/step/mypage_register')->with('flash_message', '削除が完了しました');
   }
 
   // チャレンジする
@@ -304,6 +304,8 @@ class StepsController extends Controller
   {
     //stepのid
     $stepId = $id;
+    $step = STEP::with('step_children');
+    $step = $step->find($stepId);
     $challenge = new Challenge();
 
     // チャレンジするstepを保存
@@ -311,7 +313,7 @@ class StepsController extends Controller
     $challenge->step_id = $stepId;
     $challenge->challenge_flg = true;
     $challenge->save();
-    return redirect('/step/ditail/'.$stepId);
+    return redirect('/step/child/ditail/'.$step->step_children[0]->id)->with('flash_message', 'チャレンジ開始です');
   }
 
     // チャレンジやめる
@@ -324,6 +326,6 @@ class StepsController extends Controller
     // チャレンジをやめるstepを削除
     $challenge_stop = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
     $challenge_stop = $challenge_stop->delete();
-    return redirect('/step/mypage_challenge');
+    return redirect('/step/ditail/'.$stepId)->with('flash_message', 'チャレンジをやめました');
   }
 }

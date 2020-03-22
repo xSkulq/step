@@ -12,7 +12,9 @@
         <span class="p-step_ditail__title__user">{{$step->title}}</span>
       </h1>
       <div class="p-step_ditail__challenge">
+        @if($challenge)
         <p>チャレンジしている<p>
+        @endif
       </div>
       <div class="p-step_ditail__top">
         <div class="u-flex">
@@ -91,7 +93,7 @@
         <form method="POST" action="{{ route('step.challenge_stop',$step->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
-            <button type="submit" class="c-button p-step_ditail__button">チャレンジをやめる</button>
+            <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("このSTEPのチャレンジをやめますか？");'>チャレンジをやめる</button>
           </div>
         </form>
         @endif

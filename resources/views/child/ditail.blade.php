@@ -16,7 +16,11 @@
         <span class="p-step_ditail__title__user">{{$stepChild->title}}</span>
       </h1>
       <div class="p-step_ditail__challenge">
+        @if(empty($clear->clear_flg))
+        <p></p>
+        @else
         <p>クリアしている<p>
+        @endif
       </div>
       <div class="p-step_ditail__top">
         <div class="u-flex">
@@ -80,9 +84,15 @@
         @elseif($challenge->challenge_flg === 1 && empty($clear->clear_flg))
         <form method="POST" action="{{ route('step.child_clear',$stepChild->id)}}">
           @csrf
+          @if($clear_prev)
           <div class="u-flex__center u-mb30">
             <button type="submit" class="c-button p-step_ditail__button">クリア</button>
           </div>
+          @elseif($step->step_children[0]->id == $stepChild->id)
+          <div class="u-flex__center u-mb30">
+            <button type="submit" class="c-button p-step_ditail__button">クリア</button>
+          </div>
+          @endif
         </form>
         @else
         <div></div>
