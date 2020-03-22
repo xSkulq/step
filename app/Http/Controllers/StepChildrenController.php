@@ -50,8 +50,6 @@ class StepChildrenController extends Controller
     // 前のSTEPがクリアしているかどうかの値
     $clear_prev = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$step_child_prev)->first();
      //dd($clear_prev);
-    //dd($clear);
-    //dd($step_child_prev);
     return view('child.ditail', compact('stepChild','step','challenge','clear','clear_prev'));
   }
 
