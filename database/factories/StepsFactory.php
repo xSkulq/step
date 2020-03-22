@@ -17,8 +17,9 @@ $factory->define(Step::class, function (Faker $faker) {
     'user_id' => $user->id,
     'title' => $faker_ja->word,
     'category_id' => $category->id,
-    'achievement_time' => 1,
+    'achievement_number' => 1,
     'time' => '時間',
+    'total_time' => '1時間',
     'content' => $faker_ja->paragraph(),
     'created_at' => $created_at,
     'updated_at' => $updated_at

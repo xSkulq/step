@@ -53,7 +53,7 @@
 
           <div class="u-flex">
             <div class="u-mt5 u-mb25">
-              <input type="text" name="achievement_time" class="c-inputFild__long @error('achievement_time') c-inputFild__long-error @enderror" placeholder="12" value="{{ old('achievement_time') }}">
+              <input type="text" name="achievement_number" class="c-inputFild__long @error('achievement_time') c-inputFild__long-error @enderror" placeholder="12" value="{{ old('achievement_time') }}">
             </div>
             <div class="p-step_register__select__time">
               <select name="time" class="c-select">

@@ -33,14 +33,14 @@ class StepsController extends Controller
 
     // searchがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+      $steps = $steps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
         $q->where('name', $search);
       });
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search)->orWhereHas('user', function ($q) use ($search){
+      $steps = $steps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
         $q->where('name', $search);
       });
     }else if(empty($search) && !empty($category)){
@@ -82,7 +82,7 @@ class StepsController extends Controller
     $request->validate([
       'title' => 'required|string|max:191',
       'category_id' => 'required|string',
-      'achievement_time' => 'required|numeric|max:25',
+      'achievement_number' => 'required|numeric|max:25',
       'time' => 'required|max:25',
       'content' => 'required|string',
       'pic' => 'nullable|image',
@@ -96,13 +96,14 @@ class StepsController extends Controller
     $stepChild = new StepChild();
     $userId = Auth::id();
     // 数字　+ セレクトで選ばれた時間の単位
-    $achivementTime = $request->achievement_time.$request->time;
+    $achivementTime = $request->achievement_number.$request->time;
 
     // stepの値を保存
     $step->user_id = $userId;
     $step->title = $request->title;
     $step->category_id = $request->category_id;
-    $step->achievement_time = $request->achievement_time;
+    $step->achievement_number = $request->achievement_number;
+    $step->total_time = $achivementTime;
     $step->time = $request->time;
     $step->content = $request->content;
 
@@ -197,12 +198,12 @@ class StepsController extends Controller
 
     // searchがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search);
+      $steps = $steps->where('title',$search)->orWhere('total_time',$search);
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search);
+      $steps = $steps->where('title',$search)->orWhere('total_time',$search);
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);

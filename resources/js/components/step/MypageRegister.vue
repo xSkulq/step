@@ -16,7 +16,7 @@
               </div>
               <div class="u-flex u-ml10">
                 <i class="fas fa-hourglass-end"></i>
-                <p class="u-ml5">{{ step.achievement_time }}</p>
+                <p class="u-ml5">{{ step.total_time }}</p>
               </div>
             </div>
           </div>
