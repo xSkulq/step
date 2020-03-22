@@ -64,7 +64,6 @@ class AccountsController extends Controller
       // 送信されたファイルをstoreに保存する処理
       $file_name = time() . '.' . $request->pic->getClientOriginalName();
       $request->pic->storeAs('public', $file_name);
-      //$user->pic = 'storage/' . $file_name;
 
       // userにpicの値を格納
       $user->pic = $file_name;

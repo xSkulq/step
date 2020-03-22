@@ -16,14 +16,14 @@
       </div>
       <div class="p-step_ditail__top">
         <div class="u-flex">
-          <p>作成日<span class="u-ml5">2020/03/24<span></p>
+          <p>作成日<span class="u-ml5">{{date('Y/m/d', strtotime($step->created_at))}}<span></p>
           <div class="u-flex u-ml15">
             <i class="fas fa-inbox"></i>
-            <p class="u-ml5">プログラミング</p>
+            <p class="u-ml5">{{ $step->category->name }}</p>
           </div>
           <div class="u-flex u-ml10">
             <i class="fas fa-hourglass-end"></i>
-            <p class="u-ml5">1時間</p>
+            <p class="u-ml5">{{ $step->achievement_time }}</p>
           </div>
         </div>
         <div>
@@ -33,7 +33,11 @@
     </div>
     <div class="p-step_ditail__tbody">
       <div class="p-step_ditail__medium">
+        @if($step->pic)
+        <img src="/storage/{{ $step->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+        @else
         <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+        @endif
       </div>
       <div class="p-step_ditail__bottom">
         <p class="">{{$step->content}}</p>

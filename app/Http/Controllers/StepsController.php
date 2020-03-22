@@ -14,17 +14,43 @@ class StepsController extends Controller
   // step一覧
   public function index(Request $request)
   {
+    // categoryボックス
+    $categories = Category::orderBy('code','asc')->pluck('name', 'code');
+    $categories = $categories -> prepend('カテゴリ名', '');
+    // 検索ボックス
     $search = $request->input('search');
-    return view('step.list',compact('search'));
+    // 選択されたcategoryのid
+    $category = $request->input('category_id');
+    return view('step.list',compact('search','categories','category'));
   }
 
   public function api_index(Request $request)
   {
+    //dd($request);
     $search = $request->input('search');
-    $steps = Step::with('user');
-    if (!empty($search)) {
-      $steps = $steps->where('category',$search);
+    $category = $request->input('category_id');
+    $steps = Step::with(['user','category']);
+
+    // searchがある場合
+    if (!empty($search) && !empty($category)) {
+      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+        $q->where('name', $search);
+      });
+      $steps = $steps->WhereHas('category', function ($q) use ($category){
+        $q->where('id', $category);
+      });
+    }else if(!empty($search) && empty($category)){
+      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search)->orWhereHas('user', function ($q) use ($search){
+        $q->where('name', $search);
+      });
+    }else if(empty($search) && !empty($category)){
+      $steps = $steps->WhereHas('category', function ($q) use ($category){
+        $q->where('id', $category);
+      });
+    }else{
+      $steps = $steps;
     }
+    
     $steps = $steps->orderBy('created_at', 'desc')->get();
     return response()->json($steps);
   }
@@ -57,6 +83,7 @@ class StepsController extends Controller
       'title' => 'required|string|max:191',
       'category_id' => 'required|string',
       'achievement_time' => 'required|numeric|max:25',
+      'time' => 'required|max:25',
       'content' => 'required|string',
       'pic' => 'nullable|image',
       //'pic' => 'nullable|image|max:512',
@@ -75,7 +102,8 @@ class StepsController extends Controller
     $step->user_id = $userId;
     $step->title = $request->title;
     $step->category_id = $request->category_id;
-    $step->achievement_time = $achivementTime;
+    $step->achievement_time = $request->achievement_time;
+    $step->time = $request->time;
     $step->content = $request->content;
 
     // アイコンにファイルが追加され保存したときの処理
@@ -117,8 +145,12 @@ class StepsController extends Controller
   public function edit(Request $request, $id)
   {
     $userId = Auth::id();
+    // categoryボックス
+    $categories = Category::orderBy('code','asc')->pluck('name', 'code');
+    $categories = $categories -> prepend('選択してください', '');
+    $step = Step::with(['category']);
     $step = Step::where('user_id', $userId)->find($id);
-    return view('step.edit',compact('step'));
+    return view('step.edit',compact('step','categories'));
   }
 
 
@@ -129,7 +161,7 @@ class StepsController extends Controller
     $stepId = $id;
     // userのid
     $userId = Auth::id();
-    $step = Step::with(['user','step_children']);
+    $step = Step::with(['user','step_children','category']);
     $step = $step->where('id', $stepId)->first();
 
     // チャレンジしているかの値
@@ -141,9 +173,15 @@ class StepsController extends Controller
   //登録済み一覧を表示
   public function mypage_register(Request $request)
   {
+    // categoryボックス
+    $categories = Category::orderBy('code','asc')->pluck('name', 'code');
+    $categories = $categories -> prepend('カテゴリ名', '');
+    // 検索ボックス
     $search = $request->input('search');
+    // 選択されたcategoryのid
+    $category = $request->input('category_id');
 
-    return view('step.mypage_register',compact('search'));
+    return view('step.mypage_register',compact('search','categories','category'));
   }
 
   // 登録済み一覧を表示
@@ -151,13 +189,26 @@ class StepsController extends Controller
   {
     // 検索された値
     $search = $request->input('search');
+    $category = $request->input('category_id');
     // userid
     $userId = Auth::id();
-    $steps = Step::with('user');
+    $steps = Step::with('user','category');
     $steps = $steps->where('user_id', $userId)->orderBy('created_at', 'desc');
-    // 検索された値がstepのカテゴリに一致するかの処理
-    if (!empty($search)) {
-      $steps = $steps->where('category',$search);
+
+    // searchがある場合
+    if (!empty($search) && !empty($category)) {
+      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search);
+      $steps = $steps->WhereHas('category', function ($q) use ($category){
+        $q->where('id', $category);
+      });
+    }else if(!empty($search) && empty($category)){
+      $steps = $steps->where('title',$search)->orWhere('achievement_time',$search);
+    }else if(empty($search) && !empty($category)){
+      $steps = $steps->WhereHas('category', function ($q) use ($category){
+        $q->where('id', $category);
+      });
+    }else{
+      $steps = $steps;
     }
     $steps = $steps->get();
     return response()->json($steps);
