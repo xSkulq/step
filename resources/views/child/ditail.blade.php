@@ -15,27 +15,31 @@
       </div>
       <div class="p-step_ditail__top">
         <div class="u-flex">
-          <p>作成日<span class="u-ml5">2020/03/24<span></p>
+          <p>作成日<span class="u-ml5">{{date('Y/m/d', strtotime($stepChild->created_at))}}<span></p>
           <div class="u-flex u-ml15">
             <i class="fas fa-inbox"></i>
-            <p class="u-ml5">プログラミング</p>
+            <p class="u-ml5">{{ $step->category->name}}</p>
           </div>
           <div class="u-flex u-ml10">
             <i class="fas fa-hourglass-end"></i>
-            <p class="u-ml5">1時間</p>
+            <p class="u-ml5">{{ $step->total_time }}</p>
           </div>
         </div>
-        <div>
+        <!--<div>
           <p>進捗率<span>100%</span></p>
-        </div>
+        </div>-->
       </div>
     </div>
     <div class="p-step_ditail__tbody">
       <div class="p-step_ditail__medium">
+        @if($stepChild->pic)
+        <img src="/storage/{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+        @else
         <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+        @endif
       </div>
       <div class="p-step_ditail__bottom">
-        <p class="">{{$step->content}}</p>
+        <p class="">{{$stepChild->content}}</p>
       </div>
     </div>
 
@@ -57,7 +61,7 @@
       <form method="POST" action="{{ route('step.child_destory',$stepChild->id)}}">
         @csrf
       <div class="u-flex__center">
-        <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("削除しますか？");'>この子STEPを削除する</button>
+        <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("この子STEPを削除しますか？");'>この子STEPを削除する</button>
       </div>
       </form>
     </div>

@@ -7,7 +7,7 @@
   <h1 class="p-child_register__title">子STEP新規登録</h1>
 
   <!-- step-list -->
-  <form method="POST" action="{{ route('step.child_store',$stepId) }}" class="p-child_register__form">
+  <form method="POST" action="{{ route('step.child_store',$stepId) }}" class="p-child_register__form" enctype="multipart/form-data">
     @csrf
 
     {{-- title --}}

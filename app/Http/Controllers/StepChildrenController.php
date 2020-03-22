@@ -66,16 +66,28 @@ class StepChildrenController extends Controller
   {
     $request->validate([
       'title' => 'required|string|max:191',
-      'content' => 'required|string'
+      'content' => 'required|string',
+      'pic' => 'nullable|image',
     ]);
 
     // stepのid
     $stepId = $id;
 
     $step_child = new StepChild();
+    $step_child->user_id = Auth::id();
     $step_child->step_id = $stepId;
     $step_child->title = $request->title;
     $step_child->content = $request->content;
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 送信されたファイルをstoreに保存する処理
+      $file_name = time() . '.' . $request->pic->getClientOriginalName();
+      $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $step_child->pic = $file_name;
+    }
     $step_child->save();
     return redirect('/step/ditail/'.$stepId);
   }

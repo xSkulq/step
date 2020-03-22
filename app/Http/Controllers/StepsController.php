@@ -5,6 +5,7 @@ use App\Step;
 use App\StepChild;
 use App\Challenge;
 use App\Category;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -246,15 +247,44 @@ class StepsController extends Controller
   public function update(Request $request, $id)
   {
 
+    //dd($request);
     $request->validate([
       'title' => 'required|string|max:191',
-      'category' => 'nullable|string|max:191',
-      'achievement_time' => 'nullable|string|max:25',
-      'content' => 'required|string'
+      'category_id' => 'required|string',
+      'achievement_number' => 'required|numeric|max:25',
+      'time' => 'required|max:25',
+      'content' => 'required|string',
+      'pic' => 'nullable|image',
     ]);
+    //dd($request);
 
     $step = Step::find($id);
-    $step->fill($request->all())->save();
+    // 数字　+ セレクトで選ばれた時間の単位
+    $achivementTime = $request->achievement_number.$request->time;
+
+    // stepの値を保存
+    $step->title = $request->title;
+    $step->category_id = $request->category_id;
+    $step->achievement_number = $request->achievement_number;
+    $step->time = $request->time;
+    $step->total_time = $achivementTime;
+    $step->content = $request->content;
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 前の画像を消去する処理
+      $deletePic = $step->pic;
+      Storage::delete('public/'.$deletePic);
+
+      // 送信されたファイルをstoreに保存する処理
+      $file_name = time() . '.' . $request->pic->getClientOriginalName();
+      $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $step->pic = $file_name;
+    }
+    // stepの値を保存
+    $step->save();
     return redirect('/step/ditail/'.$id);
   }
 

@@ -7,7 +7,7 @@
   <h1 class="p-child_edit__title">子STEP編集</h1>
 
   <!-- step-list -->
-  <form method="POST" action="{{ route('step.child_update',$stepChild->id) }}" class="p-child_edit__form">
+  <form method="POST" action="{{ route('step.child_update',$stepChild->id) }}" class="p-child_edit__form" enctype="multipart/form-data">
     @csrf
 
     {{-- title --}}
@@ -56,10 +56,10 @@
       <div class="p-child_edit__icon">
         <label for="icon">
             <input type="file" name="pic" class="p-child_edit__file">
-            @if(empty($user->pic))
+            @if(empty($stepChild->pic))
             <img alt="no_icon" class="p-child_edit__img" src="/imges/no_image.png">
             @else
-            <img alt="アイコン" class="p-child_edit__img" src="data:image/png;base64,{{ $user->pic }}">
+            <img alt="アイコン" class="p-child_edit__img" src="/storage/{{ $stepChild->pic }}">
             @endif
               <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
         </label>

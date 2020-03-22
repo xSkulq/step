@@ -6,7 +6,7 @@
   <!-- main -->
   <h1 class="p-step_edit__title">STEP編集</h1>
 
-  <form method="POST" action="{{ route('step.update',$step->id) }}" class="p-step_edit__form">
+  <form method="POST" action="{{ route('step.update',$step->id) }}" class="p-step_edit__form" enctype="multipart/form-data">
     @csrf
 
     {{-- STEP --}}

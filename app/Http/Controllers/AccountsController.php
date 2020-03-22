@@ -30,6 +30,7 @@ class AccountsController extends Controller
       // 画像を消去する処理
       $user->pic = '';
       $user->save();
+      return redirect('/account/edit');
     }
 
     // バリデーション
