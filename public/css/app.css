@@ -1154,8 +1154,8 @@ input[type=checkbox]:checked + span::before {
   border-radius: 50%;
 }
 
-.p-account_edit__img-destory {
-  display: none;
+.p-account_edit__img-destory:hover {
+  cursor: pointer;
 }
 
 .p-email {

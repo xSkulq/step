@@ -56,12 +56,12 @@
         @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
 
-      <div class="p-account_edit__icon-destory">
+      <!--<div class="p-account_edit__icon-destory">
         <label>
         <i class="far fa-times-circle p-account_edit__icon-destory__pointer"></i>
         <input type="submit" name="img_destory" class="p-account_edit__img-destory" value="アイコンを削除します">
         </label>
-      </div>
+      </div>-->
       
       <!--<div class="p-account_edit__icon">-->
         <label for="icon">
@@ -70,7 +70,7 @@
           <!--<img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">-->
           <!-- else -->
           <!--<img alt="アイコン" class="p-account_edit__img" src="data:image/png;base64,">-->
-          <img-preview :prev_img={{ json_encode($user->pic) }}></img-preview>
+          <account-img-preview :prev_img={{ json_encode($user->pic) }}></account-img-preview>
           <!--<img alt="アイコン" class="p-account_edit__img" :src="/storage/">-->
           <!--endif-->
         </label>

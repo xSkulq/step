@@ -46,22 +46,16 @@
         @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
   
-      <div class="p-child_edit__icon-destory">
+      <!--<div class="p-child_edit__icon-destory">
         <label>
           <i class="far fa-times-circle p-child_edit__icon-destory__pointer"></i>
           <input type="submit" name="img_destory" class="p-child_edit__img-destory" value="アイコンを削除します">
         </label>
-      </div>
+      </div>-->
         
-      <div class="p-child_edit__icon">
+      <div>
         <label for="icon">
-            <input type="file" name="pic" class="p-child_edit__file">
-            @if(empty($stepChild->pic))
-            <img alt="no_icon" class="p-child_edit__img" src="/imges/no_image.png">
-            @else
-            <img alt="アイコン" class="p-child_edit__img" src="data:image/png;base64,{ $stepChild->pic }}">
-            @endif
-              <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
+          <step-img-preview :prev_img={{ json_encode($stepChild->pic) }}></step-img-preview>
         </label>
       </div>
     </div>

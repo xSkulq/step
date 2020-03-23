@@ -97,11 +97,21 @@ class StepChildrenController extends Controller
     $step_child->title = $request->title;
     $step_child->content = $request->content;
     // アイコンにファイルが追加され保存したときの処理
-    if ($request->pic) {
+    /*if ($request->pic) {
 
       // 送信されたファイルをstoreに保存する処理
       $file_name = time() . '.' . $request->pic->getClientOriginalName();
       $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $step_child->pic = $file_name;
+    }*/
+
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 画像をバイナリデータで格納
+      $file_name = base64_encode(file_get_contents($request->pic));
 
       // userにpicの値を格納
       $step_child->pic = $file_name;
@@ -118,13 +128,21 @@ class StepChildrenController extends Controller
     $stepChildId = $id;
     $stepChild = StepChild::find($stepChildId);
     // アイコンの隣の×ボタンを押したときの処理
-    if ($request->input('img_destory')){
+    /*if ($request->input('img_destory')){
       // 画像を消去する処理
       $deletePic = $stepChild->pic;
       Storage::delete('public/'.$deletePic);
       $stepChild->pic = '';
       $stepChild->save();
       return redirect('/step/child/edit/'.$stepChildId);
+    }*/
+
+    // アイコンの隣の×ボタンを押したときの処理
+    if ($request->input('img_destory')){
+      // 画像を消去する処理
+      $stepChild->pic = '';
+      $stepChild->save();
+      return redirect('/account/edit');
     }
 
     $request->validate([
@@ -136,7 +154,7 @@ class StepChildrenController extends Controller
     $stepChild->title = $request->title;
     $stepChild->content = $request->content;
     // アイコンにファイルが追加され保存したときの処理
-    if ($request->pic) {
+    /*if ($request->pic) {
       // 前の画像を消去する処理
       $deletePic = $stepChild->pic;
       Storage::delete('public/'.$deletePic);
@@ -144,6 +162,15 @@ class StepChildrenController extends Controller
       // 送信されたファイルをstoreに保存する処理
       $file_name = time() . '.' . $request->pic->getClientOriginalName();
       $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $stepChild->pic = $file_name;
+    }*/
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 画像をバイナリデータで格納
+      $file_name = base64_encode(file_get_contents($request->pic));
 
       // userにpicの値を格納
       $stepChild->pic = $file_name;

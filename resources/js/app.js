@@ -31,7 +31,10 @@ Vue.component('mypage-challenge', require('./components/step/MypageChallenge.vue
 //ue.component('search-component', require('./components/SearchComponent.vue').default);
 
 //preview
-Vue.component('img-preview', require('./components/step/ImgPreview.vue').default);
+//step
+Vue.component('step-img-preview', require('./components/step/ImgPreview.vue').default);
+//account
+Vue.component('account-img-preview', require('./components/account/ImgPreview.vue').default);
 
 
 /**

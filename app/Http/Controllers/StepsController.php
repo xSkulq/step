@@ -110,11 +110,20 @@ class StepsController extends Controller
     $step->content = $request->content;
 
     // アイコンにファイルが追加され保存したときの処理
-    if ($request->pic) {
+    /*if ($request->pic) {
 
       // 送信されたファイルをstoreに保存する処理
       $file_name = time() . '.' . $request->pic->getClientOriginalName();
       $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $step->pic = $file_name;
+    }*/
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 画像をバイナリデータで格納
+      $file_name = base64_encode(file_get_contents($request->pic));
 
       // userにpicの値を格納
       $step->pic = $file_name;
@@ -129,11 +138,20 @@ class StepsController extends Controller
     $stepChild->content = $request->child_content;
 
     // アイコンにファイルが追加され保存したときの処理
-    if ($request->child_pic) {
+    /*if ($request->child_pic) {
 
       // 送信されたファイルをstoreに保存する処理
       $file_name = time() . '.' . $request->child_pic->getClientOriginalName();
       $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $stepChild->pic = $file_name;
+    }*/
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 画像をバイナリデータで格納
+      $file_name = base64_encode(file_get_contents($request->pic));
 
       // userにpicの値を格納
       $stepChild->pic = $file_name;
@@ -311,6 +329,14 @@ class StepsController extends Controller
   // step編集の更新
   public function update(Request $request, $id)
   {
+    $step = Step::find($id);
+    // アイコンの隣の×ボタンを押したときの処理
+    if ($request->input('img_destory')){
+      // 画像を消去する処理
+      $step->pic = '';
+      $step->save();
+      return redirect('/account/edit');
+    }
 
     //dd($request);
     $request->validate([
@@ -321,9 +347,7 @@ class StepsController extends Controller
       'content' => 'required|string',
       'pic' => 'nullable|image',
     ]);
-    //dd($request);
-
-    $step = Step::find($id);
+    
     // 数字　+ セレクトで選ばれた時間の単位
     $achivementTime = $request->achievement_number.$request->time;
 
@@ -335,7 +359,7 @@ class StepsController extends Controller
     $step->total_time = $achivementTime;
     $step->content = $request->content;
     // アイコンにファイルが追加され保存したときの処理
-    if ($request->pic) {
+    /*if ($request->pic) {
 
       // 前の画像を消去する処理
       $deletePic = $step->pic;
@@ -344,6 +368,15 @@ class StepsController extends Controller
       // 送信されたファイルをstoreに保存する処理
       $file_name = time() . '.' . $request->pic->getClientOriginalName();
       $request->pic->storeAs('public', $file_name);
+
+      // userにpicの値を格納
+      $step->pic = $file_name;
+    }*/
+    // アイコンにファイルが追加され保存したときの処理
+    if ($request->pic) {
+
+      // 画像をバイナリデータで格納
+      $file_name = base64_encode(file_get_contents($request->pic));
 
       // userにpicの値を格納
       $step->pic = $file_name;

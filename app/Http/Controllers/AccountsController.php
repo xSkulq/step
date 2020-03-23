@@ -21,6 +21,7 @@ class AccountsController extends Controller
   // プロフィール編集画面の送信された情報を保存
   public function store(Request $request)
   {
+    //dd($request);
     // userテーブルの更新
     $userId = Auth::id();
     $user = User::find($userId);

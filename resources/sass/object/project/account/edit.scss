@@ -82,7 +82,10 @@
     left: 0;
     border-radius: 50%;
     &-destory{
-      display: none;
+      //display: none;//TODO: 画像削除し保存するために表示する（仮）
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 }
