@@ -104,7 +104,7 @@
             @else
             <!--<img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,">-->
             <!-- 画像プレビューの機能を後で追加する -->
-            <img alt="アイコン" class="p-step_register__img" src="/storage/{{ $step->pic }}">
+            <img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,{{ $step->pic }}">
             @endif
           </label>
         </div>
@@ -165,7 +165,7 @@
             @if(empty($user->pic))
             <img alt="no_icon" class="p-step_register__img" src="/imges/no_image.png">
             @else
-            <img alt="アイコン" class="p-step_register__img" src="/storage/{{ $stepChild->pic }}">
+            <img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,{{ $stepChild->pic }}">
             @endif
               <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
           </label>

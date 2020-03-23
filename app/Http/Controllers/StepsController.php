@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Step;
 use App\StepChild;
 use App\Challenge;
+use App\Clear;
 use App\Category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -220,25 +221,89 @@ class StepsController extends Controller
   // チャレンジ一覧表示
   public function mypage_challenge(Request $request)
   {
+    $clear = Clear::with('user');
+    $clearCount = $clear->where('user_id',Auth::id())->count();
+    $user = Auth::user();
+    // categoryボックス
+    $categories = Category::orderBy('code','asc')->pluck('name', 'code');
+    $categories = $categories -> prepend('カテゴリ名', '');
+    // 検索ボックス
     $search = $request->input('search');
-    return view('step.mypage_challenge',compact('search'));
+    // 選択されたcategoryのid
+    $category = $request->input('category_id');
+    
+    return view('step.mypage_challenge',compact('search','categories','category','user','clearCount'));
   }
 
   // チャレンジSTEP一覧を表示
   public function api_mypage_challenge(Request $request)
   {
     $search = $request->input('search');
+    $category = $request->input('category_id');
 
-    $challengeSteps = Step::with(['challenges','user','step_children','clears']);
+    $challengeSteps = Step::with(['challenges','user','step_children','clears','category']);
     $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){
+      $query->where('challenge_flg',1)->where('user_id',Auth::id());
+    })->orderBy('created_at', 'desc');
+
+     // searchとcategoryがある場合
+     if (!empty($search) && !empty($category)) {
+      $challengeSteps = $challengeSteps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+        $q->where('name', $search);
+      })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
+      })->orderBy('created_at', 'desc');
+
+      $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
+        $q->where('id', $category);
       });
 
-    // 検索された値がstepのカテゴリに一致するかの処理
-    if (!empty($search)) {
-      $challengeSteps = $challengeSteps->where('category',$search);
+      //searchだけの場合
+    }else if(!empty($search) && empty($category)){
+      $challengeSteps = $challengeSteps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+        $q->where('name', $search);
+      })->WhereHas('challenges', function($query){
+        $query->where('challenge_flg',1)->where('user_id',Auth::id());
+      })->orderBy('created_at', 'desc');
+
+      //categoryだけの場合
+    }else if(empty($search) && !empty($category)){
+      $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
+        $q->where('id', $category);
+      });
+
+      //それ以外
+    }else{
+      $challengeSteps = $challengeSteps;
     }
-    $challengeSteps = $challengeSteps->orderBy('created_at', 'desc')->get();
+
+    //$challengeSteps = $challengeSteps->orderBy('created_at', 'desc')->get();
+    $challengeSteps = $challengeSteps->get();
+
+    /*foreach($challengeSteps as $key => $step){
+      // クリアの最後の配列
+      $lastClear = ($step->clears)?end($step->clears):'';
+      $lastClear_key = ($lastClear)?array_key_last($lastClear):'';
+      //$lastClear = ($lastClear) ? array_slice( $lastClear, -1 ) : '';
+      //dd($lastClear);
+
+      $step_child_total_key = count($step->step_children);
+      foreach($step->step_children as $key => $step_child){
+        if($step_child['id'] === $step->clears[$lastClear_key]->step_child_id){
+          $step_child_key = $key;
+          //dd($step->clears[$lastClear_key]->step_child_id);
+        }
+      }
+        // 次の子STEPのID
+        if( !empty($step_child_key) && ($step_child_key+1) < $step_child_total_key){
+          //dd($step->step_children[($step_child_key+1)]->id);
+          $config = $step->step_children[($step_child_key+1)]->id;
+          $step[$key]['next_step'] = $config;
+        }else{
+          $step[$key]['next_step'] = '';
+        }
+    }
+    dd($step[($step_child_key+1)]);*/
     return response()->json($challengeSteps);
   }
 

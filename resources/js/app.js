@@ -8,6 +8,9 @@ require('./bootstrap')
 
 window.Vue = require('vue')
 
+// 画像プレビュー
+window.preview = require('v-preview-input');
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -26,6 +29,9 @@ Vue.component('mypage-challenge', require('./components/step/MypageChallenge.vue
 
 // search
 //ue.component('search-component', require('./components/SearchComponent.vue').default);
+
+//preview
+Vue.component('img-preview', require('./components/step/ImgPreview.vue').default);
 
 
 /**

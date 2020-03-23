@@ -44,7 +44,7 @@
     <div class="p-step_ditail__tbody">
       <div class="p-step_ditail__medium">
         @if($stepChild->pic)
-        <img src="/storage/{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+        <img src="data:image/png;base64,{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
         @else
         <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
         @endif
@@ -68,7 +68,7 @@
       <div class="p-step_ditail__tbody">
         <div class="p-step_ditail__medium">
           @if($stepChild->pic)
-          <img src="/storage/{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+          <img src="data:image/png;base64,{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
           @else
           <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
           @endif
@@ -89,7 +89,7 @@
       <div class="p-step_ditail__tbody">
         <div class="p-step_ditail__medium">
           @if($stepChild->pic)
-          <img src="/storage/{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+          <img src="data:image/png;base64,{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
           @else
           <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
           @endif

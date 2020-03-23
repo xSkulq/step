@@ -3,7 +3,7 @@
     <a :href="'/step/ditail/' + step.id" class="p-step_list__card" v-for="(step, index) in steps" :key="index">
       <div>
         <div class="p-step_list__thead">
-          <img :src="'/storage/' + step.pic" alt="STEP画像TOP" class="p-step_list__img" v-if="step.pic">
+          <img :src="'data:image/png;base64,' + step.pic" alt="STEP画像TOP" class="p-step_list__img" v-if="step.pic">
           <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_list__img" v-else>
         </div>
         <div class="p-step_list__tbody">
@@ -25,7 +25,7 @@
             <p class="p-step_list__medium__font">{{ step.title}}</p>
           </div>
           <div class="p-step_list__bottom">
-          <img :src="'/storage/' + step.user.pic" alt="アイコン" class="p-step_list__icon" v-if="step.user.pic">
+          <img :src="'data:image/png;base64,' + step.user.pic" alt="アイコン" class="p-step_list__icon" v-if="step.user.pic">
             <img src="/imges/no_image.png" alt="アイコン" class="p-step_list__icon" v-else>
             <p class="u-ml10">{{ step.user.name }}</p>
           </div>

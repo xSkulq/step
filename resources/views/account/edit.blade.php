@@ -63,15 +63,16 @@
         </label>
       </div>
       
-      <div class="p-account_edit__icon">
+      <!--<div class="p-account_edit__icon">-->
         <label for="icon">
-          <input type="file" name="pic" class="p-account_edit__file">
-          @if(empty($user->pic))
-          <img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">
-          @else
+          <!--if(empty($user->pic))-->
+          <!--<input type="file" name="pic" class="p-account_edit__file">-->
+          <!--<img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">-->
+          <!-- else -->
           <!--<img alt="アイコン" class="p-account_edit__img" src="data:image/png;base64,">-->
-          <img alt="アイコン" class="p-account_edit__img" src="/storage/{{ $user->pic }}">
-          @endif
+          <img-preview :prev_img={{ json_encode($user->pic) }}></img-preview>
+          <!--<img alt="アイコン" class="p-account_edit__img" :src="/storage/">-->
+          <!--endif-->
         </label>
       </div>
     </div>

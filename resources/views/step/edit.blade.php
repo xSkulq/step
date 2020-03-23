@@ -100,7 +100,7 @@
             @if(empty($step->pic))
             <img alt="no_icon" class="p-step_edit__img" src="/imges/no_image.png">
             @else
-            <img alt="アイコン" class="p-step_edit__img" src="/storage/{{ $step->pic }}">
+            <img alt="アイコン" class="p-step_edit__img" src="data:image/png;base64,{{ $step->pic }}">
             @endif
               <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
           </label>

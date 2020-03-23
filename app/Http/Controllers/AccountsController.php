@@ -38,8 +38,8 @@ class AccountsController extends Controller
       'email' => 'required|string|max:191|unique:users,email,'.Auth::user()->email.',email',
       'name' => 'nullable|string|max:191',
       'bio' => 'nullable|string',
-      'pic' => 'nullable|image',
-      //'pic' => 'nullable|image|max:512'
+      //'pic' => 'nullable|image',
+      'pic' => 'nullable|image|max:512'
 
     ]);
 
@@ -48,15 +48,15 @@ class AccountsController extends Controller
     $user->bio = $request->bio;
 
     // アイコンにファイルが追加され保存したときの処理
-    /*if ($request->pic) {
+    if ($request->pic) {
 
       // 画像をバイナリデータで格納
       $file_name = base64_encode(file_get_contents($request->pic));
 
       // userにpicの値を格納
       $user->pic = $file_name;
-    }*/
-    if ($request->pic) {
+    }
+    /*if ($request->pic) {
 
       // 前の画像を消去する処理
       $deletePic = $user->pic;
@@ -68,7 +68,7 @@ class AccountsController extends Controller
 
       // userにpicの値を格納
       $user->pic = $file_name;
-    }
+    }*/
     $user->save();
     return redirect('/account/edit')->with('flash_message', '保存が完了しました');
   }
