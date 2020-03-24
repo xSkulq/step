@@ -70,7 +70,7 @@ export default {
     // step一覧の情報を取得
     fetchList(){
       const url = '/api/step/mypage_challenge';
-      let param = '?page=' + this.page;
+      let param = '';
       if (this.search !== '' && this.category !== '') { // searchとcategoryに値がある場合
         console.log('search :', this.search)
         param += '?search=' + this.search + '&category_id=' + this.category + '&page=' + this.page

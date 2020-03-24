@@ -35,15 +35,15 @@ class StepsController extends Controller
 
     // searchがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
-        $q->where('name', $search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+        $q->where('name', 'LIKE', "%{$search}%");
       });
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
-        $q->where('name', $search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+        $q->where('name', 'LIKE', "%{$search}%");
       });
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
@@ -219,12 +219,12 @@ class StepsController extends Controller
 
     // searchがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
@@ -260,6 +260,7 @@ class StepsController extends Controller
   {
     $search = $request->input('search');
     $category = $request->input('category_id');
+    //dd($search);
 
     $challengeSteps = Step::with(['challenges','user','step_children','clears','category']);
     $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){
@@ -268,8 +269,8 @@ class StepsController extends Controller
 
      // searchとcategoryがある場合
      if (!empty($search) && !empty($category)) {
-      $challengeSteps = $challengeSteps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
-        $q->where('name', $search);
+      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+        $q->where('name', 'LIKE', "%{$search}%");
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       })->orderBy('created_at', 'desc');
@@ -280,12 +281,11 @@ class StepsController extends Controller
 
       //searchだけの場合
     }else if(!empty($search) && empty($category)){
-      $challengeSteps = $challengeSteps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
-        $q->where('name', $search);
+      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+        $q->where('name', 'LIKE', "%{$search}%");
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       })->orderBy('created_at', 'desc');
-
       //categoryだけの場合
     }else if(empty($search) && !empty($category)){
       $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
