@@ -1,44 +1,50 @@
 <template>
   <div>
-    <div class="p-step_challenge__card" v-for="(step, index) in challengeSteps" :key="index">
-      <div class="p-step_challenge__thead">
-        <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
-        <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img">
-        <a :href="'/step/child/ditail/'" class="p-step_challenge__thead__button">続きから</a>
-      </div>
-      <div class="p-step_challenge__tbody">
-      <a :href="'/step/ditail/' + step.id">
-        <div class="p-step_challenge__top">
-          <p class="u-mb5">STEPタイトル</p>
-          <p class="p-step_challenge__top__font">{{ step.title }}</p>
+    <div>
+      <div class="p-step_challenge__card" v-for="(step, index) in challengeSteps" :key="index">
+        <div class="p-step_challenge__thead">
+          <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
+          <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img">
+          <a :href="'/step/child/ditail/'" class="p-step_challenge__thead__button">続きから</a>
         </div>
-        <div class="p-step_challenge__medium">
-          <p class="p-step_challenge__medium__font">{{ step.clears.length}}/{{ step.step_children.length}}<span class="u-ml5">STEP</span></p>
-          <!-- プログレスバー -->
-          <div class="c-progress">
-            <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" :style="'width:' + Math.floor(step.clears.length / step.step_children.length * 100) + '%'">
-              <span>{{ Math.floor(step.clears.length / step.step_children.length * 100) }}%</span>
+        <div class="p-step_challenge__tbody">
+        <a :href="'/step/ditail/' + step.id">
+          <div class="p-step_challenge__top">
+            <p class="u-mb5">STEPタイトル</p>
+            <p class="p-step_challenge__top__font">{{ step.title }}</p>
+          </div>
+          <div class="p-step_challenge__medium">
+            <p class="p-step_challenge__medium__font">{{ step.clears.length}}/{{ step.step_children.length}}<span class="u-ml5">STEP</span></p>
+            <!-- プログレスバー -->
+            <div class="c-progress">
+              <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" :style="'width:' + Math.floor(step.clears.length / step.step_children.length * 100) + '%'">
+                <span>{{ Math.floor(step.clears.length / step.step_children.length * 100) }}%</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="p-step_challenge__bottom">
-          <div class="p-step_challenge__bottom__prof">
-            <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
-            <p class="u-ml5">{{ step.user.name}}</p>
-          </div>
-          <div class="u-flex">
+          <div class="p-step_challenge__bottom">
+            <div class="p-step_challenge__bottom__prof">
+              <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
+              <p class="u-ml5">{{ step.user.name}}</p>
+            </div>
             <div class="u-flex">
-              <i class="fas fa-inbox"></i>
-              <p class="u-ml5">{{ step.category.name }}</p>
-            </div>
-            <div class="u-flex u-ml10">
-              <i class="fas fa-hourglass-end"></i>
-              <p class="u-ml5">{{ step.total_time }}</p>
+              <div class="u-flex">
+                <i class="fas fa-inbox"></i>
+                <p class="u-ml5">{{ step.category.name }}</p>
+              </div>
+              <div class="u-flex u-ml10">
+                <i class="fas fa-hourglass-end"></i>
+                <p class="u-ml5">{{ step.total_time }}</p>
+              </div>
             </div>
           </div>
+        </a>
         </div>
-      </a>
       </div>
+    </div>
+    <!-- ページネーション -->
+    <div v-if="paginate.total > 10">
+    <pagination-component :data="paginate" @move-page="movePage($event)"></pagination-component>
     </div>
   </div>
 </template>
@@ -65,13 +71,13 @@ export default {
       let param = '?page=' + this.page;
       if (this.search !== '' && this.category !== '') { // searchとcategoryに値がある場合
         console.log('search :', this.search)
-        param += '?search=' + this.search + '&category_id=' + this.category
+        param += '?search=' + this.search + '&category_id=' + this.category + '&page=' + this.page
       }else if(this.search !== '' && this.category === ''){ // searchだけ値がある場合
-        param += '?search=' + this.search + '&category_id='
+        param += '?search=' + this.search + '&category_id=' + '&page=' + this.page
       }else if(this.search === '' && this.category !== ''){ // categoryだけ値がある場合
-        param += '?search=' + '&category_id=' + this.category
+        param += '?search=' + '&category_id=' + this.category + '&page=' + this.page
       }else{ // 何も値がない場合
-        param = ''
+        param = '?page=' + this.page;
       }
       axios.get(url + param).then(response => { 
         this.challengeSteps = response.data.data

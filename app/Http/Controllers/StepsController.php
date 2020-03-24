@@ -232,7 +232,8 @@ class StepsController extends Controller
     }else{
       $steps = $steps;
     }
-    $steps = $steps->get();
+    //$steps = $steps->get();
+    $steps = $steps->paginate(10);
     return response()->json($steps);
   }
 
@@ -297,7 +298,7 @@ class StepsController extends Controller
     }
 
     //$challengeSteps = $challengeSteps->orderBy('created_at', 'desc')->get();
-    $challengeSteps = $challengeSteps->get();
+    $challengeSteps = $challengeSteps->paginate(10);
 
     /*foreach($challengeSteps as $key => $step){
       // クリアの最後の配列

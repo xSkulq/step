@@ -1,43 +1,40 @@
 <template>
-<div>
-  <div class="c-pagination" v-if="Object.keys(data).length">
-    <ul class="c-pagination__block">
+<div class="c-pagination" v-if="Object.keys(data).length">
+  <ul class="c-pagination__block">
 
-      <!-- firstボタン -->
-      <li>
-        <a href="" @click.prevent="move(1)" :class="getPrevClass">
-          <i class="fas fa-angle-double-left"></i>
-        </a>
-      </li>
+    <!-- firstボタン -->
+    <li>
+      <a href="" @click.prevent="move(1)" :class="getPrevClass">
+        <i class="fas fa-angle-double-left"></i>
+      </a>
+    </li>
 
-      <!-- prevボタン -->
-      <li>
-        <a href="" @click.prevent="move(data.current_page-1)" :class="getPrevClass">
-          <i class="fas fa-angle-left"></i>
-        </a>
-      </li>
+    <!-- prevボタン -->
+    <li>
+      <a href="" @click.prevent="move(data.current_page-1)" :class="getPrevClass">
+        <i class="fas fa-angle-left"></i>
+      </a>
+    </li>
 
-      <!-- ページボタン -->
-      <li :class="getPageClassLi(page)" v-for="(page, index) in pages" :key="index">
-        <a :class="getPageClassA(page)" href="" @click.prevent="move(page)" v-text="page"></a>
-      </li>
+    <!-- ページボタン -->
+    <li :class="getPageClassLi(page)" v-for="(page, index) in pages" :key="index">
+      <a :class="getPageClassA(page)" href="" @click.prevent="move(page)" v-text="page"></a>
+    </li>
 
-      <!-- nextボタン -->
-      <li>
-        <a href="" @click.prevent="move(data.current_page+1)" :class="getNextClass">
-          <i class="fas fa-angle-right"></i>
-        </a>
-      </li>
-          
-      <!-- lastボタン -->
-      <li>
-        <a href="" @click.prevent="move(data.last_page)" :class="getNextClass">
-          <i class="fas fa-angle-double-right"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div v-else></div>
+    <!-- nextボタン -->
+    <li>
+      <a href="" @click.prevent="move(data.current_page+1)" :class="getNextClass">
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </li>
+        
+    <!-- lastボタン -->
+    <li>
+      <a href="" @click.prevent="move(data.last_page)" :class="getNextClass">
+        <i class="fas fa-angle-double-right"></i>
+      </a>
+    </li>
+  </ul>
 </div>
 
 
