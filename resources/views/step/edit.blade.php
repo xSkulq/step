@@ -6,66 +6,100 @@
   <!-- main -->
   <h1 class="p-step_edit__title">STEP編集</h1>
 
-  <form method="POST" action="{{ route('step.update',$step->id) }}" class="p-step_edit__form">
+  <form method="POST" action="{{ route('step.update',$step->id) }}" class="p-step_edit__form" enctype="multipart/form-data">
     @csrf
 
-    {{-- title --}}
+    {{-- STEP --}}
     <div>
-      <label for="title" class="p-step_edit__label">
-        <div class="u-flex__space">
-          <p>タイトル</p>
-          @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
-        </div>
+      {{-- title --}}
+      <div>
+        <label for="title" class="p-step_edit__label">
+          <div class="u-flex__space">
+            <p>タイトル<span class="p-step_edit__required">*必須</span></p>
+            @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+          </div>
 
-        <div class="u-mt5 u-mb20">
-          <input type="text" name="title" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror"
-                 placeholder="タイトル" value="@if(!empty(old('title'))){{ old('title')}}@else{{ $step->title }}@endif">
-        </div>
-      </label>
-    </div>
+          <div class="u-mt5 u-mb25">
+          <input type="text" name="title" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror" placeholder="英語を最速で学ぶ方法" value="@if(!empty($step->title)){{ $step->title}}@else{{ old('title')}}@endif">
+          </div>
+        </label>
+      </div>
 
-    {{-- STEPカテゴリ --}}
-    <div>
-      <label for="category" class="p-step_edit__label">
-        <div class="u-flex__space">
-          <p>STEPカテゴリ</p>
-          @error('category')<div class="c-inputFild__error">{{ $message }}</div>@enderror
-        </div>
+      {{-- STEPカテゴリ --}}
+      <div>
+        <label for="category" class="p-step_edit__label">
+          <div class="u-flex__space">
+            <p>STEPカテゴリ<span class="p-step_edit__required">*必須</span></p>
+            @error('category')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+          </div>
 
-        <div class="u-mt5 u-mb20">
-          <input type="text" name="category" class="c-inputFild__long @error('category') c-inputFild__long-error @enderror" 
-                 placeholder="STEPカテゴリ" value="@if(!empty(old('category'))){{ old('category')}}@else{{ $step->category }}@endif">
-        </div>
-      </label>
-    </div>
+          <div class="p-step_edit__select__category">
+            {{ Form::select('category_id', $categories, $step->category_id, ['class' => 'c-select', 'id' => 'category_id']) }}
+          </div>
+        </label>
+      </div>
 
-    {{-- 目安達成時間 --}}
-    <div>
-      <label for="criterion" class="p-step_edit__label">
-        <div class="u-flex__space">
-          <p>目安達成時間</p>
-          @error('achievement_time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
-        </div>
+      {{-- 目安達成時間 --}}
+      <div>
+        <label for="criterion" class="p-step_edit__label">
+          <div class="u-flex__space">
+            <p>目安達成時間<span class="p-step_edit__required">*必須</span></p>
+            @error('achievement_number')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+          </div>
 
-        <div class="u-mt5 u-mb20">
-          <input type="text" name="achievement_time" class="c-inputFild__long @error('achievement_time') c-inputFild__long-error @enderror" 
-                 placeholder="目安達成時間" value="@if(!empty(old('achievement_time'))){{ old('achievement_time')}}@else{{ $step->achievement_time }}@endif">
-        </div>
-      </label>
-    </div>
+          <div class="u-flex">
+            <div class="u-mt5 u-mb25">
+              <input type="text" name="achievement_number" class="c-inputFild__long @error('achievement_number') c-inputFild__long-error @enderror" placeholder="12" value="@if(!empty($step->achievement_number)){{ $step->achievement_number}}@else{{ old('achievement_number')}}@endif">
+            </div>
+            <div class="p-step_edit__select__time">
+              <select name="time" class="c-select">
+                <option value="">選択</option>
+                <option @if('分' === $step->time ) selected @endif value="分">分</option>
+                <option @if('時間' === $step->time ) selected @endif value="時間">時間</option>
+                <option @if('日' === $step->time ) selected @endif value="日">日</option>
+                <option @if('ヶ月' === $step->time ) selected @endif value="ヶ月">ヶ月</option>
+              </select>
+            </div>
+          </div>
+        </label>
+      </div>
 
-    {{-- STEPの内容 --}}
-    <div>
-      <label for="content" class="p-step_edit__font">
-        <div class="u-flex__space">
-          <p>内容</p>
-          @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
-        </div>
+      {{-- STEPの内容 --}}
+      <div>
+        <label for="content" class="p-account_edit__font">
+          <div class="u-flex__space">
+            <p>内容<span class="p-step_edit__required">*必須</span></p>
+            @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+          </div>
 
-        <div class="u-mt5 u-mb55">
-          <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-step_edit__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $step->content }}@endif</textarea>
+          <div class="u-mt5 u-mb25">
+            <textarea name="content" cols="30" rows="10"
+             class="c-inputFild__textarea p-step_edit__textarea @error('content') c-inputFild__textarea-error @enderror"
+             placeholder="英語をなるべく早く学べるように学ぶ順番を書いてみました">@if(!empty($step->content)){{ $step->content}}@else{{ old('content')}}@endif</textarea>
+          </div>
+        </label>
+      </div>
+
+      {{-- img --}}
+      <div>
+        <div class="u-flex__space u-mb5">
+          <p>STEPのTOP画像<span class="p-step_edit__required">*512KB以下</span></p>
+          @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
-      </label>
+  
+        <!--<div class="p-step_edit__icon-destory">
+          <label>
+          <i class="far fa-times-circle p-step_register__icon-destory__pointer"></i>
+          <input type="submit" name="img_destory" class="p-step_edit__img-destory" value="アイコンを削除します">
+          </label>
+        </div>-->
+        
+        <div>
+          <label for="icon">
+            <step-img-preview :prev_img={{ json_encode($step->pic) }}></step-img-preview>
+          </label>
+        </div>
+      </div>
     </div>
 
     {{-- ボタン --}}

@@ -17,9 +17,13 @@ class CreateStepsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('title');
-            $table->string('category')->nullable();
-            $table->string('achievement_time')->nullable();
+            $table->bigInteger('category_id');
+            $table->integer('achievement_number');
+            $table->string('time');
+            $table->string('total_time');
             $table->text('content');
+            //$table->string('pic')->nullable();
+            $table->longText('pic')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

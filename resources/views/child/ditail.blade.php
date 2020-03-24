@@ -6,21 +6,106 @@
   <!-- step-list -->
   <section class="p-step_ditail__item">
     <div>
-      <h1 class="p-step_ditail__title u-mb25">{{$stepChild->title}}</h1>
-      <div class="p-step_ditail__top">
-        <p class="p-step_ditail__font">目安達成時間<span>{{$stepChild->step->achievement_time}}</span></p>
-        <p class="p-step_ditail__font u-ml15">{{$stepChild->step->category}}</p>
+      <h1 class="p-step_ditail__title u-mb25">
+        STEP
+          @foreach ($step->step_children as $key => $step_child)
+          @if($step_child['id'] === $stepChild->id)
+            {{ $key+1 }}
+          @endif
+          @endforeach
+        <span class="p-step_ditail__title__user">{{$stepChild->title}}</span>
+      </h1>
+      <div class="p-step_ditail__challenge">
+        @if(empty($clear->clear_flg))
+        <p></p>
+        @else
+        <p>クリアしました<p>
+        @endif
       </div>
-      <div class="p-step_ditail__border"></div>
+      <div class="p-step_ditail__top">
+        <div class="u-flex">
+          <p>作成日<span class="u-ml5">{{date('Y/m/d', strtotime($stepChild->created_at))}}<span></p>
+          <div class="u-flex u-ml15">
+            <i class="fas fa-inbox"></i>
+            <p class="u-ml5">{{ $step->category->name}}</p>
+          </div>
+          <div class="u-flex u-ml10">
+            <i class="fas fa-hourglass-end"></i>
+            <p class="u-ml5">{{ $step->total_time }}</p>
+          </div>
+        </div>
+        <!--<div>
+          <p>進捗率<span>100%</span></p>
+        </div>-->
+      </div>
     </div>
-    <div class="u-flex__space u-mb55">
-    </div>
-    <div class="p-step_ditail__content">
-      <p class="p-step_ditail__font">{{$stepChild->content}}</p>
+    <!-- クリアしているかもしくは、クリアボタンがあるSTEP詳細だけ内容が表示される処理 -->
+    @if(Auth::id() === $step->user_id)<!-- 登録したuserの場合 -->
+    <div class="p-step_ditail__tbody">
+      <div class="p-step_ditail__medium">
+        @if($stepChild->pic)
+        <img src="data:image/png;base64,{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+        @else
+        <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+        @endif
+      </div>
+      <div class="p-step_ditail__bottom">
+        <p class="">{{$stepChild->content}}</p>
+      </div>
     </div>
 
+
+    <!-- チャレンジボタンを押さないと出る処理 -->
+    @elseif(empty($challenge->challenge_flg))
+    <div>
+      <p>チャレンジをしないとみられません</p>
+    </div>
+
+
+    <!-- 登録したuserではなくかつチャレンジボタンを押したstepかつクリアボタンを押されてないstep -->
+    @elseif($challenge->challenge_flg === 1 && empty($clear->clear_flg))
+      @if($clear_prev || $step->step_children[0]->id == $stepChild->id)
+      <div class="p-step_ditail__tbody">
+        <div class="p-step_ditail__medium">
+          @if($stepChild->pic)
+          <img src="data:image/png;base64,{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+          @else
+          <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+          @endif
+        </div>
+        <div class="p-step_ditail__bottom">
+          <p class="">{{$stepChild->content}}</p>
+        </div>
+      </div>
+      @else
+      <div class="p-step_ditail__tbody">
+        <p>まだ前の子STEPをクリアできてません</p>
+        <a href="setp/child/ditail/"></a>
+      </div>
+      @endif
+
+
+    @else
+      <div class="p-step_ditail__tbody">
+        <div class="p-step_ditail__medium">
+          @if($stepChild->pic)
+          <img src="data:image/png;base64,{{ $stepChild->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+          @else
+          <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+          @endif
+        </div>
+        <div class="p-step_ditail__bottom">
+          <p class="">{{$stepChild->content}}</p>
+        </div>
+      </div>
+    @endif
+
+
     <!-- Twitterのシェアボタン -->
+    <div>
+      <!-- 後で修正する -->
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
     @if(Auth::id() === $step->user_id)
@@ -34,10 +119,11 @@
       <form method="POST" action="{{ route('step.child_destory',$stepChild->id)}}">
         @csrf
       <div class="u-flex__center">
-        <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("削除しますか？");'>この子STEPを削除する</button>
+        <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("この子STEPを削除しますか？");'>この子STEPを削除する</button>
       </div>
       </form>
     </div>
+
 
     <!-- 他の人がstepの詳細を開いた時 -->
     @else
@@ -48,9 +134,11 @@
         @elseif($challenge->challenge_flg === 1 && empty($clear->clear_flg))
         <form method="POST" action="{{ route('step.child_clear',$stepChild->id)}}">
           @csrf
-          <div class="u-flex__center u-mb30">
-            <button type="submit" class="c-button p-step_ditail__button">クリア</button>
-          </div>
+          @if($clear_prev || $step->step_children[0]->id == $stepChild->id)
+            <div class="u-flex__center u-mb30">
+              <button type="submit" class="c-button p-step_ditail__button">クリア</button>
+            </div>
+          @endif
         </form>
         @else
         <div></div>
@@ -60,6 +148,7 @@
     @endif
   </section>
 
+
   <!-- step-list-box -->
   <section class="p-list_box">
     <div class="p-list_box__item">
@@ -68,7 +157,7 @@
       <div class="p-list_box__item">
       <a href="/step/ditail/{{$step->id}}" class="p-list_box__link">
           <div>
-            <p class="p-list_box__step">STEP</p>
+            <p class="p-list_box__step">STEPタイトル</p>
           <p class="p-list_box__font">{{ $step->title }}</p>
           </div>
         </a>

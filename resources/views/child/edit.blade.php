@@ -7,7 +7,7 @@
   <h1 class="p-child_edit__title">子STEP編集</h1>
 
   <!-- step-list -->
-  <form method="POST" action="{{ route('step.child_update',$stepChild->id) }}" class="p-child_edit__form">
+  <form method="POST" action="{{ route('step.child_update',$stepChild->id) }}" class="p-child_edit__form" enctype="multipart/form-data">
     @csrf
 
     {{-- title --}}
@@ -37,6 +37,27 @@
           <textarea name="content" cols="30" rows="10" class="c-inputFild__textarea p-child_edit__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="内容">@if(!empty(old('content'))){{ old('content')}}@else{{ $stepChild->content }}@endif</textarea>
         </div>
       </label>
+    </div>
+    
+    {{-- img --}}
+    <div>
+      <div class="u-flex__space u-mb5">
+        <p>STEPのTOP画像<span class="p-child_edit__required">*512KB以下</span></p>
+        @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+      </div>
+  
+      <!--<div class="p-child_edit__icon-destory">
+        <label>
+          <i class="far fa-times-circle p-child_edit__icon-destory__pointer"></i>
+          <input type="submit" name="img_destory" class="p-child_edit__img-destory" value="アイコンを削除します">
+        </label>
+      </div>-->
+        
+      <div>
+        <label for="icon">
+          <step-img-preview :prev_img={{ json_encode($stepChild->pic) }}></step-img-preview>
+        </label>
+      </div>
     </div>
 
     {{-- ボタン --}}

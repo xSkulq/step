@@ -5,22 +5,52 @@
 
   <!-- step-list -->
   <section class="p-step_ditail__item">
-    <div>
-      <h1 class="p-step_ditail__title u-mb25">{{$step->title}}</h1>
-      <div class="p-step_ditail__top">
-        <p class="p-step_ditail__font">目安達成時間<span>{{$step->achievement_time}}</span></p>
-        <p class="p-step_ditail__font u-ml15">{{$step->category}}</p>
+    <!-- STEPの詳細 -->
+    <div class="p-step_ditail__thead">
+      <h1 class="p-step_ditail__title">
+        STEPタイトル
+        <span class="p-step_ditail__title__user">{{$step->title}}</span>
+      </h1>
+      <div class="p-step_ditail__challenge">
+        @if($challenge)
+        <p>チャレンジしている<p>
+        @endif
       </div>
-      <div class="p-step_ditail__border"></div>
+      <div class="p-step_ditail__top">
+        <div class="u-flex">
+          <p>作成日<span class="u-ml5">{{date('Y/m/d', strtotime($step->created_at))}}<span></p>
+          <div class="u-flex u-ml15">
+            <i class="fas fa-inbox"></i>
+            <p class="u-ml5">{{ $step->category->name }}</p>
+          </div>
+          <div class="u-flex u-ml10">
+            <i class="fas fa-hourglass-end"></i>
+            <p class="u-ml5">{{ $step->total_time }}</p>
+          </div>
+        </div>
+        <div>
+        <p>進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
+        </div>
+      </div>
     </div>
-    <div class="u-flex__space u-mb55">
-    </div>
-    <div class="p-step_ditail__content">
-      <p class="p-step_ditail__font">{{$step->content}}</p>
+    <div class="p-step_ditail__tbody">
+      <div class="p-step_ditail__medium">
+        @if($step->pic)
+        <img src="data:image/png;base64,{{ $step->pic }}" alt="STEP画像TOP" class="p-step_ditail__img">
+        @else
+        <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_ditail__img">
+        @endif
+      </div>
+      <div class="p-step_ditail__bottom">
+        <p class="">{{$step->content}}</p>
+      </div>
     </div>
 
     <!-- Twitterのシェアボタン -->
+    <div>
+      <!-- 後で修正する -->
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
     @if(Auth::id() === $step->user_id)
@@ -35,7 +65,7 @@
         <form method="POST" action="{{ route('step.destory',$step->id)}}">
           @csrf
           <div class="u-flex__center">
-            <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("削除しますか？");'>このSTEPを削除する</button>
+            <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("STEPを削除したらこのSTEPの全ての子STEPも消えてしまいますが削除しますか？");'>このSTEPを削除する</button>
           </div>
         </form>
       </div>
@@ -63,7 +93,7 @@
         <form method="POST" action="{{ route('step.challenge_stop',$step->id)}}">
           @csrf
           <div class="u-flex__center u-mb30">
-            <button type="submit" class="c-button p-step_ditail__button">チャレンジをやめる</button>
+            <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("このSTEPのチャレンジをやめますか？");'>チャレンジをやめる</button>
           </div>
         </form>
         @endif
@@ -80,7 +110,7 @@
       <div class="p-list_box__item">
         <a href="/step/ditail/{{$step->id}}" class="p-list_box__link">
           <div>
-            <p class="p-list_box__step">STEP</p>
+            <p class="p-list_box__step">STEPタイトル</p>
             <p class="p-list_box__font">{{$step->title}}</p>
           </div>
         </a>

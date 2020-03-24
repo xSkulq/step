@@ -4,21 +4,59 @@
 <div class="p-step_mypage">
 
   <!-- main -->
-  <h1 class="p-step_mypage__title u-mb80">チャレンジSTEP</h1>
+  <h1 class="p-step_challenge__title">マイページ</h1>
+
+  <div class="p-step_challenge__choice">
+    <div>
+      <a href="{{ route('step.mypage_challenge')}}" class="p-step_challenge__choice__font">チャレンジしているSTEP一覧</a>
+    </div>
+    <div class="u-ml15 u-mr15">|</div>
+    <div>
+      <a href="{{ route('step.mypage_register')}}" class="p-step_challenge__choice__font">登録済みSTEP一覧</a>
+    </div>
+  </div>
+
+  <!-- クリア数 -->
+  <div class="p-step_challenge__clear">
+    <div class="p-step_challenge__prof">
+      @if($user->pic)
+      <img src="data:image/png;base64,{{ $user->pic }}" alt="アイコン" class="p-step_challenge__prof__img">
+      @else
+      <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__prof__img">
+      @endif
+      <p class="u-ml15">{{$user->name}}</p>
+    </div>
+    <div class="p-step_challenge__clear__number">
+      <p>全部のクリア数</p>
+      <p class="p-step_challenge__clear__number__big">{{ $clearCount }}</p>
+    </div>
+  </div>
+
+
+  <form method="GET" action="{{ route('step.mypage_challenge')}}">
+    <!-- 検索系 -->
+    <div class="u-flex u-mb50">
+      <div class="u-flex">
+        <div class="c-search__box">
+          <input type="text" class="c-search__input" placeholder="STEP名・達成時間・ユーザー名" name="search"　value="@if(!empty('$search')){{ $search }}@endif">
+        </div>
+        <button class="p-step_challenge__button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="p-step_challenge__select">
+        {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
+      </div>
+    </div>
+  </form>
 
   <!-- step-list -->
-  <section>
-    <mypage-challenge search="{{ $search }}"></mypage-challenge>
-  </section>
+
+  <div class="p-step_challenge__box">
+    <h2 class="p-step_challenge__sub-title">チャレンジしているSTEP達</h2>
+    <mypage-challenge search="{{ $search }}" category="{{ $category }}"></mypage-challenge>
+  </div>
 </div>
 
-<div class="c-search">
-  <form method="GET" action="{{ route('step.mypage_challenge')}}">
-    <div class="c-search__box">
-      <input type="text" class="c-search__input" placeholder="カテゴリ名" name="search">
-    </div>
-    <button class="c-search__button">検索</button>
-  </form>
-</div>
 
 @endsection

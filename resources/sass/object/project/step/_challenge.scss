@@ -1,0 +1,175 @@
+.p-step_challenge{
+  margin-left: 100px;
+  width: 40vw;
+  &__title{
+    font-size: $font-size-xl;
+    font-weight: 100;
+    margin-bottom: 50px;
+  }
+  &__choice{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+    &__font{
+      color: $font-color-black;
+      font-size: $font-size-2l;
+      &:hover{
+        color: $font-color-orenge;
+      }
+    }
+  }
+  &__button{
+    box-sizing: border-box;
+    border: 1px solid $light-gray;
+    background-color: $background-white;
+    width: 50px;
+    height: 30px;
+    &:hover{
+      background-color: $light-gray;
+      cursor: pointer;
+    }
+  }
+  &__select{
+    position: relative;
+    border: 1px solid $light-gray;
+    background: #ffffff;
+    overflow: hidden;
+    //width: 100%;
+    width: 200px;
+    text-align: center;
+    //margin-bottom: 80px;
+    margin-left: 40px;
+    &::before{
+      position: absolute;
+      top: 0.8em;
+      right: 0.9em;
+      width: 0;
+      height: 0;
+      padding: 0;
+      content: '';
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid $gray;
+      pointer-events: none;
+    }
+    &__box{
+      width: 100%;
+      font-size: $font-size-m;
+      padding-top: 4px;
+    }
+  }
+  &__clear{
+    background-color: $background-white;
+    //border: 1px solid $light-gray;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    margin-bottom: 80px;
+    &__number{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-left: 50px;
+      font-size: $font-size-m;
+      border-left: 1px solid $light-gray;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 50px;
+      &__big{
+        font-size: $font-size-3l;
+        margin-left: 20px;
+      }
+    }
+  }
+  &__prof{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: $font-size-l;
+    font-weight: 100;
+    &__img{
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+  }
+  &__box{
+    margin-bottom: 120px;
+  }
+  &__sub{
+    &-title{
+      font-size: $font-size-2l;
+      font-weight: 100;
+      margin-bottom: 30px;
+    }
+  }
+  &__card{
+    display: flex;
+    margin-bottom: 40px;
+    height: 180px;
+  }
+  &__thead{
+    position: relative;
+    &__img{
+      width: 320px;
+      height: 180px;
+    }
+    &__button{
+      border-radius: 50px;
+      position: absolute;
+      top: 120px;
+      left: 80px;
+      background-color: $background-orenge;
+      color: $font-color-white;
+      //opacity: 0.5;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+  &__tbody{
+    background-color: $background-white;
+    border-left: 1px solid $light-gray;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 35px;
+    padding-right: 40px;
+    min-width: 350px;
+  }
+  &__top{
+    font-size: $font-size-l;
+    margin-bottom: 25px;
+    &__font{
+      width: 300px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+    }
+  }
+  &__medium{
+    margin-bottom: 25px;
+    &__font{
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: $font-size-m;
+    }
+  }
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-size-s;
+    &__prof{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+}

@@ -1,7 +1,10 @@
 .p-account_edit{
   //padding-left: 148px; // TODO: あとで％指定に変える
-  padding-left: 148px;
   //padding-right: 65px;
+  padding-right: 33%;
+  margin-left: 150px;
+  //width: 100%;
+  width: 40vw;
   @include mq(xl){
     padding: 0;
   }
@@ -23,7 +26,7 @@
   }
   &__textarea{
     height: 100px;
-    width: 450px; // TODO: widthの長さをあとで％指定にする
+    width: 100%; // TODO: widthの長さをあとで％指定にする
     @include mq(md){
       width: 300px;
     }
@@ -79,7 +82,10 @@
     left: 0;
     border-radius: 50%;
     &-destory{
-      display: none;
+      //display: none;//TODO: 画像削除し保存するために表示する（仮）
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 }

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('temporary_new_email')->nullable();
             $table->timestamp('email_changed_at')->nullable();
+            //$table->string('pic')->nullable();
             $table->longText('pic')->nullable();
             $table->text('bio')->nullable();
             $table->timestamps();

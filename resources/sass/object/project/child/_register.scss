@@ -1,5 +1,7 @@
 .p-child_register{
-  padding-left: 148px;
+    padding-right: 33%;
+    margin-left: 150px;
+    width: 40vw;
   @include mq(xl){
     padding: 0;
     margin-bottom: 48px;
@@ -21,18 +23,61 @@
   }
   &__input{
     margin-top: 5px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     @include mq(md){
       margin-bottom: 48px;
     }
   }
   &__textarea{
-    margin-bottom: 115px;
+    margin-bottom: 30px;
     height: 180px;
-    width: 450px; // TODO: widthの長さをあとで％指定にする
+    width: 100%;
     @include mq(md){
       width: 300px;
       margin-bottom: 60px;
+    }
+  }
+  &__icon{
+    background: $background-white;
+    color: $font-color-black;
+    position: relative;
+    margin-bottom: 80px;
+    width: 200px;
+    height: 113px;
+    &-destory{
+      width: 200px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 22px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      &__pointer{
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__file{
+    opacity: 0;
+    width: 200px;
+    height: 113px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  &__img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &-destory{
+      display: none;
     }
   }
   &__button{

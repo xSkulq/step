@@ -7,12 +7,14 @@
   position: sticky;
   top: $heightNavbar + 75px;
   &__box{
-    margin-bottom: 24px;
+    //margin-bottom: 80px;
   }
   &__input{
+    border: 1px solid $light-gray;
+    border-right: none;
     font-size: $font-size-m;
     padding: 8px;
-    width: 240px;
+    width: 245px;
     height: 30px;
   }
   &__button{

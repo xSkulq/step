@@ -56,25 +56,26 @@
         @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
 
-      <div class="p-account_edit__icon-destory">
+      <!--<div class="p-account_edit__icon-destory">
         <label>
         <i class="far fa-times-circle p-account_edit__icon-destory__pointer"></i>
         <input type="submit" name="img_destory" class="p-account_edit__img-destory" value="アイコンを削除します">
         </label>
-      </div>
+      </div>-->
       
-      <div class="p-account_edit__icon">
+      <!--<div class="p-account_edit__icon">-->
         <label for="icon">
-          <input type="file" name="pic" class="p-account_edit__file">
-          @if(empty($user->pic))
-          <img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">
-          @else
-          <img alt="アイコン" class="p-account_edit__img" src="data:image/png;base64,{{ $user->pic }}">
-          @endif
-            <!--<img alt="" class="p-account_edit__img" v-bind:src="'/' + user_edit.pic">-->
+          <!--if(empty($user->pic))-->
+          <!--<input type="file" name="pic" class="p-account_edit__file">-->
+          <!--<img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">-->
+          <!-- else -->
+          <!--<img alt="アイコン" class="p-account_edit__img" src="data:image/png;base64,">-->
+          <account-img-preview :prev_img={{ json_encode($user->pic) }}></account-img-preview>
+          <!--<img alt="アイコン" class="p-account_edit__img" :src="/storage/">-->
+          <!--endif-->
         </label>
       </div>
-    </div><!-- TODO: 画像の削除ボタンを後で作る -->
+    </div>
     <!-- button -->
     <div class="u-mb55 u-flex__center">
       <button class="c-button p-account_edit__button-font" type="submit">
