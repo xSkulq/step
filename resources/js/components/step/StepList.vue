@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="p-step_list__list-box">
     <a :href="'/step/ditail/' + step.id" class="p-step_list__card" v-for="(step, index) in steps" :key="index">
       <div>
@@ -33,13 +34,18 @@
       </div>
     </a>
   </div>
-    </template>
+  <!-- ページネーション -->
+  <pagination-component :data="paginate" @move-page="movePage($event)"></pagination-component>
+</div>
+</template>
 <script>
 export default {
 	props: ['search','category'],
   data: function(){
     return {
-      steps: {}
+      steps: {},
+      paginate: {},
+      page: 1,
     }
   },
   mounted() {
@@ -52,16 +58,17 @@ export default {
       let param = '';
       if (this.search !== '' && this.category !== '') { // searchとcategoryに値がある場合
         console.log('search :', this.search)
-        param += '?search=' + this.search + '&category_id=' + this.category
+        param += '?search=' + this.search + '&category_id=' + this.category + '&page=' + this.page
       }else if(this.search !== '' && this.category === ''){ // searchだけ値がある場合
-        param += '?search=' + this.search + '&category_id='
+        param += '?search=' + this.search + '&category_id=' + '&page=' + this.page
       }else if(this.search === '' && this.category !== ''){ // categoryだけ値がある場合
-        param += '?search=' + '&category_id=' + this.category
+        param += '?search=' + '&category_id=' + this.category + '&page=' + this.page
       }else{ // 何も値がない場合
-        param = ''
+        param = '?page=' + this.page;
       }
       axios.get(url + param).then(response => {
-        this.steps = response.data
+        this.steps = response.data.data
+        this.paginate = response.data
         console.log('this.steps :', this.steps);
       }).catch(error => console.log(error, 'エラー'))
     },
@@ -69,6 +76,10 @@ export default {
       // 日付をYYYY/MM/DD
       if(!date) return '-';
       return moment(date).format('YYYY/MM/DD');
+    },
+    movePage(page) {
+      this.page = page
+      this.fetchList()
     },
   }
 }

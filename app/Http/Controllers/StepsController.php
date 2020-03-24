@@ -53,7 +53,8 @@ class StepsController extends Controller
       $steps = $steps;
     }
     
-    $steps = $steps->orderBy('created_at', 'desc')->get();
+    $steps = $steps->orderBy('created_at', 'desc');// 前にはget()があった
+    $steps = $steps->paginate(10);
     return response()->json($steps);
   }
 
@@ -182,7 +183,7 @@ class StepsController extends Controller
     $stepId = $id;
     // userのid
     $userId = Auth::id();
-    $step = Step::with(['user','step_children','category']);
+    $step = Step::with(['user','step_children','category','clears']);
     $step = $step->where('id', $stepId)->first();
 
     // チャレンジしているかの値

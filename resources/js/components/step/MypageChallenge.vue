@@ -51,6 +51,8 @@ export default {
   data: function(){
     return {
       challengeSteps: {},
+      paginate: {},
+      page: 1,
     }
   },
   mounted() {
@@ -60,7 +62,7 @@ export default {
     // step一覧の情報を取得
     fetchList(){
       const url = '/api/step/mypage_challenge';
-      let param = '';
+      let param = '?page=' + this.page;
       if (this.search !== '' && this.category !== '') { // searchとcategoryに値がある場合
         console.log('search :', this.search)
         param += '?search=' + this.search + '&category_id=' + this.category
@@ -72,7 +74,8 @@ export default {
         param = ''
       }
       axios.get(url + param).then(response => { 
-        this.challengeSteps = response.data
+        this.challengeSteps = response.data.data
+        this.paginate = response.data
         console.log('this.steps :', this.challengeSteps);
       }).catch(error => console.log(error, 'エラー'))
     },

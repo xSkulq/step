@@ -9,7 +9,7 @@ require('./bootstrap')
 window.Vue = require('vue')
 
 // 画像プレビュー
-window.preview = require('v-preview-input');
+//window.preview = require('v-preview-input');
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,14 +27,14 @@ Vue.component('step-list', require('./components/step/StepList.vue').default);
 Vue.component('mypage-register', require('./components/step/MypageRegister.vue').default);
 Vue.component('mypage-challenge', require('./components/step/MypageChallenge.vue').default);
 
-// search
-//ue.component('search-component', require('./components/SearchComponent.vue').default);
-
 //preview
 //step
 Vue.component('step-img-preview', require('./components/step/ImgPreview.vue').default);
 //account
 Vue.component('account-img-preview', require('./components/account/ImgPreview.vue').default);
+
+// pagination
+Vue.component('pagination-component', require('./components/PaginationComponent.vue').default);
 
 
 /**

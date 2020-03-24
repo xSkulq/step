@@ -1,0 +1,58 @@
+.c-pagination{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  &__block{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      list-style: none;
+      min-width: 500px;
+      @include mq(sm) {
+          min-width: 0;
+      }
+  }
+  &__icon{
+      //color: $font-color-blue-default;
+      font-size: 40px;
+      &:hover{
+          //color: $font-color-blue;
+      }
+      &-invalid {
+          color: $gray;
+          pointer-events:none;
+
+      }
+  }
+  &__number{
+      &-block{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      &-font{
+          //background-color: $background-blue;
+          border-radius: 50%;
+          box-sizing: border-box;
+          //color: $font-color-white;
+          display: block;
+          font-size: $font-size_m;
+          text-align: center;
+          width: 36px;
+          height: 36px;
+          line-height: 36px;
+          &:hover{
+              //color: $font-color-blue-default;
+              //background: $background-white;
+              //border: 2px solid $background-blue;
+              line-height: 32px;
+          }
+          &__current{
+              //color: $font-color-blue-default;
+              //background: $background-white;
+              //border: 2px solid $background-blue;
+              line-height: 32px;
+          }
+      }
+  }
+}

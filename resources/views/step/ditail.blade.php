@@ -29,7 +29,7 @@
           </div>
         </div>
         <div>
-          <p>進捗率<span>100%</span></p>
+        <p>進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
         </div>
       </div>
     </div>
