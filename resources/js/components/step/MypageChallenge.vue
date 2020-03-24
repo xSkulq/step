@@ -5,7 +5,9 @@
         <div class="p-step_challenge__thead">
           <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
           <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img">
-          <a :href="'/step/child/ditail/'" class="p-step_challenge__thead__button">続きから</a>
+          <a :href="'/step/ditail/'+ step.id" class="p-step_challenge__thead__button" v-if="step.step_children.length == step.clears.length">続きから</a>
+          <a :href="'/step/child/ditail/'+ step.step_children[0].id" class="p-step_challenge__thead__button" v-else-if="step.clears.length == 0">続きから</a>
+          <a :href="'/step/child/ditail/'+ nextChild(step)" class="p-step_challenge__thead__button" v-else>続きから</a>
         </div>
         <div class="p-step_challenge__tbody">
         <a :href="'/step/ditail/' + step.id">
@@ -90,7 +92,7 @@ export default {
       if(!date) return '-';
       return moment(date).format('YYYY/MM/DD');
     },
-    /*nextChild: function(step){
+    nextChild: function(step){
       let lastClear = step.clears.slice(-1)[0];
       console.log(lastClear,'lastClear');
       let totalChild = step.step_children.length;
@@ -99,23 +101,26 @@ export default {
       let nextChildId = '';
 
       step.step_children.forEach((value, key) => {
-        console.log('forech')
-        if(lastClear != null && lastClear['step_child_id'] < value.id){
-          let clearChildKey = key;
-          //console.log((clearChildKey+1),'key');
+        //console.log('forech')
+        if(lastClear != null && lastClear['step_child_id'] == value.id){
+          clearChildKey = key;
+          console.log((clearChildKey),'key');
           //console.log('if文');
         }
       });
       //console.log(clearChildKey);
       if(clearChildKey != null && (clearChildKey+1) < totalChild){
         console.log('if文')
+        console.log((clearChildKey)+1);
         let nextChildId = step.step_children[(clearChildKey+1)].id;
+        step['next_child'] = nextChildId
         console.log(nextChildId,'nextChildId');
       }else{
-        console.log('else');
+        // チャレンジ100%だったらSTEPに遷移させる
+        //step['next_child'] = step['id'];
       }
-      return nextChildId;
-    }*/
+      return step['next_child'];
+    }
   }
 }
 </script>

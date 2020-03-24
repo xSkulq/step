@@ -291,39 +291,11 @@ class StepsController extends Controller
       $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
-
       //それ以外
     }else{
       $challengeSteps = $challengeSteps;
     }
-
-    //$challengeSteps = $challengeSteps->orderBy('created_at', 'desc')->get();
     $challengeSteps = $challengeSteps->paginate(10);
-
-    /*foreach($challengeSteps as $key => $step){
-      // クリアの最後の配列
-      $lastClear = ($step->clears)?end($step->clears):'';
-      $lastClear_key = ($lastClear)?array_key_last($lastClear):'';
-      //$lastClear = ($lastClear) ? array_slice( $lastClear, -1 ) : '';
-      //dd($lastClear);
-
-      $step_child_total_key = count($step->step_children);
-      foreach($step->step_children as $key => $step_child){
-        if($step_child['id'] === $step->clears[$lastClear_key]->step_child_id){
-          $step_child_key = $key;
-          //dd($step->clears[$lastClear_key]->step_child_id);
-        }
-      }
-        // 次の子STEPのID
-        if( !empty($step_child_key) && ($step_child_key+1) < $step_child_total_key){
-          //dd($step->step_children[($step_child_key+1)]->id);
-          $config = $step->step_children[($step_child_key+1)]->id;
-          $step[$key]['next_step'] = $config;
-        }else{
-          $step[$key]['next_step'] = '';
-        }
-    }
-    dd($step[($step_child_key+1)]);*/
     return response()->json($challengeSteps);
   }
 
@@ -426,6 +398,6 @@ class StepsController extends Controller
     // チャレンジをやめるstepを削除
     $challenge_stop = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
     $challenge_stop = $challenge_stop->delete();
-    return redirect('/step/ditail/'.$stepId)->with('flash_message', 'チャレンジをやめました');
+    return redirect('/step/mypage_challenge')->with('flash_message', 'チャレンジをやめました');
   }
 }
