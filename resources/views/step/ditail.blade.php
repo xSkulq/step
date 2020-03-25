@@ -11,11 +11,20 @@
         STEPタイトル
         <span class="p-step_ditail__title__user">{{$step->title}}</span>
       </h1>
+      @if(Auth::id() === $step->user_id)
+      <div></div>
+      @else
       <div class="p-step_ditail__challenge">
-        @if($challenge)
-        <p>チャレンジしている<p>
-        @endif
+        <div>
+          @if( count($step->step_children) === count($step->clears))
+          <p class="u-mb5">全てのSTEPをクリアしました<p>
+          @elseif($challenge)
+          <p class="u-mb5">チャレンジしている<p>
+          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
+          @endif
+        </div>
       </div>
+      @endif
       <div class="p-step_ditail__top">
         <div class="u-flex">
           <p>作成日<span class="u-ml5">{{date('Y/m/d', strtotime($step->created_at))}}<span></p>
@@ -29,7 +38,6 @@
           </div>
         </div>
         <div>
-        <p>進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
         </div>
       </div>
     </div>

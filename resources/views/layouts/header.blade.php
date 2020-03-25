@@ -19,6 +19,7 @@
 <!-- ログインしている場合 -->
 @else
 <div class="c-header">
+  <div class="c-header__left">
   <!-- toggle -->
   <div class="menu-trigger js-toggle-sp-menu">
     <span></span>
@@ -30,10 +31,11 @@
   @include('layouts.sidebar_sp')
 
   <!-- ロゴ -->
-  <div>
+  <div class="c-header__logo">
     <a href="{{ url('/') }}">
-      <img src="{{ asset('/imges/logo1.png') }}" alt="STEP(ロゴ)" class="c-header__logo">
+      <img src="{{ asset('/imges/logo1.png') }}" alt="STEP(ロゴ)" class="c-header__logo__img">
     </a>
+  </div>
   </div>
 
   <!-- ボタン系統 -->
@@ -41,7 +43,7 @@
     <div>
       <a href="{{ route('step.index')}}" class="c-header__button">STEP一覧</a>
     </div>
-    <div>
+    <div class="c-header__none">
       <a href="{{ route('step.new')}}" class="c-header__button c-header__button-white">STEP登録</a> 
     </div>
     <div>

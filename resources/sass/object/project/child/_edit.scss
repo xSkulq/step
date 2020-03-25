@@ -4,6 +4,14 @@
   width: 40vw;
   @include mq(xl){
     padding: 0;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 60vw;
+  }
+  @include mq(md){
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
   }
   &__title{
     font-size: $font-size-xl;
@@ -12,6 +20,7 @@
     margin-bottom: 80px;
     @include mq(md){
       margin-bottom: 48px;
+      font-size: $font-size-3l;
     }
   }
   &__form{
@@ -35,6 +44,11 @@
       width: 300px;
       margin-bottom: 60px;
     }
+  }
+  &__required{
+    //color: $red;
+    font-size: $font-size-s;
+    margin-left: 5px;
   }
   &__icon{
     background: $background-white;
@@ -75,8 +89,19 @@
     position: absolute;
     top: 0;
     left: 0;
-    &-destory{
-      display: none;
+    &__destory{
+      //display: none;
+      background-color: $background-orenge;
+      border-radius: 50px;
+      border: none;
+      color: $font-color-white;
+      font-size: $font-size-ss;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      &:hover{
+        background-color: $background-light-orenge;
+        cursor: pointer;
+      }
     }
   }
   &__button{

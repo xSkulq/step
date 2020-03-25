@@ -55,6 +55,9 @@
         
       <div>
         <label for="icon">
+          <div>
+            <input type="submit" name="img_destory" class="p-child_edit__img__destory" value="保存していた画像を削除します">
+          </div>
           <step-img-preview :prev_img={{ json_encode($stepChild->pic) }}></step-img-preview>
         </label>
       </div>

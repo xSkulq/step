@@ -1,9 +1,10 @@
 @extends('layouts.app_own_column')
 
 @section('content')
+<div class="p-account_edit">
 <form method="POST" action="{{ route('account.store') }}" enctype="multipart/form-data" class="p-account_edit__form">
   @csrf
-  <div class="p-account_edit"> 
+  <div> 
     <h1 class="p-account_edit__title">プロフィール編集</h1>
 
     <!-- email -->
@@ -65,6 +66,9 @@
       
       <!--<div class="p-account_edit__icon">-->
         <label for="icon">
+          <div>
+            <input type="submit" name="img_destory" class="p-child_edit__img__destory" value="保存していた画像を削除します">
+          </div>
           <!--if(empty($user->pic))-->
           <!--<input type="file" name="pic" class="p-account_edit__file">-->
           <!--<img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">-->
@@ -84,4 +88,5 @@
     </div>
   </div>
 </form>
+</div>
 @endsection

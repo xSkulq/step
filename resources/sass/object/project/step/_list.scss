@@ -1,18 +1,19 @@
 .p-step_list{
   //margin-left: 100px;
   margin-left: 125px;
-  width: 40vw;
+  //width: 40vw;
+  width: 600px;
   //width: 60vw;
-  @include mq(md){
-    width: 100%;
+  @include mq(xl){
+    width: 90vw;
+    margin: 0 auto;
     margin-top: 80px;
-    margin-left: 0;
   }
   &__title{
     font-size: $font-size-xl;
     font-weight: 100;
     margin-bottom: 50px;
-    @include mq(md){
+    @include mq(xl){
       text-align: center;
     }
   }
@@ -31,7 +32,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 80px;
-    @include mq(md){
+    @include mq(xl){
       justify-content:center;
     }
   }
@@ -74,6 +75,11 @@
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 85px;
+      justify-content: center;
+      @include mq(lg){
+        //width: 87%;
+        //margin: 0 auto;
+      }
       @include mq(md){
         justify-content: center;
       }
@@ -81,14 +87,19 @@
   }
   &__card{
     width: 270px;
-    //margin-right: 40px;
-    //margin-bottom: 30px;
-    margin-right: 4%;
-    margin-bottom: 3%;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    //margin-right: 4%;
+    //margin-bottom: 3%;
     color: $font-color-black;
     &:hover{
       cursor: pointer;
       color: $font-color-orenge;
+    }
+    @include mq(lg){
+      &:nth-child(2n){
+        margin-right: 0;
+      }
     }
     @include mq(md){
       margin-right: 0;

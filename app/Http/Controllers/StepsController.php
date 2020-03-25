@@ -309,7 +309,7 @@ class StepsController extends Controller
       // 画像を消去する処理
       $step->pic = '';
       $step->save();
-      return redirect('/account/edit');
+      return redirect('/step/ditail/'.$id);
     }
 
     //dd($request);

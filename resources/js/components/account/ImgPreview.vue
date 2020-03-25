@@ -15,9 +15,6 @@
       <img alt="no_icon" class="p-account_edit__img" :src="'data:image/png;base64,'+prevImg"  v-else-if="prevImg">
       <img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png" v-else>
     </div>
-    <div>
-    <input type="submit" name="img_destory" class="p-account_edit__img-destory" value="アイコンを削除し保存します">
-    </div>
   </div>
 </template>
 

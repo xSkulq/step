@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-step_challenge__box">
     <div>
       <div class="p-step_challenge__card" v-for="(step, index) in challengeSteps" :key="index">
         <div class="p-step_challenge__thead">
@@ -10,7 +10,7 @@
           <a :href="'/step/child/ditail/'+ nextChild(step)" class="p-step_challenge__thead__button" v-else>続きから</a>
         </div>
         <div class="p-step_challenge__tbody">
-        <a :href="'/step/ditail/' + step.id">
+        <a :href="'/step/ditail/' + step.id" class="p-step_challenge__tbody__link">
           <div class="p-step_challenge__top">
             <p class="u-mb5">STEPタイトル</p>
             <p class="p-step_challenge__top__font">{{ step.title }}</p>
@@ -27,7 +27,7 @@
           <div class="p-step_challenge__bottom">
             <div class="p-step_challenge__bottom__prof">
               <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
-              <p class="u-ml5">{{ step.user.name}}</p>
+              <p class="p-step_challenge__bottom__font">{{ step.user.name}}</p>
             </div>
             <div class="u-flex">
               <div class="u-flex">

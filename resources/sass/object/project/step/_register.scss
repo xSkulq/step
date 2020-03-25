@@ -8,6 +8,14 @@
   width: 40vw;
   @include mq(xl){
     padding: 0;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 60vw;
+  }
+  @include mq(md){
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
   }
   &__title{
     font-size: $font-size-xl;
@@ -16,6 +24,7 @@
     margin-bottom: 45px;
     @include mq(md){
       margin-bottom: 48px;
+      font-size: $font-size-2l;
     }
   }
   &__note{
@@ -27,6 +36,9 @@
     &-title{
       font-size: $font-size-l;
       margin-bottom: 30px;
+      @include mq(md){
+        text-align: center;
+      }
     }
   }
   &__required{
@@ -60,8 +72,14 @@
     }
     &__time{
       @extend .p-step_register__select__category;
-      width: 40%;
       margin-left: 30px;
+    }
+  }
+  &__input{
+    &__time{
+      @include mq(md){
+        width: 100%;
+      }
     }
   }
   &__icon{

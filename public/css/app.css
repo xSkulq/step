@@ -262,6 +262,7 @@ ul {
 
 .c-button {
   background: #d27921;
+  border: none;
   padding: 9px 70px 9px 70px;
   cursor: pointer;
 }
@@ -322,6 +323,11 @@ ul {
   }
 }
 
+.c-header__left {
+  display: flex;
+  align-items: center;
+}
+
 .c-header__sidebar {
   display: none;
 }
@@ -346,14 +352,15 @@ ul {
 
 @media screen and (max-width: 767px) {
   .c-header__button {
-    font-size: 14px;
+    font-size: 12px;
     padding: 8px 18px;
   }
 }
 
 @media screen and (max-width: 575px) {
   .c-header__button {
-    padding: 6px 14px;
+    font-size: 12px;
+    padding: 6px 8px;
   }
 }
 
@@ -368,10 +375,34 @@ ul {
 }
 
 @media screen and (max-width: 767px) {
-  .c-header__logo {
-    width: 70%;
-    height: 70%;
+  .c-header__button-white {
+    margin-left: 12px;
   }
+}
+
+@media screen and (max-width: 1199px) {
+  .c-header__logo {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c-header__logo {
+    margin-left: 10px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .c-header__logo__img {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+  }
+}
+
+.c-header__none {
+  display: none;
 }
 
 .c-inputFild {
@@ -1119,6 +1150,15 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 1199px) {
   .p-account_edit {
     padding: 0;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-account_edit {
+    width: 100%;
   }
 }
 
@@ -1206,7 +1246,18 @@ input[type=checkbox]:checked + span::before {
   border-radius: 50%;
 }
 
-.p-account_edit__img-destory:hover {
+.p-account_edit__img__destory {
+  background-color: #d27921;
+  border-radius: 50px;
+  border: none;
+  color: #ffffff;
+  font-size: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.p-account_edit__img__destory:hover {
+  background-color: #e79341;
   cursor: pointer;
 }
 
@@ -1453,6 +1504,17 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 1199px) {
   .p-child_edit {
     padding: 0;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-child_edit {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
   }
 }
 
@@ -1466,6 +1528,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-child_edit__title {
     margin-bottom: 48px;
+    font-size: 24px;
   }
 }
 
@@ -1498,6 +1561,11 @@ input[type=checkbox]:checked + span::before {
     width: 300px;
     margin-bottom: 60px;
   }
+}
+
+.p-child_edit__required {
+  font-size: 12px;
+  margin-left: 5px;
 }
 
 .p-child_edit__icon {
@@ -1544,8 +1612,19 @@ input[type=checkbox]:checked + span::before {
   left: 0;
 }
 
-.p-child_edit__img-destory {
-  display: none;
+.p-child_edit__img__destory {
+  background-color: #d27921;
+  border-radius: 50px;
+  border: none;
+  color: #ffffff;
+  font-size: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.p-child_edit__img__destory:hover {
+  background-color: #e79341;
+  cursor: pointer;
 }
 
 .p-child_edit__button-font {
@@ -1564,7 +1643,17 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 1199px) {
   .p-child_register {
     padding: 0;
-    margin-bottom: 48px;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-child_register {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
   }
 }
 
@@ -1578,6 +1667,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-child_register__title {
     margin-bottom: 48px;
+    font-size: 24px;
   }
 }
 
@@ -1610,6 +1700,11 @@ input[type=checkbox]:checked + span::before {
     width: 300px;
     margin-bottom: 60px;
   }
+}
+
+.p-child_register__required {
+  font-size: 12px;
+  margin-left: 5px;
 }
 
 .p-child_register__icon {
@@ -2069,10 +2164,24 @@ input[type=checkbox]:checked + span::before {
   width: 40vw;
 }
 
+@media screen and (max-width: 1199px) {
+  .p-step_challenge {
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 0;
+  }
+}
+
 .p-step_challenge__title {
   font-size: 26px;
   font-weight: 100;
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__title {
+    text-align: center;
+  }
 }
 
 .p-step_challenge__choice {
@@ -2081,13 +2190,42 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 70px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__choice {
+    justify-content: center;
+    margin-bottom: 45px;
+  }
+}
+
+.p-step_challenge__choice__pipe {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__choice__pipe {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
 .p-step_challenge__choice__font {
   color: #262626;
   font-size: 18px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__choice__font {
+    font-size: 12px;
+  }
+}
+
 .p-step_challenge__choice__font:hover {
   color: #d27921;
+}
+
+.p-step_challenge__choice__current {
+  color: #167076;
 }
 
 .p-step_challenge__button {
@@ -2103,6 +2241,18 @@ input[type=checkbox]:checked + span::before {
   cursor: pointer;
 }
 
+.p-step_challenge__search {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__search {
+    justify-content: center;
+  }
+}
+
 .p-step_challenge__select {
   position: relative;
   border: 1px solid #d3d3d3;
@@ -2111,6 +2261,14 @@ input[type=checkbox]:checked + span::before {
   width: 200px;
   text-align: center;
   margin-left: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__select {
+    margin-top: 20px;
+    margin-left: 0;
+    width: 295px;
+  }
 }
 
 .p-step_challenge__select::before {
@@ -2144,6 +2302,16 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 80px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__clear {
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    margin-bottom: 70px;
+  }
+}
+
 .p-step_challenge__clear__number {
   display: flex;
   flex-wrap: wrap;
@@ -2156,9 +2324,24 @@ input[type=checkbox]:checked + span::before {
   padding-left: 50px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__clear__number {
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+  }
+}
+
 .p-step_challenge__clear__number__big {
   font-size: 24px;
   margin-left: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__clear__number__big {
+    margin-left: 15px;
+  }
 }
 
 .p-step_challenge__prof {
@@ -2175,8 +2358,23 @@ input[type=checkbox]:checked + span::before {
   height: 80px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__prof__img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .p-step_challenge__box {
   margin-bottom: 120px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 85px;
+  }
 }
 
 .p-step_challenge__sub-title {
@@ -2185,10 +2383,29 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 30px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__sub-title {
+    text-align: center;
+  }
+}
+
 .p-step_challenge__card {
   display: flex;
   margin-bottom: 40px;
-  height: 180px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__card {
+    display: block;
+    width: 270px;
+    color: #262626;
+    margin-right: 0;
+  }
+
+  .p-step_challenge__card:hover {
+    cursor: pointer;
+    color: #d27921;
+  }
 }
 
 .p-step_challenge__thead {
@@ -2198,6 +2415,13 @@ input[type=checkbox]:checked + span::before {
 .p-step_challenge__thead__img {
   width: 320px;
   height: 180px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__thead__img {
+    width: 100%;
+    height: 152px;
+  }
 }
 
 .p-step_challenge__thead__button {
@@ -2213,6 +2437,18 @@ input[type=checkbox]:checked + span::before {
   padding-right: 50px;
 }
 
+.p-step_challenge__thead__button:hover {
+  background-color: #e79341;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__thead__button {
+    left: 57px;
+    top: 100px;
+    font-size: 14px;
+  }
+}
+
 .p-step_challenge__tbody {
   background-color: #ffffff;
   border-left: 1px solid #d3d3d3;
@@ -2221,11 +2457,38 @@ input[type=checkbox]:checked + span::before {
   padding-left: 35px;
   padding-right: 40px;
   min-width: 350px;
+  height: 180px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__tbody {
+    min-width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-left: none;
+  }
+}
+
+.p-step_challenge__tbody__link {
+  color: #262626;
+}
+
+.p-step_challenge__tbody__link:hover {
+  color: #d27921;
 }
 
 .p-step_challenge__top {
   font-size: 16px;
   margin-bottom: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__top {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
 }
 
 .p-step_challenge__top__font {
@@ -2237,8 +2500,20 @@ input[type=checkbox]:checked + span::before {
   -o-text-overflow: ellipsis;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__top__font {
+    width: 100%;
+  }
+}
+
 .p-step_challenge__medium {
   margin-bottom: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__medium {
+    margin-bottom: 15px;
+  }
 }
 
 .p-step_challenge__medium__font {
@@ -2248,6 +2523,12 @@ input[type=checkbox]:checked + span::before {
   font-size: 14px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__medium__font {
+    font-size: 12px;
+  }
+}
+
 .p-step_challenge__bottom {
   display: flex;
   justify-content: space-between;
@@ -2255,10 +2536,38 @@ input[type=checkbox]:checked + span::before {
   font-size: 12px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_challenge__bottom {
+    flex-wrap: wrap;
+  }
+}
+
 .p-step_challenge__bottom__prof {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__bottom__prof {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.p-step_challenge__bottom__font {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__bottom__font {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    width: 80%;
+  }
 }
 
 .p-step_ditail {
@@ -2270,6 +2579,15 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 1199px) {
   .p-step_ditail {
     display: block;
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_ditail {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
   }
 }
 
@@ -2279,6 +2597,13 @@ input[type=checkbox]:checked + span::before {
   word-break: break-all;
   margin-bottom: 40px;
   line-height: 1.4;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_ditail__title {
+    text-align: center;
+    font-size: 24px;
+  }
 }
 
 .p-step_ditail__title__user {
@@ -2293,6 +2618,17 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_ditail__challenge {
+    font-size: 16px;
+  }
+}
+
+.p-step_ditail__percent {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .p-step_ditail__top {
   display: flex;
   justify-content: space-between;
@@ -2301,13 +2637,35 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 15px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_ditail__top {
+    font-size: 12px;
+  }
+}
+
 .p-step_ditail__medium {
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_ditail__medium {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 176px;
+  }
 }
 
 .p-step_ditail__img {
   width: 500px;
   height: 281px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_ditail__img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .p-step_ditail__bottom {
@@ -2322,8 +2680,9 @@ input[type=checkbox]:checked + span::before {
 
 @media screen and (max-width: 767px) {
   .p-step_ditail__item {
-    padding: 0;
-    width: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
     margin: 0 auto;
   }
 }
@@ -2350,6 +2709,17 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 1199px) {
   .p-step_edit {
     padding: 0;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_edit {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
   }
 }
 
@@ -2363,6 +2733,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-step_edit__title {
     margin-bottom: 48px;
+    font-size: 24px;
   }
 }
 
@@ -2408,8 +2779,13 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-step_edit__select__time {
-  width: 40%;
   margin-left: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_edit__input__time {
+    width: 100%;
+  }
 }
 
 .p-step_edit__icon {
@@ -2456,8 +2832,19 @@ input[type=checkbox]:checked + span::before {
   left: 0;
 }
 
-.p-step_edit__img-destory {
-  display: none;
+.p-step_edit__img__destory {
+  background-color: #d27921;
+  border-radius: 50px;
+  border: none;
+  color: #ffffff;
+  font-size: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.p-step_edit__img__destory:hover {
+  background-color: #e79341;
+  cursor: pointer;
 }
 
 .p-step_edit__border {
@@ -2541,14 +2928,14 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_list {
   margin-left: 125px;
-  width: 40vw;
+  width: 600px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_list {
-    width: 100%;
+    width: 90vw;
+    margin: 0 auto;
     margin-top: 80px;
-    margin-left: 0;
   }
 }
 
@@ -2558,7 +2945,7 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 50px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_list__title {
     text-align: center;
   }
@@ -2583,7 +2970,7 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 80px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_list__search {
     justify-content: center;
   }
@@ -2631,6 +3018,7 @@ input[type=checkbox]:checked + span::before {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 85px;
+  justify-content: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -2641,14 +3029,20 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_list__card {
   width: 270px;
-  margin-right: 4%;
-  margin-bottom: 3%;
+  margin-right: 30px;
+  margin-bottom: 30px;
   color: #262626;
 }
 
 .p-step_list__card:hover {
   cursor: pointer;
   color: #d27921;
+}
+
+@media screen and (max-width: 991px) {
+  .p-step_list__card:nth-child(2n) {
+    margin-right: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -2712,14 +3106,14 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_mypage {
   margin-left: 125px;
-  width: 40vw;
+  width: 600px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_mypage {
-    width: 100%;
+    width: 90vw;
+    margin: 0 auto;
     margin-top: 80px;
-    margin-left: 0;
   }
 }
 
@@ -2729,7 +3123,7 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 50px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_mypage__title {
     text-align: center;
   }
@@ -2741,7 +3135,7 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 70px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_mypage__choice {
     justify-content: center;
   }
@@ -2774,6 +3168,22 @@ input[type=checkbox]:checked + span::before {
   color: #d27921;
 }
 
+.p-step_mypage__choice__current {
+  color: #167076;
+}
+
+.p-step_mypage__sub-title {
+  font-size: 18px;
+  font-weight: 100;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_mypage__sub-title {
+    text-align: center;
+  }
+}
+
 .p-step_mypage__button {
   box-sizing: border-box;
   border: 1px solid #d3d3d3;
@@ -2793,7 +3203,7 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 50px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_mypage__search {
     justify-content: center;
   }
@@ -2843,6 +3253,14 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 85px;
 }
 
+@media screen and (max-width: 991px) {
+  .p-step_mypage__list-box {
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 auto;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .p-step_mypage__list-box {
     justify-content: center;
@@ -2859,6 +3277,12 @@ input[type=checkbox]:checked + span::before {
 .p-step_mypage__card:hover {
   cursor: pointer;
   color: #d27921;
+}
+
+@media screen and (max-width: 991px) {
+  .p-step_mypage__card:nth-child(2n) {
+    margin-right: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -2929,6 +3353,17 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 1199px) {
   .p-step_register {
     padding: 0;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_register {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 100%;
   }
 }
 
@@ -2942,6 +3377,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-step_register__title {
     margin-bottom: 48px;
+    font-size: 18px;
   }
 }
 
@@ -2954,6 +3390,12 @@ input[type=checkbox]:checked + span::before {
 .p-step_register__sub-title {
   font-size: 16px;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_register__sub-title {
+    text-align: center;
+  }
 }
 
 .p-step_register__required {
@@ -2991,8 +3433,13 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-step_register__select__time {
-  width: 40%;
   margin-left: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_register__input__time {
+    width: 100%;
+  }
 }
 
 .p-step_register__icon {

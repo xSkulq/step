@@ -49,7 +49,7 @@
 
           <div class="u-flex">
             <div class="u-mt5 u-mb25">
-              <input type="text" name="achievement_number" class="c-inputFild__long @error('achievement_number') c-inputFild__long-error @enderror" placeholder="12" value="@if(!empty($step->achievement_number)){{ $step->achievement_number}}@else{{ old('achievement_number')}}@endif">
+              <input type="text" name="achievement_number" class="c-inputFild__long p-step_edit__input__time @error('achievement_number') c-inputFild__long-error @enderror" placeholder="12" value="@if(!empty($step->achievement_number)){{ $step->achievement_number}}@else{{ old('achievement_number')}}@endif">
             </div>
             <div class="p-step_edit__select__time">
               <select name="time" class="c-select">
@@ -96,8 +96,14 @@
         
         <div>
           <label for="icon">
+            <div>
+              <input type="submit" name="img_destory" class="p-child_edit__img__destory" value="保存していた画像を削除します">
+            </div>
             <step-img-preview :prev_img={{ json_encode($step->pic) }}></step-img-preview>
           </label>
+          <div>
+          <input type="submit" name="img_destory" class="" value="登録していた画像を削除します">
+          </div>
         </div>
       </div>
     </div>

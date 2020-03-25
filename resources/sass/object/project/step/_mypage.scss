@@ -1,18 +1,19 @@
 .p-step_mypage{
   //margin-left: 100px;
   margin-left: 125px;
-  width: 40vw;
+  //width: 40vw;
+  width: 600px;
   //width: 60vw;
-  @include mq(md){
-    width: 100%;
+  @include mq(xl){
+    width: 90vw;
+    margin: 0 auto;
     margin-top: 80px;
-    margin-left: 0;
   }
   &__title{
     font-size: $font-size-xl;
     font-weight: 100;
     margin-bottom: 50px;
-    @include mq(md){
+    @include mq(xl){
       text-align: center;
     }
   }
@@ -20,7 +21,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 70px;
-    @include mq(md){
+    @include mq(xl){
       justify-content: center;
     }
     &__pipe{
@@ -41,6 +42,19 @@
         color: $font-color-orenge;
       }
     }
+    &__current{
+      color: $font-color-peacook-greeen;
+    }
+  }
+  &__sub{
+    &-title{
+      font-size: $font-size-2l;
+      font-weight: 100;
+      margin-bottom: 30px;
+      @include mq(md){
+        text-align: center;
+      }
+    }
   }
   &__button{
     box-sizing: border-box;
@@ -57,7 +71,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
-    @include mq(md){
+    @include mq(xl){
       justify-content:center;
     }
   }
@@ -100,6 +114,11 @@
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 85px;
+      @include mq(lg){
+        width: 95%;
+        margin: 0 auto;
+        padding: 0 auto;
+      }
       @include mq(md){
         justify-content: center;
       }
@@ -115,6 +134,11 @@
     &:hover{
       cursor: pointer;
       color: $font-color-orenge;
+    }
+    @include mq(lg){
+      &:nth-child(2n){
+        margin-right: 0;
+      }
     }
     @include mq(md){
       margin-right: 0;

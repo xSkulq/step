@@ -12,7 +12,7 @@
     </div>
     <div class="p-step_mypage__choice__pipe">|</div>
     <div>
-      <a href="{{ route('step.mypage_register')}}" class="p-step_mypage__choice__font">登録済みSTEP一覧</a>
+      <a href="{{ route('step.mypage_register')}}" class="p-step_mypage__choice__font @if( request()->path() === 'step/mypage_register') p-step_mypage__choice__current @endif">登録済みSTEP一覧</a>
     </div>
   </div>
 
@@ -36,6 +36,7 @@
 
   <!-- step-list -->
   <section>
+    <h2 class="p-step_mypage__sub-title">登録しているSTEP逹</h2>
     <mypage-register search="{{ $search }}" category="{{ $category }}"></mypage-register>
   </section>
 </div>

@@ -2,10 +2,17 @@
     padding-right: 33%;
     margin-left: 150px;
     width: 40vw;
-  @include mq(xl){
-    padding: 0;
-    margin-bottom: 48px;
-  }
+    @include mq(xl){
+      padding: 0;
+      margin: 0 auto;
+      margin-top: 80px;
+      width: 60vw;
+    }
+    @include mq(md){
+      margin: 0 auto;
+      margin-top: 80px;
+      width: 100%;
+    }
   &__title{
     font-size: $font-size-xl;
     font-weight: normal;
@@ -13,6 +20,7 @@
     margin-bottom: 80px;
     @include mq(md){
       margin-bottom: 48px;
+      font-size: $font-size-3l;
     }
   }
   &__form{
@@ -36,6 +44,11 @@
       width: 300px;
       margin-bottom: 60px;
     }
+  }
+  &__required{
+    //color: $red;
+    font-size: $font-size-s;
+    margin-left: 5px;
   }
   &__icon{
     background: $background-white;

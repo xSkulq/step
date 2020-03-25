@@ -16,10 +16,17 @@
         <span class="p-step_ditail__title__user">{{$stepChild->title}}</span>
       </h1>
       <div class="p-step_ditail__challenge">
-        @if(empty($clear->clear_flg))
-        <p></p>
-        @else
-        <p>クリアしました<p>
+        @if($challenge)
+        <div>
+          @if(empty($clear->clear_flg))
+          <p></p>
+          @elseif( count($step->step_children) === count($step->clears))
+          <p>全てのSTEPをクリアしました<p>
+          @else
+          <p>クリアしました<p>
+          @endif
+          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
+        </div>
         @endif
       </div>
       <div class="p-step_ditail__top">
