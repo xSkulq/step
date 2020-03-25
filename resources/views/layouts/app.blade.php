@@ -4,13 +4,13 @@
     <header>
       @include('layouts.header')
     </header>
-              <!-- フラッシュメッセージ -->
-              @if (session('flash_message'))
-              <div class="c-flash js-flash-message" role="alert">
-                {{ session('flash_message') }}
-              </div>
-            @endif
     <div class="l-content">
+      <!-- フラッシュメッセージ -->
+      @if (session('flash_message'))
+        <div class="c-flash js-flash-message" role="alert">
+          {{ session('flash_message') }}
+        </div>
+      @endif
       <div class="l-content__inner">
         <aside class="l-sidebar">
           @include('layouts.sidebar')
@@ -21,6 +21,7 @@
       </div>
     </div>
   </div>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
 </html>

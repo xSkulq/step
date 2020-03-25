@@ -82,6 +82,7 @@ export default {
     movePage(page) {
       this.page = page
       this.fetchList()
+      scrollTo(0, 0);
     },
   }
 }

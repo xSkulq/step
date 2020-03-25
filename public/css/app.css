@@ -501,6 +501,7 @@ input[type=checkbox]:checked + span::before {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 100px;
 }
 
 .c-pagination__block {
@@ -518,7 +519,12 @@ input[type=checkbox]:checked + span::before {
 }
 
 .c-pagination__icon {
+  color: #d27921;
   font-size: 40px;
+}
+
+.c-pagination__icon:hover {
+  color: #e79341;
 }
 
 .c-pagination__icon-invalid {
@@ -533,21 +539,28 @@ input[type=checkbox]:checked + span::before {
 }
 
 .c-pagination__number-font {
-  border-radius: 50%;
+  background-color: #d27921;
   box-sizing: border-box;
+  color: #ffffff;
   display: block;
   font-size: 14px;
   text-align: center;
-  width: 36px;
+  width: 27px;
   height: 36px;
   line-height: 36px;
 }
 
 .c-pagination__number-font:hover {
+  color: #d27921;
+  background: #ffffff;
+  border: 2px solid #d27921;
   line-height: 32px;
 }
 
 .c-pagination__number-font__current {
+  color: #ffffff;
+  background: #ffbe5a;
+  border: 2px solid #ffbe5a;
   line-height: 32px;
 }
 
@@ -2383,9 +2396,10 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_challenge__sub-title {
     text-align: center;
+    margin-bottom: 50px;
   }
 }
 
@@ -2417,6 +2431,10 @@ input[type=checkbox]:checked + span::before {
   height: 180px;
 }
 
+.p-step_challenge__thead__img:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 767px) {
   .p-step_challenge__thead__img {
     width: 100%;
@@ -2431,6 +2449,7 @@ input[type=checkbox]:checked + span::before {
   left: 80px;
   background-color: #d27921;
   color: #ffffff;
+  opacity: 0.9;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 50px;
@@ -3018,11 +3037,18 @@ input[type=checkbox]:checked + span::before {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 85px;
-  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  .p-step_list__list-box {
+    width: 570px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .p-step_list__list-box {
+    width: 100%;
     justify-content: center;
   }
 }
@@ -3178,9 +3204,10 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
   .p-step_mypage__sub-title {
     text-align: center;
+    margin-bottom: 50px;
   }
 }
 
@@ -3255,9 +3282,8 @@ input[type=checkbox]:checked + span::before {
 
 @media screen and (max-width: 991px) {
   .p-step_mypage__list-box {
-    width: 95%;
+    width: 570px;
     margin: 0 auto;
-    padding: 0 auto;
   }
 }
 

@@ -51,8 +51,9 @@
       font-size: $font-size-2l;
       font-weight: 100;
       margin-bottom: 30px;
-      @include mq(md){
+      @include mq(xl){
         text-align: center;
+        margin-bottom: 50px;
       }
     }
   }
@@ -115,9 +116,8 @@
       flex-wrap: wrap;
       margin-bottom: 85px;
       @include mq(lg){
-        width: 95%;
+        width: 570px;
         margin: 0 auto;
-        padding: 0 auto;
       }
       @include mq(md){
         justify-content: center;

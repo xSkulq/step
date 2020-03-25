@@ -75,12 +75,13 @@
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 85px;
-      justify-content: center;
       @include mq(lg){
-        //width: 87%;
-        //margin: 0 auto;
+        //justify-content: center;
+        width: 570px;
+        margin: 0 auto;
       }
       @include mq(md){
+        width: 100%;
         justify-content: center;
       }
     }

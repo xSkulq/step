@@ -3,11 +3,33 @@
     <div>
       <div class="p-step_challenge__card" v-for="(step, index) in challengeSteps" :key="index">
         <div class="p-step_challenge__thead">
+          <!--<img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">-->
+          <!--<img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>-->
+          <!--<a :href="'/step/ditail/'+ step.id" class="p-step_challenge__thead__button" v-if="step.step_children.length == step.clears.length">続きから</a>-->
+          <!--<a :href="'/step/child/ditail/'+ step.step_children[0].id" class="p-step_challenge__thead__button" v-else-if="step.clears.length == 0">続きから</a>-->
+          <!--<a :href="'/step/child/ditail/'+ nextChild(step)" class="p-step_challenge__thead__button" v-else>続きから</a>-->
+          
+          <!-- チャレンジを全部クリアしたとき -->
+          <a :href="'/step/ditail/'+ step.id" v-if="step.step_children.length == step.clears.length">
           <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
-          <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img">
-          <a :href="'/step/ditail/'+ step.id" class="p-step_challenge__thead__button" v-if="step.step_children.length == step.clears.length">続きから</a>
-          <a :href="'/step/child/ditail/'+ step.step_children[0].id" class="p-step_challenge__thead__button" v-else-if="step.clears.length == 0">続きから</a>
-          <a :href="'/step/child/ditail/'+ nextChild(step)" class="p-step_challenge__thead__button" v-else>続きから</a>
+          <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>
+          <a class="p-step_challenge__thead__button">続きから</a>
+          </a>
+
+          <!-- チャレンジを１つもクリアしていないとき --> 
+          <a :href="'/step/child/ditail/'+ step.step_children[0].id" v-else-if="step.clears.length == 0">
+          <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
+          <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>
+          <a class="p-step_challenge__thead__button">続きから</a>
+          </a>
+
+          <!-- チャレンジを１つでもクリアしたとき -->
+          <a :href="'/step/child/ditail/'+ nextChild(step)" v-else>
+          <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
+          <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>
+          <a class="p-step_challenge__thead__button">続きから</a>
+          </a>
+
         </div>
         <div class="p-step_challenge__tbody">
         <a :href="'/step/ditail/' + step.id" class="p-step_challenge__tbody__link">
@@ -120,7 +142,12 @@ export default {
         //step['next_child'] = step['id'];
       }
       return step['next_child'];
-    }
+    },
+    movePage(page) {
+      this.page = page
+      this.fetchList()
+      scrollTo(0, 0);
+    },
   }
 }
 </script>

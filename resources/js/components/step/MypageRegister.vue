@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="p-step_list__list-box">
-      <a :href="'/step/ditail/' + step.id" class="p-step_list__card" v-for="(step, index) in steps" :key="index">
+    <div class="p-step_mypage__list-box">
+      <a :href="'/step/ditail/' + step.id" class="p-step_mypage__card" v-for="(step, index) in steps" :key="index">
         <div>
-          <div class="p-step_list__thead">
-            <img :src="'data:image/png;base64,' + step.pic" alt="STEP画像TOP" class="p-step_list__img" v-if="step.pic">
-            <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_list__img" v-else>
+          <div class="p-step_mypage__thead">
+            <img :src="'data:image/png;base64,' + step.pic" alt="STEP画像TOP" class="p-step_mypage__img" v-if="step.pic">
+            <img src="/imges/no_image.png" alt="STEP画像TOP" class="p-step_mypage__img" v-else>
           </div>
-          <div class="p-step_list__tbody">
-            <div class="p-step_list__top">
+          <div class="p-step_mypage__tbody">
+            <div class="p-step_mypage__top">
               <p>{{ formatDate(step.created_at) }}</p>
               <div class="u-flex">
                 <div class="u-flex">
@@ -21,13 +21,13 @@
                 </div>
               </div>
             </div>
-            <div class="p-step_list__medium">
+            <div class="p-step_mypage__medium">
               <p class="u-mb5">STEP</p>
-              <p class="p-step_list__medium__font">{{ step.title}}</p>
+              <p class="p-step_mypage__medium__font">{{ step.title}}</p>
             </div>
-            <div class="p-step_list__bottom">
-            <img :src="'data:image/png;base64,' + step.user.pic" alt="アイコン" class="p-step_list__icon" v-if="step.user.pic">
-              <img src="/imges/no_image.png" alt="アイコン" class="p-step_list__icon" v-else>
+            <div class="p-step_mypage__bottom">
+            <img :src="'data:image/png;base64,' + step.user.pic" alt="アイコン" class="p-step_mypage__icon" v-if="step.user.pic">
+              <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon" v-else>
               <p class="u-ml10">{{ step.user.name }}</p>
             </div>
           </div>
@@ -82,6 +82,7 @@ export default {
     movePage(page) {
       this.page = page
       this.fetchList()
+      scrollTo(0, 0);
     },
   }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app_own_column')
+@extends('layouts.app')
 
 @section('content')
 <div class="p-step_ditail">
@@ -41,9 +41,6 @@
             <p class="u-ml5">{{ $step->total_time }}</p>
           </div>
         </div>
-        <!--<div>
-          <p>進捗率<span>100%</span></p>
-        </div>-->
       </div>
     </div>
     <!-- クリアしているかもしくは、クリアボタンがあるSTEP詳細だけ内容が表示される処理 -->

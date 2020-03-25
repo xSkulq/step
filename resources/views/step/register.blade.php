@@ -1,4 +1,4 @@
-@extends('layouts.app_own_column')
+@extends('layouts.app')
 
 @section('content')
 <div class="p-step_register">

@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 100px;
   &__block{
       display: flex;
       justify-content: space-evenly;
@@ -13,10 +14,10 @@
       }
   }
   &__icon{
-      //color: $font-color-blue-default;
+      color: $font-color-orenge;
       font-size: 40px;
       &:hover{
-          //color: $font-color-blue;
+          color: $font-color-light-orenge;
       }
       &-invalid {
           color: $gray;
@@ -31,26 +32,26 @@
           align-items: center;
       }
       &-font{
-          //background-color: $background-blue;
-          border-radius: 50%;
+          background-color: $background-orenge;
+          //border-radius: 50%;
           box-sizing: border-box;
-          //color: $font-color-white;
+          color: $font-color-white;
           display: block;
           font-size: $font-size_m;
           text-align: center;
-          width: 36px;
+          width: 27px;
           height: 36px;
           line-height: 36px;
           &:hover{
-              //color: $font-color-blue-default;
-              //background: $background-white;
-              //border: 2px solid $background-blue;
+              color: $font-color-orenge;
+              background: $background-white;
+              border: 2px solid $background-orenge;
               line-height: 32px;
           }
           &__current{
-              //color: $font-color-blue-default;
-              //background: $background-white;
-              //border: 2px solid $background-blue;
+              color: $font-color-white;
+              background: $hyper-light-orenge;
+              border: 2px solid $hyper-light-orenge;
               line-height: 32px;
           }
       }
