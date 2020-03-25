@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="p-step_mypage">
+<div class="p-step_challenge">
 
   <!-- main -->
   <h1 class="p-step_challenge__title">マイページ</h1>

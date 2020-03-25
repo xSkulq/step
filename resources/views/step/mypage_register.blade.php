@@ -10,7 +10,7 @@
     <div>
       <a href="{{ route('step.mypage_challenge')}}" class="p-step_mypage__choice__font">チャレンジしているSTEP一覧</a>
     </div>
-    <div class="u-ml15 u-mr15">|</div>
+    <div class="p-step_mypage__choice__pipe">|</div>
     <div>
       <a href="{{ route('step.mypage_register')}}" class="p-step_mypage__choice__font">登録済みSTEP一覧</a>
     </div>
@@ -19,7 +19,7 @@
 
   <form method="GET" action="{{ route('step.mypage_register')}}">
     <!-- 検索系 -->
-    <div class="u-flex u-mb50">
+    <div class="p-step_mypage__search">
       <div class="u-flex">
         <div class="c-search__box">
           <input type="text" class="c-search__input" placeholder="STEP名・達成時間" name="search" value="@if(!empty('$search')){{ $search }}@endif">
