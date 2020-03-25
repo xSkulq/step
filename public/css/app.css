@@ -231,20 +231,16 @@ ul {
 }
 
 .l-content__inner {
+  display: flex;
+  justify-content: center;
   position: relative;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   padding-top: 75px;
   width: 100%;
-  padding-left: 60px;
-  padding-right: 60px;
-}
-
-@media screen and (min-width: 1200px) {
-  .l-content__inner {
-    max-width: 1280px;
-  }
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 @media screen and (max-width: 1199px) {
@@ -2543,13 +2539,27 @@ input[type=checkbox]:checked + span::before {
 
 .p-step_list {
   margin-left: 100px;
-  width: 40vw;
+  width: 60vw;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_list {
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 0;
+  }
 }
 
 .p-step_list__title {
   font-size: 26px;
   font-weight: 100;
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_list__title {
+    text-align: center;
+  }
 }
 
 .p-step_list__button {
@@ -2565,6 +2575,18 @@ input[type=checkbox]:checked + span::before {
   cursor: pointer;
 }
 
+.p-step_list__search {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_list__search {
+    justify-content: center;
+  }
+}
+
 .p-step_list__select {
   position: relative;
   border: 1px solid #d3d3d3;
@@ -2573,6 +2595,14 @@ input[type=checkbox]:checked + span::before {
   width: 200px;
   text-align: center;
   margin-left: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_list__select {
+    margin-top: 20px;
+    margin-left: 0;
+    width: 295px;
+  }
 }
 
 .p-step_list__select::before {
@@ -2601,16 +2631,29 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 85px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_list__list-box {
+    justify-content: center;
+  }
+}
+
 .p-step_list__card {
   width: 270px;
-  margin-right: 40px;
-  margin-bottom: 30px;
+  margin-right: 4%;
+  margin-bottom: 3%;
   color: #262626;
 }
 
 .p-step_list__card:hover {
   cursor: pointer;
   color: #d27921;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_list__card {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 .p-step_list__img {

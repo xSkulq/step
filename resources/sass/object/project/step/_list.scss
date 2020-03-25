@@ -1,10 +1,19 @@
 .p-step_list{
   margin-left: 100px;
-  width: 40vw;
+  //width: 40vw;
+  width: 60vw;
+  @include mq(md){
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 0;
+  }
   &__title{
     font-size: $font-size-xl;
     font-weight: 100;
     margin-bottom: 50px;
+    @include mq(md){
+      text-align: center;
+    }
   }
   &__button{
     box-sizing: border-box;
@@ -17,6 +26,14 @@
       cursor: pointer;
     }
   }
+  &__search{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+    @include mq(md){
+      justify-content:center;
+    }
+  }
   &__select{
     position: relative;
     border: 1px solid $light-gray;
@@ -27,6 +44,11 @@
     text-align: center;
     //margin-bottom: 80px;
     margin-left: 40px;
+    @include mq(md){
+      margin-top: 20px;
+      margin-left: 0;
+      width: 295px;
+    }
     &::before{
       position: absolute;
       top: 0.8em;
@@ -51,16 +73,25 @@
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 85px;
+      @include mq(md){
+        justify-content: center;
+      }
     }
   }
   &__card{
     width: 270px;
-    margin-right: 40px;
-    margin-bottom: 30px;
+    //margin-right: 40px;
+    //margin-bottom: 30px;
+    margin-right: 4%;
+    margin-bottom: 3%;
     color: $font-color-black;
     &:hover{
       cursor: pointer;
       color: $font-color-orenge;
+    }
+    @include mq(md){
+      margin-right: 0;
+      margin-bottom: 20px;
     }
   }
   &__img{
