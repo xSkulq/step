@@ -1342,7 +1342,7 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-email__alert {
-  color: #ff7676;
+  color: #d27921;
   margin-bottom: 20px;
 }
 
