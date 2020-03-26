@@ -94,7 +94,6 @@ export default {
       const url = '/api/step/mypage_challenge';
       let param = '';
       if (this.search !== '' && this.category !== '') { // searchとcategoryに値がある場合
-        console.log('search :', this.search)
         param += '?search=' + this.search + '&category_id=' + this.category + '&page=' + this.page
       }else if(this.search !== '' && this.category === ''){ // searchだけ値がある場合
         param += '?search=' + this.search + '&category_id=' + '&page=' + this.page
@@ -106,8 +105,7 @@ export default {
       axios.get(url + param).then(response => { 
         this.challengeSteps = response.data.data
         this.paginate = response.data
-        console.log('this.steps :', this.challengeSteps);
-      }).catch(error => console.log(error, 'エラー'))
+      })
     },
     formatDate: function(date){
       // 日付をYYYY/MM/DD
@@ -116,30 +114,18 @@ export default {
     },
     nextChild: function(step){
       let lastClear = step.clears.slice(-1)[0];
-      console.log(lastClear,'lastClear');
       let totalChild = step.step_children.length;
-      console.log(totalChild,'totalChild');
       let clearChildKey = '';
       let nextChildId = '';
 
       step.step_children.forEach((value, key) => {
-        //console.log('forech')
         if(lastClear != null && lastClear['step_child_id'] == value.id){
           clearChildKey = key;
-          console.log((clearChildKey),'key');
-          //console.log('if文');
         }
       });
-      //console.log(clearChildKey);
       if(clearChildKey != null && (clearChildKey+1) < totalChild){
-        console.log('if文')
-        console.log((clearChildKey)+1);
         let nextChildId = step.step_children[(clearChildKey+1)].id;
         step['next_child'] = nextChildId
-        console.log(nextChildId,'nextChildId');
-      }else{
-        // チャレンジ100%だったらSTEPに遷移させる
-        //step['next_child'] = step['id'];
       }
       return step['next_child'];
     },

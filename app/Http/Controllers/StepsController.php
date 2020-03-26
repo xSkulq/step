@@ -54,7 +54,7 @@ class StepsController extends Controller
     }
     
     $steps = $steps->orderBy('created_at', 'desc');// 前にはget()があった
-    $steps = $steps->paginate(10);
+    $steps = $steps->paginate(12);
     return response()->json($steps);
   }
 
@@ -233,7 +233,7 @@ class StepsController extends Controller
       $steps = $steps;
     }
     //$steps = $steps->get();
-    $steps = $steps->paginate(10);
+    $steps = $steps->paginate(12);
     return response()->json($steps);
   }
 
@@ -295,7 +295,7 @@ class StepsController extends Controller
     }else{
       $challengeSteps = $challengeSteps;
     }
-    $challengeSteps = $challengeSteps->paginate(10);
+    $challengeSteps = $challengeSteps->paginate(8);
     return response()->json($challengeSteps);
   }
 

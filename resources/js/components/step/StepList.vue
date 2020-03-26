@@ -59,7 +59,6 @@ export default {
       const url = 'api/home';
       let param = '';
       if (this.search !== '' && this.category !== '') { // searchとcategoryに値がある場合
-        console.log('search :', this.search)
         param += '?search=' + this.search + '&category_id=' + this.category + '&page=' + this.page
       }else if(this.search !== '' && this.category === ''){ // searchだけ値がある場合
         param += '?search=' + this.search + '&category_id=' + '&page=' + this.page
@@ -71,8 +70,7 @@ export default {
       axios.get(url + param).then(response => {
         this.steps = response.data.data
         this.paginate = response.data
-        console.log('this.steps :', this.steps);
-      }).catch(error => console.log(error, 'エラー'))
+      })
     },
     formatDate: function(date){
       // 日付をYYYY/MM/DD
