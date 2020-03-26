@@ -1,8 +1,8 @@
 .c-inputFild{ // 通常のinput
   font-size: $font-size-l;
   border: 1px solid $light-gray;
-  padding: 5px;
-  padding-left: 8px;
+  padding: $spaces;
+  padding-left: $space2s;
   height: 35px;
   width: 350px;
   &-error{
@@ -15,8 +15,8 @@
   &__long{ // 長いinput
     font-size: $font-size-l;
     border: 1px solid $light-gray;
-    padding: 5px;
-    padding-left: 8px;
+    padding: $spaces;
+    padding-left: $space2s;
     height: 35px;
     //width: 450px; // TODO: widthの長さをあとで％指定にする
     width: 100%;
@@ -31,7 +31,7 @@
   &__textarea{
     font-size: $font-size-l;
     border: 1px solid $light-gray;
-    padding: 10px;
+    padding: $space3s;
     //padding-left: 8px;
     &-error{
       border: 1px solid $red;

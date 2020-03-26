@@ -12,7 +12,7 @@
 	-webkit-appearance: none;
   //appearance: none;
   // 次
-  padding: 5px;
+  padding: $spaces;
   color: $font-color-light-black;
   font-size: $font-size-l;
   &::-ms-expand{

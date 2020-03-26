@@ -15,7 +15,7 @@
         <aside class="l-sidebar">
           @include('layouts.sidebar')
         </aside>
-        <main class="l-main u-flex">
+        <main class="l-main">
           @yield('content')
         </main>
       </div>

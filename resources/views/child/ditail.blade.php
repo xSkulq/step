@@ -83,7 +83,7 @@
       </div>
       @else
       <div class="p-step_ditail__tbody">
-        <p>まだ前の子STEPをクリアできてません</p>
+        <p class="p-step_ditail__clear-none">まだ前の子STEPをクリアできてません</p>
         <a href="setp/child/ditail/"></a>
       </div>
       @endif

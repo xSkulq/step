@@ -4,11 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 90px;
-  padding-right: 90px;
+  padding-left: $space2z;
+  padding-right: $space2z;
   @include mq(md){
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: $space3m;
+    padding-right: $space3m;
   }
   &__left{
     display: flex;
@@ -24,37 +24,37 @@
     background: $background-orenge;
     border-radius: 50px;
     color: $font-color-white;
-    padding: 12px 50px;
+    padding: $space3s $space2xl;
     width: 200px;
     &:hover{
       background-color: #e79341;
     }
     @include mq(md){
       font-size: $font-size-s;
-      padding: 8px 18px;
+      padding: $space3s $space3m;
     }
     @include mq(sm){
       font-size: $font-size-s;
-      padding: 6px 8px;
+      padding: $spaces $space3s;
     }
     &-white{
       background-color: $background-white;
       color: $font-color-black;
-      margin-left: 24px;
+      margin-left: $spacel;
       &:hover{
         background-color: $light-gray;
       }
       @include mq(md){
-        margin-left: 12px;
+        margin-left: $spacem;
       }
     }
   }
   &__logo{
     @include mq(xl){
-      margin-left: 30px;
+      margin-left: $space2l;
     }
     @include mq(md){
-      margin-left: 10px;
+      margin-left: $space3s;
       width: 50px;
     }
     &__img{

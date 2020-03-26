@@ -263,7 +263,10 @@ ul {
 .c-button {
   background: #d27921;
   border: none;
-  padding: 9px 70px 9px 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 70px;
+  padding-right: 70px;
   cursor: pointer;
 }
 
@@ -342,7 +345,7 @@ ul {
   background: #d27921;
   border-radius: 50px;
   color: #ffffff;
-  padding: 12px 50px;
+  padding: 10px 50px;
   width: 200px;
 }
 
@@ -353,14 +356,14 @@ ul {
 @media screen and (max-width: 767px) {
   .c-header__button {
     font-size: 12px;
-    padding: 8px 18px;
+    padding: 10px 20px;
   }
 }
 
 @media screen and (max-width: 575px) {
   .c-header__button {
     font-size: 12px;
-    padding: 6px 8px;
+    padding: 5px 10px;
   }
 }
 
@@ -659,7 +662,7 @@ input[type=checkbox]:checked + span::before {
   background: #3b3f47;
   height: auto;
   min-height: calc(100vh - 155px );
-  padding: 25px 14px;
+  padding: 24px 14px;
   position: -webkit-sticky;
   position: sticky;
   top: 155px;
@@ -671,10 +674,10 @@ input[type=checkbox]:checked + span::before {
 }
 
 .c-sidebar__item {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-right: 32px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -734,10 +737,10 @@ input[type=checkbox]:checked + span::before {
 }
 
 .c-sidebar-sp__item {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-  margin-bottom: 15px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 14px;
+  margin-bottom: 14px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -2728,6 +2731,13 @@ input[type=checkbox]:checked + span::before {
 .p-step_ditail__button-a {
   text-align: center;
   padding: 17px 50px 17px 50px;
+}
+
+.p-step_ditail__clear-none {
+  color: #e79341;
+  font-size: 18px;
+  margin-top: 40px;
+  margin-bottom: 100px;
 }
 
 .p-step_edit {
