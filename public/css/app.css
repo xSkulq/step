@@ -1671,7 +1671,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-child_edit__textarea {
     width: 300px;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
   }
 }
 
@@ -1693,7 +1693,7 @@ input[type=checkbox]:checked + span::before {
   width: 200px;
   display: flex;
   justify-content: flex-end;
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 10px;
   margin-bottom: 5px;
 }
@@ -1742,7 +1742,7 @@ input[type=checkbox]:checked + span::before {
 .p-child_edit__button-font {
   color: #ffffff;
   font-size: 16px;
-  padding: 13px 130px 13px 130px;
+  padding: 14px 125px 14px 125px;
   margin-bottom: 48px;
 }
 
@@ -1810,7 +1810,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-child_register__textarea {
     width: 300px;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
   }
 }
 
@@ -1832,7 +1832,7 @@ input[type=checkbox]:checked + span::before {
   width: 200px;
   display: flex;
   justify-content: flex-end;
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 10px;
   margin-bottom: 5px;
 }
@@ -1863,14 +1863,26 @@ input[type=checkbox]:checked + span::before {
   left: 0;
 }
 
-.p-child_register__img-destory {
-  display: none;
+.p-child_register__img__destory {
+  background-color: #d27921;
+  border-radius: 50px;
+  border: none;
+  color: #ffffff;
+  font-size: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.p-child_register__img__destory:hover {
+  background-color: #e79341;
+  cursor: pointer;
 }
 
 .p-child_register__button-font {
   color: #ffffff;
   font-size: 16px;
-  padding: 13px 130px 13px 130px;
+  padding: 14px 125px 14px 125px;
+  margin-bottom: 48px;
 }
 
 .p-404 {

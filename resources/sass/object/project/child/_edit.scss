@@ -1,25 +1,25 @@
 .p-child_edit{
   padding-right: 33%;
-  margin-left: 150px;
+  margin-left: $space2y;
   width: 40vw;
   @include mq(xl){
     padding: 0;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: $space2z;
     width: 60vw;
   }
   @include mq(md){
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: $space2z;
     width: 100%;
   }
   &__title{
     font-size: $font-size-xl;
     font-weight: normal;
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: $space2z;
     @include mq(md){
-      margin-bottom: 48px;
+      margin-bottom: $spacexl;
       font-size: $font-size-3l;
     }
   }
@@ -30,40 +30,39 @@
     }
   }
   &__input{
-    margin-top: 5px;
-    margin-bottom: 30px;
+    margin-top: $spaces;
+    margin-bottom: $space2l;
     @include mq(md){
-      margin-bottom: 48px;
+      margin-bottom: $spacexl;
     }
   }
   &__textarea{
-    margin-bottom: 30px;
+    margin-bottom: $space2l;
     height: 180px;
     width: 100%;
     @include mq(md){
       width: 300px;
-      margin-bottom: 60px;
+      margin-bottom: $space3xl;
     }
   }
   &__required{
-    //color: $red;
     font-size: $font-size-s;
-    margin-left: 5px;
+    margin-left: $spaces;
   }
   &__icon{
     background: $background-white;
     color: $font-color-black;
     position: relative;
-    margin-bottom: 80px;
+    margin-bottom: $space2z;
     width: 200px;
     height: 113px;
     &-destory{
       width: 200px;
       display: flex;
       justify-content: flex-end;
-      font-size: 22px;
-      margin-top: 10px;
-      margin-bottom: 5px;
+      font-size: $font-size-3l;
+      margin-top: $space3s;
+      margin-bottom: $spaces;
       &__pointer{
         &:hover{
           cursor: pointer;
@@ -90,14 +89,13 @@
     top: 0;
     left: 0;
     &__destory{
-      //display: none;
       background-color: $background-orenge;
       border-radius: 50px;
       border: none;
       color: $font-color-white;
       font-size: $font-size-ss;
-      margin-top: 5px;
-      margin-bottom: 10px;
+      margin-top: $spaces;
+      margin-bottom: $space3s;
       &:hover{
         background-color: $background-light-orenge;
         cursor: pointer;
@@ -108,8 +106,8 @@
     &-font{
       color: $font-color-white;
       font-size: $font-size-l;
-      padding: 13px 130px 13px 130px;
-      margin-bottom: 48px;
+      padding: $space2m $spacey $space2m $spacey;
+      margin-bottom: $spacexl;
     }
   }
 }
