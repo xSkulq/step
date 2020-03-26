@@ -101,9 +101,6 @@
             </div>
             <step-img-preview :prev_img={{ json_encode($step->pic) }}></step-img-preview>
           </label>
-          <div>
-          <input type="submit" name="img_destory" class="" value="登録していた画像を削除します">
-          </div>
         </div>
       </div>
     </div>
