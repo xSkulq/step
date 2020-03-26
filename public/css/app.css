@@ -313,8 +313,8 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 90px;
-  padding-right: 90px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 @media screen and (max-width: 767px) {
@@ -1222,7 +1222,7 @@ input[type=checkbox]:checked + span::before {
 .p-account_edit__button-font {
   color: #ffffff;
   font-size: 16px;
-  padding: 13px 130px 13px 130px;
+  padding: 12px 125px 12px 125px;
 }
 
 .p-account_edit__icon {
@@ -1230,7 +1230,7 @@ input[type=checkbox]:checked + span::before {
   border-radius: 50%;
   color: #262626;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   height: 140px;
   width: 140px;
 }
@@ -1239,7 +1239,7 @@ input[type=checkbox]:checked + span::before {
   width: 140px;
   display: flex;
   justify-content: flex-end;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .p-account_edit__icon-destory__pointer:hover {
