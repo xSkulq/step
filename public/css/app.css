@@ -1888,11 +1888,11 @@ input[type=checkbox]:checked + span::before {
 .p-404 {
   border: 1px solid #d3d3d3;
   background-color: #ffffff;
-  margin-top: 120px;
-  padding-top: 55px;
+  margin-top: 125px;
+  padding-top: 50px;
   padding-bottom: 80px;
-  padding-left: 170px;
-  padding-right: 170px;
+  padding-left: 175px;
+  padding-right: 175px;
 }
 
 .p-404__title {
@@ -1911,18 +1911,18 @@ input[type=checkbox]:checked + span::before {
 .p-404__button {
   color: #ffffff;
   font-size: 14px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .p-500 {
   border: 1px solid #d3d3d3;
   background-color: #ffffff;
-  margin-top: 120px;
-  padding-top: 55px;
+  margin-top: 125px;
+  padding-top: 50px;
   padding-bottom: 80px;
-  padding-left: 120px;
-  padding-right: 120px;
+  padding-left: 125px;
+  padding-right: 125px;
 }
 
 .p-500__title {
@@ -1941,8 +1941,8 @@ input[type=checkbox]:checked + span::before {
 .p-500__button {
   color: #ffffff;
   font-size: 14px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .p-lp__top-img {
