@@ -35,7 +35,7 @@
         </div>
 
         {{-- button --}}
-        <div class="u-flex__center u-mb30">
+        <div class="u-flex__center u-mb40">
           <button type="submit" class="c-button p-email__button-font">
             送信
           </button>

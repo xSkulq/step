@@ -63,7 +63,7 @@
           </div>
 
           {{-- ログインページに遷移 --}}
-          <div class="u-flex__center">
+          <div class="u-flex__center u-mb25">
             <a href="{{route('login')}}" class="p-reset__link">ログインへ戻る</a>
           </div>
       </form>

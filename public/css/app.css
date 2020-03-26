@@ -1285,7 +1285,7 @@ input[type=checkbox]:checked + span::before {
   border: 1px solid #d3d3d3;
   background: #ffffff;
   margin-top: 90px;
-  padding-top: 40px;
+  padding-top: 48px;
   padding-bottom: 80px;
   padding-left: 175px;
   padding-right: 175px;
@@ -1294,8 +1294,10 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 767px) {
   .p-email {
     padding: 0;
-    padding-top: 40px;
+    padding-top: 48px;
     padding-bottom: 48px;
+    padding-left: 48px;
+    padding-right: 48px;
     margin-top: 48px;
     margin-bottom: 48px;
   }
@@ -1306,6 +1308,12 @@ input[type=checkbox]:checked + span::before {
   text-align: center;
   font-weight: normal;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-email__title {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1327,12 +1335,6 @@ input[type=checkbox]:checked + span::before {
   }
 }
 
-.p-email__checkbox-font {
-  display: inline-block;
-  font-size: 14px;
-  margin-left: 5px;
-}
-
 .p-email__link {
   color: #167076;
 }
@@ -1340,6 +1342,14 @@ input[type=checkbox]:checked + span::before {
 .p-email__button-font {
   color: #ffffff;
   font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-email__button-font {
+    font-size: 14px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 
 .p-email__alert {
@@ -1351,8 +1361,8 @@ input[type=checkbox]:checked + span::before {
   border: 1px solid #d3d3d3;
   background: #ffffff;
   margin-top: 70px;
-  padding-top: 37px;
-  padding-bottom: 65px;
+  padding-top: 48px;
+  padding-bottom: 70px;
   padding-left: 175px;
   padding-right: 175px;
   margin-bottom: 90px;
@@ -1363,7 +1373,7 @@ input[type=checkbox]:checked + span::before {
     width: 100%;
     padding: 0;
     padding-top: 30px;
-    padding-bottom: 18px;
+    padding-bottom: 20px;
   }
 }
 
@@ -1389,7 +1399,7 @@ input[type=checkbox]:checked + span::before {
 
 @media screen and (max-width: 575px) {
   .p-login__checkbox-font {
-    font-size: 10px;
+    font-size: 8px;
   }
 }
 
@@ -1404,12 +1414,14 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-login__button {
-  margin-bottom: 55px;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 575px) {
   .p-login__button {
-    margin-bottom: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-bottom: 32px;
   }
 }
 
@@ -1418,23 +1430,29 @@ input[type=checkbox]:checked + span::before {
   font-size: 18px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-login__button-font {
+    font-size: 14px;
+  }
+}
+
 .p-reset {
   border: 1px solid #d3d3d3;
   background: #ffffff;
   margin-top: 70px;
-  padding-top: 37px;
-  padding-bottom: 65px;
+  padding-top: 50px;
+  padding-bottom: 70px;
   padding-left: 175px;
   padding-right: 175px;
+  margin-bottom: 90px;
 }
 
 @media screen and (max-width: 767px) {
   .p-reset {
+    width: 100%;
     padding: 0;
-    padding-top: 48px;
-    padding-bottom: 48px;
-    margin-top: 48px;
-    margin-bottom: 48px;
+    padding-top: 50px;
+    padding-bottom: 20px;
   }
 }
 
@@ -1443,6 +1461,12 @@ input[type=checkbox]:checked + span::before {
   text-align: center;
   font-weight: normal;
   margin-bottom: 75px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-reset__title {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1456,17 +1480,41 @@ input[type=checkbox]:checked + span::before {
   color: #167076;
 }
 
+@media screen and (max-width: 575px) {
+  .p-reset__link {
+    font-size: 12px;
+  }
+}
+
+.p-reset__button {
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 575px) {
+  .p-reset__button {
+    margin-bottom: 24px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
 .p-reset__button-font {
   color: #ffffff;
   font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-reset__button-font {
+    font-size: 14px;
+  }
 }
 
 .p-singup {
   border: 1px solid #d3d3d3;
   background: #ffffff;
   margin-top: 70px;
-  padding-top: 37px;
-  padding-bottom: 65px;
+  padding-top: 50px;
+  padding-bottom: 70px;
   padding-left: 175px;
   padding-right: 175px;
   margin-bottom: 90px;
@@ -1476,8 +1524,8 @@ input[type=checkbox]:checked + span::before {
   .p-singup {
     width: 100%;
     padding: 0;
-    padding-top: 30px;
-    padding-bottom: 18px;
+    padding-top: 50px;
+    padding-bottom: 20px;
   }
 }
 
@@ -1486,6 +1534,12 @@ input[type=checkbox]:checked + span::before {
   text-align: center;
   font-weight: normal;
   margin-bottom: 75px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-singup__title {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1506,18 +1560,26 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-singup__button {
-  margin-bottom: 55px;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 575px) {
   .p-singup__button {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 }
 
 .p-singup__button-font {
   color: #ffffff;
   font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-singup__button-font {
+    font-size: 14px;
+  }
 }
 
 .p-child_edit {

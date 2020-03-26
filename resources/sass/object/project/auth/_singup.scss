@@ -1,23 +1,26 @@
 .p-singup{
   border: 1px solid $light-gray;
   background: $background-white;
-  margin-top: 70px;
-  padding-top: 37px;
-  padding-bottom: 65px;
-  padding-left: 175px; // TODO: あとで％指定に変える
-  padding-right: 175px;
-  margin-bottom: 90px;
+  margin-top: $space3xl;
+  padding-top: $space2xl;
+  padding-bottom: $space3xl;
+  padding-left: $space3y;
+  padding-right: $space3y;
+  margin-bottom: $space3z;
   @include mq(md){
     width: 100%;
     padding: 0;
-    padding-top: 30px;
-    padding-bottom: 18px;
+    padding-top: $space2xl;
+    padding-bottom: $space3m;
   }
   &__title{
     font-size: $font-size-xl;
     text-align: center;
     font-weight: normal;
-    margin-bottom: 75px;
+    margin-bottom: $spacez;
+    @include mq(md){
+      font-size: $font-size-3l;
+    }
   }
   &__form{
     @include mq(md){
@@ -32,13 +35,18 @@
     }
   }
   &__button{
-    margin-bottom: 55px;
+    margin-bottom: $space2xl;
     @include mq(){
-      margin-bottom: 25px;
+      margin-bottom: $spacel;
+      padding-left: $space2z;
+      padding-right: $space2z;
     }
     &-font{
       color: $font-color-white;
       font-size: $font-size-2l;
+      @include mq(md){
+        font-size: $font-size-m;
+      }
     }
   }
 }

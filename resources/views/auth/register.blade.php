@@ -65,7 +65,7 @@
         </div>
 
         {{-- ログインページに遷移 --}}
-        <div class="u-flex__center">
+        <div class="u-flex__center u-mb25">
           <a href="{{ route('login') }}" class="p-singup__link">既に登録している方はこちら</a>
         </div>
       </form>

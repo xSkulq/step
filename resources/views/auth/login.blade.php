@@ -73,7 +73,7 @@
 				</div>
 
 					{{-- 新規登録のページに遷移 --}}
-				<div class="u-flex__center">
+				<div class="u-flex__center u-mb25">
 					<a class="p-login__link" href="{{ route('register') }}">まだアカウントをお持ちでない方はこちら</a>
 				</div>
       </form>
