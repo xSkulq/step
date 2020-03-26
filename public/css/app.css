@@ -536,6 +536,12 @@ input[type=checkbox]:checked + span::before {
   margin-bottom: 100px;
 }
 
+@media screen and (max-width: 767px) {
+  .c-pagination {
+    justify-content: space-around;
+  }
+}
+
 .c-pagination__block {
   display: flex;
   justify-content: space-evenly;
@@ -547,6 +553,7 @@ input[type=checkbox]:checked + span::before {
 @media screen and (max-width: 575px) {
   .c-pagination__block {
     min-width: 0;
+    width: 100%;
   }
 }
 
@@ -557,6 +564,12 @@ input[type=checkbox]:checked + span::before {
 
 .c-pagination__icon:hover {
   color: #e79341;
+}
+
+@media screen and (max-width: 767px) {
+  .c-pagination__icon {
+    font-size: 26px;
+  }
 }
 
 .c-pagination__icon-invalid {
