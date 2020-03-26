@@ -13,13 +13,13 @@
           {{-- Email --}}
           <div>
             <label for="email" class="p-reset__label">
+              @error('email')
+              <span class="c-inputFild__error-block u-mb5" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
               <div class="u-flex__space">
                 <span>メールアドレス</span>
-                @error('email')
-                <span class="c-inputFild__error" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
               </div>
 
               <div class="u-mt5 u-mb20">
@@ -34,7 +34,7 @@
               <div class="u-flex__space">
                 <span>パスワード</span>
                 @error('password')
-                <span class="c-inputFild__errror" role="alert">
+                <span class="c-inputFild__error" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
                 @enderror

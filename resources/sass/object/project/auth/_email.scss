@@ -49,4 +49,8 @@
       font-size: $font-size-2l;
     }
   }
+  &__alert{
+    color: $red;
+    margin-bottom: 20px;
+  }
 }

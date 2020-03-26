@@ -43,6 +43,11 @@
   &__error{
     font-size: $font-size-m;
     color: $red;
+    &-block{
+      display: block;
+      font-size: $font-size-m;
+      color: $red;
+    }
   }
 }
 
