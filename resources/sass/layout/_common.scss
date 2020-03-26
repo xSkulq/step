@@ -30,8 +30,6 @@ $widthSidebar: 320px;
 // own_columnとtwo_column系のレイアウト
 .l-content{
   background: $background-gray;
-  //display: flex;
-  //flex-wrap: wrap;
   justify-content: center;
   min-height: calc(100vh - #{$heightNavbar} );
   &__inner{
@@ -40,18 +38,11 @@ $widthSidebar: 320px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    //justify-content: space-between;
     margin: 0 auto;
-    //margin-top: 75px;
-    padding-top: 75px;
+    padding-top: $spacez;
     width: 100%;
-    padding-left: 60px;
-    padding-right: 60px;
     padding-left: 5%;
     padding-right: 5%;
-    @include mq(xl-up){
-      //max-width: 1280px;
-    }
     @include mq(xl){
       padding: 0;
       display: flex;
@@ -61,8 +52,6 @@ $widthSidebar: 320px;
 }
 
 .l-main{
-  //margin-left: 100px;
-  //width: 40vw;
   @include mq(md){
     width: 100%;
     margin: 0 auto;
