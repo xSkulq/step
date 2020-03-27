@@ -49,7 +49,8 @@
           <div class="p-step_challenge__bottom">
             <div class="p-step_challenge__bottom__prof">
               <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
-              <p class="p-step_challenge__bottom__font">{{ step.user.name}}</p>
+              <p class="u-ml10" v-if="step.user.name == null"></p>
+              <p class="u-ml10" v-else>{{ step.user.name }}</p>
             </div>
             <div class="u-flex">
               <div class="u-flex">
