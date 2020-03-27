@@ -1,3 +1,6 @@
+@php
+  $title = 'STEP詳細'
+@endphp
 @extends('layouts.app')
 
 @section('content')

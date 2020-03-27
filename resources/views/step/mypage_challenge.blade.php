@@ -1,3 +1,6 @@
+@php
+  $title = 'マイページ | チャレンンジしているSTEP';
+@endphp
 @extends('layouts.app')
 
 @section('content')

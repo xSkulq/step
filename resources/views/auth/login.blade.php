@@ -1,3 +1,6 @@
+@php
+  $title = 'ログイン';
+@endphp
 @extends('layouts.app_auth')
 
 @section('content')

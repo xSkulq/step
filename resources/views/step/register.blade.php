@@ -1,3 +1,6 @@
+@php
+    $title = 'STEP新規登録';
+@endphp
 @extends('layouts.app')
 
 @section('content')

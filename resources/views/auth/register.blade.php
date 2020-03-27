@@ -1,3 +1,6 @@
+@php
+  $title = '新規登録';
+@endphp
 @extends('layouts.app_auth')
 
 @section('content')

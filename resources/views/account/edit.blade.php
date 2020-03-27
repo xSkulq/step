@@ -1,3 +1,6 @@
+@php
+  $title = 'プロフィール編集';
+@endphp
 @extends('layouts.app')
 
 @section('content')

@@ -1,3 +1,7 @@
+@php
+  $title = 'マイページ | 登録しているSTEP';
+@endphp
+
 @extends('layouts.app')
 
 @section('content')

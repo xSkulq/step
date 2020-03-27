@@ -1,3 +1,6 @@
+@php
+  $title = 'パスワードリセット | パスワード変更';
+@endphp
 @extends('layouts.app_auth')
 
 @section('content')

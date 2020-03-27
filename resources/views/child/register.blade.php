@@ -1,3 +1,6 @@
+@php
+  $title = '子STEP新規登録';
+@endphp
 @extends('layouts.app')
 
 @section('content')
@@ -45,13 +48,6 @@
         <p>STEPのTOP画像<span class="p-child_register__required">*512KB以下</span></p>
         @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
-  
-      <!--<div class="p-child_register__icon-destory">
-        <label>
-          <i class="far fa-times-circle p-child_register__icon-destory__pointer"></i>
-          <input type="submit" name="img_destory" class="p-child_register__img-destory" value="アイコンを削除します">
-        </label>
-      </div>-->
         
       <div>
         <label for="icon">
