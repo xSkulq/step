@@ -20,7 +20,6 @@ class CategoriesTableSeeder extends Seeder
         ['code' => 5, 'name' => 'ブログ'],
         ['code' => 6, 'name' => '動画編集'],
         ['code' => 7, 'name' => 'スピーチ'],
-            
       ];
       DB::table('categories')->insert($categories);
     }
