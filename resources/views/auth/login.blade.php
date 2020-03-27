@@ -51,9 +51,9 @@
 					{{-- ログイン保持ボックス --}}
 					<div class="p-login__checkbox">
 						<label>
-							<input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+							<input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} class="c-inputFild__checkbox">
 
-							<span class="p-login__checkbox-font .u-flex__center">
+							<span class="p-login__checkbox-font .u-flex__center c-inputFild__checkbox__check">
 							</span>
 						</label>
 					</div>

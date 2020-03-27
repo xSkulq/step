@@ -454,27 +454,27 @@ ul {
 
 .c-inputFild__textarea::-webkit-input-placeholder {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .c-inputFild__textarea::-moz-placeholder {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .c-inputFild__textarea:-ms-input-placeholder {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .c-inputFild__textarea::-ms-input-placeholder {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .c-inputFild__textarea::placeholder {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .c-inputFild__textarea-error {
@@ -498,7 +498,7 @@ ul {
   color: #ff7676;
 }
 
-input[type=checkbox] {
+.c-inputFild__checkbox {
   opacity: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -506,7 +506,13 @@ input[type=checkbox] {
   position: absolute;
 }
 
-input[type=checkbox] + span::before {
+:checked + .c-inputFild__checkbox__check::before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpolyline fill='none' stroke='%230bd' stroke-width='3' points='2,7.3 7.3,12.7 18,2 '/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 2px;
+}
+
+.c-inputFild__checkbox__check::before {
   display: inline-block;
   content: "";
   width: 1rem;
@@ -516,17 +522,9 @@ input[type=checkbox] + span::before {
   margin-right: 0.5rem;
 }
 
-input[type=checkbox] + span::after {
+.c-inputFild__checkbox__check::after {
   display: inline-block;
   content: "\81EA\52D5\30ED\30B0\30A4\30F3";
-}
-
-/* Checked Style */
-
-input[type=checkbox]:checked + span::before {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpolyline fill='none' stroke='%230bd' stroke-width='3' points='2,7.3 7.3,12.7 18,2 '/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: 0 2px;
 }
 
 .c-pagination {
@@ -643,7 +641,6 @@ input[type=checkbox]:checked + span::before {
 
 .c-search__input {
   border: 1px solid #d3d3d3;
-  border-right: none;
   font-size: 14px;
   padding: 8px;
   width: 245px;
@@ -3100,6 +3097,7 @@ input[type=checkbox]:checked + span::before {
 .p-step_list__button {
   box-sizing: border-box;
   border: 1px solid #d3d3d3;
+  border-left: none;
   background-color: #ffffff;
   width: 50px;
   height: 30px;
@@ -3589,6 +3587,10 @@ input[type=checkbox]:checked + span::before {
   margin-left: 30px;
 }
 
+.p-step_register__select__error {
+  border: 1px solid #ff7676;
+}
+
 @media screen and (max-width: 767px) {
   .p-step_register__input__time {
     width: 100%;
@@ -3656,8 +3658,6 @@ input[type=checkbox]:checked + span::before {
 }
 
 .p-step_register__textarea {
-  color: #262626;
-  font-weight: 100;
   height: 180px;
   width: 100%;
 }
