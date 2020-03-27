@@ -18,7 +18,7 @@ class CategoriesTableSeeder extends Seeder
         ['code' => 3, 'name' => 'イラスト'],
         ['code' => 4, 'name' => '漫画'],
         ['code' => 5, 'name' => 'ブログ'],
-        ['code' => 6, 'name' => 'スキー'],
+        ['code' => 6, 'name' => '動画編集'],
         ['code' => 7, 'name' => 'スピーチ'],
             
       ];
