@@ -1,5 +1,6 @@
 @php
-  $title = 'STEP詳細'
+  $title = 'STEP詳細 | '.$step->title;
+  $description = $step->content;
 @endphp
 @extends('layouts.app')
 

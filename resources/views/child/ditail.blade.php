@@ -1,5 +1,6 @@
 @php
-  $title = '子STEP詳細';
+  $title = '子STEP詳細 | '.$stepChild->title;
+  $description = $stepChild->content;
 @endphp
 @extends('layouts.app')
 

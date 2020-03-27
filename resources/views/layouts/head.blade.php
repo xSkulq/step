@@ -10,10 +10,8 @@
     <!-- title -->
     <title>@if(empty($title))STEP @else STEP | {{ $title }} @endif</title>
     <!-- description -->
-
     @php
-        $defaultDescription = '人それぞれの「この順番でこういったものを学んでいったのがよかった」という「STEP」を投稿し、そのことを学びたい人はその「STEP」を元に
-      学習を進めていけるサービスです。'
+      $defaultDescription = 'プログラミングや英語などを学ぶとき人それぞれの「この順番でこういったものを学んでいったのがよかった」という「STEP」を投稿し、そのことを学びたい人はその「STEP」を元に学習を進めていけるサービスです。'
     @endphp
 
     <meta name="description" content="@if(empty($description)){{ $defaultDescription }} @else{{ $description }} @endif">
