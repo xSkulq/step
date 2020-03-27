@@ -39,7 +39,7 @@ class StepsController extends Controller
         $q->where('name', 'LIKE', "%{$search}%");
       });
       $steps = $steps->WhereHas('category', function ($q) use ($category){
-        $q->where('id', $category);
+        $q->where('code', $category);
       });
     }else if(!empty($search) && empty($category)){
       $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
@@ -47,7 +47,7 @@ class StepsController extends Controller
       });
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
-        $q->where('id', $category);
+        $q->where('code', $category);
       });
     }else{
       $steps = $steps;
@@ -100,11 +100,12 @@ class StepsController extends Controller
     $userId = Auth::id();
     // 数字　+ セレクトで選ばれた時間の単位
     $achivementTime = $request->achievement_number.$request->time;
+    $category = Category::where('code',$request->category_id)->first();
 
     // stepの値を保存
     $step->user_id = $userId;
     $step->title = $request->title;
-    $step->category_id = $request->category_id;
+    $step->category_id = $category->id;
     $step->achievement_number = $request->achievement_number;
     $step->total_time = $achivementTime;
     $step->time = $request->time;
@@ -221,13 +222,13 @@ class StepsController extends Controller
     if (!empty($search) && !empty($category)) {
       $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
       $steps = $steps->WhereHas('category', function ($q) use ($category){
-        $q->where('id', $category);
+        $q->where('code', $category);
       });
     }else if(!empty($search) && empty($category)){
       $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
-        $q->where('id', $category);
+        $q->where('code', $category);
       });
     }else{
       $steps = $steps;
@@ -276,7 +277,7 @@ class StepsController extends Controller
       })->orderBy('created_at', 'desc');
 
       $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
-        $q->where('id', $category);
+        $q->where('code', $category);
       });
 
       //searchだけの場合
@@ -289,7 +290,7 @@ class StepsController extends Controller
       //categoryだけの場合
     }else if(empty($search) && !empty($category)){
       $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
-        $q->where('id', $category);
+        $q->where('code', $category);
       });
       //それ以外
     }else{
@@ -325,9 +326,11 @@ class StepsController extends Controller
     // 数字　+ セレクトで選ばれた時間の単位
     $achivementTime = $request->achievement_number.$request->time;
 
+    $category = Category::where('code',$request->category_id)->first();
+
     // stepの値を保存
     $step->title = $request->title;
-    $step->category_id = $request->category_id;
+    $step->category_id = $category->id;
     $step->achievement_number = $request->achievement_number;
     $step->time = $request->time;
     $step->total_time = $achivementTime;
