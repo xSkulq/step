@@ -1,8 +1,8 @@
 .c-footer{
   background: $background-deep-blue;
   margin-top: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: $space3m;
+  padding-bottom: $space3m;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -15,7 +15,7 @@
   }
   &__font{
     color: $font-color-white;
-    margin-left: 20px;
+    margin-left: $space3m;
     @include mq(md){
       margin-left: 0;
     }

@@ -1,21 +1,47 @@
 .p-step_challenge{
-  margin-left: 100px;
+  margin-left: $spacey;
   width: 40vw;
+  @include mq(xl){
+    width: 100%;
+    margin-top: $space2z;
+    margin-left: 0;
+  }
   &__title{
     font-size: $font-size-xl;
     font-weight: 100;
-    margin-bottom: 50px;
+    margin-bottom: $space2xl;
+    @include mq(md){
+      text-align: center;
+    }
   }
   &__choice{
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 70px;
+    margin-bottom: $space3xl;
+    @include mq(md){
+      justify-content: center;
+      margin-bottom: $spacexl;
+    }
+    &__pipe{
+      margin-left: $space2m;
+      margin-right: $space2m;
+      @include mq(md){
+        margin-left: $spaces;
+        margin-right: $spaces;
+      }
+    }
     &__font{
       color: $font-color-black;
       font-size: $font-size-2l;
+      @include mq(md){
+        font-size: $font-size-s;
+      }
       &:hover{
         color: $font-color-orenge;
       }
+    }
+    &__current{
+      color: $font-color-peacook-greeen;
     }
   }
   &__button{
@@ -29,16 +55,27 @@
       cursor: pointer;
     }
   }
+  &__search{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $space2xl;
+    @include mq(md){
+      justify-content:center;
+    }
+  }
   &__select{
     position: relative;
     border: 1px solid $light-gray;
     background: #ffffff;
     overflow: hidden;
-    //width: 100%;
     width: 200px;
     text-align: center;
-    //margin-bottom: 80px;
-    margin-left: 40px;
+    margin-left: $spacexl;
+    @include mq(md){
+      margin-top: $space3m;
+      margin-left: 0;
+      width: 295px;
+    }
     &::before{
       position: absolute;
       top: 0.8em;
@@ -55,32 +92,47 @@
     &__box{
       width: 100%;
       font-size: $font-size-m;
-      padding-top: 4px;
+      padding-top: $spaces;
     }
   }
   &__clear{
     background-color: $background-white;
-    //border: 1px solid $light-gray;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 40px;
-    margin-bottom: 80px;
+    padding-top: $space3m;
+    padding-bottom: $space3m;
+    padding-left: $spacexl;
+    margin-bottom: $space2z;
+    @include mq(md){
+      justify-content: center;
+      padding-top: $space3m;
+      padding-bottom: $space3m;
+      padding-left: 0px;
+      margin-bottom: $space3xl;
+    }
     &__number{
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      margin-left: 50px;
+      margin-left: $space2xl;
       font-size: $font-size-m;
       border-left: 1px solid $light-gray;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      padding-left: 50px;
+      padding-top: $space3m;
+      padding-bottom: $space3m;
+      padding-left: $space2xl;
+      @include mq(md){
+        margin-left: $space3m;
+        padding-top: $space3s;
+        padding-bottom: $space3s;
+        padding-left: $space3m;
+      }
       &__big{
         font-size: $font-size-3l;
-        margin-left: 20px;
+        margin-left: $space3m;
+        @include mq(md){
+          margin-left: $space2m;
+        }
       }
     }
   }
@@ -94,28 +146,58 @@
       border-radius: 50%;
       width: 80px;
       height: 80px;
+      @include mq(md){
+        width: 40px;
+        height: 40px;
+      }
     }
   }
   &__box{
-    margin-bottom: 120px;
+    margin-bottom: $spacey;
+    @include mq(md){
+      display: flex;
+      justify-content: center;
+      margin-bottom: $space2z;
+    }
   }
   &__sub{
     &-title{
       font-size: $font-size-2l;
       font-weight: 100;
-      margin-bottom: 30px;
+      margin-bottom: $space2l;
+      @include mq(xl){
+        text-align: center;
+        margin-bottom: $space2xl;
+      }
     }
   }
   &__card{
     display: flex;
-    margin-bottom: 40px;
-    height: 180px;
+    margin-bottom: $spacexl;
+    //height: 180px;
+    @include mq(md){
+      display: block;
+      width: 270px;
+      color: $font-color-black;
+      margin-right: 0;
+      &:hover{
+        cursor: pointer;
+        color: $font-color-orenge;
+      }
+    }
   }
   &__thead{
     position: relative;
     &__img{
       width: 320px;
       height: 180px;
+      &:hover{
+        opacity: 0.8;
+      }
+      @include mq(md){
+        width: 100%;
+        height: 152px;
+      }
     }
     &__button{
       border-radius: 50px;
@@ -124,25 +206,52 @@
       left: 80px;
       background-color: $background-orenge;
       color: $font-color-white;
-      //opacity: 0.5;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-left: 50px;
-      padding-right: 50px;
+      opacity: 0.9;
+      padding-top: $spaces;
+      padding-bottom: $spaces;
+      padding-left: $space2xl;
+      padding-right: $space2xl;
+      &:hover{
+        background-color: $background-light-orenge;
+      }
+      @include mq(md){
+        left: 57px;
+        top: 100px;
+        font-size: $font-size-m;
+      }
     }
   }
   &__tbody{
     background-color: $background-white;
     border-left: 1px solid $light-gray;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    padding-left: 35px;
-    padding-right: 40px;
+    padding-top: $space3m;
+    padding-bottom: $space3s;
+    padding-left: $space3l;
+    padding-right: $spacexl;
     min-width: 350px;
+    height: 180px;
+    @include mq(md){
+      min-width: 100%;
+      padding-top: $space3m;
+      padding-bottom: $space3s;
+      padding-right: $space3m;
+      padding-left: $space3m;
+      border-left: none;
+    }
+    &__link{
+      color: $font-color-black;
+      &:hover{
+        color: $font-color-orenge;
+      }
+    }
   }
   &__top{
     font-size: $font-size-l;
-    margin-bottom: 25px;
+    margin-bottom: $spacel;
+    @include mq(md){
+      font-size: $font-size-m;
+      margin-bottom: $space3s;
+    }
     &__font{
       width: 300px;
       white-space: nowrap;
@@ -150,15 +259,24 @@
       text-overflow: ellipsis;
       -webkit-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
+      @include mq(md){
+        width: 100%;
+      }
     }
   }
   &__medium{
-    margin-bottom: 25px;
+    margin-bottom: $spacel;
+    @include mq(md){
+      margin-bottom: $space2m;
+    }
     &__font{
-      margin-bottom: 5px;
+      margin-bottom: $spaces;
       display: flex;
       justify-content: flex-end;
       font-size: $font-size-m;
+      @include mq(md){
+        font-size: $font-size-s;
+      }
     }
   }
   &__bottom{
@@ -166,10 +284,28 @@
     justify-content: space-between;
     align-items: center;
     font-size: $font-size-s;
+    @include mq(md){
+      flex-wrap: wrap;
+    }
     &__prof{
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      @include mq(md){
+        width: 100%;
+        margin-bottom: $spaces;
+      }
+    }
+    &__font{
+      margin-left: $spaces;
+      @include mq(md){
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        width: 80%;
+      }
     }
   }
 }

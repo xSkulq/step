@@ -1,19 +1,16 @@
 // pc用search
 .c-search{
   background: $background-deep-blue;
-  max-height: calc(100vh - #{$heightNavbar + 75px} );
+  max-height: calc(100vh - #{$heightNavbar + $spacez} );
   padding: 25px 14px;
   position: -webkit-sticky;
   position: sticky;
-  top: $heightNavbar + 75px;
-  &__box{
-    //margin-bottom: 80px;
-  }
+  top: $heightNavbar + $spacez;
   &__input{
     border: 1px solid $light-gray;
-    border-right: none;
+    //border-right: none;
     font-size: $font-size-m;
-    padding: 8px;
+    padding: $space2s;
     width: 245px;
     height: 30px;
   }
@@ -22,7 +19,7 @@
     border: none;
     color: $font-color-white;
     cursor: pointer;
-    padding: 8px;
+    padding: $space2s;
     width: 240px;
     &:hover{
       background: #e79341;

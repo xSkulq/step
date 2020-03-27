@@ -1,3 +1,6 @@
+@php
+  $title = 'パスワードリセット | メール送信';
+@endphp
 @extends('layouts.app_auth')
 
 @section('content')
@@ -11,7 +14,7 @@
         @csrf
 
         @if (session('status'))
-          <div class="alert alert-success" role="alert">
+          <div class="p-email__alert" role="alert">
             {{ session('status') }}
           </div>
         @endif
@@ -35,7 +38,7 @@
         </div>
 
         {{-- button --}}
-        <div class="u-flex__center u-mb30">
+        <div class="u-flex__center u-mb40">
           <button type="submit" class="c-button p-email__button-font">
             送信
           </button>

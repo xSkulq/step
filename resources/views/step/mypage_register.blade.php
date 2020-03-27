@@ -1,3 +1,7 @@
+@php
+  $title = 'マイページ | 登録しているSTEP';
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -10,16 +14,16 @@
     <div>
       <a href="{{ route('step.mypage_challenge')}}" class="p-step_mypage__choice__font">チャレンジしているSTEP一覧</a>
     </div>
-    <div class="u-ml15 u-mr15">|</div>
+    <div class="p-step_mypage__choice__pipe">|</div>
     <div>
-      <a href="{{ route('step.mypage_register')}}" class="p-step_mypage__choice__font">登録済みSTEP一覧</a>
+      <a href="{{ route('step.mypage_register')}}" class="p-step_mypage__choice__font @if( request()->path() === 'step/mypage_register') p-step_mypage__choice__current @endif">登録済みSTEP一覧</a>
     </div>
   </div>
 
 
   <form method="GET" action="{{ route('step.mypage_register')}}">
     <!-- 検索系 -->
-    <div class="u-flex u-mb50">
+    <div class="p-step_mypage__search">
       <div class="u-flex">
         <div class="c-search__box">
           <input type="text" class="c-search__input" placeholder="STEP名・達成時間" name="search" value="@if(!empty('$search')){{ $search }}@endif">
@@ -36,6 +40,7 @@
 
   <!-- step-list -->
   <section>
+    <h2 class="p-step_mypage__sub-title">登録しているSTEP逹</h2>
     <mypage-register search="{{ $search }}" category="{{ $category }}"></mypage-register>
   </section>
 </div>

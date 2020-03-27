@@ -1,37 +1,42 @@
 .p-step_edit{
-  //padding-left: 148px;
   padding-right: 33%;
-  //margin-left: 148px;
-  margin-left: 150px;// 仮
-  //width: 100%;
+  margin-left: $spacey;
   width: 40vw;
   @include mq(xl){
     padding: 0;
+    margin: 0 auto;
+    margin-top: $space2z;
+    width: 60vw;
+  }
+  @include mq(md){
+    margin: 0 auto;
+    margin-top: $space2z;
+    width: 100%;
   }
   &__title{
     font-size: $font-size-xl;
     font-weight: normal;
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: $spacexl;
     @include mq(md){
-      margin-bottom: 48px;
+      font-size: $font-size-3l;
     }
   }
   &__note{
     font-size: $font-size-l;
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: $spacexl;
   }
   &__sub{
     &-title{
       font-size: $font-size-l;
-      margin-bottom: 30px;
+      margin-bottom: $space2l;
     }
   }
   &__required{
     //color: $red;
     font-size: $font-size-s;
-    margin-left: 5px;
+    margin-left: $spaces;
   }
   &__select{
     &__category{
@@ -41,8 +46,8 @@
       overflow: hidden;
       width: 100%;
       text-align: center;
-      margin-top: 5px;
-      margin-bottom: 25px;
+      margin-top: $spaces;
+      margin-bottom: $spacel;
       &::before{
         position: absolute;
         top: 0.8em;
@@ -59,24 +64,30 @@
     }
     &__time{
       @extend .p-step_register__select__category;
-      width: 40%;
-      margin-left: 30px;
+      margin-left: $space2l;
+    }
+  }
+  &__input{
+    &__time{
+      @include mq(md){
+        width: 100%;
+      }
     }
   }
   &__icon{
     background: $background-white;
     color: $font-color-black;
     position: relative;
-    margin-bottom: 80px;
+    margin-bottom: $space2z;
     width: 200px;
     height: 113px;
     &-destory{
       width: 200px;
       display: flex;
       justify-content: flex-end;
-      font-size: 22px;
-      margin-top: 10px;
-      margin-bottom: 5px;
+      font-size: $font-size-3l;
+      margin-top: $space3s;
+      margin-bottom: $spaces;
       &__pointer{
         &:hover{
           cursor: pointer;
@@ -102,13 +113,23 @@
     position: absolute;
     top: 0;
     left: 0;
-    &-destory{
-      display: none;
+    &__destory{
+      background-color: $background-orenge;
+      border-radius: 50px;
+      border: none;
+      color: $font-color-white;
+      font-size: $font-size-ss;
+      margin-top: $spaces;
+      margin-bottom: $space3s;
+      &:hover{
+        background-color: $background-light-orenge;
+        cursor: pointer;
+      }
     }
   }
   &__border{
     border: 1px solid $light-gray;
-    margin-bottom: 80px;
+    margin-bottom: $space2z;
   }
   &__form{
     @include mq(md){
@@ -127,8 +148,8 @@
     &-font{
       color: $font-color-white;
       font-size: $font-size-l;
-      padding: 13px 130px 13px 130px;
-      margin-bottom: 100px;
+      padding: $spacem $spacey $spacem $spacey;
+      margin-bottom: $space3z;
     }
   }
 }

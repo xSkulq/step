@@ -1,4 +1,8 @@
-@extends('layouts.app_own_column')
+@php
+  $title = '子STEP詳細 | '.$stepChild->title;
+  $description = $stepChild->content;
+@endphp
+@extends('layouts.app')
 
 @section('content')
 <div class="p-step_ditail">
@@ -16,10 +20,17 @@
         <span class="p-step_ditail__title__user">{{$stepChild->title}}</span>
       </h1>
       <div class="p-step_ditail__challenge">
-        @if(empty($clear->clear_flg))
-        <p></p>
-        @else
-        <p>クリアしました<p>
+        @if($challenge)
+        <div>
+          @if(empty($clear->clear_flg))
+          <p></p>
+          @elseif( count($step->step_children) === count($step->clears))
+          <p>全てのSTEPをクリアしました<p>
+          @else
+          <p>クリアしました<p>
+          @endif
+          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
+        </div>
         @endif
       </div>
       <div class="p-step_ditail__top">
@@ -34,9 +45,6 @@
             <p class="u-ml5">{{ $step->total_time }}</p>
           </div>
         </div>
-        <!--<div>
-          <p>進捗率<span>100%</span></p>
-        </div>-->
       </div>
     </div>
     <!-- クリアしているかもしくは、クリアボタンがあるSTEP詳細だけ内容が表示される処理 -->
@@ -79,7 +87,7 @@
       </div>
       @else
       <div class="p-step_ditail__tbody">
-        <p>まだ前の子STEPをクリアできてません</p>
+        <p class="p-step_ditail__clear-none">まだ前の子STEPをクリアできてません</p>
         <a href="setp/child/ditail/"></a>
       </div>
       @endif
@@ -104,7 +112,10 @@
     <!-- Twitterのシェアボタン -->
     <div>
       <!-- 後で修正する -->
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+      <!--<a href="https://twitter.com/share?&url={{ request()->fullUrl() }}" class="twitter-share-button">Tweet</a>-->
+    <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
+    <a data-size="large" data-text="STEP"　href="https://twitter.com/share?{{ request()->fullUrl() }}" class="twitter-share-button" data-show-count="false">Tweet</a>
+    <!--<a data-hashtags="masizime" data-via="masizime" data-related="masizime:こんにちはウェブのましじめです。" data-size="large" data-text="カスタムテキスト"　href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
     </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->

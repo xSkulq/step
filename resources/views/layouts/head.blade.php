@@ -7,10 +7,18 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- title -->
+    <title>@if(empty($title))STEP @else STEP | {{ $title }} @endif</title>
+    <!-- description -->
+    @php
+      $defaultDescription = 'プログラミングや英語などを学ぶとき人それぞれの「この順番でこういったものを学んでいったのがよかった」という「STEP」を投稿し、そのことを学びたい人はその「STEP」を元に学習を進めていけるサービスです。'
+    @endphp
+
+    <meta name="description" content="@if(empty($description)){{ $defaultDescription }} @else{{ $description }} @endif">
+    <!-- keywords -->
+    <meta name="keywords" content="学び方がわからない,順番に学びたい,プログラミング,イラスト,ブログ,漫画,英語">
 
     <!-- Scripts -->
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><!-- twitter -->
     <script type="module" src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->

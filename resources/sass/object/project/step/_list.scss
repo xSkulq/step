@@ -1,14 +1,23 @@
 .p-step_list{
-  margin-left: 100px;
-  width: 40vw;
+  margin-left: $spacey;
+  width: 600px;
+  @include mq(xl){
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: $space2z;
+  }
   &__title{
     font-size: $font-size-xl;
     font-weight: 100;
-    margin-bottom: 50px;
+    margin-bottom: $space2xl;
+    @include mq(xl){
+      text-align: center;
+    }
   }
   &__button{
     box-sizing: border-box;
     border: 1px solid $light-gray;
+    border-left: none;
     background-color: $background-white;
     width: 50px;
     height: 30px;
@@ -17,16 +26,27 @@
       cursor: pointer;
     }
   }
+  &__search{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $space2z;
+    @include mq(xl){
+      justify-content:center;
+    }
+  }
   &__select{
     position: relative;
     border: 1px solid $light-gray;
     background: #ffffff;
     overflow: hidden;
-    //width: 100%;
     width: 200px;
     text-align: center;
-    //margin-bottom: 80px;
-    margin-left: 40px;
+    margin-left: $spacexl;
+    @include mq(md){
+      margin-top: $space3m;
+      margin-left: 0;
+      width: 295px;
+    }
     &::before{
       position: absolute;
       top: 0.8em;
@@ -43,24 +63,41 @@
     &__box{
       width: 100%;
       font-size: $font-size-m;
-      padding-top: 4px;
+      padding-top: $spaces;
     }
   }
   &__list{
     &-box{
       display: flex;
       flex-wrap: wrap;
-      margin-bottom: 85px;
+      margin-bottom: $space3z;
+      @include mq(lg){
+        width: 570px;
+        margin: 0 auto;
+      }
+      @include mq(md){
+        width: 100%;
+        justify-content: center;
+      }
     }
   }
   &__card{
     width: 270px;
-    margin-right: 40px;
-    margin-bottom: 30px;
+    margin-right: $space2l;
+    margin-bottom: $space2l;
     color: $font-color-black;
     &:hover{
       cursor: pointer;
       color: $font-color-orenge;
+    }
+    @include mq(lg){
+      &:nth-child(2n){
+        margin-right: 0;
+      }
+    }
+    @include mq(md){
+      margin-right: 0;
+      margin-bottom: $space3m;
     }
   }
   &__img{
@@ -68,10 +105,9 @@
     height: 152px;
   }
   &__tbody{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    //padding-left: 20px;
-    padding-right: 20px;
+    padding-top: $space3s;
+    padding-bottom: $space3s;
+    padding-right: $space3m;
   }
   &__top{
     display: flex;
@@ -79,12 +115,12 @@
     justify-content: space-between;
     align-items: center;
     font-size: $font-size-s;
-    margin-bottom: 20px;
+    margin-bottom: $space3m;
   }
   &__medium{
     font-size: $font-size-l;
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: $space3m;
     &__font{
       width: 100%;
       white-space: nowrap;
@@ -104,7 +140,6 @@
   &__icon{
     background: $background-white;
     border-radius: 50%;
-    //border: 1px solid $light-gray;
     color: $font-color-black;
     position: relative;
     height: 30px;

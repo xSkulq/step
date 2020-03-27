@@ -14,8 +14,8 @@
         <p class="u-ml5">STEP登録</p>
       </li>
       </a>
-      <a class="c-sidebar__link" href="{{ route('step.mypage_challenge')}}">
-        <li class="c-sidebar__item">
+      <a class="c-sidebar-sp__link" href="{{ route('step.mypage_challenge')}}">
+        <li class="c-sidebar-sp__item">
           <i class="far fa-folder-open"></i>
           <p class="u-ml5">マイページ</p>
         </li>

@@ -35,15 +35,15 @@ class StepsController extends Controller
 
     // searchがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
-        $q->where('name', $search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+        $q->where('name', 'LIKE', "%{$search}%");
       });
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
-        $q->where('name', $search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+        $q->where('name', 'LIKE', "%{$search}%");
       });
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
@@ -54,7 +54,7 @@ class StepsController extends Controller
     }
     
     $steps = $steps->orderBy('created_at', 'desc');// 前にはget()があった
-    $steps = $steps->paginate(10);
+    $steps = $steps->paginate(12);
     return response()->json($steps);
   }
 
@@ -219,12 +219,12 @@ class StepsController extends Controller
 
     // searchがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title',$search)->orWhere('total_time',$search);
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
@@ -232,7 +232,8 @@ class StepsController extends Controller
     }else{
       $steps = $steps;
     }
-    $steps = $steps->get();
+    //$steps = $steps->get();
+    $steps = $steps->paginate(12);
     return response()->json($steps);
   }
 
@@ -259,6 +260,7 @@ class StepsController extends Controller
   {
     $search = $request->input('search');
     $category = $request->input('category_id');
+    //dd($search);
 
     $challengeSteps = Step::with(['challenges','user','step_children','clears','category']);
     $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){
@@ -267,8 +269,8 @@ class StepsController extends Controller
 
      // searchとcategoryがある場合
      if (!empty($search) && !empty($category)) {
-      $challengeSteps = $challengeSteps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
-        $q->where('name', $search);
+      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+        $q->where('name', 'LIKE', "%{$search}%");
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       })->orderBy('created_at', 'desc');
@@ -279,50 +281,21 @@ class StepsController extends Controller
 
       //searchだけの場合
     }else if(!empty($search) && empty($category)){
-      $challengeSteps = $challengeSteps->where('title',$search)->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
-        $q->where('name', $search);
+      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+        $q->where('name', 'LIKE', "%{$search}%");
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       })->orderBy('created_at', 'desc');
-
       //categoryだけの場合
     }else if(empty($search) && !empty($category)){
       $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
         $q->where('id', $category);
       });
-
       //それ以外
     }else{
       $challengeSteps = $challengeSteps;
     }
-
-    //$challengeSteps = $challengeSteps->orderBy('created_at', 'desc')->get();
-    $challengeSteps = $challengeSteps->get();
-
-    /*foreach($challengeSteps as $key => $step){
-      // クリアの最後の配列
-      $lastClear = ($step->clears)?end($step->clears):'';
-      $lastClear_key = ($lastClear)?array_key_last($lastClear):'';
-      //$lastClear = ($lastClear) ? array_slice( $lastClear, -1 ) : '';
-      //dd($lastClear);
-
-      $step_child_total_key = count($step->step_children);
-      foreach($step->step_children as $key => $step_child){
-        if($step_child['id'] === $step->clears[$lastClear_key]->step_child_id){
-          $step_child_key = $key;
-          //dd($step->clears[$lastClear_key]->step_child_id);
-        }
-      }
-        // 次の子STEPのID
-        if( !empty($step_child_key) && ($step_child_key+1) < $step_child_total_key){
-          //dd($step->step_children[($step_child_key+1)]->id);
-          $config = $step->step_children[($step_child_key+1)]->id;
-          $step[$key]['next_step'] = $config;
-        }else{
-          $step[$key]['next_step'] = '';
-        }
-    }
-    dd($step[($step_child_key+1)]);*/
+    $challengeSteps = $challengeSteps->paginate(8);
     return response()->json($challengeSteps);
   }
 
@@ -336,7 +309,7 @@ class StepsController extends Controller
       // 画像を消去する処理
       $step->pic = '';
       $step->save();
-      return redirect('/account/edit');
+      return redirect('/step/ditail/'.$id);
     }
 
     //dd($request);
@@ -425,6 +398,6 @@ class StepsController extends Controller
     // チャレンジをやめるstepを削除
     $challenge_stop = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
     $challenge_stop = $challenge_stop->delete();
-    return redirect('/step/ditail/'.$stepId)->with('flash_message', 'チャレンジをやめました');
+    return redirect('/step/mypage_challenge')->with('flash_message', 'チャレンジをやめました');
   }
 }

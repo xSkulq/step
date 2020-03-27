@@ -1,7 +1,10 @@
 .c-button{
   background: $background-orenge;
-  padding: 9px 70px 9px 70px;
-  //width: 200px;
+  border: none;
+  padding-top: $space3s;
+  padding-bottom: $space3s;
+  padding-left: $space3xl;
+  padding-right: $space3xl;
   cursor: pointer;
   &:hover{
     background: $background-light-orenge;

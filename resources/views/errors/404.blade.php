@@ -1,3 +1,6 @@
+@php
+  $title = '404エラー';
+@endphp
 @extends('layouts.app_auth')
 
 @section('content')

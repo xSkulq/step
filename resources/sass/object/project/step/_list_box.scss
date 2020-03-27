@@ -5,18 +5,15 @@
   height: 100%;
   @include mq(xl){
     margin: 0 auto;
-    margin-top: 60px;
-    margin-bottom: 70px;
+    margin-top: $space3xl;
+    margin-bottom: $space3xl;
     width: 90%;
   }
   &__item{
     border-bottom: 1px solid $white;
-    /*&:last-child{
-      border-bottom: none;
-    }*/
   }
   &__title{
-    padding: 22px 14px;
+    padding: $space3m $space2m;
   }
   &__link{
     color: $font-color-white;
@@ -25,14 +22,14 @@
     }
   }
   &__step{
-    padding-top: 18px;
-    padding-bottom: 5px;
-    padding-left: 14px;
+    padding-top: $space3m;
+    padding-bottom: $spaces;
+    padding-left: $space2m;
     font-size: $font-size-m;
   }
   &__font{
-    padding-left: 14px;
-    padding-bottom: 16px;
+    padding-left: $space2m;
+    padding-bottom: $space2m;
     font-size: $font-size-m;
     word-break: break-all;
   }

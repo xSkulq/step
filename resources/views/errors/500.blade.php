@@ -1,3 +1,6 @@
+@php
+  $title = '500エラー';
+@endphp
 @extends('layouts.app_auth')
 
 @section('content')

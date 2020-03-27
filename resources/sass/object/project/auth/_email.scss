@@ -1,23 +1,28 @@
 .p-email{
   border: 1px solid $light-gray;
   background: $background-white;
-  margin-top: 90px;
-  padding-top: 40px;
-  padding-bottom: 80px;
-  padding-left: 175px; // TODO: あとで％指定に変える
-  padding-right: 175px;
+  margin-top: $space3z;
+  padding-top: $spacexl;
+  padding-bottom: $space2z;
+  padding-left: $space3y;
+  padding-right: $space3y;
   @include mq(md){
     padding: 0;
-    padding-top: 40px;
-    padding-bottom: 48px;
-    margin-top: 48px;
-    margin-bottom: 48px;
+    padding-top: $spacexl;
+    padding-bottom: $spacexl;
+    padding-left: $spacexl;
+    padding-right: $spacexl;
+    margin-top: $spacexl;
+    margin-bottom: $spacexl;
   }
   &__title{
     font-size: $font-size-xl;
     text-align: center;
     font-weight: normal;
-    margin-bottom: 30px;
+    margin-bottom: $space2l;
+    @include mq(md){
+      font-size: $font-size-3l;
+    }
   }
   &__form{
     @include mq(md){
@@ -28,16 +33,9 @@
   &__font{
     font-size: $font-size-m;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: $space2s;
     @include mq(){
       font-size: $font-size-s;
-    }
-  }
-  &__checkbox{
-    &-font{
-      display: inline-block;
-      font-size: $font-size-m;
-      margin-left: 5px;
     }
   }
   &__link{
@@ -47,6 +45,15 @@
     &-font{
       color: $font-color-white;
       font-size: $font-size-2l;
+      @include mq(md){
+        font-size: $font-size-m;
+        padding-left: $space2z;
+        padding-right: $space2z;
+      }
     }
+  }
+  &__alert{
+    color: $font-color-orenge;
+    margin-bottom: $space3m;
   }
 }

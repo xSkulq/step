@@ -65,7 +65,7 @@ return [
         'array'   => ':attributeには:min個以上の要素を持つ配列を指定してください。',
     ],
     'not_in'               => ':attributeには:valuesのうちいずれとも異なる値を指定してください。',
-    'numeric'              => ':attributeには数値を指定してください。',
+    'numeric'              => ':attributeには半角数字を指定してください。',
     'present'              => ':attributeには現在時刻を指定してください。',
     'regex'                => '正しい形式の:attributeを指定してください。',
     'required'             => '入力してください',
@@ -116,5 +116,9 @@ return [
     | of "email". This simply helps us make messages a little cleaner.
     |
     */
+
+    'attributes' => [
+        'achievement_number' => '左の欄'
+    ],
 
 ];

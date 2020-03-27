@@ -2,20 +2,20 @@
 .c-sidebar{
   background: $background-deep-blue;
   height: auto;
-  min-height: calc(100vh - #{$heightNavbar + 75px} );
-  padding: 25px 14px;
+  min-height: calc(100vh - #{$heightNavbar + $spacez} );
+  padding: $spacel $space2m;
   position: -webkit-sticky;
   position: sticky;
-  top: $heightNavbar + 75px;
+  top: $heightNavbar + $spacez;
   &__list{
     list-style: none;
-    margin-top: 70px;
+    margin-top: $space3xl;
   }
   &__item{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 32px;
-    margin-bottom: 10px;
+    padding-top: $space2s;
+    padding-bottom: $space2s;
+    padding-right: $space3l;
+    margin-bottom: $space2s;
     display: flex;
     flex-wrap: wrap;
     &>.far,&>.fas,&>.fab{
@@ -48,7 +48,7 @@
     background: $background-deep-blue;
     width: 50%;
     height: 100vh;
-    padding-top: 50px;
+    padding-top: $space2xl;
     transition: .5s;
     z-index: 1;
     &.active {
@@ -62,10 +62,10 @@
     margin-top: 120px;
   }
   &__item{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    margin-bottom: 15px;
+    padding-top: $space2m;
+    padding-bottom: $space2m;
+    padding-left: $space2m;
+    margin-bottom: $space2m;
     display: flex;
     flex-wrap: wrap;
     &>.far,&>.fas,&>.fab{
@@ -76,7 +76,7 @@
       background-color: $background-orenge;
     }
     @include mq(sm){
-      padding-left: 5px;
+      padding-left: $spaces;
     }
   }
   &__link{

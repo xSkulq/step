@@ -1,16 +1,19 @@
+@php
+  $title = 'マイページ | チャレンンジしているSTEP';
+@endphp
 @extends('layouts.app')
 
 @section('content')
-<div class="p-step_mypage">
+<div class="p-step_challenge">
 
   <!-- main -->
   <h1 class="p-step_challenge__title">マイページ</h1>
 
   <div class="p-step_challenge__choice">
     <div>
-      <a href="{{ route('step.mypage_challenge')}}" class="p-step_challenge__choice__font">チャレンジしているSTEP一覧</a>
+      <a href="{{ route('step.mypage_challenge')}}" class="p-step_challenge__choice__font @if( request()->path() === 'step/mypage_challenge') p-step_mypage__choice__current @endif">チャレンジしているSTEP一覧</a>
     </div>
-    <div class="u-ml15 u-mr15">|</div>
+    <div class="p-step_mypage__choice__pipe">|</div>
     <div>
       <a href="{{ route('step.mypage_register')}}" class="p-step_challenge__choice__font">登録済みSTEP一覧</a>
     </div>
@@ -35,7 +38,7 @@
 
   <form method="GET" action="{{ route('step.mypage_challenge')}}">
     <!-- 検索系 -->
-    <div class="u-flex u-mb50">
+    <div class="p-step_mypage__search">
       <div class="u-flex">
         <div class="c-search__box">
           <input type="text" class="c-search__input" placeholder="STEP名・達成時間・ユーザー名" name="search"　value="@if(!empty('$search')){{ $search }}@endif">
@@ -52,7 +55,7 @@
 
   <!-- step-list -->
 
-  <div class="p-step_challenge__box">
+  <div>
     <h2 class="p-step_challenge__sub-title">チャレンジしているSTEP達</h2>
     <mypage-challenge search="{{ $search }}" category="{{ $category }}"></mypage-challenge>
   </div>

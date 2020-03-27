@@ -4,11 +4,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 90px;
-  padding-right: 90px;
+  padding-left: $space2z;
+  padding-right: $space2z;
   @include mq(md){
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: $space3m;
+    padding-right: $space3m;
+  }
+  &__left{
+    display: flex;
+    align-items: center;
   }
   &__sidebar{
     display: none;
@@ -20,31 +24,48 @@
     background: $background-orenge;
     border-radius: 50px;
     color: $font-color-white;
-    padding: 12px 50px;
+    padding: $space3s $space2xl;
     width: 200px;
     &:hover{
       background-color: #e79341;
     }
     @include mq(md){
-      font-size: 14px;
-      padding: 8px 18px;
+      font-size: $font-size-s;
+      padding: $space3s $space3m;
     }
     @include mq(sm){
-      padding: 6px 14px;
+      font-size: $font-size-s;
+      padding: $spaces $space3s;
     }
     &-white{
       background-color: $background-white;
       color: $font-color-black;
-      margin-left: 24px;
+      margin-left: $spacel;
       &:hover{
         background-color: $light-gray;
+      }
+      @include mq(md){
+        margin-left: $spacem;
       }
     }
   }
   &__logo{
-    @include mq(md){
-      width: 70%;
-      height: 70%;
+    @include mq(xl){
+      margin-left: $space2l;
     }
+    @include mq(md){
+      margin-left: $space3s;
+      width: 50px;
+    }
+    &__img{
+      @include mq(md){
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+  &__none{
+    display: none;
   }
 }

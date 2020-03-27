@@ -25,16 +25,39 @@ $background-white: #ffffff;
 $light-gray: #d3d3d3;
 $gray: #666666;
 $light-orenge: #e79341;
+$hyper-light-orenge: #ffbe5a;
 $red: #ff7676;
 $white: #ffffff;
 
 // font-size
+$font-size-ss: 8px;
 $font-size-s: 12px;
 $font-size-m: 14px;
 $font-size-l: 16px;
 $font-size-2l: 18px;
 $font-size-3l: 24px;
 $font-size-xl: 26px;
+$font-size-xxl: 40px;
+
+// space
+$spaces: 5px;
+$space2s: 8px;
+$space3s: 10px;
+$spacem: 12px;
+$space2m: 14px;
+$space3m: 20px;
+$spacel: 24px;
+$space2l: 30px;
+$space3l: 32px;
+$spacexl: 48px;
+$space2xl: 50px;
+$space3xl: 70px;
+$spacez: 75px;
+$space2z: 80px;
+$space3z: 90px;
+$spacey: 125px;
+$space2y: 150px;
+$space3y: 175px;
 
 // breakpoints定義
 $breakpoints: (
