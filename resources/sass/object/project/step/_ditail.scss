@@ -34,6 +34,12 @@
     @include mq(md){
       font-size: $font-size-l;
     }
+    &-none{
+      color: $font-color-light-orenge;
+      font-size: $font-size-2l;
+      margin-top: $spacexl;
+      margin-bottom: $space3z;
+    }
   }
   &__percent{
     display: flex;

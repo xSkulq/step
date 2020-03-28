@@ -2764,6 +2764,13 @@ ul {
   }
 }
 
+.p-step_ditail__challenge-none {
+  color: #e79341;
+  font-size: 18px;
+  margin-top: 48px;
+  margin-bottom: 90px;
+}
+
 .p-step_ditail__percent {
   display: flex;
   justify-content: flex-end;

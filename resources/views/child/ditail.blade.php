@@ -66,7 +66,7 @@
     <!-- チャレンジボタンを押さないと出る処理 -->
     @elseif(empty($challenge->challenge_flg))
     <div>
-      <p>チャレンジをしないとみられません</p>
+      <p class="p-step_ditail__challenge-none">チャレンジをしないとみられません</p>
     </div>
 
 
