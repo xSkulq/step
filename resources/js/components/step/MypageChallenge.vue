@@ -10,14 +10,14 @@
           <!--<a :href="'/step/child/ditail/'+ nextChild(step)" class="p-step_challenge__thead__button" v-else>続きから</a>-->
           
           <!-- チャレンジを全部クリアしたとき -->
-          <a :href="'/step/ditail/'+ step.id" v-if="step.step_children.length == step.clears.length">
+          <a :href="'/step/ditail/'+ step.id" v-if="step.step_children.length == userClear(step)">
           <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
           <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>
           <a class="p-step_challenge__thead__button">続きから</a>
           </a>
 
           <!-- チャレンジを１つもクリアしていないとき --> 
-          <a :href="'/step/child/ditail/'+ step.step_children[0].id" v-else-if="step.clears.length == 0">
+          <a :href="'/step/child/ditail/'+ step.step_children[0].id" v-else-if="userClear(step) == null">
           <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
           <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>
           <a class="p-step_challenge__thead__button">続きから</a>
@@ -38,14 +38,24 @@
             <p class="p-step_challenge__top__font">{{ step.title }}</p>
           </div>
           <div class="p-step_challenge__medium">
-            <p class="p-step_challenge__medium__font">{{ step.clears.length}}/{{ step.step_children.length}}<span class="u-ml5">STEP</span></p>
+            <p class="p-step_challenge__medium__font" v-if="userClear(step) == null">0/{{ step.step_children.length}}<span class="u-ml5">STEP</span></p>
+            <p class="p-step_challenge__medium__font"v-else>{{ userClear(step) }}/{{ step.step_children.length}}<span class="u-ml5">STEP</span></p>
+
             <!-- プログレスバー -->
-            <div class="c-progress">
-              <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" :style="'width:' + Math.floor(step.clears.length / step.step_children.length * 100) + '%'">
-                <span>{{ Math.floor(step.clears.length / step.step_children.length * 100) }}%</span>
+            <div class="c-progress" v-if="userClear(step) == null">
+              <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" :style="'width:0%'">
+                <span>0%</span>
+              </div>
+            </div>
+
+            <!-- プログレスバー -->
+            <div class="c-progress" v-else>
+              <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" :style="'width:' + Math.floor(userClear(step) / step.step_children.length * 100) + '%'">
+                <span>{{ Math.floor(userClear(step) / step.step_children.length * 100) }}%</span>
               </div>
             </div>
           </div>
+
           <div class="p-step_challenge__bottom">
             <div class="p-step_challenge__bottom__prof">
               <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
@@ -76,7 +86,7 @@
 
 <script>
 export default {
-  props: ['search','category'],
+  props: ['search','category','userid'],
   computed:{
   },
   data: function(){
@@ -115,13 +125,27 @@ export default {
     },
     // 次の子STEPのidを取得する処理
     nextChild: function(step){
-      let lastClear = step.clears.slice(-1)[0];
+      //let lastClear = step.clears.slice(-1)[0];// TODO: 怪しいので修正
+      let lastClear = [];
       let totalChild = step.step_children.length;
       let clearChildKey = '';
       let nextChildId = '';
 
+
+      if(step.clears){
+        step.clears.forEach((value, key) => {
+          if(this.userid == value.user_id){
+            this.lastClear = lastClear.push(value);
+          }
+        });
+        //this.clearCount = this.clearCount
+      }
+      this.lastClear = lastClear.slice(-1)[0];
+
+      console.log(this.lastClear,'lastClear');
+
       step.step_children.forEach((value, key) => {
-        if(lastClear != null && lastClear['step_child_id'] == value.id){
+        if(this.lastClear != null && this.lastClear['step_child_id'] == value.id){
           clearChildKey = key;
         }
       });
@@ -136,8 +160,20 @@ export default {
       this.fetchList()
       scrollTo(0, 0);
     },
-    userClear: function(clear){
+    // クリアの個数を取得する処理
+    userClear: function(step){
       let count = '';
+      let clearCount = [];
+      if(step.clears){
+        step.clears.forEach((value, key) => {
+          if(this.userid == value.user_id){
+            this.clearCount = clearCount.push(value);
+          }
+        });
+        //this.clearCount = this.clearCount
+      }
+       //console.log(this.clearCount,'clearCount');
+      return this.clearCount;
     }
   }
 }

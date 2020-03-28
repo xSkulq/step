@@ -358,10 +358,7 @@ class StepsController extends Controller
 
     // チャレンジをやめるstepを削除
     $challenge_stop = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
-    //$clear_stop = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('challenge_id',$challenge_stop->id)->get();
-    //$clear_stop = $clear_stop->delete();
     $challenge_stop = $challenge_stop->delete();
-    //dd($clear_stop);
     return redirect('/step/mypage_challenge')->with('flash_message', 'チャレンジをやめました');
   }
 }

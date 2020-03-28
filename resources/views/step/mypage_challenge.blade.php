@@ -60,7 +60,7 @@
 
   <div>
     <h2 class="p-step_challenge__sub-title">チャレンジしているSTEP達</h2>
-    <mypage-challenge search="{{ $search }}" category="{{ $category }}"></mypage-challenge>
+  <mypage-challenge search="{{ $search }}" category="{{ $category }}" userid="{{ Auth::id() }}"></mypage-challenge>
   </div>
 </div>
 
