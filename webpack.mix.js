@@ -47,6 +47,5 @@ mix.webpackConfig({
     enabled: true,
     useBuiltIns: "usage",
     targets: {"ie": 11},
-    debug: true,
     corejs: 3, 
  });
