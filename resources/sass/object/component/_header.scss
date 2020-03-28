@@ -66,6 +66,8 @@
     }
   }
   &__none{
-    display: none;
+    @include mq(lg){
+      display: none;
+    }
   }
 }

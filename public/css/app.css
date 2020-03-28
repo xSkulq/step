@@ -401,8 +401,10 @@ ul {
   }
 }
 
-.c-header__none {
-  display: none;
+@media screen and (max-width: 991px) {
+  .c-header__none {
+    display: none;
+  }
 }
 
 .c-inputFild {

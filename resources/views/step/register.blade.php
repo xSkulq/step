@@ -50,7 +50,7 @@
       <div>
         <label for="criterion" class="p-step_register__label">
           <div>
-            <p class="u-mb10">目安達成時間<span class="p-step_register__required">*必須</span></p>
+            <p class="u-mb10">目安達成時間<span class="p-step_register__required">(半角数字で入力してください)</span><span class="p-step_register__required">*必須</span></p>
             <div class="u-flex__space">
             @error('achievement_number')<div class="c-inputFild__error">{{ $message }}</div>@enderror
             @error('time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
