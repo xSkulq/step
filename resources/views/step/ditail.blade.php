@@ -60,12 +60,7 @@
 
     <!-- Twitterのシェアボタン -->
     <div>
-      <!-- 後で修正する -->
-    <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
-    <!--<a href="https://twitter.com/share?url={{ request()->fullUrl() }}" class="twitter-share-button">Tweet</a>-->
-    <!--<a data-size="large" data-text="STEP"　href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
     <a data-size="large" data-text="STEP"　href="https://twitter.com/share?{{ request()->fullUrl() }}" class="twitter-share-button" data-show-count="false">Tweet</a>
-    <!--<a data-size="large" data-text="STEP"　href="https://twitter.com/share?" class="twitter-share-button" data-show-count="false" >Tweet</a>-->
     </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
