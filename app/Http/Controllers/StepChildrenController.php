@@ -137,13 +137,12 @@ class StepChildrenController extends Controller
       return redirect('/step/child/edit/'.$stepChildId);
     }*/
 
-    //dd($request);
     // アイコンの隣の×ボタンを押したときの処理
     if ($request->input('img_destory')){
       // 画像を消去する処理
       $stepChild->pic = '';
       $stepChild->save();
-      return redirect('/step/child/edit/'.$stepChildId)->with('flash_message', '画像の削除が完了しました');;
+      return redirect('/step/child/edit/'.$stepChildId)->with('flash_message', '削除し保存しました');
     }
 
     $request->validate([

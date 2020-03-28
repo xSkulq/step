@@ -85,7 +85,7 @@ class StepsController extends Controller
     $request->validate([
       'title' => 'required|string|max:191',
       'category_id' => 'required|string',
-      'achievement_number' => 'required|numeric|max:25',
+      'achievement_number' => 'required|numeric|max:200',
       'time' => 'required|max:25',
       'content' => 'required|string',
       'pic' => 'nullable|image',
@@ -150,10 +150,10 @@ class StepsController extends Controller
       $stepChild->pic = $file_name;
     }*/
     // アイコンにファイルが追加され保存したときの処理
-    if ($request->pic) {
+    if ($request->child_pic) {
 
       // 画像をバイナリデータで格納
-      $file_name = base64_encode(file_get_contents($request->pic));
+      $file_name = base64_encode(file_get_contents($request->child_pic));
 
       // userにpicの値を格納
       $stepChild->pic = $file_name;
@@ -310,14 +310,14 @@ class StepsController extends Controller
       // 画像を消去する処理
       $step->pic = '';
       $step->save();
-      return redirect('/step/ditail/'.$id);
+      return redirect('/step/edit/'.$id)->with('flash_message', '削除し保存しました');
     }
 
     //dd($request);
     $request->validate([
       'title' => 'required|string|max:191',
       'category_id' => 'required|string',
-      'achievement_number' => 'required|numeric|max:25',
+      'achievement_number' => 'required|numeric|max:200',
       'time' => 'required|max:25',
       'content' => 'required|string',
       'pic' => 'nullable|image',
