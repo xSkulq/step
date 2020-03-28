@@ -19,6 +19,8 @@
     <meta name="keywords" content="学び方がわからない,順番に学びたい,プログラミング,イラスト,ブログ,漫画,英語">
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
     <script type="module" src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
