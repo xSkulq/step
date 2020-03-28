@@ -113,6 +113,7 @@ export default {
       if(!date) return '-';
       return moment(date).format('YYYY/MM/DD');
     },
+    // 次の子STEPのidを取得する処理
     nextChild: function(step){
       let lastClear = step.clears.slice(-1)[0];
       let totalChild = step.step_children.length;
@@ -135,6 +136,9 @@ export default {
       this.fetchList()
       scrollTo(0, 0);
     },
+    userClear: function(clear){
+      let count = '';
+    }
   }
 }
 </script>
