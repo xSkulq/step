@@ -45,7 +45,7 @@ mix.webpackConfig({
     ],
   }).polyfill({
     enabled: true,
-    useBuiltIns: "usage",
+    useBuiltIns: "entry",
     targets: {"ie": 11},
     corejs: 3, 
  });
