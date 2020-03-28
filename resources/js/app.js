@@ -8,6 +8,9 @@ require('./bootstrap')
 
 window.Vue = require('vue')
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 // 画像プレビュー
 //window.preview = require('v-preview-input');
 
