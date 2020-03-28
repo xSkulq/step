@@ -36,7 +36,7 @@
       </a>
     </div>
     <!-- ページネーション -->
-    <div v-if="paginate.total > 10">
+    <div v-if="paginate.total > 12">
     <pagination-component :data="paginate" @move-page="movePage($event)"></pagination-component>
     </div>
   </div>
