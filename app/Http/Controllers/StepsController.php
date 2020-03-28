@@ -160,7 +160,7 @@ class StepsController extends Controller
     }
     // stepChildの値を保存
     $stepChild->save();
-    return redirect('/home')->with('flash_message', '保存が完了しました');
+    return redirect('/step/mypage_register')->with('flash_message', '保存が完了しました');
   }
 
 

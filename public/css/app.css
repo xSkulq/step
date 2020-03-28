@@ -210,7 +210,6 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
   width: 100%;
 }
 
@@ -682,7 +681,7 @@ ul {
   background-image: none;
   box-shadow: none;
   -webkit-appearance: none;
-  padding: 3px;
+  padding: 2px;
   color: #3e3e3e;
   font-size: 16px;
 }
@@ -2365,6 +2364,7 @@ ul {
 .p-step_challenge__button {
   box-sizing: border-box;
   border: 1px solid #d3d3d3;
+  border-left: none;
   background-color: #ffffff;
   width: 50px;
   height: 30px;
@@ -2844,7 +2844,7 @@ ul {
 
 .p-step_ditail__button-a {
   text-align: center;
-  padding: 20px 50px 20px 50px;
+  padding: 16px 50px 16px 50px;
 }
 
 .p-step_ditail__clear-none {
@@ -3346,6 +3346,7 @@ ul {
 .p-step_mypage__button {
   box-sizing: border-box;
   border: 1px solid #d3d3d3;
+  border-left: none;
   background-color: #ffffff;
   width: 50px;
   height: 30px;

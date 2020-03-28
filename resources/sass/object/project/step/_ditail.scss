@@ -94,7 +94,7 @@
     &-a{
       @extend .p-step_ditail__button;
       text-align: center;
-      padding: $space3m $space2xl $space3m $space2xl;
+      padding: $space-exception1 $space2xl $space-exception1 $space2xl;
     }
   }
   &__clear{
