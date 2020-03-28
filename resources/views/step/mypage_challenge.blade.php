@@ -50,6 +50,9 @@
       <div class="p-step_challenge__select">
         {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
       </div>
+      <button class="p-step_list__button">
+        <i class="fas fa-search"></i>
+      </button>
     </div>
   </form>
 
@@ -57,7 +60,7 @@
 
   <div>
     <h2 class="p-step_challenge__sub-title">チャレンジしているSTEP達</h2>
-    <mypage-challenge search="{{ $search }}" category="{{ $category }}"></mypage-challenge>
+  <mypage-challenge search="{{ $search }}" category="{{ $category }}" userid="{{ Auth::id() }}"></mypage-challenge>
   </div>
 </div>
 

@@ -50,7 +50,7 @@
       <div>
         <label for="criterion" class="p-step_register__label">
           <div>
-            <p class="u-mb10">目安達成時間<span class="p-step_register__required">*必須</span></p>
+            <p class="u-mb10">目安達成時間<span class="p-step_register__required">(半角数字で入力してください)</span><span class="p-step_register__required">*必須</span></p>
             <div class="u-flex__space">
             @error('achievement_number')<div class="c-inputFild__error">{{ $message }}</div>@enderror
             @error('time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
@@ -63,11 +63,12 @@
             </div>
             <div class="p-step_register__select__time @error('time') p-step_register__select__error @enderror">
               <select name="time" class="c-select">
-                <option selected="selected" value="">選択</option>
-                <option value="分">分</option>
-                <option value="時間">時間</option>
-                <option value="日">日</option>
-                <option value="ヶ月">ヶ月</option>
+                <option @if(old('time') === '') selected="selected"@endif value="">選択</option>
+                <option @if(old('time') === '分') selected="selected"@endif value="分">分</option>
+                <option @if(old('time') === '時間') selected="selected"@endif value="時間">時間</option>
+                <option @if(old('time') === '日') selected="selected"@endif value="日">日</option>
+                <option @if(old('time') === 'ヶ月') selected="selected"@endif value="ヶ月">ヶ月</option>
+                <option @if(old('time') === '年') selected="selected"@endif value="年">年</option>
               </select>
             </div>
           </div>
@@ -129,11 +130,11 @@
         <label for="title" class="p-step_register__label">
           <div class="u-flex__space">
             <p>タイトル<span class="p-step_register__required">*必須</span></p>
-            @error('title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+            @error('child_title')<div class="c-inputFild__error">{{ $message }}</div>@enderror
           </div>
 
           <div class="u-mt5 5">
-            <input type="text" name="child_title" class="c-inputFild__long @error('title') c-inputFild__long-error @enderror" placeholder="〇〇本を読もう！！" value="{{ old('title') }}">
+            <input type="text" name="child_title" class="c-inputFild__long @error('child_title') c-inputFild__long-error @enderror" placeholder="〇〇本を読もう！！" value="{{ old('child_title') }}">
           </div>
         </label>
       </div>
@@ -143,11 +144,11 @@
         <label for="content" class="p-account_edit__font">
           <div class="u-flex__space">
             <p>内容<span class="p-step_register__required">*必須</span></p>
-            @error('content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+            @error('child_content')<div class="c-inputFild__error">{{ $message }}</div>@enderror
           </div>
 
           <div class="u-mt5 u-mb25">
-            <textarea name="child_content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea @error('content') c-inputFild__textarea-error @enderror" placeholder="〇〇の本は簡単な英語しか書いてなく読みやすいので勉強になります">{{ old('content') }}</textarea>
+            <textarea name="child_content" cols="30" rows="10" class="c-inputFild__textarea p-step_register__textarea @error('child_content') c-inputFild__textarea-error @enderror" placeholder="〇〇の本は簡単な英語しか書いてなく読みやすいので勉強になります">{{ old('child_content') }}</textarea>
           </div>
         </label>
       </div>
@@ -156,7 +157,7 @@
       <div>
         <div class="u-flex__space u-mb5">
           <p>子STEP1のTOP画像<span class="p-step_register__required">*512KB以下</span></p>
-          @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
+          @error('child_pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
   
         <!--<div class="p-step_register__icon-destory">
@@ -168,7 +169,7 @@
         
         <div>
           <label for="icon">
-            <step-img-preview></step-img-preview>
+            <child-img-preview></child-img-preview>
           </label>
         </div>
       </div>

@@ -24,12 +24,12 @@
         <div>
           @if(empty($clear->clear_flg))
           <p></p>
-          @elseif( count($step->step_children) === count($step->clears))
+          @elseif( count($step->step_children) === $clearCount)
           <p>全てのSTEPをクリアしました<p>
           @else
           <p>クリアしました<p>
           @endif
-          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
+          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor($clearCount / count($step->step_children)*100) }}%</span></p>
         </div>
         @endif
       </div>
@@ -66,7 +66,7 @@
     <!-- チャレンジボタンを押さないと出る処理 -->
     @elseif(empty($challenge->challenge_flg))
     <div>
-      <p>チャレンジをしないとみられません</p>
+      <p class="p-step_ditail__challenge-none">チャレンジをしないとみられません</p>
     </div>
 
 
@@ -112,10 +112,7 @@
     <!-- Twitterのシェアボタン -->
     <div>
       <!-- 後で修正する -->
-      <!--<a href="https://twitter.com/share?&url={{ request()->fullUrl() }}" class="twitter-share-button">Tweet</a>-->
-    <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
     <a data-size="large" data-text="STEP"　href="https://twitter.com/share?{{ request()->fullUrl() }}" class="twitter-share-button" data-show-count="false">Tweet</a>
-    <!--<a data-hashtags="masizime" data-via="masizime" data-related="masizime:こんにちはウェブのましじめです。" data-size="large" data-text="カスタムテキスト"　href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
     </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
@@ -127,12 +124,14 @@
       <div class="u-flex__center u-mb30">
       <a href="{{ route('step.child_new',$stepChild->step->id)}}" class="c-button p-step_ditail__button-a">子STEPを追加</a>
       </div>
+      @if(count($step->step_children) > 1)
       <form method="POST" action="{{ route('step.child_destory',$stepChild->id)}}">
         @csrf
       <div class="u-flex__center">
         <button type="submit" class="c-button p-step_ditail__button" onclick='return confirm("この子STEPを削除しますか？");'>この子STEPを削除する</button>
       </div>
       </form>
+      @endif
     </div>
 
 

@@ -53,7 +53,7 @@ class StepsController extends Controller
       $steps = $steps;
     }
     
-    $steps = $steps->orderBy('created_at', 'desc');// 前にはget()があった
+    $steps = $steps->orderBy('created_at', 'desc');
     $steps = $steps->paginate(12);
     return response()->json($steps);
   }
@@ -71,21 +71,11 @@ class StepsController extends Controller
   // 新規STEP登録の送信された情報を保存
   public function store(Request $request)
   {
-    //dd($request->achievement_time.$request->time);
-    //dd($request);
-    // アイコンの隣の×ボタンを押したときの処理
-    /*if ($request->input('img_destory')){
-      // 画像を消去する処理
-      $deletePic = $step->pic;
-      $user->pic = '';
-      Storage::delete('public/'.$deletePic);
-      $user->save();
-    }*/
 
     $request->validate([
       'title' => 'required|string|max:191',
       'category_id' => 'required|string',
-      'achievement_number' => 'required|numeric|max:25',
+      'achievement_number' => 'required|numeric|max:200',
       'time' => 'required|max:25',
       'content' => 'required|string',
       'pic' => 'nullable|image',
@@ -112,16 +102,6 @@ class StepsController extends Controller
     $step->content = $request->content;
 
     // アイコンにファイルが追加され保存したときの処理
-    /*if ($request->pic) {
-
-      // 送信されたファイルをstoreに保存する処理
-      $file_name = time() . '.' . $request->pic->getClientOriginalName();
-      $request->pic->storeAs('public', $file_name);
-
-      // userにpicの値を格納
-      $step->pic = $file_name;
-    }*/
-    // アイコンにファイルが追加され保存したときの処理
     if ($request->pic) {
 
       // 画像をバイナリデータで格納
@@ -140,27 +120,17 @@ class StepsController extends Controller
     $stepChild->content = $request->child_content;
 
     // アイコンにファイルが追加され保存したときの処理
-    /*if ($request->child_pic) {
-
-      // 送信されたファイルをstoreに保存する処理
-      $file_name = time() . '.' . $request->child_pic->getClientOriginalName();
-      $request->pic->storeAs('public', $file_name);
-
-      // userにpicの値を格納
-      $stepChild->pic = $file_name;
-    }*/
-    // アイコンにファイルが追加され保存したときの処理
-    if ($request->pic) {
+    if ($request->child_pic) {
 
       // 画像をバイナリデータで格納
-      $file_name = base64_encode(file_get_contents($request->pic));
+      $file_name = base64_encode(file_get_contents($request->child_pic));
 
       // userにpicの値を格納
       $stepChild->pic = $file_name;
     }
     // stepChildの値を保存
     $stepChild->save();
-    return redirect('/home')->with('flash_message', '保存が完了しました');
+    return redirect('/step/ditail/'.$step->id)->with('flash_message', '保存が完了しました');
   }
 
 
@@ -186,10 +156,12 @@ class StepsController extends Controller
     $userId = Auth::id();
     $step = Step::with(['user','step_children','category','clears']);
     $step = $step->where('id', $stepId)->first();
+    $clearCount = $step->clears->where('user_id',Auth::id())->count();
+    //dd($clearCount);
 
     // チャレンジしているかの値
     $challenge = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
-    return view('step.ditail',compact('step','challenge'));
+    return view('step.ditail',compact('step','challenge','clearCount'));
   }
 
   
@@ -233,7 +205,6 @@ class StepsController extends Controller
     }else{
       $steps = $steps;
     }
-    //$steps = $steps->get();
     $steps = $steps->paginate(12);
     return response()->json($steps);
   }
@@ -270,7 +241,7 @@ class StepsController extends Controller
 
      // searchとcategoryがある場合
      if (!empty($search) && !empty($category)) {
-      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
         $q->where('name', 'LIKE', "%{$search}%");
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
@@ -310,14 +281,14 @@ class StepsController extends Controller
       // 画像を消去する処理
       $step->pic = '';
       $step->save();
-      return redirect('/step/ditail/'.$id);
+      return redirect('/step/edit/'.$id)->with('flash_message', '削除し保存しました');
     }
 
     //dd($request);
     $request->validate([
       'title' => 'required|string|max:191',
       'category_id' => 'required|string',
-      'achievement_number' => 'required|numeric|max:25',
+      'achievement_number' => 'required|numeric|max:200',
       'time' => 'required|max:25',
       'content' => 'required|string',
       'pic' => 'nullable|image',
@@ -335,20 +306,7 @@ class StepsController extends Controller
     $step->time = $request->time;
     $step->total_time = $achivementTime;
     $step->content = $request->content;
-    // アイコンにファイルが追加され保存したときの処理
-    /*if ($request->pic) {
 
-      // 前の画像を消去する処理
-      $deletePic = $step->pic;
-      Storage::delete('public/'.$deletePic);
-
-      // 送信されたファイルをstoreに保存する処理
-      $file_name = time() . '.' . $request->pic->getClientOriginalName();
-      $request->pic->storeAs('public', $file_name);
-
-      // userにpicの値を格納
-      $step->pic = $file_name;
-    }*/
     // アイコンにファイルが追加され保存したときの処理
     if ($request->pic) {
 

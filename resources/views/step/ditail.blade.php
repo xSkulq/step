@@ -20,11 +20,12 @@
       @else
       <div class="p-step_ditail__challenge">
         <div>
-          @if( count($step->step_children) === count($step->clears))
+          @if( count($step->step_children) === $clearCount)
           <p class="u-mb5">全てのSTEPをクリアしました<p>
+          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor($clearCount / count($step->step_children)*100) }}%</span></p>
           @elseif($challenge)
           <p class="u-mb5">チャレンジしている<p>
-          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor(count($step->clears) / count($step->step_children)*100) }}%</span></p>
+          <p class="p-step_ditail__percent">進捗率<span class="u-ml5">{{ floor($clearCount / count($step->step_children)*100) }}%</span></p>
           @endif
         </div>
       </div>
@@ -60,12 +61,7 @@
 
     <!-- Twitterのシェアボタン -->
     <div>
-      <!-- 後で修正する -->
-    <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
-    <!--<a href="https://twitter.com/share?url={{ request()->fullUrl() }}" class="twitter-share-button">Tweet</a>-->
-    <!--<a data-size="large" data-text="STEP"　href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
     <a data-size="large" data-text="STEP"　href="https://twitter.com/share?{{ request()->fullUrl() }}" class="twitter-share-button" data-show-count="false">Tweet</a>
-    <!--<a data-size="large" data-text="STEP"　href="https://twitter.com/share?" class="twitter-share-button" data-show-count="false" >Tweet</a>-->
     </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
@@ -90,6 +86,7 @@
     <!-- 他の人がstepの詳細を開いた時 -->
     @else
     <div class="u-mt40">
+      @if(count($step->step_children) > 0)
       <div>
         @if(empty($challenge->challenge_flg))
         <form method="POST" action="{{ route('step.challenge',$step->id)}}">
@@ -114,6 +111,7 @@
         </form>
         @endif
       </div>
+      @endif
     </div>
     @endif
   </section>

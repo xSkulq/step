@@ -34,6 +34,12 @@
     @include mq(md){
       font-size: $font-size-l;
     }
+    &-none{
+      color: $font-color-light-orenge;
+      font-size: $font-size-2l;
+      margin-top: $spacexl;
+      margin-bottom: $space3z;
+    }
   }
   &__percent{
     display: flex;
@@ -88,7 +94,7 @@
     &-a{
       @extend .p-step_ditail__button;
       text-align: center;
-      padding: $space3m $space2xl $space3m $space2xl;
+      padding: $space-exception1 $space2xl $space-exception1 $space2xl;
     }
   }
   &__clear{

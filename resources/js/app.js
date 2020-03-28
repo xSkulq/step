@@ -8,6 +8,9 @@ require('./bootstrap')
 
 window.Vue = require('vue')
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 // 画像プレビュー
 //window.preview = require('v-preview-input');
 
@@ -30,6 +33,8 @@ Vue.component('mypage-challenge', require('./components/step/MypageChallenge.vue
 //preview
 //step
 Vue.component('step-img-preview', require('./components/step/ImgPreview.vue').default);
+// child
+Vue.component('child-img-preview', require('./components/child/ImgPreview.vue').default);
 //account
 Vue.component('account-img-preview', require('./components/account/ImgPreview.vue').default);
 

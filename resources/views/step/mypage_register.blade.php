@@ -35,6 +35,9 @@
       <div class="p-step_mypage__select">
         {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
       </div>
+      <button class="p-step_list__button">
+        <i class="fas fa-search"></i>
+      </button>
     </div>
   </form>
 

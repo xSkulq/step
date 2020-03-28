@@ -27,7 +27,7 @@ class StepChildrenController extends Controller
     // stepのid
     $stepId = $stepChild->step->id;
     // step一覧のデータ
-    $step = Step::with(['step_children']);
+    $step = Step::with(['step_children','category','clears']);
     $step = $step->find($stepId);
 
     foreach($step->step_children as $key => $step_child){
@@ -47,10 +47,11 @@ class StepChildrenController extends Controller
 
     // クリアしているかの値
     $clear = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$stepChildId)->first();
+    $clearCount = $step->clears->where('user_id',Auth::id())->count();
     // 前のSTEPがクリアしているかどうかの値
     $clear_prev = Clear::where('step_id',$stepId)->where('user_id',$userId)->where('step_child_id',$step_child_prev)->first();
      //dd($clear_prev);
-    return view('child.ditail', compact('stepChild','step','challenge','clear','clear_prev'));
+    return view('child.ditail', compact('stepChild','step','challenge','clear','clear_prev','clearCount'));
   }
 
 
@@ -96,16 +97,6 @@ class StepChildrenController extends Controller
     $step_child->step_id = $stepId;
     $step_child->title = $request->title;
     $step_child->content = $request->content;
-    // アイコンにファイルが追加され保存したときの処理
-    /*if ($request->pic) {
-
-      // 送信されたファイルをstoreに保存する処理
-      $file_name = time() . '.' . $request->pic->getClientOriginalName();
-      $request->pic->storeAs('public', $file_name);
-
-      // userにpicの値を格納
-      $step_child->pic = $file_name;
-    }*/
 
     // アイコンにファイルが追加され保存したときの処理
     if ($request->pic) {
@@ -127,23 +118,14 @@ class StepChildrenController extends Controller
     // step_childのid
     $stepChildId = $id;
     $stepChild = StepChild::find($stepChildId);
-    // アイコンの隣の×ボタンを押したときの処理
-    /*if ($request->input('img_destory')){
-      // 画像を消去する処理
-      $deletePic = $stepChild->pic;
-      Storage::delete('public/'.$deletePic);
-      $stepChild->pic = '';
-      $stepChild->save();
-      return redirect('/step/child/edit/'.$stepChildId);
-    }*/
 
-    //dd($request);
+
     // アイコンの隣の×ボタンを押したときの処理
     if ($request->input('img_destory')){
       // 画像を消去する処理
       $stepChild->pic = '';
       $stepChild->save();
-      return redirect('/step/child/edit/'.$stepChildId)->with('flash_message', '画像の削除が完了しました');;
+      return redirect('/step/child/edit/'.$stepChildId)->with('flash_message', '削除し保存しました');
     }
 
     $request->validate([
@@ -154,19 +136,6 @@ class StepChildrenController extends Controller
 
     $stepChild->title = $request->title;
     $stepChild->content = $request->content;
-    // アイコンにファイルが追加され保存したときの処理
-    /*if ($request->pic) {
-      // 前の画像を消去する処理
-      $deletePic = $stepChild->pic;
-      Storage::delete('public/'.$deletePic);
-
-      // 送信されたファイルをstoreに保存する処理
-      $file_name = time() . '.' . $request->pic->getClientOriginalName();
-      $request->pic->storeAs('public', $file_name);
-
-      // userにpicの値を格納
-      $stepChild->pic = $file_name;
-    }*/
     // アイコンにファイルが追加され保存したときの処理
     if ($request->pic) {
 
@@ -216,7 +185,7 @@ class StepChildrenController extends Controller
     $step_child_next = '';
 
     // challengeのid
-    $challengeId = Challenge::where('step_id',$stepId)->first();
+    $challengeId = Challenge::where('step_id',$stepId)->where('user_id',Auth::id())->first();
     $challengeId = $challengeId->id;
     $clear = new Clear();
 
@@ -242,7 +211,7 @@ class StepChildrenController extends Controller
     if(!empty($step_child_next)){
       return redirect('/step/child/ditail/'.$step_child_next)->with('flash_message', 'クリアしました');
     }else{
-      return redirect('/step/ditail/'.$stepId)->with('flash_message', '全部の子STEPをクリアしました');
+      return redirect('/step/mypage_challenge')->with('flash_message', '全部の子STEPをクリアしました');
     }
   }
 }

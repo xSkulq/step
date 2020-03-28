@@ -46,7 +46,7 @@
       <div>
         <label for="criterion" class="p-step_edit__label">
           <div>
-            <p class="u-mb10">目安達成時間<span class="p-step_edit__required">*必須</span></p>
+            <p class="u-mb10">目安達成時間<span class="p-step_register__required">(半角数字で入力してください)</span><span class="p-step_edit__required">*必須</span></p>
             <div class="u-flex__space">
               @error('achievement_number')<div class="c-inputFild__error">{{ $message }}</div>@enderror
               @error('time')<div class="c-inputFild__error">{{ $message }}</div>@enderror
@@ -58,12 +58,13 @@
               <input type="text" name="achievement_number" class="c-inputFild__long p-step_edit__input__time @error('achievement_number') c-inputFild__long-error @enderror" placeholder="12" value="@if(!empty($step->achievement_number)){{ $step->achievement_number}}@else{{ old('achievement_number')}}@endif">
             </div>
             <div class="p-step_edit__select__time @error('time') p-step_register__select__error @enderror">
-              <select name="time" class="c-select">
+              <select @if($step->time === '' ) selected @endif name="time" class="c-select">
                 <option value="">選択</option>
                 <option @if('分' === $step->time ) selected @endif value="分">分</option>
                 <option @if('時間' === $step->time ) selected @endif value="時間">時間</option>
                 <option @if('日' === $step->time ) selected @endif value="日">日</option>
                 <option @if('ヶ月' === $step->time ) selected @endif value="ヶ月">ヶ月</option>
+                <option @if('年' === $step->time) selected="selected"@endif value="年">年</option>
               </select>
             </div>
           </div>
