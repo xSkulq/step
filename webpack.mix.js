@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 
 require('laravel-mix-polyfill');
+const TargetsPlugin = require('targets-webpack-plugin')
 
 /*
  |--------------------------------------------------------------------------
@@ -22,10 +23,15 @@ mix.webpackConfig({
          loader: "import-glob-loader"
        }
      ]
-   }
- })
+   },
+   plugins: [
+    new TargetsPlugin({
+      browsers: ['last 2 versions', 'chrome >= 41', 'IE 11'],
+    }),
+  ]
+ });
 
-   .js('resources/js/app.js', 'public/js')
+   mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/props.js', 'public/js/app.js')
    .sourceMaps()
    .sass('resources/sass/app.scss', 'public/css')
@@ -40,5 +46,7 @@ mix.webpackConfig({
   }).polyfill({
     enabled: true,
     useBuiltIns: "usage",
-    targets: {"firefox": "50", "ie": 11}
+    targets: {"ie": 11},
+    debug: true,
+    corejs: 3, 
  });
