@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+require('laravel-mix-polyfill');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -35,4 +37,8 @@ mix.webpackConfig({
        './resources/views/*.blade.php',
        './resources/views/**/*.blade.php',
     ],
-  });
+  }).polyfill({
+    enabled: true,
+    useBuiltIns: "usage",
+    targets: {"firefox": "50", "ie": 11}
+ });
