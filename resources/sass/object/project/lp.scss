@@ -19,6 +19,7 @@
       font-size: 36px;
       position: absolute;
       padding-top: 80px;
+      left: 33.4%;
       @include mq(md){
         font-size: $font-size-2l;
         padding-top: 50px;
