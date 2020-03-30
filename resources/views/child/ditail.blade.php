@@ -111,7 +111,6 @@
 
     <!-- Twitterのシェアボタン -->
     <div>
-      <!-- 後で修正する -->
     <a data-size="large" data-text="STEP"　href="https://twitter.com/share?{{ request()->fullUrl() }}" class="twitter-share-button" data-show-count="false">Tweet</a>
     </div>
 

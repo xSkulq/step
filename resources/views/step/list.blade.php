@@ -32,9 +32,7 @@ $title = 'STEP一覧';
 
     <!-- step-list -->
     <section>
-      <!--<div>--><!-- メモ： ページネーションの数を10から12に上げないと3列になったときにレイアウトが崩れる -->
       <step-list search="{{ $search }}" category="{{ $category }}"></step-list>
-      <!--</div>-->
     </section>
   </div>
 </div>

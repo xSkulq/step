@@ -53,33 +53,18 @@
       </label>
     </div>
 
-    <!-- icon --><!-- 余裕があれば非同期通信で画像をすぐに表示させたい -->
+    <!-- icon -->
     <div>
       <div class="u-flex__space u-mb5">
         <p>アイコン<span class="p-account_edit__note">*512KB以下</span></p>
         @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
       </div>
-
-      <!--<div class="p-account_edit__icon-destory">
-        <label>
-        <i class="far fa-times-circle p-account_edit__icon-destory__pointer"></i>
-        <input type="submit" name="img_destory" class="p-account_edit__img-destory" value="アイコンを削除します">
-        </label>
-      </div>-->
       
-      <!--<div class="p-account_edit__icon">-->
         <label for="icon">
           <div>
             <input type="submit" name="img_destory" class="p-child_edit__img__destory" value="保存していた画像を削除します">
           </div>
-          <!--if(empty($user->pic))-->
-          <!--<input type="file" name="pic" class="p-account_edit__file">-->
-          <!--<img alt="no_icon" class="p-account_edit__img" src="/imges/no_image.png">-->
-          <!-- else -->
-          <!--<img alt="アイコン" class="p-account_edit__img" src="data:image/png;base64,">-->
           <account-img-preview :prev_img={{ json_encode($user->pic) }}></account-img-preview>
-          <!--<img alt="アイコン" class="p-account_edit__img" :src="/storage/">-->
-          <!--endif-->
         </label>
       </div>
     </div>
