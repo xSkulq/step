@@ -20,7 +20,6 @@ class AccountsController extends Controller
   // プロフィール編集画面の送信された情報を保存
   public function store(Request $request)
   {
-    //dd($request);
     // userテーブルの更新
     $userId = Auth::id();
     $user = User::find($userId);
@@ -30,7 +29,7 @@ class AccountsController extends Controller
       // 画像を消去する処理
       $user->pic = '';
       $user->save();
-      return redirect('/account/edit');
+      return redirect('/account/edit')->with('flash_message', '削除し保存しました');
     }
 
     // バリデーション
@@ -38,7 +37,6 @@ class AccountsController extends Controller
       'email' => 'required|string|max:191|unique:users,email,'.Auth::user()->email.',email',
       'name' => 'nullable|string|max:191',
       'bio' => 'nullable|string',
-      //'pic' => 'nullable|image',
       'pic' => 'nullable|image|max:512'
 
     ]);

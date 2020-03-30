@@ -70,7 +70,7 @@ class ResetPasswordController extends Controller
     {
         return [
             'token' => 'required',
-            'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:191'],
             'password' => ['required', 'string', new AlphaNumHalf, 'min:8','max:191', 'confirmed']
         ];
     }
