@@ -48,7 +48,6 @@
     }
     &__font{
       color: $font-color-light-black;
-      //text-align: center;
       font-size: $font-size-2l;
       @include mq(md){
         font-size: $font-size-m;

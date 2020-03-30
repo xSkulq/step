@@ -89,7 +89,7 @@
 }
 
 // toggle
-.menu-trigger { // TODO: ファイルを後で分ける
+.menu-trigger {
   display: none;
   @include mq(xl) {
     display: inline-block;
