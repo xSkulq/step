@@ -20,8 +20,6 @@ Route::get('/lp', function(){
 
 Auth::routes(['verify' => true]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
 // accounts
 Route::get('/account/edit', 'AccountsController@edit')->name('account.edit');
 Route::post('/account/edit', 'AccountsController@store')->name('account.store');
