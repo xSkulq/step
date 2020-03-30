@@ -19,16 +19,17 @@
           </div>
         @endif
 
+        @error('email')
+        <div role="alert" class="c-inputFild__error u-mb10">
+          <strong>{{ $message }}</strong>
+        </div>
+        @enderror
+
         {{-- Email --}}
         <div class="u-mb55">
           <label for="email" class="p-email__label">
             <div class="u-flex__space">
               <span>メールアドレス</span>
-              @error('email')
-              <span role="alert" class="c-inputFild__error">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
             </div>
 
             <div>

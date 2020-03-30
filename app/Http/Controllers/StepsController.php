@@ -58,7 +58,7 @@ class StepsController extends Controller
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
-      
+
       // 何もない場合
     }else{
       $steps = $steps;
@@ -90,7 +90,6 @@ class StepsController extends Controller
       'time' => 'required|max:25',
       'content' => 'required|string',
       'pic' => 'nullable|image',
-      //'pic' => 'nullable|image|max:512',
       'child_title' => 'required|string|max:191',
       'child_content' => 'required|string',
       'child_pic' => 'nullable|image'
@@ -210,17 +209,20 @@ class StepsController extends Controller
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
+
       // searchだけの場合
     }else if(!empty($search) && empty($category)){
       $steps = $steps->where(function($query) use ($search){
         $query->where('title', 'LIKE', "%{$search}%")
         ->orWhere('total_time',$search);
       })->where('user_id',$userId)->orderBy('created_at', 'desc');
+
       // categoryだけの場合
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
+
       // 何もない場合
     }else{
       $steps = $steps;
@@ -283,11 +285,13 @@ class StepsController extends Controller
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       })->orderBy('created_at', 'desc');
+
       //categoryだけの場合
     }else if(empty($search) && !empty($category)){
       $challengeSteps = $challengeSteps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
+      
       //それ以外
     }else{
       $challengeSteps = $challengeSteps;

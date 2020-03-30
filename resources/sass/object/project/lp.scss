@@ -4,9 +4,9 @@
     position: relative;
     display: flex;
     justify-content: center;
-    margin-bottom: 120px;
+    margin-bottom: $spacey;
     @include mq(md){
-      margin-bottom: 48px;
+      margin-bottom: $spacexl;
     }
     &__img{
       width: 100%;
@@ -16,23 +16,23 @@
     }
     &__font{
       color: $font-color-orenge;
-      font-size: 36px;
+      font-size: $font-size-exception;
       position: absolute;
-      padding-top: 80px;
+      padding-top: $space2z;
       left: 33.4%;
       @include mq(md){
         font-size: $font-size-2l;
-        padding-top: 50px;
+        padding-top: $space2xl;
       }
     }
   }
   // about
   &__about{
     margin: 0 auto;
-    margin-bottom: 80px;
+    margin-bottom: $space2z;
     max-width: 810px;
     @include mq(md){
-      margin-bottom: 48px;
+      margin-bottom: $spacexl;
     }
     @include mq(lg){
       max-width: 600px;
@@ -42,9 +42,9 @@
       text-align: center;
       font-weight: 100;
       font-size: $font-size-3l;
-      margin-bottom: 70px;
+      margin-bottom: $space3xl;
       @include mq(md){
-        margin-bottom: 40px;
+        margin-bottom: $spacexl;
       }
     }
     &__font{
@@ -52,8 +52,8 @@
       font-size: $font-size-2l;
       @include mq(md){
         font-size: $font-size-m;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: $space2m;
+        padding-right: $space2m;
         line-height: 1.2rem;
       }
     }
@@ -61,18 +61,18 @@
   // convey
   &__convey{
     margin: 0 auto;
-    margin-bottom: 80px;
+    margin-bottom: $space2z;
     @include mq(md){
-      margin-bottom: 32px;
+      margin-bottom: $space3l;
     }
     &__title{
       color: $font-color-light-black;
       text-align: center;
       font-weight: 100;
       font-size: $font-size-3l;
-      margin-bottom: 70px;
+      margin-bottom: $space3xl;
       @include mq(md){
-        margin-bottom: 48px;
+        margin-bottom: $spacexl;
       }
     }
     &__box{
@@ -89,26 +89,26 @@
     &__card{
       border: 2px solid $background-orenge;
       border-radius: 25px;
-      padding-left: 11px;
-      padding-right: 11px;
+      padding-left: $spacem;
+      padding-right: $spacem;
       width: 400px;
       @include mq(md){
-        padding-left: 16px;
-        padding-right: 16px;
-        margin-left: 12px;
-        margin-right: 12px;
-        margin-bottom: 40px;
+        padding-left: $space2m;
+        padding-right: $space2m;
+        margin-left: $spacem;
+        margin-right: $spacem;
+        margin-bottom: $spacexl;
       }
       @include mq(lg){
-        margin-bottom: 40px;
+        margin-bottom: $spacexl;
       }
       &-title{
         color: $font-color-light-black;
-        font-size: 21px;
+        font-size: $font-size-3l;
         font-weight: 100;
         text-align: center;
-        padding-top: 34px;
-        margin-bottom: 35px;
+        padding-top: $space3l;
+        margin-bottom: $space3l;
         @include mq(md){
           font-size: $font-size-2l;
         }
@@ -116,7 +116,7 @@
     }
     &__font{
       color: $font-color-light-black;
-      margin-bottom: 48px;
+      margin-bottom: $spacexl;
       letter-spacing: 0.05em;
       line-height: 1.4;
       @include mq(){
@@ -128,18 +128,18 @@
   // flow
   &__flow{
     margin: 0 auto;
-    margin-bottom: 120px;
+    margin-bottom: $spacey;
     @include mq(md){
-      margin-bottom: 60px;
+      margin-bottom: $space2xl;
     }
     &__title{
       color: $font-color-light-black;
       font-size: $font-size-3l;
       font-weight: 100;
       text-align: center;
-      margin-bottom: 70px;
+      margin-bottom: $space3xl;
       @include mq(md){
-        margin-bottom: 48px;
+        margin-bottom: $spacexl;
       }
     }
     &__box{
@@ -150,8 +150,8 @@
       max-width: 900px;
       margin: 0 auto;
       @include mq(lg){
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: $space2l;
+        padding-right: $space2l;
       }
       @include mq(md){
         justify-content: center;
@@ -160,12 +160,12 @@
     &__card{
       border: 2px solid $background-orenge;
       border-radius: 25px;
-      padding-left: 11px;
-      padding-right: 11px;
+      padding-left: $spacem;
+      padding-right: $spacem;
       width: 250px;
       height: 225px;
       @include mq(md){
-        margin-bottom: 30px;
+        margin-bottom: $space2l;
       }
       @include mq(lg){
         width: 220px;
@@ -175,15 +175,15 @@
         font-size: $font-size-3l;
         font-weight: 100;
         text-align: center;
-        padding-top: 44px;
-        margin-bottom: 50px;
+        padding-top: $spacexl;
+        margin-bottom: $space2xl;
       }
     }
     &__font{
       color: $font-color-light-black;
-      font-size: 21px;
+      font-size: $font-size-3l;
       font-weight: 100;
-      margin-bottom: 48px;
+      margin-bottom: $spacexl;
       letter-spacing: 0.05em;
       line-height: 1.4;
       text-align: center;
@@ -196,10 +196,10 @@
       background-color: $background-deep-blue;
       color: $font-color-white;
       &-title{
-        font-size: 32px;
+        font-size: $font-size-exception;
         font-weight: 100;
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: $space2xl;
+        padding-bottom: $space2xl;
         text-align: center;
         @include mq(md){
           font-size: $font-size-2l;
@@ -209,14 +209,14 @@
         display: inline-block;
         background-color: $background-orenge;
         color: $font-color-white;
-        border-radius: 50px;
+        border-radius: $space2xl;
         font-size: $font-size-3l;
         font-weight: 100;
-        padding-top: 22px;
-        padding-bottom: 22px;
-        padding-left: 68px;
-        padding-right: 68px;
-        margin-bottom: 55px;
+        padding-top: $spacel;
+        padding-bottom: $spacel;
+        padding-left: $space3xl;
+        padding-right: $space3xl;
+        margin-bottom: $space2xl;
         &:hover{
           background: #e79341;
         }
@@ -242,10 +242,10 @@
     width: 64%;
     border-top: 1px solid $background-deep-blue;
     margin: 0 auto;
-    margin-bottom: 90px;
+    margin-bottom: $space3z;
     @include mq(md){
       width: 95%;
-      margin-bottom: 56px;
+      margin-bottom: $space2xl;
     }
     @include mq(lg){
       width: 85%;
