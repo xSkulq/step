@@ -3,11 +3,6 @@
     <div>
       <div class="p-step_challenge__card" v-for="(step, index) in challengeSteps" :key="index">
         <div class="p-step_challenge__thead">
-          <!--<img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">-->
-          <!--<img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>-->
-          <!--<a :href="'/step/ditail/'+ step.id" class="p-step_challenge__thead__button" v-if="step.step_children.length == step.clears.length">続きから</a>-->
-          <!--<a :href="'/step/child/ditail/'+ step.step_children[0].id" class="p-step_challenge__thead__button" v-else-if="step.clears.length == 0">続きから</a>-->
-          <!--<a :href="'/step/child/ditail/'+ nextChild(step)" class="p-step_challenge__thead__button" v-else>続きから</a>-->
           
           <!-- チャレンジを全部クリアしたとき -->
           <a :href="'/step/ditail/'+ step.id" v-if="step.step_children.length == userClear(step)">
@@ -125,7 +120,6 @@ export default {
     },
     // 次の子STEPのidを取得する処理
     nextChild: function(step){
-      //let lastClear = step.clears.slice(-1)[0];// TODO: 怪しいので修正
       let lastClear = [];
       let totalChild = step.step_children.length;
       let clearChildKey = '';
@@ -138,7 +132,6 @@ export default {
             this.lastClear = lastClear.push(value);
           }
         });
-        //this.clearCount = this.clearCount
       }
       this.lastClear = lastClear.slice(-1)[0];
 
@@ -170,9 +163,7 @@ export default {
             this.clearCount = clearCount.push(value);
           }
         });
-        //this.clearCount = this.clearCount
       }
-       //console.log(this.clearCount,'clearCount');
       return this.clearCount;
     }
   }

@@ -12,8 +12,6 @@ import "regenerator-runtime/runtime";
 
 window.Vue = require('vue')
 
-// 画像プレビュー
-//window.preview = require('v-preview-input');
 
 /**
  * The following block of code may be used to automatically register your
