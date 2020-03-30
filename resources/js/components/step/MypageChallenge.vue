@@ -12,7 +12,7 @@
           </a>
 
           <!-- チャレンジを１つもクリアしていないとき --> 
-          <a :href="'/step/child/ditail/'+ step.step_children[0].id" v-else-if="userClear(step) == null">
+          <a :href="'/step/child/ditail/'+ step.step_children[0].id" v-else-if="userClear(step) == 0">
           <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
           <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>
           <a class="p-step_challenge__thead__button">続きから</a>
@@ -135,8 +135,6 @@ export default {
       }
       this.lastClear = lastClear.slice(-1)[0];
 
-      console.log(this.lastClear,'lastClear');
-
       step.step_children.forEach((value, key) => {
         if(this.lastClear != null && this.lastClear['step_child_id'] == value.id){
           clearChildKey = key;
@@ -164,7 +162,7 @@ export default {
           }
         });
       }
-      return this.clearCount;
+      return clearCount.length;
     }
   }
 }
