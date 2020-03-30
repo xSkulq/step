@@ -51,7 +51,7 @@ return [
     'ipv6'                 => ':attributeには正しい形式のIPv6アドレスを指定してください。',
     'json'                 => ':attributeには正しい形式のJSON文字列を指定してください。',
     'max'                  => [
-        'numeric' => ':attributeには:max以下の数値を指定してください。',
+        'numeric' => ':attributeは:max以下の数値にしてください',
         'file'    => ':max KB以下のファイルを指定してください。',
         'string'  => ':max文字以下で入力してください',
         'array'   => ':attributeには:max個以下の要素を持つ配列を指定してください。',

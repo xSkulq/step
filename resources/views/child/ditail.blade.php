@@ -111,7 +111,8 @@
 
     <!-- Twitterのシェアボタン -->
     <div>
-    <a data-size="large" data-text="STEP"　href="https://twitter.com/share?{{ request()->fullUrl() }}" class="twitter-share-button" data-show-count="false">Tweet</a>
+      <!-- Twitterのシェアするページは表示している子STEPの親STEP -->
+    <a data-size="large" data-text="STEP"　href="https://twitter.com/share?url={{config('app.url')}}step/ditail/{{ $step->id }}" class="twitter-share-button" data-show-count="false">Tweet</a>
     </div>
 
     <!-- 登録したユーザーが自分のstepの詳細を開いた時 -->
