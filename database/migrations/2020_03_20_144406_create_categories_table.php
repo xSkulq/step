@@ -23,13 +23,13 @@ class CreateCategoriesTable extends Migration
         });
 
         $categories = [
-            ['code' => 1, 'name' => 'プログラミング'],
-            ['code' => 2, 'name' => '英語'],
-            ['code' => 3, 'name' => 'イラスト'],
-            ['code' => 4, 'name' => '漫画'],
-            ['code' => 5, 'name' => 'ブログ'],
-            ['code' => 6, 'name' => '動画編集'],
-            ['code' => 7, 'name' => 'スピーチ'],
+            ['code' => 2, 'name' => 'プログラミング'],
+            ['code' => 12, 'name' => '英語'],
+            ['code' => 22, 'name' => 'イラスト'],
+            ['code' => 32, 'name' => '漫画'],
+            ['code' => 42, 'name' => 'ブログ'],
+            ['code' => 52, 'name' => '動画編集'],
+            ['code' => 62, 'name' => 'スピーチ'],
           ];
           DB::table('categories')->insert($categories);
     }

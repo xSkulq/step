@@ -19,9 +19,7 @@
     <!-- keywords -->
     <meta name="keywords" content="学び方がわからない,順番に学びたい,プログラミング,イラスト,ブログ,漫画,英語">
 
-    <!-- Scripts -->
-    <!--<script type="module" src="" defer></script>-->
-    <!--IE11などレガシーブラウザ用-->
+    <!-- script -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->

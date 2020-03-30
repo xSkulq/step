@@ -6,7 +6,6 @@ use App\Step;
 use App\StepChild;
 use App\Challenge;
 use App\Clear;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -33,13 +32,11 @@ class StepChildrenController extends Controller
     foreach($step->step_children as $key => $step_child){
       if(($step_child['id'] == $stepChildId)){
         $step_child_key = $key;
-        //dd($step_child_key);
       }
     }
     // 前の子STEPのID
     if( ($step_child_key-1) > -1){
       $step_child_prev = $step->step_children[$step_child_key-1]->id;
-      //dd($step_child_prev);
     }
 
     // チャレンジしているかの値
@@ -146,7 +143,6 @@ class StepChildrenController extends Controller
       $stepChild->pic = $file_name;
     }
     $stepChild->save();
-    //$stepChild->fill($request->all())->save();
     return redirect('/step/child/ditail/'.$stepChildId)->with('flash_message', '保存が完了しました');
   }
 

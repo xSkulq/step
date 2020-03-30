@@ -48,9 +48,8 @@ class ResetPasswordController extends Controller
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
  
-        // PasswordBrokerのvalidatorをここで定義
         $this->broker()->validator(function (array $credentials) {
-            return true; // rules()ですでにバリデーションを実行しているので、さらにここでバリデーションの必要はなし！
+            return true;
         });
  
         $response = $this->broker()->reset(
@@ -71,7 +70,7 @@ class ResetPasswordController extends Controller
     {
         return [
             'token' => 'required',
-            'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:191'],
             'password' => ['required', 'string', new AlphaNumHalf, 'min:8','max:191', 'confirmed']
         ];
     }

@@ -95,25 +95,9 @@
           <p>STEPのTOP画像<span class="p-step_register__required">*512KB以下</span></p>
           @error('pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
-  
-        <!--<div class="p-step_register__icon-destory">
-          <label>
-          <i class="far fa-times-circle p-step_register__icon-destory__pointer"></i>
-          <input type="submit" name="img_destory" class="p-step_register__img-destory" value="アイコンを削除します">
-          </label>
-        </div>-->
-        
         <div>
           <label for="icon">
             <step-img-preview></step-img-preview>
-            <!--<input type="file" name="pic" class="p-step_register__file">-->
-            <!--if(empty($user->pic))-->
-            <!--<img alt="no_icon" class="p-step_register__img" src="/imges/no_image.png">-->
-            <!--else-->
-            <!--<img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,">-->
-            <!-- 画像プレビューの機能を後で追加する -->
-            <!--<img alt="アイコン" class="p-step_register__img" src="data:image/png;base64,">-->
-            <!--endif-->
           </label>
         </div>
       </div>
@@ -159,14 +143,6 @@
           <p>子STEP1のTOP画像<span class="p-step_register__required">*512KB以下</span></p>
           @error('child_pic')<div class="c-inputFild__error">{{ $message }}</div>@enderror
         </div>
-  
-        <!--<div class="p-step_register__icon-destory">
-          <label>
-          <i class="far fa-times-circle p-step_register__icon-destory__pointer"></i>
-          <input type="submit" name="child_img_destory" class="p-step_register__img-destory" value="アイコンを削除します">
-          </label>
-        </div>-->
-        
         <div>
           <label for="icon">
             <child-img-preview></child-img-preview>

@@ -18,7 +18,7 @@
               <span>メールアドレス</span>
 
               @error('email')
-              <span class="c-inputFild__error" role="alert">{{-- errorのスタイルはあとでやる --}}
+              <span class="c-inputFild__error" role="alert">
                 <strong>{{ $message }}</strong>
               </span>
               @enderror

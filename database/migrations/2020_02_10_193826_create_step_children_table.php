@@ -19,7 +19,6 @@ class CreateStepChildrenTable extends Migration
             $table->unsignedBigInteger('step_id');
             $table->string('title');
             $table->text('content');
-            //$table->string('pic')->nullable();
             $table->longText('pic')->nullable();
             $table->timestamps();
             $table->softDeletes();

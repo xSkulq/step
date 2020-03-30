@@ -90,6 +90,8 @@
       font-size: $font-size-ss;
       margin-top: $spaces;
       margin-bottom: $space3s;
+      padding-top: $spaces;
+      padding-bottom: $spaces;
       &:hover{
         background-color: $background-light-orenge;
         cursor: pointer;

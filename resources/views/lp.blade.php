@@ -5,7 +5,7 @@
   <!-- トップ画像 -->
   <div class="p-lp__top-img">
     <p class="p-lp__top-img__font">あなたの人生のSTEPを共有しよう</p>
-    <img src="{{ asset('/imges/top-img1.png') }}" alt="イラスト" class="p-lp__top-img__img"><!-- top-imgの画像はまだ決定ではない -->
+    <img src="{{ asset('/imges/top-img1.png') }}" alt="イラスト" class="p-lp__top-img__img">
   </div>
 
   <!-- about -->
@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  <!--　footer --><!-- 移転予定 -->
+  <!--　footer -->
   <div class="p-lp__footer">
     <!-- footer-top -->
     <div class="p-lp__footer__top">

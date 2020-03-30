@@ -22,7 +22,6 @@ class CreateStepsTable extends Migration
             $table->string('time');
             $table->string('total_time');
             $table->text('content');
-            //$table->string('pic')->nullable();
             $table->longText('pic')->nullable();
             $table->timestamps();
             $table->softDeletes();

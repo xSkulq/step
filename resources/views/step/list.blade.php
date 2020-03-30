@@ -21,20 +21,20 @@ $title = 'STEP一覧';
             <i class="fas fa-search"></i>
           </button>
         </div>
-        <div class="p-step_list__select">
-          {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
+        <div class="u-flex">
+          <div class="p-step_list__select">
+            {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
+          </div>
+          <button class="p-step_list__button p-step_list__select__button">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
-        <button class="p-step_list__button">
-          <i class="fas fa-search"></i>
-        </button>
       </div>
     </form>
 
     <!-- step-list -->
     <section>
-      <!--<div>--><!-- メモ： ページネーションの数を10から12に上げないと3列になったときにレイアウトが崩れる -->
       <step-list search="{{ $search }}" category="{{ $category }}"></step-list>
-      <!--</div>-->
     </section>
   </div>
 </div>

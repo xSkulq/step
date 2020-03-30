@@ -3,11 +3,6 @@
     <div>
       <div class="p-step_challenge__card" v-for="(step, index) in challengeSteps" :key="index">
         <div class="p-step_challenge__thead">
-          <!--<img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">-->
-          <!--<img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>-->
-          <!--<a :href="'/step/ditail/'+ step.id" class="p-step_challenge__thead__button" v-if="step.step_children.length == step.clears.length">続きから</a>-->
-          <!--<a :href="'/step/child/ditail/'+ step.step_children[0].id" class="p-step_challenge__thead__button" v-else-if="step.clears.length == 0">続きから</a>-->
-          <!--<a :href="'/step/child/ditail/'+ nextChild(step)" class="p-step_challenge__thead__button" v-else>続きから</a>-->
           
           <!-- チャレンジを全部クリアしたとき -->
           <a :href="'/step/ditail/'+ step.id" v-if="step.step_children.length == userClear(step)">
@@ -17,7 +12,7 @@
           </a>
 
           <!-- チャレンジを１つもクリアしていないとき --> 
-          <a :href="'/step/child/ditail/'+ step.step_children[0].id" v-else-if="userClear(step) == null">
+          <a :href="'/step/child/ditail/'+ step.step_children[0].id" v-else-if="userClear(step) == 0">
           <img :src="'data:image/png;base64,' + step.pic" alt="アイコン" class="p-step_challenge__thead__img" v-if="step.pic">
           <img src="/imges/no_image.png" alt="アイコン" class="p-step_challenge__thead__img" v-else>
           <a class="p-step_challenge__thead__button">続きから</a>
@@ -78,7 +73,7 @@
       </div>
     </div>
     <!-- ページネーション -->
-    <div v-if="paginate.total > 8">
+    <div v-if="paginate.total > 8" class="p-step_challenge__pagination">
     <pagination-component :data="paginate" @move-page="movePage($event)"></pagination-component>
     </div>
   </div>
@@ -125,7 +120,6 @@ export default {
     },
     // 次の子STEPのidを取得する処理
     nextChild: function(step){
-      //let lastClear = step.clears.slice(-1)[0];// TODO: 怪しいので修正
       let lastClear = [];
       let totalChild = step.step_children.length;
       let clearChildKey = '';
@@ -138,11 +132,8 @@ export default {
             this.lastClear = lastClear.push(value);
           }
         });
-        //this.clearCount = this.clearCount
       }
       this.lastClear = lastClear.slice(-1)[0];
-
-      console.log(this.lastClear,'lastClear');
 
       step.step_children.forEach((value, key) => {
         if(this.lastClear != null && this.lastClear['step_child_id'] == value.id){
@@ -170,10 +161,8 @@ export default {
             this.clearCount = clearCount.push(value);
           }
         });
-        //this.clearCount = this.clearCount
       }
-       //console.log(this.clearCount,'clearCount');
-      return this.clearCount;
+      return clearCount.length;
     }
   }
 }

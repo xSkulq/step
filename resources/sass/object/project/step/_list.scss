@@ -45,7 +45,7 @@
     @include mq(md){
       margin-top: $space3m;
       margin-left: 0;
-      width: 295px;
+      width: 245px;
     }
     &::before{
       position: absolute;
@@ -65,6 +65,11 @@
       font-size: $font-size-m;
       padding-top: $spaces;
     }
+    &__button{
+      @include mq(md){
+        margin-top: $space3m;
+      }
+    }
   }
   &__list{
     &-box{
@@ -78,6 +83,7 @@
       @include mq(md){
         width: 100%;
         justify-content: center;
+        margin-bottom: $space2xl;
       }
     }
   }
