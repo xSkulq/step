@@ -31,22 +31,35 @@ class StepsController extends Controller
     $category = $request->input('category_id');
     $steps = Step::with(['user','category']);
 
-    // searchがある場合
+    // searchとcategoryがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+      $steps = $steps->where(function($query) use ($search){
+        $query->where('title', 'LIKE',"%{$search}%")
+        ->orwhere('total_time',$search);
+      })->orWhereHas('user', function ($q) use ($search){
         $q->where('name', 'LIKE', "%{$search}%");
-      });
+      })->orderBy('created_at', 'desc');
+
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
+
+      // searchだけの場合
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+      $steps = $steps->where(function($query) use ($search){
+        $query->where('title', 'LIKE',"%{$search}%")
+        ->orwhere('total_time',$search);
+      })->orWhereHas('user', function ($q) use ($search){
         $q->where('name', 'LIKE', "%{$search}%");
-      });
+      })->orderBy('created_at', 'desc');
+
+      // categoryだけの場合
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
+      
+      // 何もない場合
     }else{
       $steps = $steps;
     }
@@ -187,18 +200,28 @@ class StepsController extends Controller
     $steps = Step::with('user','category');
     $steps = $steps->where('user_id', $userId)->orderBy('created_at', 'desc');
 
-    // searchがある場合
+    // searchとcategoryがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
+      $steps = $steps->where(function($query) use ($search){
+        $query->where('title', 'LIKE', "%{$search}%")
+        ->orWhere('total_time',$search);
+      })->where('user_id',$userId)->orderBy('created_at', 'desc');
+
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
+      // searchだけの場合
     }else if(!empty($search) && empty($category)){
-      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search);
+      $steps = $steps->where(function($query) use ($search){
+        $query->where('title', 'LIKE', "%{$search}%")
+        ->orWhere('total_time',$search);
+      })->where('user_id',$userId)->orderBy('created_at', 'desc');
+      // categoryだけの場合
     }else if(empty($search) && !empty($category)){
       $steps = $steps->WhereHas('category', function ($q) use ($category){
         $q->where('code', $category);
       });
+      // 何もない場合
     }else{
       $steps = $steps;
     }
@@ -237,7 +260,10 @@ class StepsController extends Controller
 
      // searchとcategoryがある場合
      if (!empty($search) && !empty($category)) {
-      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+      $challengeSteps = $challengeSteps->where(function($query) use ($search){
+        $query->where('title', 'LIKE', "%{$search}%")
+        ->orWhere('total_time',$search);
+      })->orWhereHas('user', function ($q) use ($search){
         $q->where('name', 'LIKE', "%{$search}%");
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
@@ -249,7 +275,10 @@ class StepsController extends Controller
 
       //searchだけの場合
     }else if(!empty($search) && empty($category)){
-      $challengeSteps = $challengeSteps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
+      $challengeSteps = $challengeSteps->where(function($query) use ($search){
+        $query->where('title', 'LIKE', "%{$search}%")
+        ->orWhere('total_time',$search);
+      })->orWhereHas('user', function ($q) use ($search){
         $q->where('name', 'LIKE', "%{$search}%");
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
