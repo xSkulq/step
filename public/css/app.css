@@ -1307,9 +1307,11 @@ ul {
   border-radius: 50px;
   border: none;
   color: #ffffff;
-  font-size: 8px;
+  font-size: 12px;
   margin-top: 5px;
   margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .p-account_edit__img__destory:hover {
@@ -2403,7 +2405,7 @@ ul {
   .p-step_challenge__select {
     margin-top: 20px;
     margin-left: 0;
-    width: 295px;
+    width: 245px;
   }
 }
 
@@ -2425,6 +2427,12 @@ ul {
   width: 100%;
   font-size: 14px;
   padding-top: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__select__button {
+    margin-top: 20px;
+  }
 }
 
 .p-step_challenge__clear {
@@ -2508,6 +2516,7 @@ ul {
 @media screen and (max-width: 767px) {
   .p-step_challenge__box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 80px;
   }
@@ -2709,6 +2718,13 @@ ul {
     -webkit-text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-step_challenge__pagination {
+    width: 90%;
+    margin-top: 50px;
   }
 }
 
@@ -3143,7 +3159,7 @@ ul {
   .p-step_list__select {
     margin-top: 20px;
     margin-left: 0;
-    width: 295px;
+    width: 245px;
   }
 }
 
@@ -3167,6 +3183,12 @@ ul {
   padding-top: 5px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_list__select__button {
+    margin-top: 20px;
+  }
+}
+
 .p-step_list__list-box {
   display: flex;
   flex-wrap: wrap;
@@ -3184,6 +3206,7 @@ ul {
   .p-step_list__list-box {
     width: 100%;
     justify-content: center;
+    margin-bottom: 50px;
   }
 }
 
@@ -3385,7 +3408,7 @@ ul {
   .p-step_mypage__select {
     margin-top: 20px;
     margin-left: 0;
-    width: 295px;
+    width: 245px;
   }
 }
 
@@ -3409,6 +3432,12 @@ ul {
   padding-top: 4px;
 }
 
+@media screen and (max-width: 767px) {
+  .p-step_mypage__select__button {
+    margin-top: 20px;
+  }
+}
+
 .p-step_mypage__list-box {
   display: flex;
   flex-wrap: wrap;
@@ -3424,7 +3453,9 @@ ul {
 
 @media screen and (max-width: 767px) {
   .p-step_mypage__list-box {
+    width: 100%;
     justify-content: center;
+    margin-bottom: 50px;
   }
 }
 

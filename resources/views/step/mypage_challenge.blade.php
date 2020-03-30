@@ -47,12 +47,14 @@
           <i class="fas fa-search"></i>
         </button>
       </div>
-      <div class="p-step_challenge__select">
-        {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
+      <div class="u-flex">
+        <div class="p-step_challenge__select">
+          {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
+        </div>
+        <button class="p-step_challenge__button p-step_challenge__select__button">
+          <i class="fas fa-search"></i>
+        </button>
       </div>
-      <button class="p-step_list__button">
-        <i class="fas fa-search"></i>
-      </button>
     </div>
   </form>
 

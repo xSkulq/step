@@ -75,7 +75,7 @@
     @include mq(md){
       margin-top: $space3m;
       margin-left: 0;
-      width: 295px;
+      width: 245px;
     }
     &::before{
       position: absolute;
@@ -94,6 +94,11 @@
       width: 100%;
       font-size: $font-size-m;
       padding-top: $spaces;
+    }
+    &__button{
+      @include mq(md){
+        margin-top: $space3m;
+      }
     }
   }
   &__clear{
@@ -157,6 +162,7 @@
     margin-bottom: $spacey;
     @include mq(md){
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       margin-bottom: $space2z;
     }
@@ -307,6 +313,12 @@
         -o-text-overflow: ellipsis;
         width: 80%;
       }
+    }
+  }
+  &__pagination{
+    @include mq(md){
+      width: 90%;
+      margin-top: $space2xl;
     }
   }
 }

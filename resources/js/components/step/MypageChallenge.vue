@@ -73,7 +73,7 @@
       </div>
     </div>
     <!-- ページネーション -->
-    <div v-if="paginate.total > 8">
+    <div v-if="paginate.total > 8" class="p-step_challenge__pagination">
     <pagination-component :data="paginate" @move-page="movePage($event)"></pagination-component>
     </div>
   </div>

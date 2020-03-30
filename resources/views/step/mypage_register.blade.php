@@ -32,12 +32,14 @@
           <i class="fas fa-search"></i>
         </button>
       </div>
-      <div class="p-step_mypage__select">
-        {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
+      <div class="u-flex">
+        <div class="p-step_mypage__select">
+          {{ Form::select('category_id', $categories, $category, ['class' => 'c-select', 'id' => 'category_id']) }}
+        </div>
+        <button class="p-step_mypage__button p-step_mypage__select__button">
+          <i class="fas fa-search"></i>
+        </button>
       </div>
-      <button class="p-step_list__button">
-        <i class="fas fa-search"></i>
-      </button>
     </div>
   </form>
 

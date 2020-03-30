@@ -87,9 +87,11 @@
       border-radius: 50px;
       border: none;
       color: $font-color-white;
-      font-size: $font-size-ss;
+      font-size: $font-size-s;
       margin-top: $spaces;
       margin-bottom: $space3s;
+      padding-top: 5px;
+      padding-bottom: 5px;
       &:hover{
         background-color: $background-light-orenge;
         cursor: pointer;
