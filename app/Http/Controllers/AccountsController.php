@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 
 class AccountsController extends Controller
@@ -57,19 +56,7 @@ class AccountsController extends Controller
       // userにpicの値を格納
       $user->pic = $file_name;
     }
-    /*if ($request->pic) {
 
-      // 前の画像を消去する処理
-      $deletePic = $user->pic;
-      Storage::delete('public/'.$deletePic);
-
-      // 送信されたファイルをstoreに保存する処理
-      $file_name = time() . '.' . $request->pic->getClientOriginalName();
-      $request->pic->storeAs('public', $file_name);
-
-      // userにpicの値を格納
-      $user->pic = $file_name;
-    }*/
     $user->save();
     return redirect('/account/edit')->with('flash_message', '保存が完了しました');
   }

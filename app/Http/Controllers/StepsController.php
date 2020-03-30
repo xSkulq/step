@@ -6,7 +6,6 @@ use App\StepChild;
 use App\Challenge;
 use App\Clear;
 use App\Category;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -28,14 +27,13 @@ class StepsController extends Controller
 
   public function api_index(Request $request)
   {
-    //dd($request);
     $search = $request->input('search');
     $category = $request->input('category_id');
     $steps = Step::with(['user','category']);
 
     // searchがある場合
     if (!empty($search) && !empty($category)) {
-      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){// 作成日で検索ができないので後で考える
+      $steps = $steps->where('title', 'LIKE', "%{$search}%")->orWhere('total_time',$search)->orWhereHas('user', function ($q) use ($search){
         $q->where('name', 'LIKE', "%{$search}%");
       });
       $steps = $steps->WhereHas('category', function ($q) use ($category){
@@ -157,7 +155,6 @@ class StepsController extends Controller
     $step = Step::with(['user','step_children','category','clears']);
     $step = $step->where('id', $stepId)->first();
     $clearCount = $step->clears->where('user_id',Auth::id())->count();
-    //dd($clearCount);
 
     // チャレンジしているかの値
     $challenge = Challenge::where('step_id',$stepId)->where('user_id',$userId)->first();
@@ -232,7 +229,6 @@ class StepsController extends Controller
   {
     $search = $request->input('search');
     $category = $request->input('category_id');
-    //dd($search);
 
     $challengeSteps = Step::with(['challenges','user','step_children','clears','category']);
     $challengeSteps = $challengeSteps->WhereHas('challenges', function($query){
