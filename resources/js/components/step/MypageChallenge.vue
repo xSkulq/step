@@ -39,14 +39,14 @@
             <!-- プログレスバー -->
             <div class="c-progress" v-if="userClear(step) == null">
               <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" :style="'width:0%'">
-                <span>0%</span>
+                <p>0%</p>
               </div>
             </div>
 
             <!-- プログレスバー -->
             <div class="c-progress" v-else>
               <div class="c-progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" :style="'width:' + Math.floor(userClear(step) / step.step_children.length * 100) + '%'">
-                <span>{{ Math.floor(userClear(step) / step.step_children.length * 100) }}%</span>
+                <p>{{ Math.floor(userClear(step) / step.step_children.length * 100) }}%</p>
               </div>
             </div>
           </div>

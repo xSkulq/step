@@ -16,7 +16,7 @@
         <div>
           <label class="p-login__font" for="email">
             <div class="u-flex__space">
-              <span>メールアドレス</span>
+              <p>メールアドレス</p>
               @error('email')
               <span class="c-inputFild__error" role="alert">
                 <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
         <div>
           <label class="p-login__font" for="password">
             <div class="u-flex__space">
-              <span>パスワード</span>
+              <p>パスワード</p>
               @error('password')
               <span class="c-inputFild__error" role="alert">
                 <strong>{{ $message }}</strong>

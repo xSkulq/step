@@ -23,7 +23,7 @@
               </span>
               @enderror
               <div class="u-flex__space">
-                <span>メールアドレス</span>
+                <p>メールアドレス</p>
               </div>
 
               <div class="u-mt5 u-mb20">
@@ -36,7 +36,7 @@
           <div>
             <label for="password" class="p-reset__label">
               <div class="u-flex__space">
-                <span>パスワード</span>
+                <p>パスワード</p>
                 @error('password')
                 <span class="c-inputFild__error" role="alert">
                   <strong>{{ $message }}</strong>

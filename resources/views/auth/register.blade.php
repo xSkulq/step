@@ -16,7 +16,7 @@
         <div>
           <label class="p-singup__font" for="email">
             <div class="u-flex__space">
-              <span>メールアドレス</span>
+              <p>メールアドレス</p>
 
               @error('email')
               <span class="c-inputFild__error" role="alert">
@@ -35,7 +35,7 @@
         <div>
           <label class="p-singup__font" for="password">
             <div class="u-flex__space">
-              <span>パスワード</span>
+              <p>パスワード</p>
 
               @error('password')
               <span class="c-inputFild__error" role="alert">
