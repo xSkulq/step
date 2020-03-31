@@ -100,9 +100,9 @@ export default {
       const url = '/api/step/mypage_challenge';
       let param = '';
       if (this.search !== '' && this.category !== '') { // searchとcategoryに値がある場合
-        param += '?search=' + this.search + '&category_id=' + this.category + '&page=' + this.page
+        param += '?search=' + decodeURIComponent(this.search) + '&category_id=' + this.category + '&page=' + this.page
       }else if(this.search !== '' && this.category === ''){ // searchだけ値がある場合
-        param += '?search=' + this.search + '&category_id=' + '&page=' + this.page
+        param += '?search=' + decodeURIComponent(this.search) + '&category_id=' + '&page=' + this.page
       }else if(this.search === '' && this.category !== ''){ // categoryだけ値がある場合
         param += '?search=' + '&category_id=' + this.category + '&page=' + this.page
       }else{ // 何も値がない場合
