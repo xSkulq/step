@@ -53,7 +53,8 @@
 
           <div class="p-step_challenge__bottom">
             <div class="p-step_challenge__bottom__prof">
-              <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon">
+              <img :src="'data:image/png;base64,' + step.user.pic" alt="アイコン" class="p-step_mypage__icon" v-if="step.user.pic">
+              <img src="/imges/no_image.png" alt="アイコン" class="p-step_mypage__icon" v-else>
               <p class="u-ml10" v-if="step.user.name == null"></p>
               <p class="u-ml10" v-else>{{ step.user.name }}</p>
             </div>
