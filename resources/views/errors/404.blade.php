@@ -1,5 +1,6 @@
 @php
   $title = '404エラー';
+  $description = '指定されたページが見つかりません。ボタンをクリックすれば指示されたページに飛びます';
 @endphp
 @extends('layouts.app_auth')
 

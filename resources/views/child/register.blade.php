@@ -1,5 +1,6 @@
 @php
   $title = '子STEP新規登録';
+  $description = '子STEP新規登録画面です。タイトル・内容・画像を保存してください';
 @endphp
 @extends('layouts.app')
 

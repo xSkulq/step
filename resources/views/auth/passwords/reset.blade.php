@@ -1,5 +1,6 @@
 @php
   $title = 'パスワードリセット | パスワード変更';
+  $description = 'パスワードを変更する画面です。ログインするためのメールアドレス・パスワードを記入し保存してください';
 @endphp
 @extends('layouts.app_auth')
 

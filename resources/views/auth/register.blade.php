@@ -1,5 +1,6 @@
 @php
   $title = '新規登録';
+  $description = '新規登録画面です。学び方がわからない人はぜひ、メールアドレス・パスワードを登録し色々な人のSTEPを頼りに学んでみてはいかがでしょう';
 @endphp
 @extends('layouts.app_auth')
 

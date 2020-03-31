@@ -1,5 +1,6 @@
 @php
   $title = 'マイページ | チャレンンジしているSTEP';
+  $description = 'マイページです。自分がチャレンジしてクリアした数やSTEPの進捗がわかる画面です';
 @endphp
 @extends('layouts.app')
 

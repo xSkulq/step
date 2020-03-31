@@ -1,5 +1,6 @@
 @php
   $title = 'STEP編集';
+  $description = 'STEP編集画面です。タイトル・カテゴリ・目安達成時間・画像などを保存し学びたい人たちにわかりやすく道筋を教えていただきたいです';
 @endphp
 @extends('layouts.app')
 

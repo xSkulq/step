@@ -1,5 +1,6 @@
 @php
   $title = '子STEP編集';
+  $description = '子STEP変種画面です。タイトル・内容・画像を保存してください';
 @endphp
 @extends('layouts.app')
 

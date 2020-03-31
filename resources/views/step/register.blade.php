@@ -1,5 +1,6 @@
 @php
     $title = 'STEP新規登録';
+    $description = 'STEP新規登録画面です。タイトル・カテゴリ・目安達成時間・画像などを保存し、ぜひ学びたい人たちにノウハウを教えてください。'
 @endphp
 @extends('layouts.app')
 

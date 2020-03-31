@@ -1,5 +1,6 @@
 @php
   $title = 'プロフィール編集';
+  $description = 'プロフィール編集画面です。メールアドレス・名前・自己紹介・アイコン画像などを登録してみてください';
 @endphp
 @extends('layouts.app')
 

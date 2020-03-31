@@ -1,5 +1,6 @@
 @php
   $title = 'マイページ | 登録しているSTEP';
+  $description = '登録しているSTEP一覧画面です。自分が登録したSTEPを一覧でみられるページです';
 @endphp
 
 @extends('layouts.app')

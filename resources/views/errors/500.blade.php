@@ -1,5 +1,6 @@
 @php
   $title = '500エラー';
+  $description = '指定されたSTEPが見つかりません。ボタンをクリックすれば前にいたページに戻ります';
 @endphp
 @extends('layouts.app_auth')
 

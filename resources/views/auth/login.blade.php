@@ -1,5 +1,6 @@
 @php
   $title = 'ログイン';
+  $description = 'ログイン画面です。メールアドレスとパスワードを記入しログインしてください';
 @endphp
 @extends('layouts.app_auth')
 
