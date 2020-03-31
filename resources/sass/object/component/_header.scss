@@ -27,7 +27,7 @@
     padding: $space3s $space2xl;
     width: 200px;
     &:hover{
-      background-color: #e79341;
+      background-color: $background-light-orenge;
     }
     @include mq(md){
       font-size: $font-size-s;

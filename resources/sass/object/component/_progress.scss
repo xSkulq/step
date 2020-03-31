@@ -3,7 +3,7 @@
   height: 1rem;
   overflow: hidden;
   font-size: .75rem;
-  background-color: #e9ecef;
+  background-color: $light-blue;
   border-radius: .25rem;
   &__bar{
     display: flex;
@@ -15,9 +15,8 @@
     color: $font-color-white;
     text-align: center;
     white-space: nowrap;
-    background-color: #5bc0de;
+    background-color: $blue;
     transition: width .6s ease;
-    //storoi
     background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
     background-size: 1rem 1rem;
   }
