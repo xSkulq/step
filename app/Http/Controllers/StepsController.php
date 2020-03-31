@@ -35,9 +35,10 @@ class StepsController extends Controller
     if (!empty($search) && !empty($category)) {
       $steps = $steps->where(function($query) use ($search){
         $query->where('title', 'LIKE',"%{$search}%")
-        ->orwhere('total_time',$search);
-      })->orWhereHas('user', function ($q) use ($search){
-        $q->where('name', 'LIKE', "%{$search}%");
+        ->orwhere('total_time',$search)
+        ->orWhereHas('user', function ($q) use ($search){
+          $q->where('name', 'LIKE', "%{$search}%");
+        });
       })->orderBy('created_at', 'desc');
 
       $steps = $steps->WhereHas('category', function ($q) use ($category){
@@ -264,9 +265,10 @@ class StepsController extends Controller
      if (!empty($search) && !empty($category)) {
       $challengeSteps = $challengeSteps->where(function($query) use ($search){
         $query->where('title', 'LIKE', "%{$search}%")
-        ->orWhere('total_time',$search);
-      })->orWhereHas('user', function ($q) use ($search){
-        $q->where('name', 'LIKE', "%{$search}%");
+        ->orWhere('total_time',$search)
+        ->orWhereHas('user', function ($query) use ($search){
+          $query->where('name', 'LIKE', "%{$search}%");
+        });
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       })->orderBy('created_at', 'desc');
@@ -279,9 +281,10 @@ class StepsController extends Controller
     }else if(!empty($search) && empty($category)){
       $challengeSteps = $challengeSteps->where(function($query) use ($search){
         $query->where('title', 'LIKE', "%{$search}%")
-        ->orWhere('total_time',$search);
-      })->orWhereHas('user', function ($q) use ($search){
-        $q->where('name', 'LIKE', "%{$search}%");
+        ->orWhere('total_time',$search)
+        ->orWhereHas('user', function ($q) use ($search){
+          $q->where('name', 'LIKE', "%{$search}%");
+        });
       })->WhereHas('challenges', function($query){
         $query->where('challenge_flg',1)->where('user_id',Auth::id());
       })->orderBy('created_at', 'desc');
