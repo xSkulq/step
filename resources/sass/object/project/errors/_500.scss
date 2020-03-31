@@ -6,16 +6,29 @@
   padding-bottom: $space2z;
   padding-left: $spacey;
   padding-right: $spacey;
+  @include mq(md){
+    padding-top: $space2xl;
+    padding-bottom: $space2xl;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: $space2z;
+  }
   &__title{
     font-size: $font-size-3l;
     font-weight: 100;
     text-align: center;
     margin-bottom: $spacez;
+    @include mq(md){
+      font-size: $font-size-l;
+    }
   }
   &__font{
     font-size: $font-size-l;
     text-align: center;
     margin-bottom: $spacez;
+    @include mq(md){
+      font-size: $font-size-m;
+    }
   }
   &__button{
     color: $font-color-white;
