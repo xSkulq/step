@@ -93,7 +93,7 @@
       <img src="{{ asset('imges/logo1.png')}}" alt="" class="p-lp__footer__bottom-img">
       </a>
       <div>
-        <p>©︎xSkula</p>
+        <p>©︎testSample</p>
       </div>
     </div>
   </div>
