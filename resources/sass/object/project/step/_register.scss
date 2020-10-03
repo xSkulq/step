@@ -136,6 +136,8 @@
   &__textarea{
     height: 180px;
     width: 100%;
+    color: $font-color-light-black;
+    letter-spacing: 0.15rem;
     &::placeholder{
       font-weight: 100;
     }

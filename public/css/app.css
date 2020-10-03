@@ -3090,6 +3090,8 @@ ul {
 .p-step_edit__textarea {
   height: 180px;
   width: 100%;
+  color: #3e3e3e;
+  letter-spacing: 0.15rem;
 }
 
 @media screen and (max-width: 575px) {
@@ -3760,6 +3762,8 @@ ul {
 .p-step_register__textarea {
   height: 180px;
   width: 100%;
+  color: #3e3e3e;
+  letter-spacing: 0.15rem;
 }
 
 .p-step_register__textarea::-webkit-input-placeholder {
