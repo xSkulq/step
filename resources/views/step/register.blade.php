@@ -42,7 +42,7 @@
 
           <div class="p-step_register__select__category @error('category_id') p-step_register__select__error @enderror">
             <!-- categoryセレクト -->
-            {{ Form::select('category_id', $categories, null, ['class' => 'c-select', 'id' => 'category_id']) }}
+            {{ Form::select('category_id', $categories, null, ['class' => 'c-select__create', 'id' => 'category_id']) }}
           </div>
         </label>
       </div>
@@ -63,7 +63,7 @@
               <input type="text" name="achievement_number" class="c-inputFild__long p-step_register__input__time @error('achievement_number') c-inputFild__long-error @enderror" placeholder="12" value="{{ old('achievement_number') }}">
             </div>
             <div class="p-step_register__select__time @error('time') p-step_register__select__error @enderror">
-              <select name="time" class="c-select">
+              <select name="time" class="c-select__create">
                 <option @if(old('time') === '') selected="selected"@endif value="">選択</option>
                 <option @if(old('time') === '分') selected="selected"@endif value="分">分</option>
                 <option @if(old('time') === '時間') selected="selected"@endif value="時間">時間</option>
