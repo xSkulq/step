@@ -38,7 +38,7 @@
           </div>
 
           <div class="p-step_edit__select__category @error('category_id') p-step_register__select__error @enderror">
-            {{ Form::select('category_id', $categories, $step->category_id, ['class' => 'c-select', 'id' => 'category_id']) }}
+            {{ Form::select('category_id', $categories, $step->category_id, ['class' => 'c-select__create', 'id' => 'category_id']) }}
           </div>
         </label>
       </div>
@@ -59,7 +59,7 @@
               <input type="text" name="achievement_number" class="c-inputFild__long p-step_edit__input__time @error('achievement_number') c-inputFild__long-error @enderror" placeholder="12" value="@if(!empty($step->achievement_number)){{ $step->achievement_number}}@else{{ old('achievement_number')}}@endif">
             </div>
             <div class="p-step_edit__select__time @error('time') p-step_register__select__error @enderror">
-              <select @if($step->time === '' ) selected @endif name="time" class="c-select">
+              <select @if($step->time === '' ) selected @endif name="time" class="c-select__create">
                 <option value="">選択</option>
                 <option @if('分' === $step->time ) selected @endif value="分">分</option>
                 <option @if('時間' === $step->time ) selected @endif value="時間">時間</option>
