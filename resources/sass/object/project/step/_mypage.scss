@@ -82,6 +82,7 @@
     width: 200px;
     text-align: center;
     margin-left: $spacexl;
+    display: flex;
     @include mq(md){
       margin-top: $space3m;
       margin-left: 0;
